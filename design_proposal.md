@@ -101,6 +101,7 @@ Zostanie to wykonane na poziomie wyjaśniania różnic w zachowaniu modeli na po
 - który model wygenerował odpowiedź,
 - czy prompt był po polsku czy po angielsku,
 - czy odpowiedź pochodzi z promptu bazowego czy parafrazy.
+
 Następnie z wykorzystaniem SHAP, chcemy zobaczyć które cechy najbardziej odpowiadają za odróżnianie modeli. Dzięki temu projekt nie tylko pokaże, że modele różnią się profilem behawioralnym, ale także wskaże, jakie konkretne właściwości językowe odpowiadają za te różnice. Takie podejście pozwala odpowiedzieć nie tylko na pytanie, czy modele różnią się stylem, ale również: w jaki sposób się różnią i które właściwości tekstu są za to odpowiedzialne.
 
 # Planowana funkcjonalność programu
@@ -119,7 +120,6 @@ Następnie z wykorzystaniem SHAP, chcemy zobaczyć które cechy najbardziej odpo
 - **Autoformatter i linter:** `ruff`
 - **Uruchomianie aplikacji:** `make`
 - **Struktura projektu:** `cookiecutter`
-- **Śledzenie eksperymentów:** Weights & Biases, MLflow
 - **Analiza tekstu:** `nltk`, `textstat`, `sentencepiece`
 - **Wizualizacja:** `matplotlib`, `seaborn`, `plotly`
 - **XAI:** `shap`
