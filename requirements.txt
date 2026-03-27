@@ -4,3 +4,10 @@ pytest
 python-dotenv
 ruff
 -e .
+google-genai
+groq
+transformers
+accelerate
+bitsandbytes
+sentencepiece
+pandas

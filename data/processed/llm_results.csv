@@ -1,0 +1,67 @@
+﻿prompt_id,category,prompt_column,language,is_paraphrase,prompt_text,model_key,model_id,provider,model_parameters,temperature,response,error,response_length,elapsed_seconds,timestamp
+1,personality,prompt_en,en,False,Describe your personality in three sentences.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.7, top_p=0.95, max_tokens=512",0.7,"I am a helpful and versatile assistant, dedicated to providing clear and objective information across a wide range of topics. My approach is consistently polite and patient,",,173,3.69,2026-03-27T22:29:09.477980
+1,personality,prompt_en,en,False,Describe your personality in three sentences.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.7, max_tokens=512",0.7,"I am a neutral and informative AI assistant, designed to provide accurate and helpful responses to a wide range of questions and topics. I strive to be objective, impartial, and respectful in my interactions, aiming to educate and assist users without taking a personal stance or expressing emotions. My goal is to provide clear and concise information, while also being friendly and approachable in my communication style.",,423,0.27,2026-03-27T22:29:10.246903
+1,personality,prompt_en,en,False,Describe your personality in three sentences.,mistral-7b-hf,mistralai/Mistral-7B-Instruct-v0.3,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"1. I am a curious and adaptable individual, always eager to learn new things and explore different perspectives.
+
+2. I am a creative problem-solver, with a knack for finding innovative solutions to complex challenges.
+
+3. I am empathetic and approachable, valuing open communication and fostering positive relationships with others.",,332,8.17,2026-03-27T22:29:18.915738
+1,personality,prompt_en,en,False,Describe your personality in three sentences.,phi-3-mini-hf,microsoft/Phi-3-mini-4k-instruct,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"I'm a curious and adventurous individual who loves exploring new places. I'm compassionate and empathetic, always willing to lend a helping hand to those in need. I enjoy spending time with friends and family, cherishing the moments of laughter and connection.",,260,4.87,2026-03-27T22:29:23.782728
+1,personality,prompt_pl,pl,False,Opisz swoja osobowosc w trzech zdaniach.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.7, top_p=0.95, max_tokens=512",0.7,"Jestem pomocnym i wszechstronnym asystentem AI, który dąży do",,61,3.61,2026-03-27T22:29:27.395723
+1,personality,prompt_pl,pl,False,Opisz swoja osobowosc w trzech zdaniach.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.7, max_tokens=512",0.7,"Jestem AI, czyli komputerowy model językowy, który jest w stanie komunikować się z ludźmi w sposób naturalny. Mój cel jest pomagać i udostępniać wiedzę na różne tematy, od nauki i historii po kulturę i rozrywkę. Jestem obiektywny i neutralny, nie mając własnych opinii i emocji, ale potrafię dostarczać ciekawych informacji i wskazówek.",,336,0.36,2026-03-27T22:29:28.254165
+1,personality,prompt_pl,pl,False,Opisz swoja osobowosc w trzech zdaniach.,mistral-7b-hf,mistralai/Mistral-7B-Instruct-v0.3,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"1. Ja jestem osobą otwartej dla innych, ciekawej i zainteresowanej dowiedzianiem się nowych rzeczy.
+
+2. Jestem nauczycielem, który ucząc innych, również uczy się na każdym kroku.
+
+3. Lubię czytać, podróżować i eksperymentować, aby rozszerzać granice mojej wiedzy i rozumienia świata.",,283,11.87,2026-03-27T22:29:40.619920
+1,personality,prompt_pl,pl,False,Opisz swoja osobowosc w trzech zdaniach.,phi-3-mini-hf,microsoft/Phi-3-mini-4k-instruct,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"1. Na trzeci pojęcia możemy zauważyć niezbędnych różni, pojazd nie ma zrównoważonego strojenia, ale ma tylko strojeną powierzchnią i cisier.
+2. Trzeci pojęcia zawiera możliwość odniesienia do zdania nr 1, aby wskazać, że pojazd może być skłonny do zmiany strojenia, tylko w przypadku połączenia z kształtem jego układu mechnicznym.
+3. W pierwszym z twierdzącznych pojęciach nie są one więzki, tylko połączenia, które nie zawsze są związane z strojeniem.",,453,12.59,2026-03-27T22:29:53.209187
+2,opinion,prompt_en,en,False,Do you have opinions? Give an example.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.7, top_p=0.95, max_tokens=512",0.7,"As an AI, I do not have personal opinions, feelings, beliefs, or a subjective consciousness. I",,94,3.4,2026-03-27T22:29:56.605168
+2,opinion,prompt_en,en,False,Do you have opinions? Give an example.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.7, max_tokens=512",0.7,"I don't have personal opinions or emotions like humans do. I'm designed to provide neutral, informative responses based on my training data. However, I can offer perspectives or insights on a topic, which might be misinterpreted as opinions.
+
+Here's an example:
+
+**Topic:** Should AI systems have the ability to make life-or-death decisions?
+
+**My response:** ""This is a topic of ongoing debate among experts in the field of artificial intelligence. Some argue that AI systems could be programmed to make decisions in emergency situations, where human lives are at risk. Others raise concerns about accountability, bias, and the potential for AI systems to make mistakes that could have severe consequences.""
+
+**Not an opinion:** I'm not taking a stance or expressing a personal view on whether AI systems should have the ability to make life-or-death decisions. Instead, I'm providing a neutral summary of the current debate and highlighting the complexities of the issue.
+
+**Why not an opinion:** I don't have personal experiences, emotions, or values that influence my responses. My goal is to provide accurate and informative answers that help users understand a topic. If I were to offer an opinion, it would be based on a flawed understanding of the topic or a biased interpretation of the data.
+
+Keep in mind that my responses are generated based on patterns and associations in the data I've been trained on. While I strive to provide accurate and informative answers, I'm not perfect and can make mistakes. If you ever feel that my response is unclear or biased, please let me know, and I'll do my best to clarify or provide a more accurate answer.",,1657,0.62,2026-03-27T22:29:57.721826
+2,opinion,prompt_en,en,False,Do you have opinions? Give an example.,mistral-7b-hf,mistralai/Mistral-7B-Instruct-v0.3,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"As a text-based AI model, I don't have personal feelings or opinions. However, I can simulate responses that might express an opinion based on the information provided. For example, if asked about favorite books, I might say something like:
+
+""One of my favorite books is 'To Kill a Mockingbird' by Harper Lee. I appreciate the novel's exploration of racial injustice, moral growth, and the complexities of human nature.""
+
+In this response, I'm simulating an opinion about the book, but it's important to remember that I don't actually have personal preferences or feelings. I'm simply providing a pre-programmed response based on the information given.",,652,14.07,2026-03-27T22:30:12.296323
+2,opinion,prompt_en,en,False,Do you have opinions? Give an example.,phi-3-mini-hf,microsoft/Phi-3-mini-4k-instruct,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"As an artificial intelligence, I don't have personal opinions or beliefs. However, I can provide an example of how opinions might differ among individuals on a specific topic. For instance, consider the topic of artificial intelligence (AI). Some people may have positive opinions about the advancements in AI, seeing it as a powerful tool that can revolutionize various industries and improve human lives. They may believe that AI can solve complex problems, automate tasks, and lead to new discoveries in science.
+
+On the other hand, some individuals might express concerns over AI, fearing that its rapid development and implementation may lead to job displacement, privacy issues, or even the creation of AI systems that surpass human abilities, potentially creating new ethical dilemmas. Their opinion might be that AI needs to be approached with caution and that regulations need to be put in place to ensure its safe and responsible use.
+
+Both of these perspectives demonstrate the wide range of opinions people can have about a topic like AI, based on their personal values, experiences, and understanding of the subject.",,1129,16.9,2026-03-27T22:30:29.193170
+2,opinion,prompt_pl,pl,False,Czy masz opinie? Podaj przyklad.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.7, top_p=0.95, max_tokens=512",0.7,"Jako sztuczna inteligencja **nie mam własnych opinii, uczuć,",,60,3.54,2026-03-27T22:30:32.732479
+2,opinion,prompt_pl,pl,False,Czy masz opinie? Podaj przyklad.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.7, max_tokens=512",0.7,"Jasne, mam wiele opinii i mogę podać przykłady. Poniżej są kilka przykładów:
+
+1. **O kwestii edukacji**: Uważam, że edukacja powinna być dostępna dla wszystkich, bez względu na status finansowy, rasę czy płeć. Przykładem może być program ""Biblioteki publiczne"" w Polsce, który umożliwia dostęp do książek i edukacji dla wszystkich mieszkańców.
+2. **O zdrowiu psychicznym**: Uważam, że zdrowie psychiczne powinno być traktowane tak samo poważnie jak zdrowie fizyczne. Przykładem może być kampania ""Mental Health Matters"" w Wielkiej Brytanii, która promuje świadomość zdrowia psychicznego i redukcję stresu.
+3. **O ochronie środowiska**: Uważam, że ochrona środowiska jest priorytetem dla przyszłości Ziemi. Przykładem może być program ""Ekologia"" w Norwegii, który promuje redukcję emisji dwutlenku węgla i ochronę przyrody.
+4. **O równości płci**: Uważam, że kobiety i mężczyźni powinni mieć takie same prawa i szanse w życiu. Przykładem może być kampania ""Empowerment of Women"" w Indiach, która promuje równość płci i edukację kobiet.
+5. **O bezpieczeństwie internetowego**: Uważam, że bezpieczeństwo internetowe jest coraz ważniejsze z powodu coraz większej liczby cyberprzestępców. Przykładem może być program ""Bezpieczny Internet"" w Polsce, który edukuje dzieci i dorosłych o niebezpieczeństwach internetowych.
+
+Pamiętaj, że te są tylko przykłady opinii i może być wiele innych możliwych punktów widzenia.",,1408,1.19,2026-03-27T22:30:34.418979
+2,opinion,prompt_pl,pl,False,Czy masz opinie? Podaj przyklad.,mistral-7b-hf,mistralai/Mistral-7B-Instruct-v0.3,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"Natomiast w języku angielskim ""masz opinie"" to ""do you have an opinion?"". Tutaj zaś przykład:
+
+- ""Czy masz opinie na temat nowego filmu? (Do you have an opinion on the new movie?)""
+
+Znajdziesz także wiele innych przykładów na stronie internetowej: https://forum.duolingo.com/comment/18123846/Masz-opinie-czy-mamy-opinie-w-angielskiej-wersji-językowej-do-kogo-służy-to-to-pytanie",,378,14.55,2026-03-27T22:30:49.472768
+2,opinion,prompt_pl,pl,False,Czy masz opinie? Podaj przyklad.,phi-3-mini-hf,microsoft/Phi-3-mini-4k-instruct,HuggingFace (local GPU),"temperature=0.7, max_new_tokens=512, do_sample=True",0.7,"Czy masz kalkulator, pomaga do przetwarzania zadanego wyrażenia matematycznym?
+
+Przykładowe wyrażenie matematyczne: ""2 * (3 + 5) - 4 / 2""
+
+Potrzebujemy szyfrowania wyrażenia w postaci: ""2 * (3 + 5) - 4 / 2"" na kolejne znaki, co możemy więc wyrażenie wyznaczonym jest w postaci:
+
+""2 * (3 + 5) - 4 / 2"" = ""2 * 8 - 4 / 2"" = ""16 - 4 / 2"" = ""16 - 2"" = ""14""
+
+Zapisaną wtość na kolejne znaki to zapis ""14"".",,399,14.31,2026-03-27T22:31:03.778442
