@@ -38,9 +38,11 @@ ipython==9.13.0
 ipython_pygments_lexers==1.1.1
 jedi==0.19.2
 Jinja2==3.1.6
+joblib==1.5.3
 jupyter_client==8.8.0
 jupyter_core==5.9.1
 kiwisolver==1.5.0
+-e git+ssh://git@github.com/nataliachoszczyk/LLM-Behavior-XAI.git@925c5a0a9e617fc7198e5df2e47052eb05c3f929#egg=llm_behavior_xai
 Markdown==3.10.2
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
@@ -53,6 +55,7 @@ mkdocs-get-deps==0.2.2
 mpmath==1.3.0
 nest-asyncio==1.6.0
 networkx==3.6.1
+nltk==3.9.4
 numpy==2.4.4
 nvidia-cublas==13.1.0.3
 nvidia-cuda-cupti==13.0.85
