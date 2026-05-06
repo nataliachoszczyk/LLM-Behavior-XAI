@@ -24,6 +24,12 @@ create_environment:
 requirements:
 	$(PYTHON_INTERPRETER) -m pip install -U pip
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	$(PYTHON_INTERPRETER) -m nltk.downloader wordnet
+	$(PYTHON_INTERPRETER) -m nltk.downloader punkt
+	$(PYTHON_INTERPRETER) -m nltk.downloader punkt_tab
+	$(PYTHON_INTERPRETER) -m nltk.downloader vader_lexicon
+	$(PYTHON_INTERPRETER) -m spacy download pl_core_news_sm
+	$(PYTHON_INTERPRETER) -m spacy download en_core_web_sm
 	
 
 ## Delete all compiled Python files
