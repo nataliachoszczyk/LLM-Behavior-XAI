@@ -30,26 +30,23 @@ def calculate_semantic_diversity(text: str, sbert_model: SentenceTransformer) ->
         return 0.0
 
     embeddings = sbert_model.encode(sentences)
-    cosine_distances = pdist(embeddings, metric='cosine')
+    cosine_distances = pdist(embeddings, metric="cosine")
     scaled_distances = cosine_distances / 2.0
 
     return scaled_distances.mean()
 
 
-def get_first_person_pronouns_count_and_density(text:str, language: str = "en") -> tuple:
+def get_first_person_pronouns_count_and_density(text: str, language: str = "en") -> tuple:
     if language == "pl":
         nlp = spacy.load("pl_core_news_sm")
-        first_person_lemmas = {'ja', 'my'}
+        first_person_lemmas = {"ja", "my"}
     else:
         nlp = spacy.load("en_core_web_sm")
-        first_person_lemmas = {'I', 'we'}
+        first_person_lemmas = {"I", "we"}
 
     doc = nlp(text)
 
-    pronoun_count = sum(
-        1 for token in doc
-        if token.pos_ == 'PRON' and token.lemma_ in first_person_lemmas
-    )
+    pronoun_count = sum(1 for token in doc if token.pos_ == "PRON" and token.lemma_ in first_person_lemmas)
 
     total_words = len([token for token in doc if not token.is_punct])
 

@@ -8,13 +8,23 @@ from pathlib import Path
 def plot_response_length_features(response_features: pd.DataFrame, output_dir: Path) -> None:
     fig, axes = plt.subplots(1, 4, figsize=(18, 5))
 
-    features = ["response_length", "response_number_of_words", "response_number_of_unique_words", "response_number_of_sentences"]
+    features = [
+        "response_length",
+        "response_number_of_words",
+        "response_number_of_unique_words",
+        "response_number_of_sentences",
+    ]
     titles = ["Response Length (chars)", "Number of Words", "Number of Unique Words", "Number of Sentences"]
 
     for ax, feature, title in zip(axes, features, titles):
         sns.histplot(
             data=response_features[response_features["response_length"] > 0],
-            x=feature, hue="model_key", kde=True, ax=ax, bins=30, alpha=0.5
+            x=feature,
+            hue="model_key",
+            kde=True,
+            ax=ax,
+            bins=30,
+            alpha=0.5,
         )
 
         ax.set_title(title)
@@ -35,7 +45,12 @@ def plot_response_average_length_features(response_features: pd.DataFrame, outpu
     for ax, feature, title in zip(axes, features, titles):
         sns.histplot(
             data=response_features[response_features["response_length"] > 0],
-            x=feature, hue="model_key", kde=True, ax=ax, bins=30, alpha=0.5
+            x=feature,
+            hue="model_key",
+            kde=True,
+            ax=ax,
+            bins=30,
+            alpha=0.5,
         )
 
         ax.set_title(title)
@@ -52,7 +67,12 @@ def plot_token_count_feature(response_features: pd.DataFrame, output_dir: Path) 
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="token_count", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="token_count",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Token Count Distribution by Model")
@@ -67,7 +87,12 @@ def plot_type_token_ratio(response_features: pd.DataFrame, output_dir: Path) -> 
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="type_token_ratio", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="type_token_ratio",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Type-Token Ratio (TTR) Distribution by Model")
@@ -82,7 +107,12 @@ def plot_yule_k(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="yule_k", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="yule_k",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Yule's K Distribution by Model")
@@ -97,7 +127,12 @@ def plot_guiraud(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="guiraud", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="guiraud",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Guiraud's R Distribution by Model")
@@ -112,7 +147,12 @@ def plot_honore(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="honore", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="honore",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Honore's H Distribution by Model")
@@ -127,7 +167,12 @@ def plot_brunet(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="brunet", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="brunet",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Brunet's W Distribution by Model")
@@ -142,7 +187,12 @@ def plot_dugast(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="dugast", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="dugast",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Dugast's U Distribution by Model")
@@ -157,7 +207,12 @@ def plot_maas_a2(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="maas_a2", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="maas_a2",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Maas's a² Distribution by Model")
@@ -172,7 +227,12 @@ def plot_entropy(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="entropy", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="entropy",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Entropy Distribution by Model")
@@ -187,7 +247,12 @@ def plot_repetition_rate(response_features: pd.DataFrame, output_dir: Path) -> N
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="repetition_rate", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="repetition_rate",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Repetition Rate Distribution by Model")
@@ -202,7 +267,12 @@ def plot_hapax_ratio(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="hapax_ratio", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="hapax_ratio",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Hapax Ratio Distribution by Model")
@@ -217,7 +287,12 @@ def plot_avg_word_freq(response_features: pd.DataFrame, output_dir: Path) -> Non
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="avg_word_freq", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="avg_word_freq",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Average Word Frequency Distribution by Model")
@@ -232,7 +307,12 @@ def plot_max_word_freq(response_features: pd.DataFrame, output_dir: Path) -> Non
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="max_word_freq", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="max_word_freq",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Max Word Frequency Distribution by Model")
@@ -247,7 +327,12 @@ def plot_mtld(response_features: pd.DataFrame, output_dir: Path) -> None:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="mtld", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="mtld",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Measure of Textual Lexical Diversity Distribution by Model")
@@ -262,7 +347,12 @@ def plot_lexical_density(response_features: pd.DataFrame, output_dir: Path) -> N
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="lexical_density", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="lexical_density",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Lexical Density Distribution by Model")
@@ -277,7 +367,12 @@ def plot_punctuation_density(response_features: pd.DataFrame, output_dir: Path) 
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="punctuation_density", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="punctuation_density",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Punctuation Density Distribution by Model")
@@ -292,7 +387,12 @@ def plot_repeated_bigram_ratio(response_features: pd.DataFrame, output_dir: Path
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="repeated_bigram_ratio", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="repeated_bigram_ratio",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Repeated Bigram Ratio Distribution by Model")
@@ -307,7 +407,12 @@ def plot_repeated_trigram_ratio(response_features: pd.DataFrame, output_dir: Pat
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="repeated_trigram_ratio", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="repeated_trigram_ratio",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Repeated Trigram Ratio Distribution by Model")
@@ -322,7 +427,12 @@ def plot_max_bigram_frequency(response_features: pd.DataFrame, output_dir: Path)
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="max_bigram_frequency", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="max_bigram_frequency",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Max Bigram Frequency Distribution by Model")
@@ -341,7 +451,12 @@ def plot_sentiment_features(response_features: pd.DataFrame, output_dir: Path) -
     for ax, feature, title in zip(axes, sentiment_features, titles):
         sns.histplot(
             data=response_features[response_features["response_length"] > 0],
-            x=feature, hue="model_key", kde=True, ax=ax, bins=30, alpha=0.5
+            x=feature,
+            hue="model_key",
+            kde=True,
+            ax=ax,
+            bins=30,
+            alpha=0.5,
         )
 
         ax.set_title(title)
@@ -358,7 +473,12 @@ def plot_semantic_diversity(response_features: pd.DataFrame, output_dir: Path) -
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="semantic_diversity", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="semantic_diversity",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Semantic Diversity Distribution by Model")
@@ -377,7 +497,12 @@ def plot_person_pronouns_features(response_features: pd.DataFrame, output_dir: P
     for ax, feature, title in zip(axes, features, titles):
         sns.histplot(
             data=response_features[response_features["response_length"] > 0],
-            x=feature, hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+            x=feature,
+            hue="model_key",
+            kde=True,
+            bins=30,
+            alpha=0.5,
+            ax=ax,
         )
 
         ax.set_title(f"{title} Distribution by Model")
@@ -394,7 +519,12 @@ def plot_sentence_coherence_feature(response_features: pd.DataFrame, output_dir:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="sentence_coherence", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="sentence_coherence",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Sentence Coherence Distribution by Model")
@@ -409,7 +539,12 @@ def plot_embedding_variance_feature(response_features: pd.DataFrame, output_dir:
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="embedding_variance", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="embedding_variance",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Embedding Variance Distribution by Model")
@@ -424,7 +559,12 @@ def plot_flesch_reading_ease_feature(response_features: pd.DataFrame, output_dir
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="flesch_reading_ease", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="flesch_reading_ease",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Flesch Reading Ease Distribution by Model")
@@ -439,7 +579,12 @@ def plot_flesch_kincaid_grade_level_feature(response_features: pd.DataFrame, out
 
     sns.histplot(
         data=response_features[response_features["response_length"] > 0],
-        x="flesch_kincaid_grade", hue="model_key", kde=True, bins=30, alpha=0.5, ax=ax
+        x="flesch_kincaid_grade",
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
     )
 
     ax.set_title("Flesch-Kincaid Grade Distribution by Model")

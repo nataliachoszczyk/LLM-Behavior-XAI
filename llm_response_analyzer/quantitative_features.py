@@ -10,20 +10,17 @@ def token_count_feature(response_features: Series | DataFrame | Any, responses: 
 
 
 def average_length_features(response_features: Series | DataFrame | Any):
-    response_features["avg_word_length"] = (
-            response_features["response_length"] /
-            response_features["response_number_of_words"].replace(0, 1)
-    )
+    response_features["avg_word_length"] = response_features["response_length"] / response_features[
+        "response_number_of_words"
+    ].replace(0, 1)
 
-    response_features["avg_words_per_sentence"] = (
-            response_features["response_number_of_words"] /
-            response_features["response_number_of_sentences"].replace(0, 1)
-    )
+    response_features["avg_words_per_sentence"] = response_features["response_number_of_words"] / response_features[
+        "response_number_of_sentences"
+    ].replace(0, 1)
 
-    response_features["avg_sentence_length"] = (
-            response_features["response_length"] /
-            response_features["response_number_of_sentences"].replace(0, 1)
-    )
+    response_features["avg_sentence_length"] = response_features["response_length"] / response_features[
+        "response_number_of_sentences"
+    ].replace(0, 1)
 
 
 def length_features(response_features: Series | DataFrame | Any, responses: Series | DataFrame | Any):

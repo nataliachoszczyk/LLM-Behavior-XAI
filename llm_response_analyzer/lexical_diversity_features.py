@@ -128,7 +128,7 @@ def get_mtld_score(text: str, threshold: float = 0.72) -> float:
     return mtld_score
 
 
-def get_lexical_density(text: str, language: str="en") -> float:
+def get_lexical_density(text: str, language: str = "en") -> float:
     if not text:
         return 0
 
@@ -139,7 +139,7 @@ def get_lexical_density(text: str, language: str="en") -> float:
 
     doc = nlp(text)
 
-    lexical_tags = {'NOUN', 'VERB', 'ADJ', 'ADV'}
+    lexical_tags = {"NOUN", "VERB", "ADJ", "ADV"}
 
     lexical_words = [token for token in doc if token.pos_ in lexical_tags]
     total_words = [token for token in doc if not token.is_punct]
@@ -156,10 +156,7 @@ def punctuation_density(text: str) -> float:
     if len(text) == 0:
         return 0
 
-    punctuation_count = sum(
-        1 for char in text
-        if char in string.punctuation
-    )
+    punctuation_count = sum(1 for char in text if char in string.punctuation)
 
     return punctuation_count / len(text)
 

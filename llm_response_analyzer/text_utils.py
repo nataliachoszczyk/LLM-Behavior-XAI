@@ -24,7 +24,7 @@ def get_list_of_words(text: str) -> list[str]:
     if not text:
         return []
 
-    tokenizer = RegexpTokenizer(r'\w+')
+    tokenizer = RegexpTokenizer(r"\w+")
     tokens = tokenizer.tokenize(text.lower())
 
     return tokens
