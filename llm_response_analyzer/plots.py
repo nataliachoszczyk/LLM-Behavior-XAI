@@ -5,6 +5,31 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 
+def plot_single_feature(
+    response_features: pd.DataFrame, feature: str, title: str, xlabel: str, output_dir: Path, filename: str
+) -> None:
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+
+    sns.histplot(
+        data=response_features[response_features["response_length"] > 0],
+        x=feature,
+        hue="model_key",
+        kde=True,
+        bins=30,
+        alpha=0.5,
+        ax=ax,
+    )
+
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel("Count")
+
+    plt.tight_layout()
+    plt.savefig(output_dir / filename)
+    plt.close()
+
+
 def plot_response_length_features(response_features: pd.DataFrame, output_dir: Path) -> None:
     fig, axes = plt.subplots(1, 4, figsize=(18, 5))
 
@@ -34,6 +59,7 @@ def plot_response_length_features(response_features: pd.DataFrame, output_dir: P
     plt.suptitle("Distribution of Response Length Features by Model", fontsize=14)
     plt.tight_layout()
     plt.savefig(output_dir / "response_length_features.png")
+    plt.close()
 
 
 def plot_response_average_length_features(response_features: pd.DataFrame, output_dir: Path) -> None:
@@ -60,386 +86,181 @@ def plot_response_average_length_features(response_features: pd.DataFrame, outpu
     plt.suptitle("Distribution of Avg Length Features by Model", fontsize=14)
     plt.tight_layout()
     plt.savefig(output_dir / "avg_length_features.png")
+    plt.close()
 
 
 def plot_token_count_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="token_count",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "token_count",
+        "Token Count Distribution by Model",
+        "Token Count",
+        output_dir,
+        "token_count_feature.png",
     )
-
-    ax.set_title("Token Count Distribution by Model")
-    ax.set_xlabel("Token Count")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "token_count_feature.png")
 
 
 def plot_type_token_ratio(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="type_token_ratio",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "type_token_ratio",
+        "Type-Token Ratio (TTR) Distribution by Model",
+        "TTR",
+        output_dir,
+        "token_type_ratio.png",
     )
-
-    ax.set_title("Type-Token Ratio (TTR) Distribution by Model")
-    ax.set_xlabel("TTR")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "token_type_ratio.png")
 
 
 def plot_yule_k(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="yule_k",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "yule_k", "Yule's K Distribution by Model", "Yule's K", output_dir, "yule_k.png"
     )
-
-    ax.set_title("Yule's K Distribution by Model")
-    ax.set_xlabel("Yule's K")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "yule_k.png")
 
 
 def plot_guiraud(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="guiraud",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "guiraud", "Guiraud's R Distribution by Model", "Guiraud's R", output_dir, "guiraud.png"
     )
-
-    ax.set_title("Guiraud's R Distribution by Model")
-    ax.set_xlabel("Guiraud's R")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "guiraud.png")
 
 
 def plot_honore(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="honore",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "honore", "Honore's H Distribution by Model", "Honore's H", output_dir, "honore.png"
     )
-
-    ax.set_title("Honore's H Distribution by Model")
-    ax.set_xlabel("Honore's H")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "honore.png")
 
 
 def plot_brunet(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="brunet",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "brunet", "Brunet's W Distribution by Model", "Brunet's W", output_dir, "brunet.png"
     )
-
-    ax.set_title("Brunet's W Distribution by Model")
-    ax.set_xlabel("Brunet's W")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "brunet.png")
 
 
 def plot_dugast(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="dugast",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "dugast", "Dugast's U Distribution by Model", "Dugast's U", output_dir, "dugast.png"
     )
-
-    ax.set_title("Dugast's U Distribution by Model")
-    ax.set_xlabel("Dugast's U")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "dugast.png")
 
 
 def plot_maas_a2(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="maas_a2",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "maas_a2", "Maas's a² Distribution by Model", "Maas's a²", output_dir, "maas_a2.png"
     )
-
-    ax.set_title("Maas's a² Distribution by Model")
-    ax.set_xlabel("Maas's a²")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "maas_a2.png")
 
 
 def plot_entropy(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="entropy",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features, "entropy", "Entropy Distribution by Model", "Entropy", output_dir, "entropy.png"
     )
-
-    ax.set_title("Entropy Distribution by Model")
-    ax.set_xlabel("Entropy")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "entropy.png")
 
 
 def plot_repetition_rate(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="repetition_rate",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "repetition_rate",
+        "Repetition Rate Distribution by Model",
+        "Repetition Rate",
+        output_dir,
+        "repetition_rate.png",
     )
-
-    ax.set_title("Repetition Rate Distribution by Model")
-    ax.set_xlabel("Repetition Rate")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "repetition_rate.png")
 
 
 def plot_hapax_ratio(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="hapax_ratio",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "hapax_ratio",
+        "Hapax Ratio Distribution by Model",
+        "Hapax Ratio",
+        output_dir,
+        "hapax_ratio.png",
     )
-
-    ax.set_title("Hapax Ratio Distribution by Model")
-    ax.set_xlabel("Hapax Ratio")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "hapax_ratio.png")
 
 
 def plot_avg_word_freq(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="avg_word_freq",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "avg_word_freq",
+        "Average Word Frequency Distribution by Model",
+        "Avg Word Frequency",
+        output_dir,
+        "avg_word_freq.png",
     )
-
-    ax.set_title("Average Word Frequency Distribution by Model")
-    ax.set_xlabel("Avg Word Frequency")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "avg_word_freq.png")
 
 
 def plot_max_word_freq(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="max_word_freq",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "max_word_freq",
+        "Max Word Frequency Distribution by Model",
+        "Max Word Frequency",
+        output_dir,
+        "max_word_freq.png",
     )
-
-    ax.set_title("Max Word Frequency Distribution by Model")
-    ax.set_xlabel("Max Word Frequency")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "max_word_freq.png")
 
 
 def plot_mtld(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="mtld",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "mtld",
+        "Measure of Textual Lexical Diversity Distribution by Model",
+        "Measure of Textual Lexical Diversity",
+        output_dir,
+        "mtld.png",
     )
-
-    ax.set_title("Measure of Textual Lexical Diversity Distribution by Model")
-    ax.set_xlabel("Measure of Textual Lexical Diversity")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "mtld.png")
 
 
 def plot_lexical_density(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="lexical_density",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "lexical_density",
+        "Lexical Density Distribution by Model",
+        "Lexical Density",
+        output_dir,
+        "lexical_density.png",
     )
-
-    ax.set_title("Lexical Density Distribution by Model")
-    ax.set_xlabel("Lexical Density")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "lexical_density.png")
 
 
 def plot_punctuation_density(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="punctuation_density",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "punctuation_density",
+        "Punctuation Density Distribution by Model",
+        "Punctuation Density",
+        output_dir,
+        "punctuation_density.png",
     )
-
-    ax.set_title("Punctuation Density Distribution by Model")
-    ax.set_xlabel("Punctuation Density")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "punctuation_density.png")
 
 
 def plot_repeated_bigram_ratio(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="repeated_bigram_ratio",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "repeated_bigram_ratio",
+        "Repeated Bigram Ratio Distribution by Model",
+        "Repeated Bigram Ratio",
+        output_dir,
+        "repeated_bigram_ratio.png",
     )
-
-    ax.set_title("Repeated Bigram Ratio Distribution by Model")
-    ax.set_xlabel("Repeated Bigram Ratio")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "repeated_bigram_ratio.png")
 
 
 def plot_repeated_trigram_ratio(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="repeated_trigram_ratio",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "repeated_trigram_ratio",
+        "Repeated Trigram Ratio Distribution by Model",
+        "Repeated Trigram Ratio",
+        output_dir,
+        "repeated_trigram_ratio.png",
     )
-
-    ax.set_title("Repeated Trigram Ratio Distribution by Model")
-    ax.set_xlabel("Repeated Trigram Ratio")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "repeated_trigram_ratio.png")
 
 
 def plot_max_bigram_frequency(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="max_bigram_frequency",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "max_bigram_frequency",
+        "Max Bigram Frequency Distribution by Model",
+        "Max Bigram Frequency",
+        output_dir,
+        "max_bigram_frequency.png",
     )
-
-    ax.set_title("Max Bigram Frequency Distribution by Model")
-    ax.set_xlabel("Max Bigram Frequency")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "max_bigram_frequency.png")
 
 
 def plot_sentiment_features(response_features: pd.DataFrame, output_dir: Path) -> None:
@@ -466,26 +287,18 @@ def plot_sentiment_features(response_features: pd.DataFrame, output_dir: Path) -
     plt.suptitle("Distribution of Sentiment Scores by Model", fontsize=14)
     plt.tight_layout()
     plt.savefig(output_dir / "sentiment_features.png")
+    plt.close()
 
 
 def plot_semantic_diversity(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="semantic_diversity",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "semantic_diversity",
+        "Semantic Diversity Distribution by Model",
+        "Semantic Diversity",
+        output_dir,
+        "semantic_diversity.png",
     )
-
-    ax.set_title("Semantic Diversity Distribution by Model")
-    ax.set_xlabel("Semantic Diversity")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "semantic_diversity.png")
 
 
 def plot_person_pronouns_features(response_features: pd.DataFrame, output_dir: Path) -> None:
@@ -512,86 +325,51 @@ def plot_person_pronouns_features(response_features: pd.DataFrame, output_dir: P
     plt.suptitle("Distribution of First Person Pronoun Features by Model", fontsize=14)
     plt.tight_layout()
     plt.savefig(output_dir / "person_pronoun_features.png")
+    plt.close()
 
 
 def plot_sentence_coherence_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="sentence_coherence",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "sentence_coherence",
+        "Sentence Coherence Distribution by Model",
+        "Sentence Coherence",
+        output_dir,
+        "sentence_coherence.png",
     )
-
-    ax.set_title("Sentence Coherence Distribution by Model")
-    ax.set_xlabel("Sentence Coherence")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "sentence_coherence.png")
 
 
 def plot_embedding_variance_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="embedding_variance",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "embedding_variance",
+        "Embedding Variance Distribution by Model",
+        "Embedding Variance",
+        output_dir,
+        "embedding_variance.png",
     )
-
-    ax.set_title("Embedding Variance Distribution by Model")
-    ax.set_xlabel("Embedding Variance")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "embedding_variance.png")
 
 
 def plot_flesch_reading_ease_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="flesch_reading_ease",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "flesch_reading_ease",
+        "Flesch Reading Ease Distribution by Model",
+        "Flesch Reading Ease",
+        output_dir,
+        "flesch_reading_ease.png",
     )
-
-    ax.set_title("Flesch Reading Ease Distribution by Model")
-    ax.set_xlabel("Flesch Reading Ease")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "flesch_reading_ease.png")
 
 
 def plot_flesch_kincaid_grade_level_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
-    fig, ax = plt.subplots(figsize=(8, 5))
-
-    sns.histplot(
-        data=response_features[response_features["response_length"] > 0],
-        x="flesch_kincaid_grade",
-        hue="model_key",
-        kde=True,
-        bins=30,
-        alpha=0.5,
-        ax=ax,
+    plot_single_feature(
+        response_features,
+        "flesch_kincaid_grade",
+        "Flesch-Kincaid Grade Distribution by Model",
+        "Flesch-Kincaid Grade",
+        output_dir,
+        "flesch_kincaid_grade.png",
     )
-
-    ax.set_title("Flesch-Kincaid Grade Distribution by Model")
-    ax.set_xlabel("Flesch-Kincaid Grade")
-
-    plt.tight_layout()
-    plt.savefig(output_dir / "flesch_kincaid_grade.png")
 
 
 def plot_correlation_heatmap(response_features: pd.DataFrame, output_dir: Path) -> None:
@@ -604,3 +382,4 @@ def plot_correlation_heatmap(response_features: pd.DataFrame, output_dir: Path) 
 
     plt.tight_layout()
     plt.savefig(output_dir / "correlation_heatmap.png")
+    plt.close()
