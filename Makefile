@@ -70,6 +70,11 @@ test:
 #################################################################################
 
 
+## Analyze LLM responses with the response analyzer
+.PHONY: analyze_responses
+analyze_responses:
+	$(PYTHON_INTERPRETER) -m llm_response_analyzer.main
+
 
 #################################################################################
 # Self Documenting Commands                                                     #
