@@ -6,6 +6,29 @@
 
 Differences in behavioral characteristics and behavioral profiles of different language models
 
+## Installation Instructions
+
+### Required tools
+- Python 3.12
+- pip
+
+### Installation
+
+To create a python virtual environment, run the following command in your terminal:
+```
+make create_environment
+```
+
+To activate the virtual environment, run the following command in your terminal:
+```
+source venv/bin/activate
+```
+
+To install the required packages, run the following command in your terminal:
+```
+make requirements
+```
+
 ## Project Organization
 
 ```

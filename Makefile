@@ -11,14 +11,26 @@ PYTHON_INTERPRETER = python
 #################################################################################
 
 
+## Set up Python interpreter environment
+.PHONY: create_environment
+create_environment:
+	@rm -rf venv
+	$(PYTHON_INTERPRETER)$(PYTHON_VERSION) -m venv venv
+	@echo ">>> New python interpreter environment created. Activate it using 'source venv/bin/activate'"
+
+
 ## Install Python dependencies
 .PHONY: requirements
 requirements:
 	$(PYTHON_INTERPRETER) -m pip install -U pip
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
+	$(PYTHON_INTERPRETER) -m nltk.downloader wordnet
+	$(PYTHON_INTERPRETER) -m nltk.downloader punkt
+	$(PYTHON_INTERPRETER) -m nltk.downloader punkt_tab
+	$(PYTHON_INTERPRETER) -m nltk.downloader vader_lexicon
+	$(PYTHON_INTERPRETER) -m spacy download pl_core_news_sm
+	$(PYTHON_INTERPRETER) -m spacy download en_core_web_sm
 	
-
-
 
 ## Delete all compiled Python files
 .PHONY: clean
@@ -27,11 +39,18 @@ clean:
 	find . -type d -name "__pycache__" -delete
 
 
+## Check type hints with mypy
+.PHONY: mypy
+mypy:
+	mypy llm_behavior_xai llm_response_analyzer tests
+
+
 ## Lint using ruff (use `make format` to do formatting)
 .PHONY: lint
 lint:
 	ruff format --check
 	ruff check
+
 
 ## Format source code with ruff
 .PHONY: format
@@ -40,26 +59,21 @@ format:
 	ruff format
 
 
-
 ## Run tests
 .PHONY: test
 test:
 	python -m pytest tests
 
 
-## Set up Python interpreter environment
-.PHONY: create_environment
-create_environment:
-	@bash -c "if [ ! -z `which virtualenvwrapper.sh` ]; then source `which virtualenvwrapper.sh`; mkvirtualenv $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); else mkvirtualenv.bat $(PROJECT_NAME) --python=$(PYTHON_INTERPRETER); fi"
-	@echo ">>> New virtualenv created. Activate with:\nworkon $(PROJECT_NAME)"
-	
-
-
-
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
 
+
+## Analyze LLM responses with the response analyzer
+.PHONY: analyze_responses
+analyze_responses:
+	$(PYTHON_INTERPRETER) -m llm_response_analyzer.main
 
 
 #################################################################################
