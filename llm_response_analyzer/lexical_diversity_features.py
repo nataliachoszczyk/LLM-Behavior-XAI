@@ -8,7 +8,6 @@ from collections import Counter
 from nltk.util import ngrams
 from lexicalrichness import LexicalRichness
 from numpy import floating, dtype, float64, ndarray
-from _typeshed import SupportsDunderGT, SupportsDunderLT
 
 from llm_response_analyzer.text_utils import prepare_text_stats, get_list_of_words
 
@@ -112,7 +111,7 @@ def avg_word_freq(text: str) -> floating[Any] | int:
     return np.mean(list(word_frequency.values())) if word_frequency else 0
 
 
-def max_word_freq(text: str) -> SupportsDunderLT[Any] | SupportsDunderGT[Any] | int:
+def max_word_freq(text: str) -> float:
     words, N, word_frequency, V = prepare_text_stats(text)
 
     return max(word_frequency.values()) if word_frequency else 0
