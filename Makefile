@@ -39,6 +39,12 @@ clean:
 	find . -type d -name "__pycache__" -delete
 
 
+## Check type hints with mypy
+.PHONY: mypy
+mypy:
+	mypy llm_behavior_xai llm_response_analyzer tests
+
+
 ## Lint using ruff (use `make format` to do formatting)
 .PHONY: lint
 lint:
