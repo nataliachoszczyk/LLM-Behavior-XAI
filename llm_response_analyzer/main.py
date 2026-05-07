@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 
 from pandas import DataFrame
@@ -36,12 +38,45 @@ from llm_response_analyzer.lexical_diversity_features import (
     repeated_trigram_ratio,
     max_bigram_frequency,
 )
+from llm_response_analyzer.plots import (
+    plot_response_length_features,
+    plot_response_average_length_features,
+    plot_token_count_feature,
+    plot_type_token_ratio,
+    plot_yule_k,
+    plot_guiraud,
+    plot_honore,
+    plot_brunet,
+    plot_dugast,
+    plot_maas_a2,
+    plot_entropy,
+    plot_repetition_rate,
+    plot_hapax_ratio,
+    plot_avg_word_freq,
+    plot_max_word_freq,
+    plot_mtld,
+    plot_lexical_density,
+    plot_punctuation_density,
+    plot_repeated_bigram_ratio,
+    plot_repeated_trigram_ratio,
+    plot_max_bigram_frequency,
+    plot_sentiment_features,
+    plot_semantic_diversity,
+    plot_person_pronouns_features,
+    plot_sentence_coherence_feature,
+    plot_embedding_variance_feature,
+    plot_flesch_reading_ease_feature,
+    plot_flesch_kincaid_grade_level_feature,
+    plot_correlation_heatmap,
+)
 from llm_response_analyzer.quantitative_features import token_count_feature, average_length_features, length_features
 from llm_response_analyzer.readability_features import get_flesch_reading_ease, get_flesch_kincaid_grade
 from llm_response_analyzer.stylistic_and_semantic_features import (
     get_sentiment_scores,
     calculate_semantic_diversity,
     get_first_person_pronouns_count_and_density,
+    sentence_coherence,
+    embedding_variance,
 )
 
 
@@ -99,22 +134,53 @@ def create_response_features(llm_results_df: TextFileReader | DataFrame):
         first_person_results.tolist(), index=response_features.index
     )
 
-    # embedding_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+    embedding_model = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
 
-    # TODO add sentence_coherence feature
-    # TODO add embedding_variance feature
+    response_features["sentence_coherence"] = responses.apply(lambda text: sentence_coherence(text, embedding_model))
+    response_features["embedding_variance"] = responses.apply(lambda text: embedding_variance(text, embedding_model))
 
     response_features["flesch_reading_ease"] = llm_results_df.apply(
         lambda row: get_flesch_reading_ease(row["response"] if pd.notna(row["response"]) else "", row["language"]),
         axis=1,
     )
-
     response_features["flesch_kincaid_grade"] = llm_results_df.apply(
         lambda row: get_flesch_kincaid_grade(row["response"] if pd.notna(row["response"]) else "", row["language"]),
         axis=1,
     )
 
     return response_features
+
+
+def generate_features_plots(llm_results_features_plots_dir: Path, response_features: pd.DataFrame):
+    plot_response_length_features(response_features, llm_results_features_plots_dir)
+    plot_response_average_length_features(response_features, llm_results_features_plots_dir)
+    plot_token_count_feature(response_features, llm_results_features_plots_dir)
+    plot_type_token_ratio(response_features, llm_results_features_plots_dir)
+    plot_yule_k(response_features, llm_results_features_plots_dir)
+    plot_guiraud(response_features, llm_results_features_plots_dir)
+    plot_honore(response_features, llm_results_features_plots_dir)
+    plot_brunet(response_features, llm_results_features_plots_dir)
+    plot_dugast(response_features, llm_results_features_plots_dir)
+    plot_maas_a2(response_features, llm_results_features_plots_dir)
+    plot_entropy(response_features, llm_results_features_plots_dir)
+    plot_repetition_rate(response_features, llm_results_features_plots_dir)
+    plot_hapax_ratio(response_features, llm_results_features_plots_dir)
+    plot_avg_word_freq(response_features, llm_results_features_plots_dir)
+    plot_max_word_freq(response_features, llm_results_features_plots_dir)
+    plot_mtld(response_features, llm_results_features_plots_dir)
+    plot_lexical_density(response_features, llm_results_features_plots_dir)
+    plot_punctuation_density(response_features, llm_results_features_plots_dir)
+    plot_repeated_bigram_ratio(response_features, llm_results_features_plots_dir)
+    plot_repeated_trigram_ratio(response_features, llm_results_features_plots_dir)
+    plot_max_bigram_frequency(response_features, llm_results_features_plots_dir)
+    plot_sentiment_features(response_features, llm_results_features_plots_dir)
+    plot_semantic_diversity(response_features, llm_results_features_plots_dir)
+    plot_person_pronouns_features(response_features, llm_results_features_plots_dir)
+    plot_sentence_coherence_feature(response_features, llm_results_features_plots_dir)
+    plot_embedding_variance_feature(response_features, llm_results_features_plots_dir)
+    plot_flesch_reading_ease_feature(response_features, llm_results_features_plots_dir)
+    plot_flesch_kincaid_grade_level_feature(response_features, llm_results_features_plots_dir)
+    plot_correlation_heatmap(response_features, llm_results_features_plots_dir)
 
 
 def main():
@@ -131,8 +197,7 @@ def main():
         save_results(response_features, llm_results_features_path)
 
         llm_results_features_plots_dir.mkdir(parents=True, exist_ok=True)
-
-        # TODO add code to generate plots for the features and save them in llm_results_features_plots_dir
+        generate_features_plots(llm_results_features_plots_dir, response_features)
 
 
 if __name__ == "__main__":

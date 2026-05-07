@@ -12,4 +12,4 @@ def read_prompts(path: str) -> TextFileReader | DataFrame:
 
 
 def save_results(df: DataFrame, path: str) -> None:
-    df.to_csv(path, index=False)
+    df.to_csv(path, index=False, header=True)
