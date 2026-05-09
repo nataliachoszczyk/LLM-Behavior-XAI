@@ -70,6 +70,12 @@ test:
 #################################################################################
 
 
+## Collect LLM responses with the response collector
+.PHONY: collect_responses
+collect_responses:
+	$(PYTHON_INTERPRETER) -m llm_response_collector.main
+
+
 ## Analyze LLM responses with the response analyzer
 .PHONY: analyze_responses
 analyze_responses:
