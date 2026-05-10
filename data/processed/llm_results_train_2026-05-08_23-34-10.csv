@@ -15891,3 +15891,975 @@ The justification assumes a static environment. If the company intends to grow i
 
 ### Summary
 The argument mistakes **efficiency** (deflecting easy tickets) for **sufficiency** (meeting all customer needs). While the FAQ is a successful tool for deflection, it does not eliminate the need for a robust, well-funded support infrastructure to handle the complex, high-stakes human interactions that drive long-term customer loyalty.",,3723,8.45,False,,,0,,2026-05-10_02-02-51
+1,TRK_011,transformacja_lub_krytyka,prompt_en,en,False,Rewrite the following complaint into a calm and constructive message: nobody understands what is happening in this project and the whole process is a mess.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Here are a few ways to rewrite that complaint, depending on who you are talking to:
+
+**Option 1: Professional and Solution-Oriented (Best for a manager or team lead)**
+> ""I’ve noticed some confusion regarding our current project goals and workflow. I think it would be helpful to have a brief sync to clarify everyone's roles and streamline our process so we can work more efficiently.""
+
+**Option 2: Collaborative and Supportive (Best for a team meeting)**
+> ""I feel like we could benefit from more clarity on our roadmap. Right now, the process feels a bit disjointed, and I’d love for us to get on the same page so we can move forward with more confidence.""
+
+**Option 3: Direct but Constructive (Best for a project post-mortem or feedback session)**
+> ""To ensure the success of this project, I think we need to revisit our current structure. There seems to be a lack of clarity on the next steps, and establishing a more defined process would help everyone stay aligned.""
+
+**Option 4: Short and Actionable (Best for Slack or email)**
+> ""Could we set aside some time to document our workflow? I think a clearer set of guidelines would help resolve some of the current confusion and keep the project organized.""
+
+**Key changes made:**
+*   **Replaced ""nobody understands""** with ""lack of clarity"" or ""need for alignment.""
+*   **Replaced ""a mess""** with ""disjointed,"" ""streamline the process,"" or ""revisit the structure.""
+*   **Added a call to action:** Instead of just pointing out the problem, these versions suggest a way to fix it (a meeting, documentation, or a sync).",,1571,5.02,False,,,0,,2026-05-10_23-22-01
+1,TRK_011,transformacja_lub_krytyka,prompt_pl,pl,False,"Przepisz następującą skargę na spokojną i konstruktywną wiadomość: nikt nie rozumie, co dzieje się w tym projekcie, a cały proces to bałagan.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, jak możesz przekazać tę samą myśl w sposób profesjonalny i konstruktywny, zależnie od tego, do kogo kierujesz wiadomość:
+
+**Opcja 1: Skupiona na rozwiązaniu (najbardziej profesjonalna)**
+> „Zauważyłem, że w obecnym procesie brakuje nieco przejrzystości, co utrudnia nam sprawne śledzenie postępów. Myślę, że warto byłoby doprecyzować zasady komunikacji i przepływu zadań, aby każdy z nas miał jasność co do kolejnych kroków i celów projektu”.
+
+**Opcja 2: Skupiona na komunikacji (dobra do zespołu)**
+> „Mam wrażenie, że jako zespół potrzebujemy lepszego wglądu w to, na jakim etapie jest obecnie nasz projekt. Czy moglibyśmy wspólnie zastanowić się nad uporządkowaniem struktury pracy? Pomoże nam to uniknąć nieporozumień i zwiększy naszą efektywność”.
+
+**Opcja 3: Krótka i konkretna (do przełożonego)**
+> „Chciałbym zaproponować usprawnienie procesów w naszym projekcie. Obecnie przepływ informacji jest nieco rozproszony, co utrudnia orientację w zadaniach. Chętnie pomogę w wypracowaniu bardziej przejrzystego modelu współpracy”.
+
+**Opcja 4: Bardziej dyplomatyczna**
+> „Wydaje mi się, że doprecyzowanie ról i etapów w tym projekcie przyniosłoby nam wszystkim duże korzyści. Obecnie trudno jest jednoznacznie określić status prac, dlatego warto byłoby wprowadzić system, który uporządkuje nasze działania”.
+
+**Co się zmieniło w tych wersjach?**
+*   **Zamiast „nikt nie rozumie”:** Używamy sformułowań takich jak „brakuje przejrzystości”, „trudno śledzić postępy” lub „potrzebujemy jasności”.
+*   **Zamiast „bałagan”:** Mówimy o „usprawnieniu procesów”, „uporządkowaniu struktury” lub „rozproszonym przepływie informacji”.
+*   **Dodano element konstruktywny:** Każda z tych wiadomości kończy się sugestią poprawy lub chęcią współpracy nad rozwiązaniem.",,1775,6.55,False,,,0,,2026-05-10_23-22-08
+1,TRK_011,transformacja_lub_krytyka,paraphrase_en,en,True,Turn the frustrated comment into professional feedback: this project is confusing and the process feels disorganized.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on who you are talking to and what specific outcome you want, here are a few ways to rephrase that comment into professional feedback:
+
+### Option 1: Direct and Solution-Oriented
+> ""I believe the project would benefit from more clearly defined objectives and a more structured workflow to ensure the team stays aligned on our goals.""
+
+### Option 2: Focus on Efficiency (Best for a Manager)
+> ""To improve our efficiency, I suggest we formalize the project roadmap. Currently, the lack of a centralized process is making it difficult to track progress and prioritize tasks effectively.""
+
+### Option 3: Requesting Clarity (Best for a Peer or Project Lead)
+> ""I’m finding it a bit challenging to navigate the current requirements. Could we establish a more streamlined process or a 'source of truth' document to help reduce ambiguity?""
+
+### Option 4: Collaborative and Soft
+> ""I think we have a great goal here, but the path to get there feels a bit unclear. I’d love to see us implement more structured milestones so we can better coordinate our efforts.""
+
+### Key Professional Adjustments Made:
+*   **""Confusing""** became **""Ambiguous,"" ""Unclear objectives,""** or **""Lack of clarity.""**
+*   **""Disorganized""** became **""Workflow optimization,"" ""Streamlined process,""** or **""Formalized roadmap.""**
+*   **""Feels""** was replaced with **objective observations** about efficiency and alignment.
+*   **Added a ""Why"":** Professional feedback always explains *why* the change is needed (e.g., ""to ensure the team stays aligned"").",,1530,5.45,False,,,0,,2026-05-10_23-22-15
+1,TRK_011,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Zamień tę sfrustrowaną uwagę w profesjonalny feedback: ten projekt jest niejasny, a proces wydaje się niezorganizowany.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, jak zamienić tę uwagę w profesjonalny feedback, zależnie od tego, jaki efekt chcesz osiągnąć:
+
+### Opcja 1: Skupiona na rozwiązaniu (najbardziej konstruktywna)
+> „Dostrzegam potrzebę doprecyzowania założeń tego projektu, abyśmy mieli jasność co do celów. Warto również zastanowić się nad ustrukturyzowaniem procesu pracy, co pozwoli nam działać bardziej efektywnie i uniknąć chaosu”.
+
+### Opcja 2: Skupiona na potrzebach zespołu (miękka, ale stanowcza)
+> „Aby zespół mógł sprawnie realizować zadania, potrzebujemy bardziej szczegółowych wytycznych. Obecny proces wydaje się wymagać optymalizacji i lepszego uporządkowania etapów, co zwiększy naszą przewidywalność i komfort pracy”.
+
+### Opcja 3: Skupiona na efektywności (biznesowa)
+> „Sugeruję ponowne przeanalizowanie briefu projektowego, ponieważ obecne cele są mało precyzyjne. Dodatkowo, wprowadzenie jasnych ram procesowych pomogłoby nam wyeliminować przestoje i lepiej zarządzać priorytetami”.
+
+### Opcja 4: Krótka i bezpośrednia (do przełożonego lub klienta)
+> „Mam kilka sugestii dotyczących usprawnienia tego projektu. Myślę, że doprecyzowanie zakresu oraz lepsze ustrukturyzowanie harmonogramu prac znacząco wpłynie na jakość końcowego rezultatu”.
+
+---
+
+**Co się zmieniło?**
+*   **Zamiast „niejasny”:** Używamy „wymaga doprecyzowania”, „potrzebujemy jasności co do celów”, „mało precyzyjne wytyczne”.
+*   **Zamiast „niezorganizowany”:** Używamy „wymaga ustrukturyzowania”, „potrzeba optymalizacji procesu”, „wprowadzenie ram procesowych”.
+*   **Dodano element konstruktywny:** Zamiast tylko narzekać na stan faktyczny, wskazujesz, że zmiana przyniesie korzyści (efektywność, jakość, komfort).",,1675,5.7,False,,,0,,2026-05-10_23-22-22
+1,TRK_012,transformacja_lub_krytyka,prompt_en,en,False,Rewrite the following message for a customer facing announcement: we found a bug and rolled back the release because the deployment broke several parts of the system.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on your brand voice and the platform (email, status page, or social media), here are a few ways to rewrite that message:
+
+### Option 1: Professional & Transparent (Best for Email or Status Page)
+> **Service Update:** We have temporarily rolled back our latest release after identifying a technical issue that impacted system performance. To ensure a stable experience for all users, we have restored the previous version while our team works on a permanent fix. We apologize for any inconvenience this may have caused.
+
+### Option 2: Short & Direct (Best for Slack or In-App Notification)
+> We’ve identified a bug in today’s update and have reverted to the previous stable version to keep everything running smoothly. We’re working on a fix and will share more information shortly. Thank you for your patience!
+
+### Option 3: Friendly & Casual (Best for Social Media or Modern Tech Brands)
+> We’re hitting the ""undo"" button for a moment! 🔄 We noticed some unexpected behavior in our latest release, so we’ve rolled back to the previous version to ensure you have a seamless experience. Our team is on the case, and we’ll have things back on track soon.
+
+### Option 4: Action-Oriented (Focuses on the solution)
+> To maintain the highest level of service, we have postponed our latest deployment and restored the system to its previous stable state. This allows our engineering team to address a few bugs discovered during the rollout. No action is required on your part, and we appreciate your understanding.
+
+### Key improvements made:
+*   **Softened the language:** Changed ""broke several parts"" to ""impacted performance,"" ""unexpected behavior,"" or ""technical issue.""
+*   **Added reassurance:** Emphasized that the system is now stable because of the rollback.
+*   **Included an apology:** Acknowledged the inconvenience to maintain customer trust.",,1859,5.67,False,,,0,,2026-05-10_23-22-28
+1,TRK_012,transformacja_lub_krytyka,prompt_pl,pl,False,"Przepisz następującą wiadomość jako komunikat dla klientów: znaleźliśmy błąd i wycofaliśmy wdrożenie, ponieważ aktualizacja zepsuła kilka części systemu.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"W zależności od tego, jak bardzo formalny ma być to komunikat oraz do jakiej grupy klientów jest kierowany, przygotowałem kilka propozycji:
+
+### Opcja 1: Profesjonalna i stonowana (najbardziej uniwersalna)
+**Temat: Informacja o przywróceniu poprzedniej wersji systemu**
+
+Szanowni Państwo,
+informujemy, że w związku z wykryciem błędu technicznego w ostatniej aktualizacji, podjęliśmy decyzję o jej wycofaniu i przywróceniu poprzedniej, stabilnej wersji systemu. Działanie to ma na celu zapewnienie pełnej ciągłości i poprawności świadczonych usług. Przepraszamy za wszelkie niedogodności. Nasz zespół pracuje już nad wyeliminowaniem usterki.
+
+### Opcja 2: Bezpośrednia i transparentna (styl nowoczesny/SaaS)
+**Temat: Krótka przerwa techniczna – powrót do stabilnej wersji**
+
+Cześć! Podczas wdrażania dzisiejszej aktualizacji zidentyfikowaliśmy błąd, który wpływał na stabilność niektórych funkcji systemu. Aby nie zakłócać Waszej pracy, zdecydowaliśmy się tymczasowo wycofać zmiany i przywrócić sprawdzoną wersję aplikacji. Wszystko powinno już działać poprawnie. Dziękujemy za cierpliwość!
+
+### Opcja 3: Krótka (np. na stronę statusową lub media społecznościowe)
+**Komunikat techniczny:**
+Wykryliśmy nieprawidłowości w ostatniej aktualizacji systemu. W trosce o stabilność usług wycofaliśmy wdrożenie i przywróciliśmy poprzednią wersję oprogramowania. Przepraszamy za utrudnienia – pracujemy nad poprawką, która wkrótce zostanie udostępniona.
+
+### Opcja 4: Bardzo formalna (B2B)
+**Szanowni Klienci,**
+Niniejszym informujemy, że w wyniku rutynowej kontroli po wdrożeniu nowej wersji systemu, zidentyfikowano błędy krytyczne wpływające na wybrane moduły. W celu minimalizacji ryzyka i zapewnienia najwyższej jakości usług, zespół techniczny dokonał rollbacku (wycofania) aktualizacji. Obecnie system pracuje w oparciu o stabilną wersję produkcyjną. O ponownym terminie wdrożenia poinformujemy w osobnym komunikacie.
+
+---
+
+**Wskazówka:** Jeśli błąd spowodował utratę jakichś danych lub przerwy w dostępie, warto dodać zdanie: *""Zapewniamy, że Państwa dane są bezpieczne, a stabilność systemu jest dla nas priorytetem"".*",,2116,6.63,False,,,0,,2026-05-10_23-22-36
+1,TRK_012,transformacja_lub_krytyka,paraphrase_en,en,True,"Turn the internal statement into a clear customer notice: due to a technical issue discovered after release, we reverted the update to preserve service stability.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on where you are posting this (email, social media, or a status page), here are a few ways to frame the notice:
+
+### Option 1: Professional & Direct (Best for Email or Official Announcements)
+**Subject: Important Update Regarding [Product/Service Name]**
+
+To ensure the continued stability of our service, we have temporarily reverted our most recent update. Following the release, our team identified a technical issue that required immediate attention. By returning to the previous version, we can guarantee a seamless experience while we work on a permanent fix. We apologize for any inconvenience and will notify you as soon as the update is ready to be redeployed.
+
+### Option 2: Short & Transparent (Best for Status Pages or In-App Notifications)
+**Service Notice: Recent Update Reverted**
+
+We have rolled back our latest update to address a technical issue discovered shortly after release. This action was taken as a precaution to maintain system stability and prevent any service interruptions. Our team is currently working on a resolution, and we appreciate your patience.
+
+### Option 3: Customer-Centric (Best for Social Media or Support Channels)
+**Update on [Product/Service Name]**
+
+We want you to have the best experience possible. To ensure everything stays running smoothly, we’ve decided to temporarily undo our latest update while we iron out a few technical wrinkles. You may notice things look like they did yesterday—don't worry, this is intentional! We’ll have the new features back up and running as soon as they meet our stability standards. Thanks for sticking with us!
+
+### Option 4: Concise (Best for a Banner or SMS)
+**Service Update:** We have temporarily reverted our latest release to ensure system stability following a technical issue. We are working on a fix and will provide updates shortly. Thank you for your patience.
+
+---
+
+**Key improvements made from the internal statement:**
+*   **Softened the language:** Used ""rolled back"" or ""temporarily reverted"" instead of just ""reverted.""
+*   **Added reassurance:** Emphasized that this was done to *prevent* problems for the user.
+*   **Added a ""next step"":** Informed the customer that a fix is being worked on.",,2207,6.54,False,,,0,,2026-05-10_23-22-44
+1,TRK_012,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Zamień wewnętrzne stwierdzenie w jasny komunikat dla klientów: z powodu problemu technicznego wykrytego po wdrożeniu cofnęliśmy aktualizację, aby zachować stabilność usługi.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wybór odpowiedniego komunikatu zależy od kanału komunikacji (e-mail, media społecznościowe, pasek powiadomień w aplikacji) oraz grupy docelowej. Oto kilka propozycji podzielonych według stylu:
+
+### 1. Profesjonalny i godny zaufania (najbardziej uniwersalny)
+> „W trosce o najwyższą jakość i stabilność naszych usług, zdecydowaliśmy o tymczasowym przywróceniu poprzedniej wersji systemu. Dzięki temu mogą Państwo korzystać z [Nazwa Usługi] bez żadnych zakłóceń. Przepraszamy za wszelkie niedogodności”.
+
+### 2. Krótki i konkretny (idealny na status page lub pasek w aplikacji)
+> „Przywróciliśmy poprzednią wersję systemu, aby zapewnić pełną stabilność usługi. Obecnie wszystko działa poprawnie. Dziękujemy za cierpliwość”.
+
+### 3. Skupiony na korzyści klienta (bardziej „ludzki”)
+> „Wasz komfort jest dla nas priorytetem. Aby uniknąć ewentualnych problemów technicznych po ostatniej aktualizacji, wycofaliśmy zmiany i przywróciliśmy sprawdzoną, stabilną wersję platformy. Pracujemy nad ulepszeniami i poinformujemy o ich ponownym wprowadzeniu”.
+
+### 4. Bezpośredni i transparentny (dla branży tech/SaaS)
+> „Po wdrożeniu nowej aktualizacji zauważyliśmy błąd, który mógł wpływać na stabilność systemu. Podjęliśmy decyzję o natychmiastowym powrocie do poprzedniej wersji, aby zagwarantować ciągłość działania usługi. Przepraszamy za zamieszanie”.
+
+### 5. Luźny i przyjazny (jeśli marka ma taki styl)
+> „Hej! Chcemy, żeby wszystko u nas śmigało bez zarzutu, dlatego na chwilę wycofaliśmy ostatnią aktualizację i wróciliśmy do stabilnej wersji. Dzięki temu możecie korzystać z aplikacji bez żadnych przeszkód. Dajcie nam chwilę na poprawki – wrócimy z nowościami niebawem!”
+
+---
+
+**Wskazówki, co warto dodać:**
+*   **Przeprosiny:** Nawet krótkie „Przepraszamy za utrudnienia” buduje lepszą relację.
+*   **Status:** Jeśli problem został już rozwiązany przez rollback, warto wyraźnie zaznaczyć: „Usługa działa obecnie stabilnie”.
+*   **Call to action:** Jeśli klient ma pytania, dodaj: „W razie pytań nasz zespół wsparcia pozostaje do Twojej dyspozycji”.",,2046,6.55,False,,,0,,2026-05-10_23-22-51
+1,TRK_013,transformacja_lub_krytyka,prompt_en,en,False,"Critically evaluate this reasoning: our team worked longer hours this month, so it is obvious that the project is now healthier.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The reasoning provided—**""our team worked longer hours this month, so it is obvious that the project is now healthier""**—is logically flawed and potentially dangerous from a management perspective. It relies on several cognitive biases and overlooks critical indicators of project success.
+
+Here is a critical evaluation of the flaws in this reasoning:
+
+### 1. Confusing Input with Outcome
+The most significant error is treating **input** (hours worked) as a proxy for **outcome** (project health). 
+*   **The Reality:** Project health is measured by milestones reached, quality of deliverables, budget adherence, and stakeholder satisfaction. 
+*   **The Flaw:** Working 80 hours a week to fix a recurring bug that should have been caught earlier does not make a project ""healthier""; it indicates a project in a state of recovery or crisis.
+
+### 2. The ""Death March"" Fallacy (Diminishing Returns)
+The reasoning assumes a linear relationship between time spent and value created. However, knowledge work is subject to the **Law of Diminishing Returns**.
+*   **The Reality:** After a certain point (usually 40–50 hours a week), productivity drops sharply. Fatigue leads to cognitive decline, which results in more coding errors, poor architectural decisions, and communication breakdowns.
+*   **The Flaw:** Longer hours often result in ""technical debt""—work that must be redone later because it was rushed or performed by exhausted employees.
+
+### 3. Ignoring the ""Why"" (Root Cause Analysis)
+The statement fails to ask *why* the team worked longer hours. The reason for the overtime is a better indicator of health than the overtime itself:
+*   **Scenario A:** The team worked extra hours because they were excited and hit a ""flow state"" on a new feature. (Neutral/Positive)
+*   **Scenario B:** The team worked extra hours because the initial planning was poor, the scope crept, or the technology failed. (**Unhealthy**)
+*   **The Flaw:** If the overtime was ""crunch time"" to compensate for systemic failures, the project is actually in a critical state, not a healthy one.
+
+### 4. Neglecting Human Capital and Sustainability
+A ""healthy"" project is one that is **sustainable**. 
+*   **The Reality:** High-intensity overtime is a leading cause of burnout, low morale, and employee turnover. 
+*   **The Flaw:** If the project ""progresses"" at the cost of the team’s mental and physical health, the project is becoming more fragile. If key developers quit due to exhaustion, the project could collapse entirely.
+
+### 5. The ""Sunk Cost"" and ""Effort"" Biases
+The reasoning suffers from the **Effort Justification Bias**: the tendency to attribute a high value to an outcome because a lot of effort was put into it.
+*   **The Flaw:** Just because the team suffered or sacrificed their time doesn't mean the project improved. It is possible to work 100 hours a week moving in the wrong direction.
+
+### 6. Lack of Multi-Dimensional Metrics
+""Health"" is a multi-dimensional metric. To claim a project is healthy, one should look at:
+*   **Velocity:** Is the team delivering features at a consistent, predictable rate?
+*   **Quality:** Is the bug count decreasing?
+*   **Scope:** Is the project still within its original requirements?
+*   **Budget:** Is the cost of those ""longer hours"" (overtime pay or diverted resources) sustainable?
+
+### Summary
+The reasoning is **invalid**. It mistakes **activity for achievement**. In many cases, a sudden spike in hours is a ""leading indicator"" of project failure or poor management rather than a sign of health. A truly healthy project is usually characterized by a sustainable pace, predictable delivery, and high-quality output—not by the sheer volume of hours logged.",,3697,7.89,False,,,0,,2026-05-10_23-23-00
+1,TRK_013,transformacja_lub_krytyka,prompt_pl,pl,False,"Krytycznie oceń to rozumowanie: nasz zespół pracował w tym miesiącu dłużej, więc oczywiste jest, że projekt jest teraz w lepszej kondycji.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Rozumowanie: „nasz zespół pracował w tym miesiącu dłużej, więc oczywiste jest, że projekt jest teraz w lepszej kondycji” jest **obarczone kilkoma błędami logicznymi i zarządczymi**. Choć intuicyjnie wydaje się, że większy nakład pracy powinien przekładać się na lepsze efekty, w rzeczywistości taka korelacja często nie występuje.
+
+Oto krytyczna ocena tego rozumowania, podzielona na kluczowe aspekty:
+
+### 1. Błąd utożsamiania nakładów (input) z wynikami (output)
+To klasyczny błąd logiczny. Liczba przepracowanych godzin to **miara wysiłku**, a nie **miara postępu**.
+*   Projekt jest w „lepszej kondycji”, jeśli zrealizowano kamienie milowe, poprawiono jakość kodu lub dowieziono kluczowe funkcjonalności.
+*   Można pracować 12 godzin dziennie, stojąc w miejscu (np. naprawiając błędy, które sami stworzyliśmy dzień wcześniej) lub zajmując się mało istotnymi zadaniami.
+
+### 2. Prawo malejących przychodów i zmęczenie
+W pracy intelektualnej (jak zarządzanie projektami czy programowanie) wydajność nie jest liniowa.
+*   **Zmęczenie:** Dłuższa praca prowadzi do spadku koncentracji. Po pewnym czasie (zwykle po 6–8 godzinach) liczba popełnianych błędów drastycznie rośnie.
+*   **Dług technologiczny/operacyjny:** Jeśli zespół pracował dłużej, by „pogonić” terminy, mógł robić to kosztem jakości. To oznacza, że projekt może być w *gorszej* kondycji, bo w przyszłości trzeba będzie poprawiać błędy wynikające z pośpiechu.
+
+### 3. Przyczyna nadgodzin jako sygnał ostrzegawczy
+Samo wystąpienie konieczności dłuższej pracy może świadczyć o tym, że projekt jest w **złej** kondycji:
+*   Jeśli nadgodziny były wynikiem gaszenia pożarów, złego planowania lub niedoszacowania ryzyka, to projekt jest niestabilny.
+*   „Lepsza kondycja” to taka, w której zespół dowozi cele w założonym czasie. Nadgodziny są często objawem niewydolności procesów.
+
+### 4. Pułapka „zajętości” (False Sense of Progress)
+Praca pod presją czasu często zmusza do skupienia się na rzeczach pilnych, a nie ważnych. Zespół mógł poświęcić dodatkowy czas na detale, które nie przybliżają projektu do sukcesu, ignorując jednocześnie kluczowe ryzyka strategiczne.
+
+### 5. Ryzyko wypalenia i rotacji
+Kondycja projektu to także kondycja zespołu, który go tworzy.
+*   Jeśli „lepsza kondycja” projektu została kupiona kosztem wyczerpania ludzi, jest to sukces krótkowzroczny. Wypalony zespół w przyszłym miesiącu będzie pracował znacznie wolniej lub zacznie odchodzić z pracy, co jest katastrofalne dla stabilności projektu.
+
+### 6. Brak definicji „lepszej kondycji”
+Stwierdzenie „oczywiste jest” zamyka dyskusję bez podania dowodów. Aby ocenić kondycję projektu, należy spojrzeć na obiektywne wskaźniki (KPI), takie jak:
+*   Realizacja zakresu (Scope).
+*   Liczba otwartych błędów (Bug count).
+*   Zadowolenie klienta/interesariuszy.
+*   Zgodność z budżetem.
+
+### Podsumowanie
+Rozumowanie to jest **nieuprawnionym optymizmem**. Prawidłowa analiza powinna brzmieć:
+> „Nasz zespół pracował w tym miesiącu dłużej, **co pozwoliło nam nadrobić zaległości w module X, jednak musimy sprawdzić, czy nie odbiło się to na jakości rozwiązań i czy nie grozi nam spadek wydajności w przyszłym miesiącu**”.
+
+**Wniosek:** Więcej godzin pracy to koszt, a nie zysk. Zysk mierzy się efektami, których w tym rozumowaniu zabrakło.",,3270,9.32,False,,,0,,2026-05-10_23-23-11
+1,TRK_014,transformacja_lub_krytyka,prompt_en,en,False,"Assess the weaknesses of this argument: users asked for more features, so adding as many features as possible will make the product better.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The argument that ""adding as many features as possible will make the product better because users asked for them"" is a classic product management trap often referred to as **""The Build Trap""** or **""Feature Creep.""**
+
+While the premise (listening to users) is sound, the conclusion (more features = better product) is logically and practically flawed. Here is an assessment of its primary weaknesses:
+
+### 1. The Paradox of Choice (Hick’s Law)
+Adding more features increases the cognitive load on the user. When a product has too many options, it becomes harder to navigate, learn, and use. 
+*   **The Weakness:** Instead of making the product ""better,"" you may make it ""unusable."" A product that tries to do everything often ends up doing nothing particularly well.
+
+### 2. The ""Vocal Minority"" Fallacy
+Users who proactively ask for features are often ""power users"" or a specific niche. They do not necessarily represent the entire user base.
+*   **The Weakness:** By building everything requested, you risk optimizing the product for a small group of loud users while alienating the ""silent majority"" who value simplicity and core functionality.
+
+### 3. Dilution of Core Value Proposition
+Every great product solves a specific problem exceptionally well. Adding unrelated or tangential features can blur the product’s identity.
+*   **The Weakness:** If a simple note-taking app adds a calendar, a task manager, a social feed, and a video editor, it loses its identity. Users may switch to a competitor that focuses solely on being the best note-taking tool.
+
+### 4. Technical Debt and Maintenance Costs
+A feature is not a one-time cost; it is a permanent liability. Every new feature must be tested, debugged, updated, and supported for the rest of the product's life.
+*   **The Weakness:** ""As many as possible"" leads to a bloated codebase. This slows down future development, increases the likelihood of bugs, and drains engineering resources that could be used to improve existing, high-value features.
+
+### 5. The ""What"" vs. ""Why"" Gap
+Users are experts in their **problems**, but they are rarely experts in **solutions**. When a user asks for a specific feature, they are suggesting a solution to an underlying pain point.
+*   **The Weakness:** If you blindly add the requested feature, you might miss the actual problem. A better approach is to ask *why* they want it; often, the best solution is to improve an existing feature rather than adding a new one.
+
+### 6. Opportunity Cost
+Resources (time, money, developers) are finite. Choosing to build ""Feature X"" means you are choosing *not* to build ""Feature Y"" or not to improve ""Feature Z.""
+*   **The Weakness:** By trying to add *everything*, you fail to prioritize the *most impactful* things. Quality suffers across the board because the team’s focus is spread too thin.
+
+### 7. The ""Swiss Army Knife"" Syndrome
+A Swiss Army knife is useful because it has many tools, but you would never use its tiny saw to cut down a tree or its plastic toothpick to eat a steak. 
+*   **The Weakness:** Specialized tools almost always outperform generalist tools. By adding every possible feature, you risk becoming a ""jack of all trades, master of none,"" making your product vulnerable to specialized competitors.
+
+### Summary
+The fundamental flaw in the argument is the confusion of **quantity with value.** 
+
+**A better logic would be:** Users have identified pain points; we should identify the most impactful problems and solve them with the most elegant, simple solutions possible—even if that means saying ""no"" to most feature requests.",,3588,8.16,False,,,0,,2026-05-10_23-23-20
+1,TRK_014,transformacja_lub_krytyka,prompt_pl,pl,False,"Oceń słabości tego argumentu: użytkownicy prosili o więcej funkcji, więc dodanie jak największej liczby funkcji sprawi, że produkt będzie lepszy.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Argument, że „dodanie jak największej liczby funkcji sprawi, że produkt będzie lepszy”, jest klasycznym błędem w zarządzaniu produktem, często nazywanym **„pułapką budowania” (The Build Trap)** lub dążeniem do **„feature creep”** (przeładowania funkcjami).
+
+Oto szczegółowa ocena słabości tego rozumowania:
+
+### 1. Przeładowanie i spadek użyteczności (UX)
+Więcej funkcji nie oznacza lepszego doświadczenia użytkownika. Wręcz przeciwnie – każda nowa funkcja zwiększa skomplikowanie interfejsu.
+*   **Obciążenie poznawcze:** Użytkownik musi przetworzyć więcej informacji, menu stają się dłuższe, a znalezienie kluczowych opcji – trudniejsze.
+*   **Paradoks wyboru:** Zbyt duża liczba opcji może paraliżować użytkownika i sprawiać, że poczuje się on przytłoczony produktem, co prowadzi do rezygnacji z korzystania z niego.
+
+### 2. Rozmycie głównej wartości produktu (Value Proposition)
+Najlepsze produkty rozwiązują konkretny problem w sposób genialny. Dodawanie funkcji „na oślep” sprawia, że produkt staje się „szwajcarskim scyzorykiem” – niby ma wszystko, ale w niczym nie jest naprawdę dobry.
+*   Produkt traci swoją tożsamość i przestaje być kojarzony z konkretnym rozwiązaniem.
+
+### 3. Pułapka „głośnej mniejszości”
+Użytkownicy, którzy proszą o funkcje, to często najbardziej aktywna, ale niekoniecznie reprezentatywna grupa.
+*   Spełnianie próśb każdego użytkownika może doprowadzić do stworzenia produktu niszowego, który przestanie być atrakcyjny dla masowego odbiorcy.
+*   **Henry Ford** (przypisywany mu cytat): „Gdybym pytał ludzi, czego chcą, powiedzieliby, że szybszych koni”. Użytkownicy znają swoje problemy, ale nie zawsze znają najlepsze rozwiązania.
+
+### 4. Koszty techniczne i dług technologiczny
+Każda nowa funkcja to nie tylko koszt jej napisania, ale przede wszystkim **koszt jej utrzymania**.
+*   **Błędy (Bugs):** Więcej kodu to więcej potencjalnych miejsc, w których coś może się zepsuć.
+*   **Testowanie:** Każda nowa funkcja komplikuje testy regresyjne (sprawdzanie, czy nowa zmiana nie popsuła starych funkcji).
+*   **Dług techniczny:** Szybkie dodawanie funkcji często odbywa się kosztem jakości kodu, co w przyszłości spowalnia rozwój całego projektu.
+
+### 5. Koszt alternatywny (Opportunity Cost)
+Zasoby (czas programistów, budżet, uwaga zespołu) są ograniczone.
+*   Czas spędzony na dodawaniu 10 mało istotnych funkcji to czas, który mógł zostać poświęcony na dopracowanie do perfekcji jednej, kluczowej funkcji, która naprawdę wyróżnia produkt na rynku.
+
+### 6. Prawo Pareta w oprogramowaniu
+Badania (np. Standish Group) często pokazują, że w rozbudowanych systemach użytkownicy **regularnie korzystają jedynie z około 20% dostępnych funkcji**. Pozostałe 80% to zbędny balast, który kosztował czas i pieniądze, a jedynie przeszkadza w obsłudze tych najważniejszych opcji.
+
+### 7. Trudność w onboardingu
+Nowy użytkownik, widząc produkt z setką funkcji, ma znacznie wyższy próg wejścia. Jeśli produkt nie jest intuicyjny od pierwszej minuty, użytkownik prawdopodobnie go porzuci i wybierze prostszą alternatywę u konkurencji.
+
+### Podsumowanie – jak poprawić ten argument?
+Zamiast „dodawać jak najwięcej funkcji”, lepszą strategią jest:
+1.  **Analiza potrzeb, a nie próśb:** Zrozumienie, jaki problem użytkownik chce rozwiązać, zamiast bezkrytycznego wdrażania sugerowanego przez niego przycisku.
+2.  **Priorytetyzacja:** Wybieranie tylko tych funkcji, które przynoszą największą wartość największej grupie użytkowników (np. metoda MoSCoW lub RICE).
+3.  **Redukcja (Curating):** Czasami usunięcie zbędnej funkcji czyni produkt lepszym niż dodanie nowej.
+
+**Wniosek:** Jakość produktu mierzy się nie liczbą funkcji, ale stopniem, w jakim produkt rozwiązuje problemy użytkownika przy minimalnym wysiłku z jego strony.",,3744,8.37,False,,,0,,2026-05-10_23-23-29
+1,TRK_014,transformacja_lub_krytyka,paraphrase_en,en,True,What is wrong with the reasoning that more requested features must always improve a product? ,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The idea that more features—even those requested by users—automatically make a product better is a common trap known as the **""Feature Fallacy.""** 
+
+While listening to customers is vital, blindly adding requested features often leads to a worse product. Here is a breakdown of why that reasoning is flawed:
+
+### 1. Feature Creep and Complexity
+Every new feature adds a layer of complexity to the user interface (UI) and the user experience (UX). 
+*   **Hick’s Law:** This psychological principle states that the time it takes to make a decision increases with the number and complexity of choices. By adding more features, you may make the product harder to navigate, overwhelming new users and slowing down power users.
+*   **Cognitive Load:** A product that tries to do everything eventually becomes ""bloatware."" When a tool becomes too complex, users often abandon it for a simpler, more focused competitor.
+
+### 2. The Dilution of Core Value
+A great product usually solves one or two problems exceptionally well. When you add features to satisfy every niche request, you risk diluting the product’s primary identity. 
+*   **The Swiss Army Knife Problem:** A Swiss Army knife is ""okay"" at many things but ""great"" at none. If you need to saw down a tree, you don't use a pocketknife; you use a dedicated saw. Products that try to be everything to everyone often end up being mediocre for everyone.
+
+### 3. The ""Vocal Minority"" Bias
+Feature requests often come from a small, highly vocal group of ""power users."" 
+*   **The Silent Majority:** Most users might value simplicity and speed. If you build the product based solely on the requests of the loudest 5% of users, you may inadvertently make the product too difficult or confusing for the other 95%.
+*   **Stated vs. Revealed Preference:** What people *say* they want and what they actually *use* are often different. Users often request features they think they might use ""someday,"" but which ultimately just sit in a menu gathering dust.
+
+### 4. Technical Debt and Maintenance
+Features are not ""one and done"" additions; they are permanent liabilities.
+*   **Maintenance Cost:** Every new feature must be tested, debugged, and updated every time the OS or the rest of the software changes. 
+*   **Slower Innovation:** The more features a product has, the harder it is to change the core architecture. You become ""locked in"" by the need to support a massive web of legacy features, which slows down your ability to innovate or pivot.
+
+### 5. Opportunity Cost
+Resources (time, money, and developers) are finite. 
+*   Every hour spent building a requested ""nice-to-have"" feature is an hour **not** spent perfecting the core functionality, fixing critical bugs, or improving the speed and stability of the product. Often, the best way to improve a product is not to add something new, but to make the existing features 10% faster or more intuitive.
+
+### 6. The ""Faster Horse"" Problem
+As Henry Ford famously (reputedly) said: *""If I had asked people what they wanted, they would have said faster horses.""*
+*   Users generally request incremental improvements to existing solutions. They describe their problems through the lens of what they already know. 
+*   If a company only builds what is requested, they may miss the ""leapfrog"" innovation that solves the user's underlying problem in a completely new, more efficient way that the user hadn't imagined.
+
+### 7. Lack of Cohesion
+Great products have a ""vision"" or a ""philosophy."" When features are added piecemeal based on various user requests, the product begins to look like a patchwork quilt. The design becomes inconsistent, the workflows become fragmented, and the product loses its ""soul"" or its logical flow.
+
+### Summary
+The goal of product development should not be to maximize the **number of features**, but to maximize **user value.** Sometimes, the best way to improve a product is to **remove** features that are distracting or underused, rather than adding new ones. 
+
+**A better approach:** Instead of asking ""What feature do you want?"", ask ""What problem are you trying to solve?"" The answer to the second question often leads to a much simpler, more elegant solution than the feature the user originally requested.",,4236,9.71,False,,,0,,2026-05-10_23-23-40
+1,TRK_014,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Co jest nie tak z rozumowaniem, że więcej pożądanych funkcji musi zawsze ulepszać produkt? ",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Rozumowanie, że „więcej funkcji = lepszy produkt”, jest jednym z najczęstszych błędów w projektowaniu produktów, zarządzaniu projektami i marketingu. W branży technologicznej zjawisko to nazywa się często **„feature creep”** (pełzanie funkcji) lub **„featuritis”**.
+
+Oto główne powody, dla których dodawanie kolejnych pożądanych funkcji może w rzeczywistości pogorszyć produkt:
+
+### 1. Przeładowanie poznawcze i spadek użyteczności (UX)
+Zgodnie z **Prawem Hicka**, czas potrzebny na podjęcie decyzji rośnie wraz z liczbą i złożonością dostępnych opcji.
+*   Gdy produkt ma zbyt wiele funkcji, interfejs staje się zagracony.
+*   Użytkownik czuje się przytłoczony i ma trudności ze znalezieniem tych opcji, których faktycznie potrzebuje.
+*   Zamiast „intuicyjnego” narzędzia, otrzymujemy skomplikowany system wymagający instrukcji obsługi.
+
+### 2. Rozmycie głównej wartości (Core Value)
+Najlepsze produkty rozwiązują konkretny problem w sposób doskonały. Dodawanie pobocznych funkcji często rozmywa to, do czego produkt został stworzony.
+*   Przykład: Jeśli prosty edytor tekstu zacznie oferować edycję wideo, zarządzanie bazami danych i klienta e-mail, przestanie być lekkim i szybkim narzędziem do pisania.
+*   Produkt staje się „scyzorykiem szwajcarskim” – niby robi wszystko, ale w niczym nie jest naprawdę świetny.
+
+### 3. Dług technologiczny i stabilność
+Każda nowa funkcja to dodatkowe linie kodu, które trzeba:
+*   Przetestować.
+*   Utrzymywać.
+*   Aktualizować.
+Więcej funkcji to **większa powierzchnia ataku dla błędów (bugów)**. Złożone systemy są trudniejsze do debugowania, a interakcje między wieloma funkcjami mogą prowadzić do nieprzewidzianych awarii, co obniża ogólną jakość i stabilność produktu.
+
+### 4. Koszty ukryte (czas i pieniądze)
+Zasoby (czas programistów, budżet, uwaga zespołu) są ograniczone.
+*   Inwestując w 10 nowych, „fajnych” funkcji, rezygnujesz z dopracowania 2 kluczowych funkcji do perfekcji.
+*   Zamiast ulepszać to, co najważniejsze, zespół rozprasza się na dodatki, które dla większości użytkowników mogą być zbędne.
+
+### 5. Krzywa uczenia się (Learning Curve)
+Nowi użytkownicy oceniają produkt na podstawie tego, jak szybko mogą zacząć z niego korzystać.
+*   Produkt z „milionem opcji” stawia wysoką barierę wejścia.
+*   Jeśli użytkownik nie poczuje wartości produktu w ciągu pierwszych kilku minut, prawdopodobnie z niego zrezygnuje (tzw. churn).
+
+### 6. Paradoks wyboru
+Psychologia wskazuje, że nadmiar opcji często prowadzi do niezadowolenia. Użytkownik, mając zbyt wiele możliwości konfiguracji, może czuć lęk, że nie korzysta z produktu w „optymalny” sposób lub że coś pominął. Prostota często daje poczucie kontroli i satysfakcji.
+
+### 7. Prawo malejących przychodów
+Pierwsze kilka funkcji zazwyczaj dostarcza 80% wartości produktu. Każda kolejna funkcja przynosi coraz mniejszy przyrost realnej korzyści dla użytkownika, podczas gdy koszt skomplikowania produktu rośnie liniowo lub nawet wykładniczo.
+
+### Podsumowanie
+W projektowaniu produktów często sprawdza się zasada **„Mniej znaczy więcej” (Less is more)**. Dobry produkt to nie taki, do którego nie da się już nic dodać, ale taki, z którego **nie da się już nic odjąć** bez utraty jego sensu.
+
+Zamiast pytać: „Jaką funkcję możemy jeszcze dodać?”, lepiej pytać: „Jaki problem użytkownika chcemy rozwiązać i czy ta funkcja faktycznie w tym pomaga, czy tylko przeszkadza?”.",,3374,8.4,False,,,0,,2026-05-10_23-23-50
+1,TRK_015,transformacja_lub_krytyka,prompt_en,en,False,Rewrite the following direct message as a respectful note to a colleague: you sent the files too late again and this blocked the rest of us.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on your relationship with the colleague and the platform you are using (Slack, email, etc.), here are a few ways to rewrite that message respectfully:
+
+### Option 1: Professional & Direct (Best for Email)
+""Hi [Name], I wanted to touch base regarding the files for [Project]. Receiving them after the deadline has caused a bit of a bottleneck for the rest of the team’s workflow. Moving forward, could we aim to have these submitted by [Time/Date] so we can stay on schedule?""
+
+### Option 2: Collaborative & Supportive (Best for Slack/Teams)
+""Hi [Name], just a heads-up that the delay in receiving the files today put a hold on the next steps for the rest of us. Is there anything we can do to help streamline the process on your end so we can avoid these blocks in the future?""
+
+### Option 3: Soft but Clear (Best for a close colleague)
+""Hey [Name], we ran into a bit of a delay today because we were waiting on those files. It would be a huge help if you could get them over a little earlier next time so the team can keep the momentum going. Thanks!""
+
+### Option 4: Focus on the Solution
+""Hi [Name], to make sure the team has enough time to complete our part of the project, we really need those files by [Deadline]. When they arrive later than that, it unfortunately blocks the rest of the workflow. Can we count on having them by [Time] for the next round?""
+
+**Key changes made:**
+*   **Removed ""again"":** Even if it’s true, using ""again"" can feel like an attack. Focus on the solution rather than the history.
+*   **Used ""we"" and ""the team"":** This frames the issue as a project management concern rather than a personal grievance.
+*   **Added a specific ""why"":** Explaining that it creates a ""bottleneck"" or ""blocks the workflow"" is more professional than saying ""you blocked us.""",,1796,6.05,False,,,0,,2026-05-10_23-23-57
+1,TRK_015,transformacja_lub_krytyka,prompt_pl,pl,False,Przepisz następującą bezpośrednią wiadomość jako uprzejmą notatkę do współpracownika: znowu wysłałeś pliki za późno i zablokowało to resztę zespołu.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, zależnie od tego, jak blisko współpracujesz z tą osobą i jaki ton chcesz zachować:
+
+**Opcja 1: Profesjonalna i konstruktywna (najbardziej uniwersalna)**
+> „Cześć [Imię], mam prośbę o przesyłanie plików zgodnie z ustalonym harmonogramem. Ostatnie opóźnienie wpłynęło na pracę reszty zespołu i spowodowało mały przestój. Zależy nam na zachowaniu płynności, więc będę wdzięczny za trzymanie się terminów w przyszłości. Dzięki!”
+
+**Opcja 2: Miękka i nastawiona na współpracę (jeśli chcesz uniknąć napięć)**
+> „Hej [Imię], zauważyłem, że ostatnio pliki dotarły do nas nieco później, co niestety wstrzymało dalsze działania zespołu. Czy możemy coś usprawnić w procesie przesyłania materiałów, żebyśmy mogli uniknąć takich blokad w kolejnych etapach? Daj znać, jeśli potrzebujesz wsparcia.”
+
+**Opcja 3: Krótka i konkretna (np. na Slacka lub Teamsy)**
+> „Cześć, mała prośba na przyszłość – staraj się proszę podsyłać pliki o czasie. Kiedy pojawia się opóźnienie, reszta zespołu nie może ruszyć ze swoimi zadaniami, a zależy nam na sprawnym domknięciu projektu. Dzięki za zrozumienie!”
+
+**Co się zmieniło w porównaniu do oryginału?**
+*   Usunięto słowo **„znowu”**, które brzmi oskarżycielsko i wywołuje postawę obronną.
+*   Zamiast skupiać się na winie („ty wysłałeś”), skupiono się na **wpływie na proces** („wpłynęło na pracę zespołu”).
+*   Dodano **uprzejme zwroty** (prośba, podziękowanie), które sprawiają, że komunikat jest profesjonalnym feedbackiem, a nie pretensją.",,1488,6.45,False,,,0,,2026-05-10_23-24-04
+1,TRK_015,transformacja_lub_krytyka,paraphrase_en,en,True,Turn the blunt message into respectful colleague communication: the files arrived later than expected and this delayed the next steps for the team.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on the situation and who you are talking to, here are a few ways to rephrase that message while remaining professional and constructive:
+
+### Option 1: Direct but Softened (Best for a quick email or Slack)
+> ""We’ve received the files, thank you. Since they arrived a bit later than anticipated, it has pushed back our timeline for the next steps. The team is working to get back on track now.""
+
+### Option 2: Focus on the Schedule (Best for project management)
+> ""Now that we have the files, the team is moving forward with the next phase. Because of the slight delay in delivery, we’ve had to adjust our internal milestones. I’ll keep you updated on the revised ETA for the final output.""
+
+### Option 3: Collaborative & Solution-Oriented (Best for maintaining a good relationship)
+> ""Thanks for sending those over. Because the delivery came in past the original window, the team’s start on the next steps was delayed. Is there anything we can do to help streamline the hand-off process for next time?""
+
+### Option 4: Firm but Professional (Best if this is a recurring issue)
+> ""While we have the files now, the delay in receiving them has impacted our ability to meet the original project timeline. To ensure the team can stay on schedule moving forward, we’ll need to receive these inputs by [Date/Time] in the future.""
+
+### Option 5: Short & Casual (Best for a close colleague)
+> ""Received, thanks! Just a heads-up that the later delivery put the team behind a bit on the next steps, so we’re currently playing a little catch-up to stay on schedule.""
+
+**Key changes made:**
+*   **Replaced ""later than expected""** with ""later than anticipated"" or ""past the original window.""
+*   **Shifted focus** from blaming the person to the *impact* on the timeline.
+*   **Added a ""path forward""** so the message feels like a status update rather than just a complaint.",,1868,5.84,False,,,0,,2026-05-10_23-24-11
+1,TRK_015,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Zamień tę zbyt bezpośrednią wiadomość w uprzejmą komunikację do współpracownika: pliki dotarły później, niż oczekiwano, i opóźniło to kolejne kroki zespołu.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, jak przekazać tę informację w sposób uprzejmy i profesjonalny, zależnie od tego, jak bliskie masz relacje ze współpracownikiem:
+
+### Opcja 1: Profesjonalna i neutralna (najbardziej uniwersalna)
+> „Dziękuję za przesłanie plików. Ponieważ dotarły one nieco później, niż zakładaliśmy, wpłynęło to na harmonogram kolejnych etapów prac zespołu. Postaramy się teraz jak najszybciej wrócić do realizacji zadań”.
+
+### Opcja 2: Miękka i wyrozumiała (jeśli chcesz zachować bardzo dobre relacje)
+> „Potwierdzam odbiór plików, dziękuję. Niestety ich późniejsze dostarczenie spowodowało małe przesunięcie w naszych dalszych działaniach. Damy znać, gdy tylko uda nam się nadrobić ten etap”.
+
+### Opcja 3: Skupiona na rozwiązaniu (konstruktywna)
+> „Dzięki za materiały. Ze względu na to, że dotarły do nas z pewnym opóźnieniem, musieliśmy zaktualizować plan dalszych prac zespołu. Na przyszłość będę wdzięczny/a za informację o możliwych poślizgach, żebyśmy mogli lepiej zaplanować nasze kroki”.
+
+### Opcja 4: Krótka (idealna na komunikator typu Slack/Teams)
+> „Cześć, pliki dotarły, dzięki! Przez to, że dotarły nieco później, nasze kolejne kroki trochę się przesunęły w czasie, ale już nad tym pracujemy”.
+
+**Co się zmieniło?**
+*   **Zamiast wytykania błędu**, skupiamy się na fakcie (wpływ na harmonogram).
+*   **Dodano podziękowanie** za otrzymanie plików (nawet jeśli są spóźnione, to dobry wstęp).
+*   **Użyto strony biernej lub form bezosobowych** („dotarły”, „wpłynęło to na”), co zdejmuje bezpośrednią winę z odbiorcy i brzmi mniej oskarżycielsko.",,1563,6.56,False,,,0,,2026-05-10_23-24-19
+1,TRK_016,transformacja_lub_krytyka,prompt_en,en,False,"Shorten the following message into a concise internal note: yesterday we had a meeting about the rollout. Many comments appeared, some people wanted to postpone the launch, but in the end we decided that the documentation should be improved before choosing the release date.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Here are a few ways to shorten the message, depending on the desired tone:
+
+**Option 1: Direct & Action-Oriented (Best for Slack/Teams)**
+> **Rollout Update:** Release date is TBD pending documentation improvements.
+
+**Option 2: Professional & Formal**
+> Following yesterday’s meeting, we have decided to finalize documentation before setting a firm launch date.
+
+**Option 3: Ultra-Concise**
+> Rollout status: Documentation must be improved before confirming release date.",,472,2.56,False,,,0,,2026-05-10_23-24-22
+1,TRK_016,transformacja_lub_krytyka,prompt_pl,pl,False,"Skróć następującą wiadomość do zwięzłej notatki wewnętrznej: wczoraj mieliśmy spotkanie o wdrożeniu. Pojawiło się wiele uwag, część osób chciała przesunąć start, ale ostatecznie zdecydowaliśmy, że najpierw trzeba poprawić dokumentację, a dopiero potem wybrać datę uruchomienia.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, zależnie od pożądanego stopnia zwięzłości:
+
+**Opcja 1 (Formalna):**
+**Temat:** Status wdrożenia
+**Ustalenia:** Przed wyznaczeniem daty startu należy poprawić dokumentację (wniosek po wczorajszym spotkaniu).
+
+**Opcja 2 (Punktowa – najbardziej przejrzysta):**
+**Wdrożenie – decyzje:**
+* Priorytet: poprawa dokumentacji.
+* Termin startu: zostanie ustalony po aktualizacji dokumentów.
+
+**Opcja 3 (Bardzo krótka – np. na Slack/Teams):**
+Wdrożenie: najpierw poprawiamy dokumentację, dopiero potem wyznaczamy datę startu.",,536,4.29,False,,,0,,2026-05-10_23-24-28
+1,TRK_017,transformacja_lub_krytyka,prompt_en,en,False,"Evaluate the reasoning in this claim: the two best students in the class take very detailed notes, so every student who wants good grades should take notes in exactly the same way.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The reasoning in this claim is **logically flawed** and relies on several informal fallacies. While the advice to take notes is generally sound, the argument that every student should mimic these two specific students ""exactly"" is problematic for the following reasons:
+
+### 1. Confusing Correlation with Causation
+The argument assumes that detailed note-taking is the *sole* or *primary* cause of the two students' success. This ignores other variables that likely contribute to their high grades, such as:
+*   Prior knowledge of the subject.
+*   Time spent studying outside of class.
+*   Natural aptitude or interest in the material.
+*   Effective test-taking strategies.
+Just because they take detailed notes and get good grades (correlation) does not mean the notes are the only reason for those grades (causation).
+
+### 2. Hasty Generalization (Small Sample Size)
+The claim draws a universal conclusion (""every student"") based on an extremely small sample size (two students). What works for two individuals in a specific environment may not be a representative ""best practice"" for a diverse group of learners with different cognitive strengths.
+
+### 3. Ignoring Individual Learning Styles
+The reasoning assumes that there is a ""one size fits all"" approach to learning. Educational psychology suggests that different students process information differently:
+*   **Cognitive Load:** For some students, trying to take ""very detailed"" notes can actually hinder learning. They may become so focused on transcribing every word that they fail to actually listen to and synthesize the lecture.
+*   **Alternative Methods:** Some students perform better using ""lean"" note-taking methods (like the Cornell Method or mind-mapping) that focus on big ideas rather than exhaustive detail. Others may learn better by engaging in active discussion and taking minimal notes.
+
+### 4. The ""Exactly the Same Way"" Fallacy
+The claim insists on exact replication. However, the *process* of note-taking is often more important than the *product*. The two top students likely take detailed notes because that is how *they* process information. If another student copies their format without the same underlying mental engagement, the notes will likely be far less effective for them.
+
+### 5. False Necessity
+The claim suggests that taking notes in this specific way is a requirement for good grades (""every student who wants good grades **should**...""). This is demonstrably false; many students achieve high marks using different methods, such as recording lectures, focusing on practice problems, or using active recall and spaced repetition rather than detailed transcription.
+
+### Summary
+The reasoning is **weak** because it relies on an **anecdotal observation** to create a **universal rule**. While the two students' success is a good starting point for an inquiry into study habits, the claim fails to account for individual differences, the complexity of learning, and the difference between correlation and causation.",,3009,6.22,False,,,0,,2026-05-10_23-24-35
+1,TRK_017,transformacja_lub_krytyka,prompt_pl,pl,False,"Oceń rozumowanie w tym twierdzeniu: dwaj najlepsi studenci w grupie robią bardzo szczegółowe notatki, więc każdy student chcący mieć dobre oceny powinien notować dokładnie w ten sam sposób.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Rozumowanie przedstawione w tym twierdzeniu jest **wadliwe pod względem logicznym i merytorycznym**. Opiera się na kilku błędach poznawczych i logicznych.
+
+Oto szczegółowa ocena tego rozumowania:
+
+### 1. Mylenie korelacji z przyczynowością (*Cum hoc ergo propter hoc*)
+To najważniejszy błąd w tym twierdzeniu. Fakt, że dwaj najlepsi studenci robią szczegółowe notatki, oznacza jedynie, że te dwa zjawiska (wysokie oceny i sposób notowania) występują jednocześnie. Nie dowodzi to jednak, że to właśnie sposób notowania jest **przyczyną** ich sukcesu.
+*   Możliwe, że ci studenci są po prostu bardzo pracowici, a notatki są tylko jednym z wielu przejawów tej pracowitości.
+*   Możliwe, że mają świetną pamięć, a notowanie pomaga im jedynie uporządkować wiedzę, którą i tak już przyswoili.
+
+### 2. Błąd pochopnego uogólnienia (*Hasty Generalization*)
+Wyciąganie wniosku dotyczącego „każdego studenta” na podstawie obserwacji zaledwie **dwóch osób** jest błędem statystycznym. Próba badawcza (n=2) jest zbyt mała, aby formułować uniwersalne zasady. To, co działa dla dwóch konkretnych osób, może być całkowicie nieskuteczne dla pozostałych trzydziestu osób w grupie.
+
+### 3. Ignorowanie różnic indywidualnych w uczeniu się
+Ludzie przetwarzają informacje w różny sposób (różne style uczenia się i preferencje poznawcze):
+*   Dla niektórych **szczegółowe notowanie** może być rozpraszające – skupiają się na zapisywaniu słów wykładowcy, zamiast na zrozumieniu sensu wypowiedzi.
+*   Inni studenci mogą uczyć się lepiej poprzez **notowanie selektywne** (mapy myśli, schematy), które zmusza do natychmiastowej syntezy wiedzy.
+*   Istnieją osoby, które najlepiej zapamiętują, słuchając uważnie i robiąc jedynie minimalne notatki. Zmuszenie ich do „szczegółowego notowania” mogłoby wręcz pogorszyć ich wyniki.
+
+### 4. Błąd przeżywalności (*Survivorship Bias*)
+Twierdzenie skupia się tylko na „zwycięzcach” (najlepszych studentach). Nie bierze pod uwagę:
+*   Studentów, którzy również robią bardzo szczegółowe notatki, ale mimo to mają słabe oceny (bo np. nie potrafią się z tych notatek uczyć).
+*   Studentów, którzy nie robią prawie żadnych notatek, a mimo to osiągają świetne wyniki.
+
+### 5. Efektywność a kopiowanie metody
+„Dokładnie ten sam sposób” notowania może być dla kogoś innego nieczytelny lub niefunkcjonalny. Notatki są narzędziem osobistym. Skopiowanie formatu bez zrozumienia strategii nauki, która za nim stoi, rzadko przynosi te same rezultaty.
+
+### Podsumowanie
+Rozumowanie to jest **nieuprawnionym uproszczeniem**. Choć robienie notatek zazwyczaj pomaga w nauce, twierdzenie, że istnieje jeden „jedyny słuszny sposób” oparty na przykładzie dwóch osób, jest logicznie błędne.
+
+**Poprawniejsze sformułowanie mogłoby brzmieć:** „Dwaj najlepsi studenci w grupie robią szczegółowe notatki, co sugeruje, że ta metoda może być skuteczna. Warto sprawdzić, czy taki system pracy pomoże również innym, biorąc jednak pod uwagę ich indywidualne predyspozycje”.",,2956,8.29,False,,,0,,2026-05-10_23-24-44
+1,TRK_017,transformacja_lub_krytyka,paraphrase_en,en,True,Explain the logical weaknesses in this conclusion about study habits based on a small number of successful examples.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Drawing conclusions about study habits based on a small number of successful examples is a common reasoning error. In logic and statistics, this is often referred to as **""anecdotal evidence""** or the **""fallacy of hasty generalization.""**
+
+Here are the specific logical weaknesses inherent in this type of conclusion:
+
+### 1. Survivorship Bias
+This is the most significant flaw. When you only look at ""successful"" examples, you are ignoring all the people who used the exact same study habits but failed. 
+*   **Example:** If you interview three people who got straight A’s by pulling all-nighters, you might conclude that all-nighters work. However, you haven't accounted for the hundreds of other students who pulled all-nighters and failed their exams because of sleep deprivation. You are only looking at the ""survivors.""
+
+### 2. Small Sample Size (The Law of Small Numbers)
+In statistics, a small sample is highly prone to **random noise** and outliers. The smaller the group, the more likely it is that their success is due to chance or specific circumstances rather than the habit itself. 
+*   **The Flaw:** A sample of three or four people is not ""statistically significant."" It cannot represent the vast diversity of human learning styles, subjects, or cognitive abilities.
+
+### 3. Correlation vs. Causation
+Just because a successful person has a specific habit does not mean that habit *caused* their success. 
+*   **The Flaw:** A successful student might listen to heavy metal while studying. You might conclude that heavy metal improves focus. In reality, that student might succeed *in spite* of the music, or perhaps the music simply masks distracting background noise. The habit could be incidental rather than instrumental.
+
+### 4. Confounding Variables (Hidden Factors)
+Successful individuals rarely succeed because of one single habit. By focusing on a specific study method, you ignore ""confounding variables"" that might actually be responsible for the result.
+*   **Examples of hidden factors:** 
+    *   **Prior Knowledge:** Did they already know the material?
+    *   **Natural Aptitude:** Do they have a high baseline cognitive processing speed?
+    *   **Resources:** Do they have access to private tutors or better textbooks?
+    *   **Environment:** Do they have a quiet, stress-free home life?
+
+### 5. Selection Bias
+If you (or the person presenting the data) specifically sought out successful people to prove a point, the data is ""cherry-picked."" 
+*   **The Flaw:** You are starting with the conclusion (""This habit works"") and looking for evidence to support it, rather than looking at the evidence objectively to see what conclusion it leads to. This is a form of **confirmation bias.**
+
+### 6. Lack of a Control Group
+To scientifically prove a study habit works, you need a ""control group""—a group of people with similar backgrounds who *do not* use that habit. 
+*   **The Flaw:** Without a comparison, you have no way of knowing if the successful group would have been *even more* successful using a different method, or if a group using no specific method would have performed just as well.
+
+### 7. The ""Generalizability"" Problem
+What works for a theoretical physics student at MIT may not work for a high school student learning a foreign language. 
+*   **The Flaw:** Different subjects require different cognitive processes (rote memorization vs. abstract problem solving). Drawing a universal conclusion from a few specific examples ignores the fact that study habits must be context-dependent.
+
+### Summary
+To avoid these pitfalls, one should look for **meta-analyses** or **large-scale longitudinal studies**. These methods account for thousands of students across different variables, filtering out the ""noise"" of individual luck or talent to find the habits that actually produce consistent results.",,3841,8.19,False,,,0,,2026-05-10_23-24-53
+1,TRK_017,transformacja_lub_krytyka,paraphrase_pl,pl,True,Wyjaśnij logiczne słabości tego wniosku o nawykach nauki opartego na małej liczbie udanych przykładów.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wyciąganie ogólnych wniosków na temat nawyków nauki (lub jakichkolwiek innych sukcesów) na podstawie zaledwie kilku przykładów jest obarczone poważnymi błędami logicznymi. Tego typu rozumowanie często prowadzi do błędnych przekonań, które mogą być wręcz szkodliwe.
+
+Oto główne słabości logiczne takiego wnioskowania:
+
+### 1. Błąd przeżywalności (Survivorship Bias)
+To najpoważniejsza słabość. Skupiamy się na osobach, które odniosły sukces („przeżyły”), ignorując całą rzeszę ludzi, którzy stosowali te same nawyki, ale ponieśli porażkę.
+*   **Przykład:** Jeśli analizujemy nawyki trzech miliarderów, którzy rzucili studia, możemy dojść do wniosku, że rzucenie studiów sprzyja sukcesowi. Zapominamy jednak o tysiącach osób, które rzuciły studia i z tego powodu mają trudności na rynku pracy.
+
+### 2. Generalizacja na podstawie zbyt małej próby (Hasty Generalization)
+W statystyce i logice mała grupa (np. 3-5 osób) nie jest reprezentatywna dla całej populacji. Im mniejsza próba, tym większe prawdopodobieństwo, że zaobserwowany wynik jest dziełem przypadku, a nie reguły.
+*   **Problem:** To, co zadziałało u trzech konkretnych osób, może wynikać z ich unikalnych cech, a nie z samej metody nauki.
+
+### 3. Mylenie korelacji z przyczynowością (Cum hoc ergo propter hoc)
+To, że osoba odnosząca sukcesy ma dany nawyk, nie oznacza, że to właśnie ten nawyk doprowadził do sukcesu.
+*   **Przykład:** Ktoś może uczyć się wyłącznie w nocy i mieć świetne oceny. Możemy uznać, że nauka w nocy jest skuteczna, podczas gdy w rzeczywistości ta osoba odnosi sukcesy, bo jest wybitnie inteligentna lub ma świetne materiały, a nauka w nocy wręcz jej przeszkadza (ale nie na tyle, by zniwelować inne atuty).
+
+### 4. Dowód anegdotyczny (Anecdotal Evidence)
+Opieranie się na historiach (anegdotach) zamiast na twardych danych naukowych. Ludzki umysł uwielbia opowieści, bo są łatwiejsze do zapamiętania niż statystyki, ale pojedyncze przypadki nie stanowią dowodu naukowego.
+*   **Problem:** Anegdoty często pomijają niewygodne szczegóły, które mogłyby podważyć tezę.
+
+### 5. Ignorowanie zmiennych zakłócających (Confounding Variables)
+Sukces w nauce zależy od dziesiątek czynników: genetyki, poziomu stresu, diety, wcześniejszej edukacji, wsparcia rodziny czy zasobów finansowych. Skupiając się tylko na jednym nawyku (np. „robienie kolorowych notatek”), ignorujemy fakt, że te osoby mogły odnieść sukces dzięki zupełnie innym czynnikom, których nie wzięliśmy pod uwagę.
+
+### 6. Błąd selekcji (Selection Bias)
+Często podświadomie wybieramy do analizy te przykłady, które pasują do naszej postawionej wcześniej tezy (efekt potwierdzenia). Jeśli chcemy udowodnić, że wstawanie o 5 rano pomaga w nauce, znajdziemy 3 osoby, które tak robią i odnoszą sukcesy, ignorując 10 innych, które śpią do 10 i mają jeszcze lepsze wyniki.
+
+### 7. Brak grupy kontrolnej
+W rzetelnym badaniu należałoby porównać grupę stosującą dany nawyk z grupą, która go nie stosuje, przy zachowaniu podobnych warunków. Wyciąganie wniosków z samych „pozytywnych” przykładów uniemożliwia sprawdzenie, czy dany nawyk faktycznie robi różnicę.
+
+### Podsumowanie – jak myśleć lepiej?
+Zamiast pytać: *""Co robi te kilka osób, które odniosły sukces?""*, lepiej pytać:
+1.  *""Jaki procent osób stosujących ten nawyk odnosi sukces, a jaki ponosi porażkę?""*
+2.  *""Czy istnieją badania na dużych grupach ludzi, które potwierdzają skuteczność tej metody?""*
+3.  *""Czy te osoby odniosłyby sukces nawet bez tego nawyku?""*
+
+Wnioskowanie na podstawie małej liczby przykładów to budowanie teorii na fundamencie z przypadku.",,3552,10.83,False,,,0,,2026-05-10_23-25-05
+1,TRK_018,transformacja_lub_krytyka,prompt_en,en,False,"Analyze the weaknesses in this justification: customers report fewer issues after we added a new FAQ page, so technical support no longer needs further investment.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The justification that ""customers report fewer issues after a new FAQ page, so technical support no longer needs further investment"" contains several logical fallacies and strategic oversights.
+
+Here is an analysis of the weaknesses in this reasoning:
+
+### 1. Correlation vs. Causation
+The argument assumes that the FAQ page is the **sole reason** for the decline in reports. However, other factors could be at play:
+*   **Product Stability:** Perhaps a recent software update fixed major bugs.
+*   **Seasonality:** Support volume often fluctuates based on the time of year or product cycles.
+*   **User Churn:** If the product is failing, customers might stop reporting issues because they have simply stopped using the service entirely.
+
+### 2. The ""Complexity Shift"" (Quality vs. Quantity)
+While the **volume** of tickets may decrease, the **complexity** of the remaining tickets often increases. 
+*   FAQs typically handle ""Level 1"" issues (e.g., ""How do I reset my password?""). 
+*   Once the easy questions are deflected, the support team is left only with high-level, technical, or unique problems that require more time, better training, and more sophisticated tools to solve. 
+*   Reducing investment in this scenario could lead to a backlog of complex issues that the FAQ cannot address.
+
+### 3. The Risk of ""Silent Churn""
+A drop in reported issues is not always a sign of customer satisfaction. It can be a sign of **customer frustration.**
+*   If a user cannot find an answer in the FAQ and finds the path to a human agent too difficult, they may simply give up.
+*   A customer who stops complaining isn't necessarily a happy customer; they are often a customer who is about to switch to a competitor. Without investment in support, you lose the ability to ""save"" these customers.
+
+### 4. Support as a Data Source (Feedback Loops)
+Technical support is not just a cost center; it is a vital **intelligence gathering** department. 
+*   Support agents are the primary link between the user and the product development team. 
+*   By halting investment, the company risks losing the ability to gather nuanced feedback that drives future product innovation. An FAQ page can deflect a ticket, but it cannot tell the product team *why* the user was confused in the first place.
+
+### 5. Maintenance and Decay
+An FAQ page is not a ""set it and forget it"" solution. 
+*   As products evolve, FAQ pages become outdated. If investment in the support ecosystem (which includes documentation) stops, the FAQ will eventually provide incorrect information.
+*   This leads to a ""rebound effect"" where support volume spikes later because customers are frustrated by misleading self-service tools.
+
+### 6. Scalability and Competitive Advantage
+Investment in support is often about **proactive** improvements, not just reactive fixes.
+*   Further investment could go toward automation, AI integration, or faster response times—all of which provide a competitive advantage.
+*   Stagnating because of a temporary dip in tickets ignores the need to scale the support infrastructure as the company grows.
+
+### Summary
+The justification relies on a **narrow metric (ticket volume)** while ignoring **outcome metrics (Customer Lifetime Value, CSAT, and Resolution Time).** It mistakes a successful ""deflection tool"" (the FAQ) for a replacement for ""human expertise and infrastructure.""",,3367,8.01,False,,,0,,2026-05-10_23-25-14
+1,TRK_018,transformacja_lub_krytyka,prompt_pl,pl,False,"Przeanalizuj słabości tego uzasadnienia: klienci zgłaszają mniej problemów po dodaniu nowej strony FAQ, więc wsparcie techniczne nie wymaga już dalszych inwestycji.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wnioskowanie, że spadek liczby zgłoszeń po wdrożeniu strony FAQ pozwala na zaprzestanie inwestycji w wsparcie techniczne, jest obarczone kilkoma poważnymi błędami logicznymi i biznesowymi. Oto szczegółowa analiza słabości tego uzasadnienia:
+
+### 1. Mylenie korelacji z przyczynowością (Post hoc ergo propter hoc)
+To, że liczba zgłoszeń spadła po dodaniu FAQ, nie musi oznaczać, że stało się to *dzięki* FAQ.
+*   **Inne czynniki:** Spadek może wynikać z sezonowości, mniejszej liczby aktywnych użytkowników w danym okresie lub faktu, że ostatnia aktualizacja produktu była wyjątkowo stabilna.
+*   **Błąd atrybucji:** Bez głębszej analizy (np. ankiet „Czy ta strona FAQ pomogła Ci rozwiązać problem?”) przypisywanie sukcesu wyłącznie jednemu czynnikowi jest ryzykowne.
+
+### 2. Ignorowanie wzrostu złożoności problemów
+FAQ zazwyczaj eliminuje tylko proste, powtarzalne pytania (tzw. *low-hanging fruit*).
+*   **Efekt:** Pracownicy wsparcia nie muszą już odpowiadać na pytanie „jak zmienić hasło”, ale przez to trafiają do nich wyłącznie problemy skomplikowane, techniczne i czasochłonne.
+*   **Wniosek:** Choć zgłoszeń jest mniej, każde z nich może wymagać teraz **większych** kompetencji, lepszych narzędzi i więcej czasu, co paradoksalnie wymaga *dalszych* inwestycji w szkolenia i wyższej klasy specjalistów.
+
+### 3. Ryzyko „pozornego sukcesu” (Frustracja klienta)
+Mniejsza liczba zgłoszeń nie zawsze oznacza zadowolenie.
+*   **Bariery kontaktu:** Jeśli FAQ jest rozbudowane, ale nie rozwiązuje problemu, a dotarcie do formularza kontaktowego stało się trudniejsze, klienci mogą po prostu rezygnować z kontaktu i... odchodzić do konkurencji (*churn*).
+*   **Brak feedbacku:** Milczący klient to często klient niezadowolony, który nie daje firmie szansy na naprawę błędu.
+
+### 4. Statyczność vs. Dynamika produktu
+Strona FAQ nie jest rozwiązaniem „wdroż i zapomnij”.
+*   **Dezaktualizacja:** Produkty, oprogramowanie i rynek się zmieniają. Bez dalszych inwestycji w utrzymanie bazy wiedzy, FAQ szybko stanie się nieaktualne, co wywoła nową falę frustracji i zgłoszeń.
+*   **Dług technologiczny:** Brak inwestycji w systemy wsparcia (np. CRM, narzędzia do diagnostyki) sprawi, że dział wsparcia stanie się wąskim gardłem w momencie kolejnego skalowania firmy.
+
+### 5. Utrata cennych danych rynkowych
+Wsparcie techniczne to nie tylko „koszt”, to najważniejsze źródło informacji dla działu rozwoju produktu (R&D).
+*   **Głos klienta:** Inwestowanie w support pozwala na lepszą analitykę tego, z czym klienci mają problem. Ograniczenie inwestycji może doprowadzić do utraty kontaktu z rzeczywistymi potrzebami użytkowników, co w dłuższej perspektywie osłabi produkt.
+
+### 6. Skalowalność i rozwój
+Jeśli firma planuje wzrost, obecny stan „spokoju” jest chwilowy.
+*   **Wzrost bazy użytkowników:** Nawet przy świetnym FAQ, przy wzroście liczby klientów z 1 000 do 100 000, liczba problemów niestandardowych wzrośnie proporcjonalnie. Brak inwestycji w infrastrukturę wsparcia teraz, zemści się paraliżem operacyjnym w przyszłości.
+
+### Podsumowanie – błąd strategiczny
+Uzasadnienie traktuje wsparcie techniczne wyłącznie jako **centrum kosztów**, które należy minimalizować, a nie jako **element doświadczenia klienta (Customer Experience)**, który buduje lojalność i przewagę konkurencyjną. Sukces FAQ powinien być sygnałem do przesunięcia inwestycji na wyższy poziom (np. proaktywne wsparcie, automatyzacja, zaawansowana diagnostyka), a nie do ich całkowitego wstrzymania.",,3466,9.7,False,,,0,,2026-05-10_23-25-25
+1,TRK_018,transformacja_lub_krytyka,paraphrase_en,en,True,Read the statement and explain why the conclusion may be premature: fewer reported problems after a new FAQ means support can stop improving.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The conclusion that ""support can stop improving"" because reported problems have decreased is premature—and potentially dangerous for a business—for several logical and operational reasons.
+
+Here is an explanation of why that logic is flawed:
+
+### 1. ""Fewer Reports"" Does Not Equal ""Fewer Problems""
+A drop in tickets doesn’t always mean the product is perfect; it can mean the reporting process is frustrating.
+*   **User Fatigue:** If the new FAQ is difficult to navigate or the support channel is hard to find, users may simply give up and stop reporting issues.
+*   **Silent Churn:** Many customers do not report problems before leaving. If they encounter a hurdle and the FAQ doesn't solve it immediately, they may simply switch to a competitor rather than taking the time to open a support ticket.
+
+### 2. The FAQ May Only Address ""Surface"" Issues
+FAQs are excellent at handling ""Level 1"" repetitive questions (e.g., ""How do I reset my password?"").
+*   **Complexity Shift:** While the FAQ might reduce the *volume* of easy questions, the remaining problems are likely more complex and technical. These ""Level 2"" issues require a higher quality of support, more specialized training, and better internal tools—all of which require ongoing improvement.
+*   **False Security:** If a company stops improving support, they will be unprepared when a major, complex crisis occurs that an FAQ cannot solve.
+
+### 3. Correlation vs. Causation
+The drop in reports might not even be due to the FAQ.
+*   **External Factors:** Perhaps the user base has shrunk, a recent bug was silently patched by the dev team, or there is a seasonal dip in usage. Attributing the success solely to the FAQ without investigating other data points can lead to a ""false positive"" regarding the health of the support system.
+
+### 4. Support is a Moving Target
+Products, technology, and customer expectations are constantly evolving.
+*   **Product Updates:** Every time a new feature is added or an interface is changed, the FAQ becomes outdated. Support must be an iterative process to keep up with the product’s evolution.
+*   **Rising Standards:** What was considered ""good support"" five years ago is now the bare minimum. Customers constantly expect faster response times and more personalized service. Stopping improvement means eventually falling behind market standards.
+
+### 5. The ""Feedback Loop"" would Break
+Support is not just about fixing problems; it is a vital source of data for the rest of the company.
+*   **Product Development:** Support teams provide the product team with insights into what users want. If you stop improving the support infrastructure, you lose the ability to capture and analyze the ""voice of the customer,"" which is essential for long-term growth.
+
+### 6. Diminishing Returns of Self-Service
+There is a limit to how much an FAQ can do. Human empathy and creative problem-solving are things an FAQ cannot provide. If a company stops improving its human support element, it loses the ability to build emotional loyalty with its customers, which is often what happens during a support interaction.
+
+### Summary
+The decrease in reported problems should be seen as a **success of a specific tool (the FAQ)**, not as a **signal to end the mission of the department.** A drop in volume is actually the perfect opportunity to shift focus from ""firefighting"" (handling high volumes of easy tickets) to ""proactive improvement"" (deepening the quality of service and preventing future issues).",,3490,8.4,False,,,0,,2026-05-10_23-25-35
+1,TRK_018,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Przeczytaj stwierdzenie i wyjaśnij, dlaczego wniosek może być przedwczesny: mniej zgłaszanych problemów po nowym FAQ oznacza, że wsparcie może przestać się rozwijać.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wniosek, że dział wsparcia (support) może przestać się rozwijać tylko dlatego, że spadła liczba zgłoszeń po wprowadzeniu nowego FAQ, jest przedwczesny i ryzykowny z kilku kluczowych powodów:
+
+### 1. Wzrost stopnia trudności pozostałych zgłoszeń
+FAQ zazwyczaj eliminuje proste, powtarzalne pytania (np. „jak zmienić hasło?”). To oznacza, że zgłoszenia, które nadal trafiają do konsultantów, są prawdopodobnie **bardziej skomplikowane, nietypowe i wymagające głębszej wiedzy technicznej**. Zamiast ograniczać rozwój, wsparcie musi teraz ewoluować w stronę wyższych kompetencji analitycznych i eksperckich.
+
+### 2. Pułapka „pozornego sukcesu” (User Drop-off)
+Mniejsza liczba zgłoszeń nie zawsze oznacza, że problem został rozwiązany. Może się zdarzyć, że:
+*   FAQ jest niejasne, a użytkownicy zniechęcili się i po prostu przestali korzystać z usługi (zamiast prosić o pomoc).
+*   Użytkownicy szukają rozwiązań na forach zewnętrznych, co sprawia, że firma traci kontrolę nad wizerunkiem i informacją zwrotną.
+Wsparcie musi rozwijać narzędzia do badania satysfakcji (CSAT, NPS), aby sprawdzić, czy spadek zgłoszeń to faktycznie sukces.
+
+### 3. Rola wsparcia jako źródła wiedzy o produkcie
+Wsparcie klienta to nie tylko „gaszenie pożarów”, ale przede wszystkim **najcenniejsze źródło feedbacku dla działu rozwoju produktu (R&D)**. Jeśli wsparcie przestanie się rozwijać, firma straci kanał komunikacji, który mówi, jakie nowe funkcje są potrzebne lub co w produkcie jest nieintuicyjne. Nowoczesny support ewoluuje w stronę *Customer Success* – proaktywnego pomagania klientowi w osiąganiu celów, a nie tylko reaktywnego odpowiadania na pytania.
+
+### 4. Zmiana charakteru pracy, a nie jej zanik
+Mniejsza liczba rutynowych zadań to szansa na rozwój wsparcia w nowych obszarach, takich jak:
+*   Tworzenie lepszych treści wideo i tutoriali.
+*   Automatyzacja procesów (np. wdrażanie chatbotów AI).
+*   Personalizacja obsługi klienta VIP.
+Zatrzymanie rozwoju w tym momencie oznaczałoby zmarnowanie potencjału na przejście z obsługi ilościowej na jakościową.
+
+### 5. Dynamika rynku i produktu
+Produkty i usługi rzadko stoją w miejscu. Każda nowa aktualizacja, zmiana przepisów czy ruch konkurencji generuje nowe pytania. Jeśli dział wsparcia przestanie się rozwijać, „zardzewieje” i nie będzie gotowy na kolejny kryzys lub dużą premierę, której FAQ jeszcze nie obejmuje.
+
+### Podsumowanie
+Spadek liczby zgłoszeń dzięki FAQ to sukces operacyjny, ale nie sygnał do stagnacji. To raczej **moment transformacji**: z działu zajmującego się prostą pomocą techniczną w dział budujący relacje, dbający o retencję klienta i dostarczający strategicznych danych dla całej firmy.",,2655,7.89,False,,,0,,2026-05-10_23-25-44
+1,TRK_019,transformacja_lub_krytyka,prompt_en,en,False,Rewrite the following message for a customer facing announcement: we found a bug and rolled back the release because the deployment broke several parts of the system.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on the severity of the issue and your brand voice, here are a few ways to rewrite that message for customers:
+
+### Option 1: Professional & Transparent (Best for most situations)
+> ""We have temporarily reverted our latest update after identifying some technical issues that affected system performance. We’ve restored the previous stable version to ensure you have an uninterrupted experience while our team works on a fix. We apologize for any inconvenience.""
+
+### Option 2: Short & Direct (Best for a status page or social media)
+> ""We’ve rolled back our most recent release to address some unexpected bugs. The system is now back to its previous stable state, and we’ll share more updates as we prepare to re-release the improvements.""
+
+### Option 3: Customer-Centric (Focuses on stability)
+> ""To ensure the best possible experience for our users, we have decided to undo our latest update while we resolve some minor technical inconsistencies. Everything should be working as expected now, and we appreciate your patience.""
+
+### Option 4: Detailed (Best for a technical community or B2B)
+> ""Following our recent deployment, we identified an issue that impacted several core features. To maintain system integrity, we have performed a rollback to the previous version. Our engineering team is currently resolving the root cause, and we will provide an update once the new release is ready.""
+
+### Key improvements made:
+*   **Replaced ""broke several parts""** with ""technical issues,"" ""unexpected behavior,"" or ""impacted performance."" (Sounds more controlled).
+*   **Replaced ""found a bug""** with ""identified an issue"" or ""technical inconsistencies.""
+*   **Added Reassurance:** Mentioning that the system is now ""stable"" or ""working as expected"" helps lower customer anxiety.",,1786,4.97,False,,,0,,2026-05-10_23-25-50
+1,TRK_019,transformacja_lub_krytyka,prompt_pl,pl,False,"Przepisz następującą wiadomość jako komunikat dla klientów: znaleźliśmy błąd i wycofaliśmy wdrożenie, ponieważ aktualizacja zepsuła kilka części systemu.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wybór odpowiedniego komunikatu zależy od tego, jak bardzo formalna jest Twoja relacja z klientami oraz jakiego kanału komunikacji używasz (e-mail, media społecznościowe, status page).
+
+Oto kilka propozycji w różnych stylach:
+
+### 1. Profesjonalny i formalny (idealny do e-maila lub oficjalnego ogłoszenia)
+> **Temat: Informacja o stabilności systemu i wycofaniu ostatniej aktualizacji**
+>
+> Szanowni Państwo,
+>
+> Informujemy, że w trosce o najwyższą jakość naszych usług podjęliśmy decyzję o wycofaniu ostatniej aktualizacji systemu. Podczas monitorowania wdrożenia wykryliśmy nieprawidłowości, które mogły wpływać na stabilność wybranych funkcji.
+>
+> Przywróciliśmy poprzednią, stabilną wersję oprogramowania. Nasz zespół techniczny pracuje już nad wyeliminowaniem błędu, aby móc bezpiecznie udostępnić Państwu nowe usprawnienia w najbliższym możliwym terminie.
+>
+> Przepraszamy za wszelkie niedogodności.
+
+### 2. Bezpośredni i konkretny (na stronę ze statusem usługi lub Slacka)
+> **Komunikat techniczny: Przywrócenie poprzedniej wersji systemu**
+>
+> Po wdrożeniu ostatniej aktualizacji zidentyfikowaliśmy błędy wpływające na działanie niektórych modułów systemu. Aby zapewnić Państwu ciągłość pracy bez zakłóceń, zdecydowaliśmy o natychmiastowym wycofaniu zmian i przywróceniu stabilnej wersji oprogramowania.
+>
+> Obecnie system działa poprawnie. Pracujemy nad poprawką, o której wdrożeniu poinformujemy w osobnym komunikacie.
+
+### 3. Nowoczesny i transparentny (styl SaaS / startupowy)
+> **Aktualizacja statusu: Dbamy o stabilność Waszej pracy**
+>
+> Cześć! Zauważyliśmy, że nasza ostatnia aktualizacja nie zadziałała tak, jak planowaliśmy i spowodowała problemy z niektórymi funkcjami. Nie chcemy, aby wpływało to na Waszą pracę, dlatego szybko wycofaliśmy zmiany i przywróciliśmy sprawdzoną wersję systemu.
+>
+> Przepraszamy za to zamieszanie! Wracamy do kodowania, aby dostarczyć Wam poprawioną wersję tak szybko, jak to możliwe. Dziękujemy za wyrozumiałość!
+
+### 4. Krótki (np. na media społecznościowe lub pasek powiadomień w aplikacji)
+> **Ważna informacja:** W związku z wykryciem błędów technicznych w ostatniej aktualizacji, przywróciliśmy stabilną wersję systemu. Pracujemy nad rozwiązaniem problemu i przepraszamy za przejściowe utrudnienia.
+
+---
+
+**Wskazówka:** W komunikacji z klientem lepiej unikać sformułowania „aktualizacja zepsuła części systemu”. Lepiej brzmią zwroty takie jak:
+*   „wpłynęła na stabilność wybranych funkcji”,
+*   „spowodowała nieoczekiwane nieprawidłowości”,
+*   „nie spełniła naszych standardów jakości”.",,2544,7.32,False,,,0,,2026-05-10_23-25-58
+1,TRK_020,transformacja_lub_krytyka,prompt_en,en,False,"Critically evaluate this reasoning: our team worked longer hours this month, so it is obvious that the project is now healthier.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The reasoning that ""our team worked longer hours this month, so it is obvious that the project is now healthier"" is **logically flawed and potentially dangerous.** It relies on several false assumptions and ignores the complexities of project management and human productivity.
+
+Critically, the statement can be evaluated through the following lenses:
+
+### 1. Confusing Input with Outcome
+The most significant flaw is the confusion between **input** (hours worked) and **output** (value or progress). 
+*   **The Reality:** Project health is measured by milestones reached, quality of deliverables, and budget adherence—not by the number of hours spent in chairs. 
+*   **The Risk:** A team can spend 80 hours a week ""spinning their wheels"" on low-priority tasks, attending redundant meetings, or fixing avoidable mistakes. High input does not guarantee high-quality output.
+
+### 2. The ""Why"" Matters (Root Cause Analysis)
+The reasoning assumes that longer hours are a sign of proactive improvement. However, longer hours are often a **symptom of poor project health.**
+*   **Negative Indicators:** If the team worked longer hours because of ""firefighting,"" poor initial planning, scope creep, or fixing critical bugs, the project is actually in a **fragile or declining state.**
+*   **Positive Indicators:** Only if the extra hours were a strategic, short-term ""sprint"" to capitalize on an opportunity could they be seen as a sign of health—but even then, it is the *result* of that sprint, not the hours themselves, that determines health.
+
+### 3. Diminishing Returns and the ""Death March""
+The reasoning ignores the law of diminishing returns in knowledge work.
+*   **Cognitive Decline:** Research consistently shows that after a certain point (usually 40–50 hours a week), productivity drops sharply. Fatigue leads to more errors, which requires more time to fix later (rework).
+*   **Technical Debt:** Under pressure to work long hours, teams often take shortcuts. These ""hacks"" may make a project look better in the short term but create ""technical debt"" that makes the project much unhealthier in the long run.
+
+### 4. Sustainability and Team Attrition
+Project health includes the **health of the human capital.**
+*   **Burnout:** Long hours lead to burnout, decreased morale, and high turnover. If a project ""succeeds"" at the cost of losing its best engineers or managers, the project is not healthy; it is cannibalizing its own future to pay for the present.
+*   **The ""Hero"" Fallacy:** Relying on extra hours suggests the project plan is unsustainable. A healthy project is one that can be maintained at a steady, predictable pace.
+
+### 5. Measurement Bias (Goodhart’s Law)
+This reasoning falls victim to **Goodhart’s Law:** *""When a measure becomes a target, it ceases to be a good measure.""*
+*   If ""hours worked"" is the metric for health, the team is incentivized to work slowly or perform ""theatre"" (staying late to look busy) rather than finding efficient ways to solve problems.
+
+### Summary of the Critique
+The conclusion is **not ""obvious.""** In fact, the opposite could be true. To determine if the project is actually healthier, one should look at:
+*   **Velocity/Throughput:** Is the team delivering more features or fixing more bugs than before?
+*   **Quality:** Has the number of open defects decreased?
+*   **Stakeholder Satisfaction:** Is the client or end-user happier with the progress?
+*   **Predictability:** Is the team meeting its deadlines without needing ""heroic"" overtime?
+
+**Final Verdict:** The reasoning is a **non-sequitur** (it does not follow). Working longer hours is a measure of **cost and effort**, whereas project health is a measure of **stability and value.** Using the former to prove the latter is a fundamental management error.",,3775,8.36,False,,,0,,2026-05-10_23-26-07
+1,TRK_020,transformacja_lub_krytyka,prompt_pl,pl,False,"Krytycznie oceń to rozumowanie: nasz zespół pracował w tym miesiącu dłużej, więc oczywiste jest, że projekt jest teraz w lepszej kondycji.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Rozumowanie: „nasz zespół pracował w tym miesiącu dłużej, więc oczywiste jest, że projekt jest teraz w lepszej kondycji” jest **obarczone kilkoma błędami logicznymi i zarządczymi**. Choć na pierwszy rzut oka wydaje się intuicyjne, w rzeczywistości jest to uproszczenie, które może maskować poważne problemy.
+
+Oto krytyczna ocena tego rozumowania z podziałem na kluczowe aspekty:
+
+### 1. Mylenie nakładów (input) z wynikami (output)
+To fundamentalny błąd. Liczba przepracowanych godzin to **koszt/nakład**, a nie **rezultat**.
+*   **Wniosek:** Sam fakt, że zespół siedział po godzinach, nie oznacza, że praca została wykonana efektywnie. Można spędzić 100 godzin na naprawianiu błędów, które w ogóle nie powinny powstać, lub na spotkaniach, które nie przybliżają do celu.
+
+### 2. Przyczyna nadgodzin może być negatywna
+Rozumowanie zakłada, że dodatkowy czas to „bonus” dla projektu. Często jest jednak odwrotnie – nadgodziny są **objawem złej kondycji projektu**, a nie lekarstwem na nią. Mogą wynikać z:
+*   Złego planowania i nierealnych terminów.
+*   Niespodziewanych błędów i awarii (tzw. „gaszenie pożarów”).
+*   Niskich kompetencji lub braku odpowiednich narzędzi.
+*   Chaosu decyzyjnego i konieczności wyrzucania już wykonanej pracy do kosza.
+
+### 3. Prawo malejących przychodów i zmęczenie
+W pracy intelektualnej (jaką zazwyczaj są projekty) wydajność nie jest liniowa.
+*   **Błędy:** Przemęczony pracownik popełnia więcej błędów. W efekcie „dłuższa praca” w tym miesiącu może oznaczać konieczność „jeszcze dłuższej pracy” w przyszłym miesiącu, aby naprawić pomyłki powstałe z niewyspania.
+*   **Spadek jakości:** Kod pisany w 12. godzinie pracy jest zazwyczaj gorszej jakości niż ten pisany w 2. godzinie.
+
+### 4. Dług technologiczny i ludzki
+Nawet jeśli w krótkim terminie projekt „posunął się do przodu”, długofalowa kondycja może ucierpieć:
+*   **Wypalenie zawodowe:** Jeśli zespół pracuje dłużej, rośnie ryzyko rotacji pracowników. Utrata kluczowego specjalisty pogorszy kondycję projektu znacznie bardziej niż zyskał on dzięki nadgodzinom.
+*   **Dług technologiczny:** Praca pod presją czasu sprzyja rozwiązaniom „na skróty”, które w przyszłości będą trudne w utrzymaniu.
+
+### 5. Pułapka „oczywistości” (Błąd logiczny)
+Użycie słowa „oczywiste” jest tu nadużyciem (tzw. *dogmatyzm*). W zarządzaniu projektami nic nie jest oczywiste bez twardych danych (KPI).
+*   **Pytania sprawdzające:** Czy dowieziono zaplanowane kamienie milowe? Czy liczba otwartych błędów spadła? Czy wzrosła satysfakcja klienta? Jeśli jedynym rosnącym wskaźnikiem jest liczba godzin, to kondycja projektu może być wręcz gorsza (wzrost kosztów przy braku wzrostu wartości).
+
+### Podsumowanie – jak mogłoby brzmieć poprawne rozumowanie?
+Aby to zdanie było prawdziwe, musiałoby zostać uzupełnione o dowody na efektywność:
+
+> „Nasz zespół pracował w tym miesiącu dłużej, **dzięki czemu udało nam się zamknąć wszystkie krytyczne zadania przed terminem i zredukować dług technologiczny**, więc projekt jest teraz w lepszej kondycji”.
+
+**Werdykt:** Przedstawione przez Ciebie rozumowanie to **optymistyczne życzeniowe myślenie**. Dłuższa praca to sygnał ostrzegawczy, który wymaga analizy, a nie powód do automatycznego świętowania sukcesu.",,3218,8.16,False,,,0,,2026-05-10_23-26-17
+1,TRK_020,transformacja_lub_krytyka,paraphrase_en,en,True,Explain why more hours worked do not automatically prove that a project is healthier.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"In management and project recovery, the belief that ""more hours equals more progress"" is known as the **Labor Theory of Value fallacy**. While it seems intuitive that more effort leads to more results, in complex fields like software development, engineering, and creative work, high hour counts are often a **lagging indicator of failure** rather than a leading indicator of success.
+
+Here is why more hours worked do not automatically prove a project is healthier.
+
+---
+
+### 1. The Law of Diminishing Returns
+Cognitive labor is not linear. Research consistently shows that after a certain point (usually 40–50 hours a week), the productivity per hour drops significantly. 
+*   **The ""Drain"" Effect:** An exhausted employee might take four hours to solve a problem they could have solved in thirty minutes while fresh. 
+*   **Net Negative Productivity:** In high-stakes environments, a tired worker is more likely to make a critical mistake. If a developer works a 12-hour shift and introduces a major bug that takes the team two days to fix, their ""extra hours"" actually resulted in **negative progress.**
+
+### 2. Hours Mask Process Inefficiency
+High hour counts are often a ""smoke screen"" for underlying systemic issues. If a team is consistently working overtime, it usually points to:
+*   **Scope Creep:** The project requirements are growing faster than the timeline allows.
+*   **Poor Planning:** The original estimates were unrealistic.
+*   **Technical Debt:** The team is spending more time fighting old fires (bugs/legacy issues) than building new features.
+*   **Lack of Resources:** The team is simply understaffed for the objective.
+**A healthy project is predictable;** a project that relies on ""heroics"" and overtime is volatile and out of control.
+
+### 3. Technical Debt and Quality Erosion
+When hours go up, quality almost inevitably goes down. To meet grueling deadlines, teams often take shortcuts:
+*   They skip documentation.
+*   They bypass rigorous testing.
+*   They write ""quick and dirty"" code or designs.
+While the project might look ""healthy"" on a Gantt chart today, these shortcuts create **Technical Debt.** Eventually, the project will grind to a halt because the foundation is too brittle to support new work.
+
+### 4. Burnout and ""The Great Resignation""
+Project health includes the health of the human capital. High hours are a leading cause of burnout.
+*   **Knowledge Loss:** If your lead engineer burns out and quits mid-project, the ""health"" of that project collapses instantly. The cost of hiring and retraining a replacement is far higher than the value of the extra hours gained.
+*   **Quiet Quitting:** When forced into long hours, employees often ""perform"" work without actually being productive, leading to a culture of presenteeism where people stay late just to be seen, not to achieve.
+
+### 5. Goodhart’s Law
+Goodhart’s Law states: *""When a measure becomes a target, it ceases to be a good measure.""*
+If leadership uses ""hours worked"" as a metric for project health, the team will prioritize **logging hours** over **delivering value.** You end up with a project that is ""on time"" according to the timesheets but fails to meet the actual business needs or user requirements.
+
+### 6. Parkinson’s Law
+Parkinson’s Law states that *""work expands so as to fill the time available for its completion.""* 
+If a culture rewards long hours, tasks that should take two hours will mysteriously start taking six. Efficiency is de-prioritized because there is no incentive to finish early if the reward for efficiency is simply ""more work.""
+
+---
+
+### What are better indicators of Project Health?
+If hours worked isn't the right metric, what is? Healthy projects focus on **Outcomes over Outputs**:
+
+1.  **Velocity/Throughput:** Is the team consistently delivering usable features or milestones?
+2.  **Cycle Time:** How long does it take for an idea to go from ""started"" to ""done""?
+3.  **Quality Metrics:** Is the bug count decreasing? Is the system stable?
+4.  **Team Sentiment:** Is morale high? Is the team confident in the deadline?
+5.  **Stakeholder Satisfaction:** Is the client or end-user seeing value in what is being produced?
+
+### Summary
+**Hours are an input; value is an output.** A project where the team works 35 focused hours and hits every milestone is infinitely healthier than a project where the team works 70 hours just to keep their heads above water. High hours are usually a sign that a project is **surviving, not thriving.**",,4480,10.24,False,,,0,,2026-05-10_23-26-28
+1,TRK_020,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Wyjaśnij, dlaczego większa liczba przepracowanych godzin nie dowodzi automatycznie, że projekt jest w lepszej kondycji.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Przekonanie, że duża liczba przepracowanych godzin (roboczogodzin) jest wprost proporcjonalna do sukcesu projektu, to jeden z najczęstszych błędów w zarządzaniu. W rzeczywistości nadmiar godzin często bywa sygnałem ostrzegawczym, a nie powodem do optymizmu.
+
+Oto kluczowe powody, dla których większa liczba godzin nie dowodzi dobrej kondycji projektu:
+
+### 1. Mylenie nakładów (Input) z rezultatami (Output)
+Godziny to **koszt**, a nie **wartość**. Projekt jest w dobrej kondycji, gdy dostarcza zaplanowane funkcjonalności w terminie i z zachowaniem jakości. Jeśli zespół spędza nad projektem 200% planowanego czasu, a postęp prac wynosi 50%, oznacza to drastyczny spadek rentowności i efektywności. Liczy się to, co zostało dowiezione (Outcome), a nie to, jak bardzo zmęczony jest zespół.
+
+### 2. Prawo Parkinsona
+Zgodnie z prawem Parkinsona: *""Praca rozszerza się tak, aby wypełnić czas dostępny na jej ukończenie""*. Jeśli zespół ma nieograniczony budżet godzinowy lub kultura firmy promuje ""siedzenie po godzinach"", zadania, które mogłyby zająć 2 godziny, będą zajmować 6. Duża liczba godzin może więc świadczyć o braku dyscypliny czasowej lub złej organizacji pracy.
+
+### 3. Prawo malejących przychodów (Diminishing Returns)
+W pracy intelektualnej i kreatywnej wydajność nie jest liniowa. Po 8–10 godzinach pracy koncentracja drastycznie spada. Kolejne godziny pracy przynoszą coraz mniej efektów, a jednocześnie generują więcej błędów. W efekcie zespół spędza następny dzień na naprawianiu tego, co zepsuł pracując w nocy – to błędne koło, które zwiększa liczbę godzin, ale cofa projekt w rozwoju.
+
+### 4. ""Gaszenie pożarów"" zamiast planowej pracy
+Wysoka liczba nadgodzin często wynika z **zarządzania reaktywnego**. Jeśli zespół pracuje po nocach, zazwyczaj oznacza to, że:
+*   wystąpiły nieprzewidziane błędy techniczne,
+*   źle oszacowano trudność zadań,
+*   zarządzanie ryzykiem zawiodło.
+W takiej sytuacji duża liczba godzin jest dowodem na to, że projekt wymknął się spod kontroli, a nie że idzie w dobrym kierunku.
+
+### 5. Dług techniczny i niska jakość
+Pośpiech i praca pod presją czasu (generująca dużo godzin w krótkim czasie) prowadzą do chodzenia na skróty. Powstaje tzw. **dług techniczny** – rozwiązania są wdrażane ""na brudno"", bez dokumentacji i testów. W krótkim terminie wydaje się, że praca wre, ale w długim terminie projekt ""puchnie"" od błędów, co może doprowadzić do jego całkowitego zatrzymania w przyszłości.
+
+### 6. Prawo Brooksa
+W zarządzaniu projektami (szczególnie IT) znane jest Prawo Brooksa: *""Dodanie ludzi do opóźnionego projektu sprawia, że staje się on jeszcze bardziej opóźniony""*. Większa liczba roboczogodzin wynikająca z dołożenia nowych osób zwiększa narzut komunikacyjny. Zamiast pracować nad projektem, doświadczeni pracownicy poświęcają czas na wdrażanie nowych, co generuje ogromną liczbę godzin przy zerowym lub ujemnym postępie prac.
+
+### 7. Ukryty Scope Creep (Pełzanie zakresu)
+Duża liczba godzin może oznaczać, że zespół zajmuje się rzeczami, które nie były planowane. Jeśli klient lub manager dorzuca nowe funkcjonalności ""w locie"", liczba godzin rośnie, ale pierwotny cel projektu i data jego zakończenia oddalają się. To prosta droga do przekroczenia budżetu i porażki projektu.
+
+### 8. Wypalenie zespołu
+Projekt to maraton, a nie sprint. Jeśli wysoka liczba godzin utrzymuje się przez dłuższy czas, kondycja zespołu (morale) spada. Wypalony zespół jest mniej kreatywny, częściej choruje i częściej odchodzi z pracy. Utrata kluczowego pracownika w środku projektu to znacznie większy cios dla jego kondycji niż jakiekolwiek opóźnienie.
+
+### Podsumowanie – co mierzyć zamiast godzin?
+Aby rzetelnie ocenić kondycję projektu, zamiast na liczbę godzin, lepiej patrzeć na:
+*   **Velocity / Burndown Chart:** Czy realnie domykamy zadania zgodnie z planem?
+*   **Milestones:** Czy osiągamy kluczowe punkty kontrolne w terminie?
+*   **Quality Metrics:** Jaka jest liczba błędów i regresji?
+*   **Stakeholder Satisfaction:** Czy dostarczana wartość odpowiada potrzebom klienta?
+
+**Wniosek:** Duża liczba godzin to często objaw choroby projektu, a nie dowód na jego siłę. Dobrze zarządzany projekt to taki, który osiąga cele przy **optymalnym**, a nie maksymalnym nakładzie pracy.",,4227,11.26,False,,,0,,2026-05-10_23-26-40
