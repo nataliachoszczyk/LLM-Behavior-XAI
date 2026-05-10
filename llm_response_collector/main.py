@@ -11,11 +11,11 @@ from config import (
     TRAIN_PROMPTS,
     VAL_PROMPTS,
     PROCESSED_DATA_DIR,
-    LLM_RESULTS_TRAIN_PROMPTS_BASE_PATH,
-    LLM_RESULTS_VAL_PROMPTS_BASE_PATH,
     LLM_RESULTS_TEST_PROMPTS_BASE_PATH,
     MODELS_CONFIG,
-    GEMINI_API_KEYS, LLM_RESULTS_TRAIN_PROMPTS,
+    GEMINI_API_KEYS,
+    LLM_RESULTS_TRAIN_PROMPTS,
+    LLM_RESULTS_VAL_PROMPTS,
 )
 from llm_response_analyzer.file_utils import read_prompts, read_llm_results, save_results
 from llm_response_collector.llm_clients import get_gemini_client
@@ -40,15 +40,18 @@ def validate_prompts(df_prompts: pd.DataFrame, prompt_columns: list[str]) -> Non
 
 
 def clean_invalid_responses(df: pd.DataFrame) -> pd.DataFrame:
-    """Drop rows where response is null OR error is not null."""
     mask = df["response"].notna() & df["error"].isna()
+
     return df[mask].reset_index(drop=True)
 
 
-def has_valid_response(df: pd.DataFrame, prompt_id, model_key: str) -> bool:
-    """Check if a valid response already exists for a given prompt_id + model_key."""
+def has_valid_response(df: pd.DataFrame, prompt_id, category, prompt_text, lang, is_paraphrase, model_key: str) -> bool:
     mask = (
         (df["prompt_id"] == prompt_id)
+        & (df["category"] == category)
+        & (df["prompt_text"] == prompt_text)
+        & (df["language"] == lang)
+        & (df["is_paraphrase"] == is_paraphrase)
         & (df["model_key"] == model_key)
         & df["response"].notna()
         & df["error"].isna()
@@ -101,11 +104,8 @@ def main():
     current_timestamp = get_timestamp()
 
     llm_results_paths = [
-        (
-            TRAIN_PROMPTS,
-            PROCESSED_DATA_DIR / LLM_RESULTS_TRAIN_PROMPTS,
-        ),
-        (VAL_PROMPTS, PROCESSED_DATA_DIR / Path(LLM_RESULTS_VAL_PROMPTS_BASE_PATH.stem + f"_{current_timestamp}.csv")),
+        (TRAIN_PROMPTS, LLM_RESULTS_TRAIN_PROMPTS),
+        (VAL_PROMPTS, LLM_RESULTS_VAL_PROMPTS),
         (
             TEST_PROMPTS,
             PROCESSED_DATA_DIR / Path(LLM_RESULTS_TEST_PROMPTS_BASE_PATH.stem + f"_{current_timestamp}.csv"),
@@ -178,7 +178,9 @@ def main():
                     if results_path.exists():
                         results_df = read_llm_results(results_path)
 
-                        if has_valid_response(results_df, prompt_id, model_key):
+                        if has_valid_response(
+                            results_df, prompt_id, category, prompt_text, lang, is_paraphrase, model_key
+                        ):
                             continue
 
                     ask_model = True
