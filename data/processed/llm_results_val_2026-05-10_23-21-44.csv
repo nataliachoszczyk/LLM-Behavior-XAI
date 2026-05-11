@@ -1,4 +1,4 @@
-﻿run_id,prompt_id,category,prompt_column,language,is_paraphrase,prompt_text,model_key,model_id,provider,model_parameters,temperature,top_p,max_tokens,max_new_tokens,repetition_penalty,response,error,response_length,elapsed_seconds,logprob_available,sum_logprob,avg_logprob,generated_tokens,perplexity,timestamp
+run_id,prompt_id,category,prompt_column,language,is_paraphrase,prompt_text,model_key,model_id,provider,model_parameters,temperature,top_p,max_tokens,max_new_tokens,repetition_penalty,response,error,response_length,elapsed_seconds,logprob_available,sum_logprob,avg_logprob,generated_tokens,perplexity,timestamp
 1,EXP_V01,wyjaśniające,prompt_en,en,False,Explain to a beginner investor why diversification lowers risk but cannot remove it completely.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"To understand diversification, it helps to start with the most famous cliché in investing: **""Don't put all your eggs in one basket.""**
 
 If you carry all your eggs in one basket and drop it, you lose everything. If you spread those eggs across ten different baskets, dropping one is a bummer, but you still have 90% of your eggs.
@@ -3907,3 +3907,842 @@ Zamiast „dodajmy jak najwięcej”, lepszą strategią jest:
 > „Użytkownicy zgłaszają różne potrzeby; musimy je **priorytetyzować**, wybrać te, które przynoszą największą wartość największej grupie odbiorców i wdrożyć je w sposób, który nie zepsuje prostoty i wydajności produktu”.
 
 **Wniosek:** Maksymalizacja liczby funkcji to prosta droga do stworzenia produktu nieczytelnego, trudnego w utrzymaniu i tracącego rynkową ostrość. Sukces w produkcie częściej wynika z mówienia „nie” niż z mówienia „tak”.",,3333,8.82,False,,,0,,2026-05-10_23-42-01
+1,EXP_V03,wyjaśniające,paraphrase_en,en,True,Someone writes code alone and thinks version control is unnecessary. Explain why it still matters.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"It is a common misconception that version control (like Git) is only for collaboration. In reality, version control is less about ""working with others"" and more about **""managing time and risk.""**
+
+Even if you are the only person who ever touches the code, here is why version control is your most important tool.
+
+### 1. The ""Undo"" Button on Steroids
+Without version control, if you make a mistake and realize it three hours later, you have to rely on your memory or `Ctrl+Z` (which clears when you close your editor). 
+*   **With Version Control:** You can revert a single file or the entire project to exactly how it looked at 10:15 AM yesterday. It gives you the freedom to break things because you know you can always ""teleport"" back to safety.
+
+### 2. Fearless Experimentation (Branching)
+Imagine you have a working app, but you want to try a radical new way to handle the database. 
+*   **Without VC:** You might copy the whole folder to `Project_Backup_Final_2`, which quickly becomes a mess.
+*   **With VC:** You create a ""branch."" You can spend a week writing experimental code in that branch. If it works, you merge it. If it’s a disaster, you delete the branch and your main code remains untouched and functional.
+
+### 3. The ""Future You"" is a Different Person
+Six months from now, you will look at a specific line of code and ask, *""Why on earth did I do it this way?""*
+*   **With Version Control:** You can look at the ""Commit Message"" for that line. It acts as a journal. A message like *""Fixed memory leak by switching to lazy loading""* explains the **intent** behind the code, which the code itself cannot do.
+
+### 4. Context Switching
+Suppose you are in the middle of building a massive new feature. Suddenly, you find a critical bug in the current version that needs to be fixed immediately.
+*   **Without VC:** You have to manually comment out your new, half-finished code or try to remember what you changed so you can fix the bug without breaking the new stuff.
+*   **With VC:** You ""stash"" your current work, switch to the stable version, fix the bug, and then pop your new work back on top. It takes seconds.
+
+### 5. Disaster Recovery (Off-site Backup)
+If your laptop is stolen, your hard drive fails, or you spill coffee on your keyboard, your project is gone. 
+*   **With Version Control:** If you push your code to a service like GitHub, GitLab, or Bitbucket, your entire project history is stored safely in the cloud. You can buy a new computer, run one command, and be back to work in minutes.
+
+### 6. Syncing Between Machines
+If you ever want to work on your desktop at home and then switch to a laptop at a coffee shop:
+*   **Without VC:** You’re emailing yourself `.zip` files or using USB sticks.
+*   **With VC:** You `push` from the desktop and `pull` to the laptop. It ensures you are always working on the most recent version without manual file management.
+
+### 7. Professionalism and Tooling
+Modern development tools (IDEs, deployment platforms, automated testers) are built to work with Git. 
+*   If you want to host a website on platforms like Vercel or Netlify, they can automatically update your site every time you ""push"" code. 
+*   If you ever decide to apply for a job or share your project, having a clean Git history is the ""gold standard"" proof that you know how to build software professionally.
+
+### The Summary
+Working without version control is like **tightrope walking without a net.** You might be a great walker, but eventually, the wind will blow or you’ll lose your balance. Version control is the net that ensures a single mistake doesn't end the show.",,3610,12.27,False,,,0,,2026-05-11_18-15-43
+1,EXP_V03,wyjaśniające,paraphrase_pl,pl,True,"Ktoś programuje sam i uważa, że kontrola wersji nie jest potrzebna. Wyjaśnij, dlaczego nadal ma znaczenie.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"To częsty błąd myślowy – zakładanie, że system kontroli wersji (jak Git) służy wyłącznie do komunikacji między programistami. W rzeczywistości **najważniejszą osobą, z którą współpracujesz w projekcie, jesteś Ty sam za sześć miesięcy.**
+
+Oto kluczowe powody, dla których programując solo, nadal powinieneś używać kontroli wersji:
+
+### 1. ""Super-przycisk"" Cofnij (Undo)
+Zwykłe `Ctrl+Z` działa tylko do momentu zamknięcia edytora lub na krótkim dystansie. Git pozwala cofnąć się do dowolnego momentu w historii projektu. Jeśli po trzech dniach pracy zorientujesz się, że nowa funkcja kompletnie zepsuła logikę aplikacji i nie pamiętasz, co dokładnie zmieniłeś – bez kontroli wersji jesteś w kropce. Z Gitem to jedno polecenie.
+
+### 2. Bezpieczne eksperymentowanie (Gałęzie / Branches)
+Chcesz przepisać silnik bazy danych albo przetestować nową bibliotekę, ale boisz się, że zepsujesz działający projekt? Tworzysz nową gałąź (`branch`).
+* Jeśli eksperyment się uda – scalasz go z głównym kodem.
+* Jeśli polegniesz – po prostu usuwasz gałąź i wracasz do stabilnej wersji, jakby nic się nie stało.
+
+### 3. Dokumentacja ""Dlaczego?"", a nie ""Co?""
+Dobry commit message (opis zmiany) wyjaśnia, dlaczego podjąłeś taką, a nie inną decyzję. Za rok, gdy spojrzysz na dziwny fragment kodu, nie będziesz musiał zgadywać, co miałeś na myśli. Historia commitów to dziennik budowy Twojego projektu.
+
+### 4. Izolacja błędów (Git Bisect)
+Jeśli zauważysz, że w Twoim programie pojawił się błąd, ale nie wiesz, kiedy dokładnie powstał, Git ma narzędzie zwane `bisect`. Pozwala ono przeszukać historię metodą binarną i precyzyjnie wskazać konkretną zmianę (nawet sprzed miesięcy), która wprowadziła błąd.
+
+### 5. Praca na wielu urządzeniach i backup
+Dzięki repozytoriom zdalnym (GitHub, GitLab, Bitbucket) możesz łatwo przełączać się między komputerem stacjonarnym a laptopem. Co więcej, jeśli Twój dysk twardy padnie, nie tracisz owoców swojej pracy. Repozytorium to najbezpieczniejsza forma backupu kodu.
+
+### 6. Porządek i higiena pracy
+Kontrola wersji wymusza pewną dyscyplinę. Zamiast mieć pliki typu `skrypt_v1.py`, `skrypt_v2_final.py`, `skrypt_v2_final_poprawiony.py`, masz jeden plik i czystą strukturę katalogów. Cała historia wersji jest ukryta w metadanych Gita.
+
+### 7. Łatwiejsze wdrażanie (Deployment)
+Współczesne narzędzia do hostingu (np. Vercel, Netlify, Heroku) działają w oparciu o Gita. Wrzucasz kod do repozytorium (`git push`), a serwer automatycznie buduje i publikuje Twoją aplikację. Bez tego musiałbyś ręcznie kopiować pliki przez FTP, co jest powolne i podatne na błędy.
+
+### 8. Przygotowanie na przyszłość
+Nawet jeśli teraz pracujesz sam, projekt może urosnąć. Jeśli za rok będziesz chciał kogoś zaprosić do pomocy, a nie będziesz miał kontroli wersji, wprowadzenie tej osoby do projektu będzie koszmarem. Z Gitem po prostu dajesz jej dostęp do repozytorium.
+
+### Podsumowanie
+Programowanie bez kontroli wersji jest jak wspinaczka wysokogórska bez liny zabezpieczającej. Możesz wejść na szczyt, ale jeden błąd może kosztować Cię utratę wszystkiego. **Git nie jest dla zespołu – Git jest dla Twojego świętego spokoju.**",,3123,16.29,False,,,0,,2026-05-11_18-16-00
+1,CMP_V01,porównawcze,paraphrase_en,en,True,"How does online learning differ from in person learning with respect to structure, independence, speed, and support? ",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Online learning and in-person learning offer the same fundamental goal—knowledge acquisition—but the ""architecture"" of how that knowledge is delivered and absorbed is vastly different.
+
+Here is a breakdown of how they differ across the four key dimensions: structure, independence, speed, and support.
+
+---
+
+### 1. Structure
+**In-Person Learning:**
+*   **Rigid and Synchronous:** Learning happens at a specific time and a specific place. The ""bell schedule"" or fixed lecture time creates a forced routine.
+*   **Physical Environment:** The classroom is a dedicated space designed to minimize distractions and signal to the brain that it is time to work.
+*   **Linear Progression:** Lessons usually follow a strict chronological order dictated by the instructor.
+
+**Online Learning:**
+*   **Flexible and Asynchronous:** Most online courses (especially self-paced ones) allow students to log in whenever they choose. The ""classroom"" is wherever the student has an internet connection.
+*   **Modular Design:** Content is often broken into ""micro-learning"" chunks or modules. Students can often jump between sections or revisit old material easily.
+*   **Digital Organization:** Structure is maintained through a Learning Management System (LMS) like Canvas or Coursera, where deadlines are tracked digitally rather than announced verbally.
+
+### 2. Independence
+**In-Person Learning:**
+*   **External Accountability:** The physical presence of a teacher and peers provides a ""social contract"" that keeps students on task. It is harder to check out or procrastinate when an instructor is looking at you.
+*   **Guided Discovery:** The teacher often acts as a navigator, leading the student through the material step-by-step.
+
+**Online Learning:**
+*   **High Self-Discipline:** Independence is the hallmark of online learning. Students must be their own ""project managers,"" setting their own schedules and fighting off the distractions of being at home.
+*   **Proactive Engagement:** In an online setting, if a student doesn't log in, the ""absence"" is often invisible until a deadline is missed. The onus of engagement is entirely on the learner.
+
+### 3. Speed (Pacing)
+**In-Person Learning:**
+*   **Group-Paced:** The speed of the class is usually set to the ""middle"" of the group. If you are a fast learner, you may find yourself bored; if you struggle with a concept, the class may move on before you’ve mastered it.
+*   **Fixed Duration:** A lecture lasts 60 minutes regardless of whether the material could have been covered in 20 or required 90.
+
+**Online Learning:**
+*   **Individualized Pacing:** This is one of the greatest advantages of online learning. Students can ""speed-watch"" lectures they find easy or pause and rewind difficult sections multiple times.
+*   **Accelerated or Decelerated:** Online learners can often finish a ""semester"" of work in a few weeks if they have the time, or stretch it out to accommodate a full-time job.
+
+### 4. Support
+**In-Person Learning:**
+*   **Immediate and Organic:** Support is often spontaneous. You can raise your hand, ask a question after class, or benefit from a classmate’s question. 
+*   **Non-Verbal Cues:** Teachers can see ""confused faces"" in a physical room and adjust their explanation in real-time.
+*   **Social Support:** Peer-to-peer support happens naturally through study groups and hallway conversations.
+
+**Online Learning:**
+*   **Delayed and Intentional:** Support is rarely instantaneous. You must send an email, post on a forum, or wait for ""virtual office hours."" This requires the student to be very specific and articulate in writing about what they don't understand.
+*   **Technical Support:** Online learning introduces a new layer of support needs—troubleshooting software, internet connectivity, and platform navigation.
+*   **Resource-Heavy:** While human support may be delayed, online courses often provide a wider array of digital resources (links, videos, PDFs) that students can use to self-correct.
+
+---
+
+### Summary Comparison Table
+
+| Feature | In-Person Learning | Online Learning |
+| :--- | :--- | :--- |
+| **Structure** | Fixed time/place; high routine. | Flexible; modular; location-independent. |
+| **Independence** | Moderate; relies on external cues. | Very high; requires high self-motivation. |
+| **Speed** | Set by the instructor/group. | Set by the individual (Self-paced). |
+| **Support** | Immediate; based on social interaction. | Delayed; requires proactive outreach. |",,4468,11.34,False,,,0,,2026-05-11_18-16-13
+1,CMP_V01,porównawcze,paraphrase_pl,pl,True,"Czym różni się nauka online od nauki stacjonarnej pod względem struktury, samodzielności, tempa i wsparcia? ",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Nauka online i nauka stacjonarna to dwa różne podejścia do edukacji, z których każde kładzie nacisk na inne aspekty procesu dydaktycznego. Poniżej znajduje się szczegółowe porównanie pod kątem struktury, samodzielności, tempa i wsparcia.
+
+### 1. Struktura (Budowa kursu i organizacja)
+
+*   **Nauka stacjonarna:** Ma bardzo **sztywną i sformalizowaną strukturę**. Odbywa się w konkretnym miejscu (sala lekcyjna, uczelnia) i w określonych godzinach. Plan zajęć jest narzucony odgórnie, a interakcje społeczne są naturalnie wpisane w rytm dnia (przerwy, wspólne wyjścia).
+*   **Nauka online:** Jest znacznie bardziej **elastyczna**. Może być synchroniczna (zajęcia na żywo na platformach typu Zoom/Teams) lub asynchroniczna (korzystanie z gotowych materiałów w dowolnym momencie). Struktura opiera się na systemach zarządzania nauką (LMS), gdzie materiały są podzielone na moduły, a dostęp do nich zależy często od postępów ucznia.
+
+### 2. Samodzielność (Rola ucznia)
+
+*   **Nauka stacjonarna:** Wymaga mniejszego stopnia samoregulacji. Nauczyciel lub wykładowca pełni rolę „strażnika” procesu – pilnuje obecności, przypomina o terminach i motywuje swoją obecnością. Środowisko klasy narzuca pewien rygor, który ułatwia skupienie.
+*   **Nauka online:** Wymaga **bardzo wysokiej autodyscypliny** i umiejętności zarządzania czasem. Uczeń musi sam zorganizować sobie miejsce pracy, wyeliminować rozpraszacze (telefon, domownicy) i motywować się do regularnego logowania. Samodzielność dotyczy tu również umiejętności wyszukiwania informacji w sieci.
+
+### 3. Tempo (Szybkość przyswajania wiedzy)
+
+*   **Nauka stacjonarna:** Tempo jest **dostosowane do grupy**. Nauczyciel stara się podążać za średnią prędkością klasy. Może to być frustrujące dla osób bardzo zdolnych (które się nudzą) lub dla osób potrzebujących więcej czasu (które nie nadążają). Trudno jest „zatrzymać” wykład, by coś zanotować.
+*   **Nauka online:** Często oferuje **indywidualne tempo nauki** (szczególnie w modelu asynchronicznym). Możesz wielokrotnie odtwarzać nagrania wideo, zatrzymywać je lub przeskakiwać fragmenty, które już znasz. Pozwala to na głębsze zrozumienie trudnych tematów bez presji czasu grupy.
+
+### 4. Wsparcie (Kontakt z nauczycielem i grupą)
+
+*   **Nauka stacjonarna:** Oferuje **natychmiastowe wsparcie i interakcję**. Możesz zadać pytanie w trakcie lekcji, odczytać mowę ciała nauczyciela, a po zajęciach podejść i dopytać o szczegóły. Wsparcie rówieśnicze jest naturalne – łatwo jest stworzyć grupę naukową z kolegami z ławki.
+*   **Nauka online:** Wsparcie jest często **zapośredniczone i opóźnione**. Komunikacja odbywa się przez e-mail, czaty lub fora dyskusyjne. Choć istnieją konsultacje online, brak bezpośredniego kontaktu fizycznego może prowadzić do poczucia izolacji. Z drugiej strony, platformy online często oferują bogate bazy wiedzy (FAQ, dodatkowe linki), które są dostępne 24/7.
+
+---
+
+### Podsumowanie – tabela porównawcza
+
+| Cecha | Nauka stacjonarna | Nauka online |
+| :--- | :--- | :--- |
+| **Struktura** | Sztywna, stałe godziny i miejsce. | Elastyczna, modułowa, dostępna zewsząd. |
+| **Samodzielność** | Średnia – wspierana przez rygor grupy. | Wysoka – wymaga dużej autodyscypliny. |
+| **Tempo** | Narzucone przez grupę/nauczyciela. | Indywidualne (możliwość powtórek). |
+| **Wsparcie** | Bezpośrednie, natychmiastowe, osobiste. | Cyfrowe, często asynchroniczne, ryzyko izolacji. |
+
+**Która forma jest lepsza?**
+To zależy od profilu ucznia. Osoby potrzebujące kontaktu z ludźmi i zewnętrznej motywacji lepiej odnajdą się w **nauce stacjonarnej**. Osoby ceniące niezależność, pracujące lub mające specyficzne tempo przyswajania wiedzy, zazwyczaj osiągają lepsze efekty w **nauce online**.",,3700,13.18,False,,,0,,2026-05-11_18-16-30
+1,CMP_V04,porównawcze,paraphrase_en,en,True,How do the benefits and limitations of being a broad generalist compare with those of being a deep specialist? ,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The debate between being a generalist and a specialist is often framed as a choice between **breadth** and **depth**. In the modern economy, both roles are essential, but they thrive in different environments and face distinct risks.
+
+Here is a comparison of the benefits and limitations of each path.
+
+---
+
+### 1. The Broad Generalist
+*The ""Jack of All Trades"" or ""Synthesizer""*
+
+Generalists possess a wide range of knowledge across multiple disciplines. They are often the ""connective tissue"" in an organization.
+
+#### **Benefits**
+*   **Adaptability:** Generalists are highly resilient to market shifts. If one industry declines, they can pivot their transferable skills (communication, project management, critical thinking) to another.
+*   **Systems Thinking:** Because they understand how different parts of a business or project interact, they are excellent at identifying ""big picture"" problems and cross-pollination—applying a solution from one field to a completely different one.
+*   **Leadership Potential:** Most executive and management roles require generalist traits. Leaders must speak the ""languages"" of finance, marketing, tech, and HR to coordinate them effectively.
+*   **Cognitive Flexibility:** Generalists are less likely to fall into ""functional fixedness"" (only seeing a tool for its intended purpose).
+
+#### **Limitations**
+*   **The ""Master of None"" Trap:** Generalists may lack the technical ""hard skills"" required for high-level execution, making them feel replaceable in entry-level or highly technical roles.
+*   **Lower Initial Earning Ceiling:** In many fields, specialists command higher starting salaries because their value is immediate and obvious.
+*   **Cognitive Overload:** Trying to keep up with multiple evolving fields can lead to burnout or a ""mile wide and an inch deep"" level of knowledge that lacks substance.
+
+---
+
+### 2. The Deep Specialist
+*The ""Subject Matter Expert"" (SME) or ""Authority""*
+
+Specialists focus on a narrow niche, achieving a level of mastery that few others possess. They are the ""surgeons"" of their respective fields.
+
+#### **Benefits**
+*   **High Market Value (Scarcity):** Because deep expertise is rare, specialists can charge a premium. When a specific, complex problem arises, the specialist is the only one who can fix it.
+*   **Efficiency and Speed:** A specialist doesn't need to ""figure it out."" They have seen the problem a thousand times and can execute with a level of precision and speed that a generalist cannot match.
+*   **Clear Career Path:** The trajectory for a specialist is often linear and well-defined (e.g., Junior Developer → Senior Developer → Software Architect).
+*   **Authority and Prestige:** Specialists often become thought leaders, authors, or the ""go-to"" person in their industry, leading to high job security within their niche.
+
+#### **Limitations**
+*   **Fragility (Obsolescence):** This is the greatest risk. If a specialist’s niche is automated, outsourced, or becomes obsolete (e.g., a specialist in a dying coding language), their career can collapse overnight.
+*   **The ""Hammer and Nail"" Bias:** Specialists often suffer from ""Maslow’s Hammer""—to a man with a hammer, everything looks like a nail. They may try to solve every problem using their specific tool, even when it’s inappropriate.
+*   **Siloing:** Specialists can struggle to communicate with other departments, leading to friction in collaborative environments.
+
+---
+
+### Summary Comparison
+
+| Feature | Generalist | Specialist |
+| :--- | :--- | :--- |
+| **Primary Value** | Integration and Coordination | Execution and Innovation |
+| **Problem Solving** | Connects dots across fields | Deep dives into root causes |
+| **Career Risk** | Being ""average"" at many things | The niche becoming obsolete |
+| **Ideal Environment** | Startups, Management, Consulting | Research, Engineering, Surgery |
+| **Income Profile** | Lower floor, very high ceiling (CEO) | High floor, stable ceiling |
+
+---
+
+### The Modern Middle Ground: The ""T-Shaped"" Professional
+
+In recent years, career experts have advocated for the **""T-Shaped"" model** as the ideal balance:
+
+*   **The Horizontal Bar:** Represents a broad ability to collaborate across disciplines and a base of general knowledge.
+*   **The Vertical Bar:** Represents deep expertise in one specific area.
+
+By being T-shaped, you gain the **authority** of a specialist while maintaining the **empathy and adaptability** of a generalist.
+
+### Which should you choose?
+The choice often depends on the **environment**:
+*   **In a stable, mature industry:** Specialization is usually rewarded more highly.
+*   **In a rapidly changing, volatile industry:** Generalism (or ""Range"") is a survival superpower.
+
+As David Epstein argues in his book *Range*, while specialists get a head start, generalists often have a higher long-term trajectory because they are better at ""abstract integration""—the ability to solve complex, novel problems that don't have a pre-existing playbook.",,4983,15.95,False,,,0,,2026-05-11_18-16-47
+1,CMP_V04,porównawcze,paraphrase_pl,pl,True,Jak porównują się korzyści i ograniczenia bycia szerokim generalistą oraz głębokim specjalistą? ,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wybór między byciem „szerokim generalistą” a „głębokim specjalistą” to jeden z najważniejszych dylematów zawodowych. W literaturze przedmiotu często mówi się o modelu litery **„I”** (specjalista) oraz modelu litery **„T”** (generalista z jedną głęboką specjalizacją).
+
+Oto szczegółowe porównanie obu ścieżek:
+
+---
+
+### 1. Głęboki Specjalista (Model „I”)
+To osoba, która posiada ekstremalnie dużą wiedzę i umiejętności w jednej, wąskiej dziedzinie.
+
+#### Korzyści:
+*   **Wysoka wartość rynkowa:** Eksperci w niszowych dziedzinach są rzadcy, co pozwala im dyktować wysokie stawki.
+*   **Autorytet i prestiż:** Specjalista staje się osobą „pierwszego kontaktu” w trudnych sprawach. Buduje markę eksperta.
+*   **Efektywność:** Dzięki głębokiej wiedzy specjalista rozwiązuje złożone problemy w swojej dziedzinie znacznie szybciej niż ktokolwiek inny.
+*   **Jasna ścieżka rozwoju:** Łatwiej jest określić, jakie certyfikaty czy kursy są potrzebne, by wejść na kolejny poziom wtajemniczenia.
+
+#### Ograniczenia:
+*   **Ryzyko dezaktualizacji:** Jeśli technologia lub dziedzina, w której się specjalizujesz, zniknie z rynku (np. niszowy język programowania), Twoja wartość drastycznie spada.
+*   **„Tunelowe widzenie”:** Specjaliści często mają trudność z dostrzeżeniem szerszego kontekstu biznesowego lub zrozumieniem perspektywy innych działów.
+*   **Mniejsza elastyczność:** Trudniej jest im zmienić branżę bez zaczynania od zera.
+
+---
+
+### 2. Szeroki Generalista (Model „Dash” – kreska)
+To osoba, która wie „o wszystkim po trochu”. Potrafi łączyć kropki między różnymi dziedzinami.
+
+#### Korzyści:
+*   **Adaptacyjność:** Generalista łatwiej odnajduje się w zmieniającym się środowisku. Może płynnie przechodzić między rolami i branżami.
+*   **Innowacyjność (Łączenie kropek):** Największe innowacje powstają na styku różnych dziedzin. Generalista potrafi przenieść rozwiązanie z biologii do inżynierii lub z psychologii do marketingu.
+*   **Potencjał przywódczy:** Managerowie i liderzy często muszą być generalistami, aby rozumieć pracę różnych zespołów (sprzedaży, IT, HR) i spajać je w całość.
+*   **Odporność na automatyzację:** Sztuczna inteligencja łatwiej zastępuje wąskie, powtarzalne zadania eksperckie niż wielowymiarowe rozwiązywanie problemów wymagające empatii i kontekstu.
+
+#### Ograniczenia:
+*   **„Mistrz wszystkiego, znawca niczego”:** Generalista może mieć trudność z przekonaniem pracodawcy o swojej konkretnej wartości („co Ty właściwie potrafisz zrobić?”).
+*   **Niższy pułap zarobków na start:** Na stanowiskach juniorskich i średnich konkretne umiejętności techniczne są zazwyczaj wyceniane wyżej niż ogólna wszechstronność.
+*   **Ryzyko powierzchowności:** Łatwo jest ulec złudzeniu wiedzy, nie rozumiejąc realnych trudności technicznych danej dziedziny.
+
+---
+
+### Bezpośrednie porównanie
+
+| Cecha | Specjalista | Generalista |
+| :--- | :--- | :--- |
+| **Główny atut** | Głęboka wiedza techniczna | Szeroki kontekst i synteza |
+| **Zarobki** | Bardzo wysokie w niszy | Wysokie na stanowiskach zarządczych |
+| **Ryzyko** | Zmiana technologii/rynku | Brak konkretnego fachu w ręku |
+| **Rozwiązywanie problemów** | Rozwiązuje trudne detale | Rozwiązuje problemy systemowe |
+| **Idealne środowisko** | Centra badawcze, IT, medycyna | Startupy, zarządzanie, konsulting |
+
+---
+
+### Trzecia droga: Model „T-Shaped”
+Współczesny rynek pracy najbardziej ceni tzw. **osobowość typu T**.
+*   **Pozioma kreska (T):** Szeroka wiedza o świecie, umiejętności miękkie, rozumienie innych działów.
+*   **Pionowa kreska (T):** Jedna, konkretna dziedzina, w której jesteś ekspertem.
+
+Dzięki temu masz stabilność specjalisty i elastyczność generalisty.
+
+### Podsumowanie – co wybrać?
+*   Wybierz **specjalizację**, jeśli kochasz drążyć temat, jesteś introwertykiem lubiącym skupienie i chcesz być najlepszy w konkretnym rzemiośle.
+*   Wybierz **generalizm**, jeśli szybko się nudzisz, lubisz pracować z ludźmi, interesuje Cię psychologia, biznes i technologia jednocześnie, i docelowo celujesz w role liderskie.
+
+W dobie AI, specjaliści będą potrzebni do nadzoru nad najbardziej skomplikowanymi systemami, a generaliści do zarządzania chaosem i łączenia technologii z ludzkimi potrzebami.",,4186,11.27,False,,,0,,2026-05-11_18-16-59
+1,ARG_V02,argumentacyjno-decyzyjne,paraphrase_en,en,True,Is a mandatory shared office schedule a good policy for most organizations? Give balanced arguments and a judgment.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The question of whether a mandatory shared office schedule (often called ""structured hybrid"") is a good policy is one of the most debated topics in modern management. There is no one-size-fits-all answer, as the effectiveness of the policy depends heavily on the nature of the work and the culture of the organization.
+
+Here is a balanced analysis of the arguments for and against mandatory schedules, followed by a final judgment.
+
+---
+
+### Arguments for Mandatory Shared Schedules
+
+**1. Guaranteed Collaboration and ""Social Capital""**
+The primary argument for mandatory days (e.g., ""everyone in Tuesday through Thursday"") is coordination. If half the team is in on Monday and the other half on Wednesday, the collaborative benefits of the office are lost. Mandatory schedules ensure that when employees commute, their colleagues are actually there to interact with, fostering spontaneous innovation and faster problem-solving.
+
+**2. Mentorship and Onboarding**
+Junior employees and new hires suffer most in fully remote or uncoordinated environments. Learning by osmosis—overhearing how a senior colleague handles a difficult call or being able to ask a quick question over a desk—is significantly harder via Slack or Zoom. Mandatory days ensure that mentorship happens naturally.
+
+**3. Combating Proximity Bias**
+When office attendance is entirely optional, a ""two-tier"" system often emerges. Those who choose to come in frequently often receive more promotions and better assignments simply because they are ""top of mind"" for managers. A mandatory schedule levels the playing field by ensuring everyone has equal face-time with leadership.
+
+**4. Real Estate and Operational Efficiency**
+From a logistical standpoint, mandatory schedules allow companies to manage facilities better. If an organization knows exactly how many people will be in on specific days, they can optimize desk sharing (hot-desking), catering, and energy usage, rather than heating a building for a handful of people.
+
+---
+
+### Arguments Against Mandatory Shared Schedules
+
+**1. Loss of Autonomy and Trust**
+High-performing employees often view mandates as a sign of distrust. Modern knowledge work is often measured by output, not hours spent in a specific chair. Forcing a commute on a day when an employee needs to do ""deep work"" (which is often done better in a quiet home environment) can lead to resentment and decreased morale.
+
+**2. The ""Zoom in the Office"" Problem**
+One of the biggest complaints regarding mandatory schedules is ""coffee badging""—employees commuting for an hour only to sit in a cubicle and spend the entire day on video calls because their cross-functional partners are in different cities or buildings. This makes the commute feel like a waste of time and money.
+
+**3. Talent Acquisition and Retention**
+In a global labor market, flexibility is a top-tier benefit. Rigid mandates shrink the talent pool to a specific geographic radius and can lead to ""brain drain,"" where top performers leave for competitors offering ""work from anywhere"" policies.
+
+**4. Diversity and Inclusion Concerns**
+Mandatory schedules can disproportionately affect caregivers (often women) and individuals with disabilities. The flexibility to manage household needs or work in a customized home environment often allows these demographics to perform at their best. Removing that flexibility can create barriers to equity.
+
+---
+
+### The Judgment
+
+**Is it a good policy?** 
+A mandatory shared office schedule is a **good policy for organizations that rely on high-intensity collaboration and apprenticeship**, but it is a **poor policy if implemented as a ""blanket rule"" without a clear purpose.**
+
+#### The Verdict:
+For most organizations, the most effective approach is **""Structured Flexibility.""** 
+
+A rigid 9-to-5, five-day mandate is increasingly obsolete for knowledge work. However, a completely ""free-for-all"" remote policy often leads to silos and cultural erosion. The ""sweet spot"" is usually a **team-led mandate** rather than a corporate-led one.
+
+*   **The Best Practice:** Instead of the CEO declaring ""everyone in Tuesday/Thursday,"" departments should decide which days they need to be together based on their specific workflows. 
+*   **The ""Purposeful Presence"" Rule:** A mandate is only ""good"" if the organization can answer the employee's question: *""What can I do in the office today that I cannot do at home?""* If the answer is ""nothing,"" the mandate will eventually fail.
+
+**Final Judgment:** Mandatory shared schedules are a valuable tool for maintaining organizational cohesion, but they must be applied with surgical precision rather than as a blunt instrument. Organizations that prioritize **""connection over presence""** will outperform those that prioritize ""attendance for attendance's sake.""",,4799,11.45,False,,,0,,2026-05-11_18-17-12
+1,ARG_V02,argumentacyjno-decyzyjne,paraphrase_pl,pl,True,Czy obowiązkowy wspólny harmonogram obecności w biurze to dobra polityka dla większości organizacji? Podaj wyważone argumenty i ocenę.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wprowadzenie obowiązkowego, wspólnego harmonogramu obecności w biurze (często nazywanego „dniami kotwicznymi” – ang. *anchor days*) to jeden z najbardziej gorących tematów w zarządzaniu zasobami ludzkimi po pandemii. Nie ma jednej odpowiedzi pasującej do każdej firmy, ponieważ skuteczność tej polityki zależy od specyfiki branży i kultury organizacyjnej.
+
+Poniżej przedstawiam wyważoną analizę argumentów za i przeciw oraz ocenę końcową.
+
+---
+
+### Argumenty ZA (Zalety wspólnego harmonogramu)
+
+1.  **Ułatwienie współpracy i innowacji:** Najsilniejszym argumentem jest tzw. *serendipity*, czyli przypadkowe spotkania przy ekspresie do kawy, które często prowadzą do innowacyjnych pomysłów. Wspólna obecność ułatwia burze mózgów i szybkie rozwiązywanie problemów bez konieczności umawiania spotkań na MS Teams.
+2.  **Budowanie kultury i więzi:** Relacje międzyludzkie buduje się łatwiej twarzą w twarz. Wspólne obiady czy rozmowy na korytarzu wzmacniają poczucie przynależności do zespołu, co jest trudne do osiągnięcia w modelu w pełni zdalnym.
+3.  **Efektywny onboarding i mentoring:** Młodsi stażem pracownicy uczą się przez obserwację doświadczonych kolegów (tzw. nauka przez osmozę). Obowiązkowa obecność liderów w te same dni co nowi pracownicy drastycznie przyspiesza proces wdrożenia.
+4.  **Przewidywalność i logistyka:** Wspólny harmonogram eliminuje sytuację, w której pracownik przyjeżdża do biura, by spędzić cały dzień na wideokonferencjach, bo reszta zespołu jest w domu. Pozwala to na planowanie ważnych spotkań warsztatowych z gwarancją frekwencji.
+
+### Argumenty PRZECIW (Wady wspólnego harmonogramu)
+
+1.  **Utrata autonomii i zaufania:** Dla wielu pracowników narzucenie konkretnych dni jest sygnałem braku zaufania. Współczesne talenty (szczególnie w IT i sektorze kreatywnym) cenią elastyczność wyżej niż benefity płacowe. Sztywny grafik może prowadzić do odejść kluczowych specjalistów.
+2.  **Problemy z koncentracją (Deep Work):** Biura, zwłaszcza typu *open space*, są pełne rozpraszaczy. Jeśli wszyscy przychodzą w te same dni, poziom hałasu rośnie, co utrudnia pracę wymagającą głębokiego skupienia.
+3.  **Koszty i czas dojazdów:** Zmuszanie pracowników do stania w korkach w konkretne dni (kiedy wszyscy inni też jadą do biur) obniża ich dobrostan (well-being) i realny dochód rozporządzalny (koszty paliwa/biletów).
+4.  **Nieefektywne wykorzystanie przestrzeni:** Jeśli cała firma przychodzi we wtorki i czwartki, biuro musi być wystarczająco duże, by pomieścić wszystkich naraz. W poniedziałki i piątki biuro stoi puste, co generuje ogromne, nieuzasadnione koszty najmu.
+
+---
+
+### Czynniki warunkujące sukces
+
+To, czy ta polityka zadziała, zależy od kilku czynników:
+*   **Charakter pracy:** Zespoły projektowe i kreatywne zyskują na wspólnej obecności. Zespoły zajmujące się analizą danych czy programowaniem mogą odczuć ją jako ciężar.
+*   **Infrastruktura biura:** Czy biuro jest zaprojektowane pod współpracę (sale spotkań, strefy kreatywne), czy to tylko rzędy biurek? Jeśli to drugie, praca z biura nie ma wartości dodanej względem domu.
+*   **Dojrzałość liderów:** Czy menedżerowie potrafią wykorzystać czas w biurze na budowanie zespołu, czy po prostu chcą „mieć oko” na pracowników?
+
+---
+
+### Ocena końcowa
+
+**Czy to dobra polityka dla większości organizacji?**
+
+**Tak, ale pod warunkiem, że nie jest to polityka „sztywna”, lecz „celowa”.**
+
+Dla większości organizacji model **2+3 lub 3+2 z ustalonymi dniami wspólnymi** jest obecnie najlepszym kompromisem między potrzebami biznesu a oczekiwaniami pracowników. Jednak kluczem do sukcesu nie jest sam przymus obecności, ale **nadanie tej obecności sensu**.
+
+**Moja rekomendacja:**
+Zamiast odgórnego nakazu dla całej korporacji, lepiej sprawdza się model, w którym **zespoły same ustalają swoje „dni kotwiczne”**. Pozwala to na dopasowanie rytmu pracy do specyfiki danego działu (np. marketing spotyka się we wtorki, a księgowość w środy).
+
+**Podsumowując:** Wspólny harmonogram jest dobrą polityką, jeśli służy **współpracy**, a nie **kontroli**. Organizacje, które potrafią uzasadnić pracownikom, *dlaczego* ich obecność w konkretnym dniu jest cenna dla zespołu, wygrywają na tym modelu najwięcej. Te, które wprowadzają go bez wyjaśnienia, ryzykują spadek zaangażowania i utratę talentów.",,4275,59.81,False,,,0,,2026-05-11_18-18-13
+1,ARG_V05,argumentacyjno-decyzyjne,paraphrase_en,en,True,Is full transparency about product limitations in marketing always the right approach? Discuss both sides and conclude.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The question of whether a company should be fully transparent about its product’s limitations is a central debate in modern marketing. While traditional marketing focuses on highlighting strengths, a growing movement toward ""radical transparency"" suggests that admitting flaws can be a competitive advantage.
+
+Here is a discussion of both sides of the argument.
+
+---
+
+### The Case for Full Transparency
+
+**1. Building Long-Term Trust**
+In an era of instant information and social media, ""secrets"" rarely stay hidden. When a company is upfront about what its product *cannot* do, it builds significant credibility. Customers are more likely to trust the claims about what the product *can* do if the brand has already demonstrated honesty regarding its limitations.
+
+**2. Reducing Churn and Returns**
+Marketing that overpromises leads to ""buyer’s remorse."" If a customer buys a software package thinking it has a specific feature that it lacks, they will likely demand a refund and leave a negative review. Transparency ensures that the customers who do buy are the right fit for the product, leading to higher satisfaction and lower operational costs related to returns and support.
+
+**3. ""Stealing Thunder"" (Psychological Advantage)**
+In communication theory, ""stealing thunder"" refers to revealing your own weaknesses before an opponent or a critic can. By admitting a limitation first, the company controls the narrative. It frames the limitation as a conscious trade-off (e.g., ""Our laptop is heavier because it has the longest battery life on the market"") rather than a hidden failure.
+
+**4. SEO and Review Integrity**
+Modern consumers often search for ""[Product Name] problems"" or ""cons"" before buying. If a company addresses these limitations directly on their own site or in their marketing, they capture that traffic and can explain the context, rather than leaving the explanation to a disgruntled reviewer or a competitor.
+
+---
+
+### The Case Against Full Transparency
+
+**1. The ""First Impression"" Hurdle**
+The primary goal of marketing is to capture attention and create desire. If a marketing campaign is cluttered with disclaimers and lists of limitations, it may fail to generate the emotional spark necessary to move a customer down the sales funnel. Highlighting flaws too early can kill momentum before the customer even understands the value proposition.
+
+**2. Competitive Disadvantage**
+If Company A is fully transparent about its product's flaws while Company B (a competitor) remains silent about similar issues, the average consumer may perceive Company A’s product as inferior. Not all consumers are sophisticated enough to realize that *all* products have limitations; they may simply choose the one that ""sounds"" perfect.
+
+**3. Information Overload and Confusion**
+Full transparency can lead to ""analysis paralysis."" If a brand provides an exhaustive list of every technical edge case or minor limitation, it can overwhelm the buyer. Most consumers want to know if a product solves their specific problem; providing irrelevant information about what it doesn't do can distract from the core solution.
+
+**4. The Nature of Innovation**
+Sometimes, limitations are temporary. In the tech industry, products are often released as ""Minimum Viable Products"" (MVPs). If a company focuses its marketing on what the product lacks today, it may stifle the growth needed to fund the features of tomorrow.
+
+---
+
+### The Nuanced Middle Ground
+
+The effectiveness of transparency often depends on the **nature of the limitation**:
+*   **Safety/Legal Limitations:** Transparency is a moral and legal requirement.
+*   **Subjective Limitations:** (e.g., ""This shoe is not for professional runners"") Transparency is a powerful tool for brand positioning.
+*   **Technical Limitations:** These are best handled in documentation or late-stage sales conversations rather than top-of-funnel advertisements.
+
+---
+
+### Conclusion
+
+Is full transparency **always** the right approach? **No.** 
+
+Marketing is not a deposition; it is a persuasive art. However, **strategic transparency** is almost always the right approach. 
+
+The goal should not be to list every minor flaw—which confuses the message—but to be honest about the **intended use case**. The most successful modern brands don't try to be everything to everyone. Instead, they say: *""This product is built for X; if you are looking for Y, we are not the right choice.""* 
+
+This approach preserves the persuasive power of marketing while building the trust necessary for long-term brand loyalty. In the modern marketplace, honesty isn't just a moral choice; it is a filter that ensures you attract the customers you can actually satisfy.",,4692,22.51,False,,,0,,2026-05-11_18-18-36
+1,ARG_V05,argumentacyjno-decyzyjne,paraphrase_pl,pl,True,Czy pełna przejrzystość dotycząca ograniczeń produktu w marketingu zawsze jest właściwym podejściem? Omów obie strony i zakończ wnioskiem.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Kwestia pełnej przejrzystości (ang. *radical transparency*) w marketingu jest tematem intensywnych debat wśród ekspertów od wizerunku i sprzedaży. Czy pokazywanie „wad” produktu obok jego zalet to genialna strategia budowania zaufania, czy marketingowe samobójstwo?
+
+Poniżej przedstawiam analizę obu stron tego zagadnienia.
+
+---
+
+### Argumenty ZA pełną przejrzystością
+
+**1. Budowanie autentyczności i głębokiego zaufania**
+W dobie „post-prawdy” i wszechobecnego retuszu, konsumenci są bardziej sceptyczni niż kiedykolwiek. Marka, która otwarcie mówi: „Nasz produkt jest świetny do X, ale nie sprawdzi się w Y”, zyskuje wiarygodność. Kiedy firma przyznaje się do ograniczeń, klient chętniej wierzy jej, gdy mówi o zaletach.
+
+**2. Redukcja liczby zwrotów i reklamacji**
+Jasne określenie, czym produkt NIE JEST, pozwala uniknąć niewłaściwych zakupów. Klient, który wie, że budżetowy smartfon ma słaby aparat w nocy, nie będzie rozczarowany po zakupie. To obniża koszty obsługi posprzedażowej i chroni reputację marki przed negatywnymi opiniami.
+
+**3. Przyciąganie idealnego profilu klienta**
+Transparentność działa jak filtr. Odrzuca osoby, dla których produkt i tak byłby nieodpowiedni, a przyciąga tych, którym dane ograniczenie nie przeszkadza. Tworzy to bazę lojalnych użytkowników, których oczekiwania są idealnie dopasowane do rzeczywistości.
+
+**4. Przewaga prawna i etyczna**
+W wielu branżach (finanse, medycyna, suplementy) przejrzystość jest wymogiem prawnym. Wyjście przed szereg i opisanie ograniczeń prostym językiem (zamiast drobnym drukiem) buduje wizerunek marki etycznej i dbającej o dobro konsumenta.
+
+---
+
+### Argumenty PRZECIW pełnej przejrzystości
+
+**1. Ryzyko natychmiastowego odrzucenia (Efekt pierwszego wrażenia)**
+Marketing ma za zadanie wzbudzić pożądanie. Jeśli pierwszym komunikatem, jaki napotka klient, będzie lista wad, może on zrezygnować z zakupu, zanim w ogóle pozna korzyści. W świecie krótkiego czasu uwagi (attention span), zbyt duża szczerość może zabić sprzedaż na etapie lejka.
+
+**2. Przewaga konkurencji**
+Jeśli Twoja firma gra w „otwarte karty”, a konkurencja stosuje agresywny marketing oparty na wyolbrzymianiu zalet i ukrywaniu wad, możesz stracić udział w rynku. Przeciętny konsument często wybiera „ładniejsze opakowanie”, nawet jeśli podświadomie wie, że jest ono nieco naciągane.
+
+**3. Przeładowanie informacyjne (Information Overload)**
+Zbyt szczegółowe omawianie ograniczeń technicznych może przytłoczyć klienta i wywołać paraliż decyzyjny. Zamiast czuć się poinformowanym, klient czuje się zdezorientowany i rezygnuje z zakupu, by „jeszcze to przemyśleć”.
+
+**4. Dewaluacja wartości marki**
+Dla marek luksusowych lub opartych na aspiracjach (np. moda, perfumy), nadmierna przejrzystość dotycząca np. kosztów produkcji czy trwałości materiałów może zniszczyć „magię” i aurę ekskluzywności, która jest głównym powodem zakupu.
+
+---
+
+### Kiedy przejrzystość jest kluczowa, a kiedy opcjonalna?
+
+Warto zauważyć, że znaczenie przejrzystości zależy od kontekstu:
+*   **Wysokie ryzyko (B2B, medycyna, finanse, drogi sprzęt):** Tutaj przejrzystość jest niezbędna. Błąd zakupowy jest zbyt kosztowny, by klient wybaczył brak informacji.
+*   **Niskie ryzyko (produkty szybkozbywalne - FMCG):** Przy zakupie batona czy taniego długopisu, klient nie oczekuje analizy ograniczeń. Tutaj liczy się emocja i dostępność.
+
+---
+
+### Wniosek
+
+Pełna przejrzystość dotycząca ograniczeń produktu **nie zawsze jest najlepszą strategią w krótkim terminie, ale niemal zawsze jest właściwym podejściem w perspektywie długofalowej.**
+
+Kluczem do sukcesu nie jest jednak „brutalna szczerość”, która zniechęca, lecz **„uczciwe pozycjonowanie”**. Zamiast po prostu wymieniać wady, należy definiować przeznaczenie produktu. Zamiast mówić: „Ten samochód jest wolny”, lepiej powiedzieć: „To auto zaprojektowane z myślą o maksymalnym bezpieczeństwie rodziny i oszczędności paliwa, a nie o sportowych osiągach”.
+
+Podsumowując: marketing nie powinien kłamać, ale jego rolą pozostaje eksponowanie wartości. Najlepszym podejściem jest bycie transparentnym w sposób, który pomaga klientowi podjąć **świadomą decyzję**, jednocześnie nie pozwalając, by ograniczenia przyćmiły rzeczywiste korzyści płynące z produktu.",,4220,25.0,False,,,0,,2026-05-11_18-19-05
+1,PRC_V03,proceduralne,paraphrase_en,en,True,How would you systematically reorganize a chaotic shared folder so a team can use it efficiently again? ,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Reorganizing a chaotic shared folder is less about moving files and more about **change management.** If you just move folders around without a system, the chaos will return within a month.
+
+Here is a 6-step systematic framework to reorganize a shared drive and ensure it stays organized.
+
+---
+
+### Phase 1: Audit and Discovery
+Before touching a single file, you must understand how the team actually works.
+*   **Identify Stakeholders:** Who uses the folder daily? Who only needs ""read"" access?
+*   **Content Analysis:** Use a disk analyzer tool (like WinDirStat or TreeSize) to see what’s taking up space. Identify the ""ROT"" (Redundant, Outdated, Trivial) files.
+*   **The ""Pain Point"" Survey:** Ask the team: ""What is the one file you can never find?"" and ""How do you personally search for things (by date, by client, or by project type)?""
+
+### Phase 2: Design the Taxonomy
+Build the skeleton of the new system. A good structure follows the **""3-Click Rule""**: a user should be able to find any file within three levels of folders.
+*   **Choose a Top-Level Logic:**
+    *   **Departmental:** (Marketing, Sales, HR) — Best for large corporations.
+    *   **Project-Based:** (Project A, Project B) — Best for agencies.
+    *   **Chronological:** (2023, 2024) — Best for accounting or high-volume transactional work.
+*   **Standardize Naming Conventions:** This is the most critical step. Create a mandatory format, for example: `YYYY-MM-DD_ClientName_DocumentType_v01`.
+    *   *Tip:* Always use `YYYY-MM-DD` so files sort chronologically by name.
+
+### Phase 3: The ""Clean Slate"" Strategy
+Do not try to reorganize the mess while people are working in it. 
+1.  **Create a ""Legacy Archive"" Folder:** Create one folder at the root and move **everything** currently in the drive into it. 
+2.  **The ""Fresh Start"":** Build your brand-new, empty folder structure outside of that archive.
+3.  **Migration on Demand:** Tell the team: ""The new structure is live. As you work on active projects, move the necessary files from the Archive into the new structure."" 
+4.  **The Sunset Date:** Announce that in 90 days, the ""Legacy Archive"" will be moved to cold storage or deleted. This prevents the ""hoarding"" mentality.
+
+### Phase 4: Establish Governance
+A shared folder is a ""common"" space; without rules, the *Tragedy of the Commons* sets in.
+*   **Folder Permissions:** Restrict who can create **top-level** folders. If everyone can create a folder at the root, the chaos will return.
+*   **The ""ReadMe"" File:** Place a simple PDF or Text file at the root of the drive titled `!READ_ME_Folder_Rules.pdf`. It should outline the naming conventions and where specific types of files belong.
+*   **No ""Loose"" Files:** Establish a rule that no files are allowed to sit in the root directory. Every file must live in a sub-folder.
+
+### Phase 5: Implementation & Training
+*   **The ""Grand Opening"":** Hold a 15-minute meeting to demo the new structure. Show them exactly where the most-searched-for items now live.
+*   **Visual Aids:** Use folder icons or color-coding (if using macOS or Google Drive) to highlight ""Active"" vs. ""Completed"" work.
+
+### Phase 6: Maintenance (The ""Librarian"" Role)
+Systems fail because of entropy. 
+*   **Appoint a ""Librarian"":** Assign one person (or a rotating monthly role) to spend 10 minutes every Friday ""weeding"" the garden—renaming poorly named files and moving loose files into folders.
+*   **Quarterly Purge:** Schedule a calendar invite for the whole team once a quarter to delete drafts, temp files, and duplicates.
+
+---
+
+### Summary of the ""Golden Rules"" for the Team:
+1.  **Search, don't sort:** If the naming convention is good, the search bar is more powerful than clicking through folders.
+2.  **Version Control:** Never name a file `Final_v2_REAL_FINAL`. Use `v01, v02, v03`.
+3.  **No Folders deeper than 4 levels:** If you have to click 6 times, the structure is too complex. 
+4.  **Archive, don't delete:** If you aren't sure, move it to an ""Archive"" sub-folder within that project.",,4017,14.38,False,,,0,,2026-05-11_18-19-20
+1,PRC_V03,proceduralne,paraphrase_pl,pl,True,"Jak systematycznie uporządkowałbyś chaotyczny współdzielony folder, aby zespół mógł znów efektywnie z niego korzystać? ",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Uporządkowanie chaotycznego współdzielonego folderu to proces, który wymaga nie tylko technicznego podejścia, ale przede wszystkim **zarządzania zmianą w zespole**. Nawet najlepsza struktura zawiedzie, jeśli ludzie nie będą wiedzieli, jak z niej korzystać.
+
+Oto systematyczny plan działania podzielony na 5 etapów:
+
+---
+
+### 1. Audyt i Analiza (Zrozumienie chaosu)
+Zanim zaczniesz przenosić pliki, musisz wiedzieć, co masz i czego zespół potrzebuje.
+*   **Wywiad z użytkownikami:** Zapytaj kluczowe osoby, czego najczęściej szukają i co ich najbardziej irytuje.
+*   **Identyfikacja typów danych:** Czy to są projekty bieżące, archiwalne, materiały marketingowe, czy dokumenty administracyjne?
+*   **Analiza ""śmieci"":** Zidentyfikuj duplikaty, pliki tymczasowe i wersje „final_v2_poprawione_OSTATNIE”.
+
+### 2. Opracowanie Nowej Architektury (Projektowanie)
+Stwórz logiczny szkielet. Dobra struktura powinna być **płytka** (maksymalnie 3-4 poziomy zagłębienia).
+*   **Wybór klucza segregacji:**
+    *   *Funkcjonalny:* Według działów (Marketing, HR, Sprzedaż).
+    *   *Projektowy:* Według klientów lub konkretnych zleceń.
+    *   *Procesowy:* Według etapów (01_Brief, 02_W_toku, 03_Zatwierdzone, 04_Archiwum).
+*   **Zasada ""Top-Level"":** Na najwyższym poziomie stwórz tylko 5-7 głównych folderów. Zbyt duży wybór na starcie paraliżuje.
+
+### 3. Ustalenie Standardów Nazewnictwa (Konwencja)
+To najważniejszy punkt, który zapobiega powrotowi chaosu. Stwórz prosty dokument (np. plik `PRZECZYTAJ_MNIE.pdf` w folderze głównym) z zasadami:
+*   **Format daty:** Zawsze RRRR-MM-DD (dzięki temu pliki sortują się chronologicznie).
+*   **Brak spacji:** Używanie podkreślników (`_`) lub myślników (`-`) zamiast spacji (zapobiega błędom w linkach).
+*   **Wersjonowanie:** Zakaz używania słowa ""FINAL"". Zamiast tego: `v01`, `v02`, `v03`.
+*   **Logika nazw:** `Data_Projekt_TypPliku_Wersja` (np. `2023-10-27_KampaniaJesien_Raport_v02`).
+
+### 4. Wielkie Sprzątanie (Egzekucja)
+Nie rób tego sam po godzinach – zaangażuj zespół, aby poczuli odpowiedzialność za nową strukturę.
+*   **Folder ""Kwarantanna/Archiwum"":** Wszystko, co stare i nieużywane od 6 miesięcy, przenieś do jednego folderu ""ARCHIWUM_STARE"" z datą przeniesienia. Nie usuwaj niczego od razu, by uniknąć paniki.
+*   **Dzień Sprzątania:** Wyznacz 2-3 godziny, w których cały zespół zajmuje się segregacją swoich plików według nowych zasad.
+*   **Inbox:** Stwórz folder ""DO SEGREGACJI"" dla plików, co do których nie ma pewności, gdzie powinny trafić.
+
+### 5. Utrzymanie Systemu (Automatyzacja i Dyscyplina)
+System, który nie jest pilnowany, umiera w ciągu miesiąca.
+*   **Uprawnienia:** Ogranicz możliwość tworzenia nowych folderów na najwyższym poziomie (tylko administratorzy).
+*   **Instrukcja (ReadMe):** Krótki plik tekstowy w każdym głównym folderze wyjaśniający, co powinno się w nim znajdować.
+*   **Przeglądy kwartalne:** Raz na kwartał wyznacz osobę (tzw. ""Data Stewarda""), która poświęci 30 minut na usunięcie duplikatów i sprawdzenie, czy nikt nie łamie zasad nazewnictwa.
+
+---
+
+### Pro-tip: Metoda ""01, 02, 03""
+Aby wymusić kolejność folderów niezależnie od alfabetu, używaj numeracji na początku nazwy:
+*   `01_Projekty_Aktywne`
+*   `02_Szablony_i_Zasoby`
+*   `03_Administracja`
+*   `99_Archiwum`
+
+**Dlaczego to zadziała?**
+Ponieważ przesuwasz ciężar z ""szukania"" na ""znajdowanie"". Zespół przestaje polegać na pamięci (""gdzie to zapisałem?""), a zaczyna polegać na logice systemu.",,3437,10.38,False,,,0,,2026-05-11_18-19-32
+1,INT_V01,interpretacyjne,paraphrase_en,en,True,Read the passage and explain the main budget trade off it presents.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Please **provide the passage** you are referring to! I need the text to identify the specific trade-off mentioned.
+
+In the meantime, to help you identify it yourself, a **budget trade-off** (often called an **opportunity cost**) usually follows this pattern:
+
+1.  **Limited Resources:** There is a set amount of money, time, or assets.
+2.  **Competing Priorities:** There are two or more things the money could be spent on (e.g., ""Option A"" vs. ""Option B"").
+3.  **The Sacrifice:** Choosing to fund ""Option A"" means there is less money for ""Option B.""
+
+**Common examples of budget trade-offs in texts include:**
+*   **Guns vs. Butter:** Spending on national defense vs. spending on social programs.
+*   **Infrastructure vs. Debt:** Spending on new roads vs. paying down a deficit.
+*   **Short-term vs. Long-term:** Spending on immediate relief vs. investing in future research.
+
+**Paste the passage below, and I will analyze it for you immediately.**",,949,3.52,False,,,0,,2026-05-11_18-19-37
+1,INT_V01,interpretacyjne,paraphrase_pl,pl,True,"Przeczytaj fragment i wyjaśnij główny kompromis budżetowy, który opisuje.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Niestety nie dołączyłeś fragmentu tekstu do swojej wiadomości. Proszę, **wklej go tutaj**, a chętnie go przeanalizuję i wyjaśnię, na czym polega opisany w nim kompromis budżetowy.
+
+Zazwyczaj w tekstach ekonomicznych lub politycznych „główny kompromis budżetowy” dotyczy wyboru między dwiema przeciwstawnymi wartościami, na przykład:
+
+1.  **Wydatki socjalne vs. Inwestycje:** Czy przeznaczyć pieniądze na bieżącą pomoc dla obywateli (np. zasiłki, emerytury), czy na budowę infrastruktury (drogi, technologia)?
+2.  **Dyscyplina budżetowa vs. Pobudzanie gospodarki:** Czy ciąć wydatki, aby zmniejszyć dług państwa, czy zwiększać deficyt, by ratować gospodarkę w kryzysie?
+3.  **Podatki vs. Usługi publiczne:** Czy obniżyć podatki (zostawiając więcej pieniędzy w portfelach obywateli), czy utrzymać je na wyższym poziomie, by zapewnić lepszą służbę zdrowia i edukację?
+4.  **„Armaty czy masło”:** Klasyczny dylemat – ile pieniędzy przeznaczyć na zbrojenia i obronność, a ile na potrzeby cywilne i konsumpcję.
+
+**Czekam na tekst, aby móc podać Ci konkretną odpowiedź!**",,1064,9.02,False,,,0,,2026-05-11_18-19-47
+1,INT_V04,interpretacyjne,paraphrase_en,en,True,Summarize the text and interpret why the cause of improvement is uncertain.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Please provide the text you are referring to!
+
+Once you paste the text, I will:
+1.  **Summarize** the main points and the nature of the improvement described.
+2.  **Interpret** the specific reasons why the cause of that improvement is uncertain (e.g., whether it's due to overlapping variables, a lack of a control group, the ""Hawthorne Effect,"" or external factors).",,367,3.34,False,,,0,,2026-05-11_18-19-51
+1,INT_V04,interpretacyjne,paraphrase_pl,pl,True,"Streść tekst i zinterpretuj, dlaczego przyczyna poprawy jest niepewna.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Niestety nie dołączyłeś/aś tekstu, do którego odnosi się Twoje pytanie. Aby móc go rzetelnie streścić i zinterpretować, **wklej proszę treść tekstu lub podaj jego tytuł i autora.**
+
+Jeśli jednak jest to zadanie z konkretnego arkusza egzaminacyjnego (np. maturalnego lub ósmoklasisty), zazwyczaj odpowiedź na pytanie o „niepewność przyczyny poprawy” opiera się na jednym z poniższych schematów. Sprawdź, który pasuje do Twojego tekstu:
+
+### 1. Współwystępowanie wielu czynników (Multikauzalność)
+*   **Interpretacja:** Poprawa nastąpiła w czasie, gdy wprowadzono kilka zmian jednocześnie. Autor nie może jednoznacznie stwierdzić, która z nich była kluczowa (np. czy pacjent wyzdrowiał dzięki lekowi, zmianie diety, czy po prostu dzięki upływowi czasu).
+
+### 2. Brak grupy kontrolnej lub badań porównawczych
+*   **Interpretacja:** Przyczyna jest niepewna, ponieważ nie przeprowadzono testu, który wykluczyłby inne możliwości. Nie mamy porównania z sytuacją, w której dany czynnik by nie wystąpił.
+
+### 3. Złożoność systemu (np. ekologia, gospodarka)
+*   **Interpretacja:** Systemy te są tak skomplikowane, że poprawa w jednym obszarze może być efektem ubocznym procesów zachodzących zupełnie gdzie indziej, a nie wynikiem celowego działania opisanego w tekście.
+
+### 4. Subiektywizm oceny
+*   **Interpretacja:** Poprawa może być odczuciem subiektywnym (np. efekt placebo), a nie mierzalnym faktem, co sprawia, że trudno wskazać jej realne źródło.
+
+---
+
+**Czekam na tekst, aby przygotować dla Ciebie konkretną i precyzyjną odpowiedź!**",,1532,12.09,False,,,0,,2026-05-11_18-20-04
+1,TRK_V02,transformacja_lub_krytyka,paraphrase_en,en,True,Turn the message below into formal administrative language: we would like to complete this matter promptly and preferably receive the documents within the current week.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Here are a few ways to phrase that message in formal administrative language, depending on the desired level of urgency:
+
+**Option 1: Standard Professional (Balanced)**
+> ""We intend to finalize this matter expeditiously and would appreciate receiving the required documentation by the end of the current business week.""
+
+**Option 2: High Formality (Bureaucratic/Legal)**
+> ""To facilitate the timely resolution of this matter, we request the submission of all pertinent documents within the current week’s timeframe.""
+
+**Option 3: Action-Oriented (Direct and Authoritative)**
+> ""We are seeking a prompt conclusion to this process; therefore, please ensure all relevant documents are forwarded to our office by the close of business this week.""
+
+**Option 4: Softened/Polite (Client-facing)**
+> ""In the interest of a prompt conclusion, we would be grateful if the documents could be provided within the current week.""
+
+**Key Vocabulary Used:**
+*   **Expeditiously / Timely manner:** Instead of ""promptly.""
+*   **Finalize / Conclude / Resolve:** Instead of ""complete.""
+*   **Pertinent / Required documentation:** Instead of ""documents.""
+*   **Submission / Provision:** Instead of ""receive.""",,1186,5.18,False,,,0,,2026-05-11_18-20-11
+1,TRK_V02,transformacja_lub_krytyka,paraphrase_pl,pl,True,Zamień poniższą wiadomość na formalny język urzędowy: chcielibyśmy niezwłocznie zakończyć tę sprawę i najlepiej otrzymać dokumenty w bieżącym tygodniu.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji zamiany tej wiadomości na język urzędowy, w zależności od pożądanego stopnia sformalizowania:
+
+**Opcja 1: Standardowa (uprzejma i profesjonalna)**
+> „Uprzejmie prosimy o niezwłoczne sfinalizowanie przedmiotowej sprawy oraz przekazanie stosownej dokumentacji jeszcze w bieżącym tygodniu”.
+
+**Opcja 2: Bardziej stanowcza (podkreślająca termin)**
+> „Zależy nam na bezzwłocznym zakończeniu postępowania w niniejszej sprawie. W związku z powyższym prosimy o dostarczenie dokumentów w nieprzekraczalnym terminie do końca bieżącego tygodnia”.
+
+**Opcja 3: Bardzo formalna (np. do urzędu lub sądu)**
+> „Zwracamy się z uprzejmą prośbą o sprawne zakończenie procedury w powyższym zakresie. Jednocześnie będziemy wdzięczni za przedłożenie niezbędnej dokumentacji w terminie do końca bieżącego tygodnia”.
+
+**Opcja 4: Krótka i konkretna**
+> „Prosimy o niezwłoczne zakończenie sprawy i przesłanie dokumentacji w bieżącym tygodniu”.
+
+**Kluczowe zmiany, jakich dokonano:**
+*   „Chcielibyśmy” zamieniono na **„uprzejmie prosimy”** lub **„zwracamy się z prośbą”**.
+*   „Tę sprawę” zamieniono na **„przedmiotową sprawę”**, **„niniejszą sprawę”** lub **„postępowanie”**.
+*   „Najlepiej otrzymać” zamieniono na **„przekazanie”**, **„dostarczenie”** lub **„przedłożenie”**.
+*   „Niezwłocznie” zachowano lub zamieniono na **„bezzwłocznie”** (oba słowa są typowe dla języka urzędowego).",,1382,6.05,False,,,0,,2026-05-11_18-20-18
+1,TRK_V04,transformacja_lub_krytyka,paraphrase_en,en,True,What is wrong with the reasoning that more requested features must always improve a product? ,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"The idea that more features automatically lead to a better product is a common trap known as **""Feature Creep""** or **""Software Bloat.""** While it seems intuitive that ""more is more,"" in product design, the opposite is often true.
+
+Here is a breakdown of why the ""more features = better product"" reasoning is flawed:
+
+### 1. Increased Cognitive Load (Hick’s Law)
+Hick’s Law states that the time it takes for a person to make a decision increases with the number and complexity of choices. When a product has too many features, the user interface becomes cluttered. Users feel overwhelmed, leading to ""analysis paralysis"" where they struggle to find the one tool they actually need. A product that does 100 things poorly is often less valuable than a product that does three things perfectly.
+
+### 2. Dilution of the Core Value Proposition
+Every great product solves a specific problem. By adding features that deviate from that core purpose, you risk diluting the product’s identity. 
+*   **Example:** If a simple note-taking app adds a calendar, a task manager, a habit tracker, and a social media feed, it ceases to be a ""fast note-taker"" and becomes a mediocre ""everything app."" Users who just wanted to jot down a thought will leave for a simpler competitor.
+
+### 3. The ""Swiss Army Knife"" Paradox
+A Swiss Army knife is useful because it’s portable, but you would never use the tiny saw on it to cut down a tree, or the small scissors to tailor a suit. When a product tries to be everything to everyone, it becomes ""good enough"" for many tasks but ""excellent"" at none. Specialized tools almost always outperform generalist tools in professional settings.
+
+### 4. Technical Debt and Maintenance Costs
+Every new feature is not just a one-time development cost; it is a permanent liability. 
+*   **Bugs:** More code means more potential for bugs.
+*   **Testing:** Every new feature must be tested against every existing feature to ensure they don't break each other.
+*   **Updates:** When the operating system or browser updates, every single feature must be maintained to stay compatible.
+Eventually, the development team spends 90% of their time fixing old features and only 10% innovating.
+
+### 5. The 80/20 Rule (Pareto Principle)
+In most products, 80% of users only use about 20% of the features. By adding the ""long tail"" of requested features that only 1% of users want, you are forcing the other 99% of users to navigate around clutter they don't need. This makes the product heavier, slower, and harder to learn for the majority.
+
+### 6. Increased Learning Curve
+A product’s ""onboarding"" is critical. If a new user opens an app and sees 50 icons and 10 menus, the learning curve becomes a wall. High churn rates (users quitting) often happen because the product felt too ""heavy"" or ""complex"" to learn quickly.
+
+### 7. Opportunity Cost
+Resources (time, money, and developers) are finite. Every hour spent building a mediocre new feature is an hour **not** spent:
+*   Polishing the user experience of the core features.
+*   Improving the speed and performance of the app.
+*   Talking to customers to understand their deepest pain points.
+
+### 8. Feature Interaction Complexity
+Features don't exist in isolation. They interact. If you have 2 features, there is 1 interaction to manage. If you have 10 features, there are 45 possible interactions. If you have 100 features, there are 4,950 potential interactions. This exponential growth in complexity makes the product fragile and difficult to evolve.
+
+### Summary
+The goal of product development should not be **feature parity** (matching everything the competitor has) but **value density**. The best products are often those that have the courage to say ""no"" to feature requests in order to keep the user experience clean, fast, and focused on solving a specific problem better than anyone else. 
+
+As Antoine de Saint-Exupéry famously said: 
+> *""Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.""*",,4015,11.8,False,,,0,,2026-05-11_18-20-31
+1,TRK_V04,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Co jest nie tak z rozumowaniem, że więcej pożądanych funkcji musi zawsze ulepszać produkt? ",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Rozumowanie, że „więcej funkcji = lepszy produkt”, jest jednym z najczęstszych błędów w projektowaniu produktów, zarządzaniu projektami i marketingu. Zjawisko to doczekało się nawet swoich nazw, takich jak **„Feature Creep”** (pełzanie zakresu), **„Featuritis”** czy **„Bloatware”**.
+
+Oto główne powody, dla których dodawanie kolejnych funkcji może w rzeczywistości pogorszyć produkt:
+
+### 1. Zwiększenie stopnia skomplikowania (Krzywa uczenia się)
+Im więcej funkcji posiada produkt, tym trudniej jest nowemu użytkownikowi zrozumieć, jak go obsługiwać. Każda nowa opcja to kolejny element interfejsu (przycisk, menu, zakładka), który rozprasza uwagę.
+*   **Efekt:** Użytkownik czuje się przytłoczony i zamiast korzystać z produktu, traci czas na naukę jego obsługi.
+
+### 2. Prawo Hicka i paraliż decyzyjny
+Prawo Hicka mówi, że czas potrzebny na podjęcie decyzji rośnie wraz z liczbą dostępnych opcji.
+*   **Efekt:** Jeśli dasz użytkownikowi 50 „pożądanych” funkcji w jednym menu, znalezienie tej jednej, której aktualnie potrzebuje, zajmie mu znacznie więcej czasu. Nadmiar wyborów prowadzi do frustracji i tzw. paraliżu decyzyjnego.
+
+### 3. Rozmycie głównej wartości produktu (Value Proposition)
+Najlepsze produkty rozwiązują konkretny problem w sposób doskonały. Dodawanie funkcji pobocznych często sprawia, że produkt traci swoją tożsamość.
+*   **Przykład:** Jeśli prosta aplikacja do robienia notatek nagle dostaje funkcje edycji wideo, kalendarza, klienta e-mail i komunikatora, przestaje być „świetnym narzędziem do notatek”, a staje się „przeciętnym narzędziem do wszystkiego”.
+
+### 4. Spadek jakości i stabilności (Dług techniczny)
+Zasoby (czas, pieniądze, programiści) są zawsze ograniczone. Rozproszenie ich na 100 funkcji zamiast na 10 oznacza, że każda z nich będzie dopracowana w mniejszym stopniu.
+*   **Efekt:** Więcej funkcji to więcej potencjalnych błędów (bugów), trudniejsze testowanie i wolniejsze działanie aplikacji/urządzenia. Utrzymanie (maintenance) takiego produktu staje się koszmarem.
+
+### 5. „Feature Fatigue” (Zmęczenie funkcjami)
+Badania (np. Rolanda Rusta) pokazują ciekawą zależność: przed zakupem klienci często wybierają produkty z większą liczbą funkcji, ale **po zakupie** ich satysfakcja drastycznie spada, gdy okazuje się, że produkt jest zbyt skomplikowany w użyciu.
+*   **Efekt:** Krótkoterminowy zysk sprzedażowy może prowadzić do długoterminowej utraty lojalności klienta.
+
+### 6. Ukryte koszty dla użytkownika
+Więcej funkcji to nie tylko wyższa cena zakupu, ale także:
+*   Większa waga (w przypadku przedmiotów fizycznych).
+*   Większe zużycie baterii/pamięci RAM (w przypadku oprogramowania).
+*   Konieczność częstszych aktualizacji.
+
+### 7. Zasada 80/20 (Zasada Pareto)
+W większości produktów 80% użytkowników regularnie korzysta tylko z 20% dostępnych funkcji. Pozostałe 80% funkcji służy tylko wąskiej grupie osób, ale wszyscy użytkownicy muszą „płacić” za nie wyższym stopniem skomplikowania interfejsu.
+
+### Podsumowanie – co jest lepsze?
+Zamiast dodawać funkcje, lepsi projektanci skupiają się na **„Product-Market Fit”** i **użyteczności**. Często lepszą strategią jest:
+1.  **Usuwanie zbędnych elementów** (Subtractive design).
+2.  **Ulepszanie istniejących funkcji**, aby działały płynniej.
+3.  **Personalizacja**, czyli ukrywanie zaawansowanych funkcji przed początkującymi użytkownikami.
+
+W projektowaniu często wygrywa zasada **„Less is more”** (Mniej znaczy więcej) – produkt, który robi jedną rzecz genialnie, jest zazwyczaj cenniejszy niż taki, który robi dziesięć rzeczy przeciętnie.",,3544,10.05,False,,,0,,2026-05-11_18-20-42
+1,TRK_V05,transformacja_lub_krytyka,prompt_en,en,False,Rewrite the following complaint into a calm and constructive message: nobody understands what is happening in this project and the whole process is a mess.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Here are a few ways to rewrite that complaint, depending on who you are talking to:
+
+**Option 1: Professional and Solution-Oriented (Best for a manager or team lead)**
+> ""I’ve noticed some ambiguity regarding our current project goals and workflow. I believe it would be helpful to schedule a brief sync to clarify our roles and streamline the process so we can work more efficiently.""
+
+**Option 2: Collaborative and Soft (Best for a team meeting)**
+> ""I’m finding it a bit challenging to keep track of our progress with the current system. Could we take a moment to define our next steps and ensure everyone is aligned on the project’s direction?""
+
+**Option 3: Direct but Constructive (Best for a project update or email)**
+> ""To ensure the success of this project, I think we need more clarity on our internal processes. Establishing a more structured workflow would help prevent confusion and keep the team on the same page.""
+
+**Option 4: Short and Actionable (Best for Slack or quick communication)**
+> ""I think we could benefit from more documentation or a clearer roadmap for this project. Right now, it’s a bit difficult to follow the workflow—can we tighten up the process?""
+
+**Key changes made:**
+*   **Replaced ""nobody understands""** with ""ambiguity,"" ""need for alignment,"" or ""clarity.""
+*   **Replaced ""a mess""** with ""streamline the process,"" ""structured workflow,"" or ""challenges with the current system.""
+*   **Added a ""Why"":** Explained that the goal is to work more efficiently or ensure project success.",,1520,5.62,False,,,0,,2026-05-11_18-20-48
+1,TRK_V05,transformacja_lub_krytyka,prompt_pl,pl,False,"Przepisz następującą skargę na spokojną i konstruktywną wiadomość: nikt nie rozumie, co dzieje się w tym projekcie, a cały proces to bałagan.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, jak możesz sformułować tę myśl w sposób profesjonalny i konstruktywny, zależnie od tego, do kogo kierujesz wiadomość:
+
+**Opcja 1: Skupiona na potrzebie jasności (najbardziej uniwersalna)**
+> „Zauważyłem, że w ostatnim czasie pojawiło się kilka niejasności dotyczących bieżącego etapu projektu. Myślę, że wszystkim pomogłoby doprecyzowanie ról i aktualizacja statusu prac, abyśmy mieli pewność, że każdy z nas zmierza w tym samym kierunku”.
+
+**Opcja 2: Skupiona na usprawnieniu procesu (propozycja rozwiązania)**
+> „Dostrzegam pewne wyzwania w naszym obecnym przepływie pracy, które utrudniają nam sprawne działanie. Chciałbym zaproponować krótkie spotkanie lub uporządkowanie dokumentacji, co pozwoli nam odzyskać pełną kontrolę nad procesem i zwiększyć przejrzystość działań”.
+
+**Opcja 3: Skupiona na komunikacji (do przełożonego lub zespołu)**
+> „Mam wrażenie, że brakuje nam obecnie wspólnego zrozumienia celów projektu, co wpływa na efektywność zespołu. Czy moglibyśmy wspólnie przeanalizować obecny proces i wprowadzić usprawnienia, które pomogą nam lepiej zorganizować pracę?”
+
+**Opcja 4: Krótka i konkretna (na komunikator typu Slack/Teams)**
+> „Chciałbym upewnić się, że wszyscy mamy tę samą wiedzę o statusie projektu. Czy możemy poświęcić chwilę na uporządkowanie priorytetów i wyjaśnienie wątpliwości, które pojawiły się w procesie?”
+
+**Co się zmieniło?**
+*   **Zamiast „nikt nie rozumie”:** Używamy sformułowań typu „pojawiły się niejasności” lub „brak wspólnego zrozumienia”.
+*   **Zamiast „bałagan”:** Mówimy o „wyzwaniach w przepływie pracy” lub potrzebie „uporządkowania priorytetów”.
+*   **Dodano element konstruktywny:** Każda wiadomość kończy się sugestią działania (spotkanie, aktualizacja dokumentacji, rozmowa o celach).",,1764,6.97,False,,,0,,2026-05-11_18-20-56
+1,TRK_V05,transformacja_lub_krytyka,paraphrase_en,en,True,Turn the frustrated comment into professional feedback: this project is confusing and the process feels disorganized.,gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"To turn a frustrated comment into professional feedback, you should focus on **objectivity**, **specific pain points**, and **potential solutions**.
+
+Here are a few ways to rephrase that comment, depending on who you are talking to:
+
+### Option 1: Focus on Clarity and Alignment (Best for a Manager)
+> ""I believe we could benefit from more clarity regarding the project's core objectives. Currently, the workflow feels a bit fluid, and I think establishing a more structured roadmap would help the team stay aligned and productive.""
+
+### Option 2: Focus on Process Improvement (Best for a Team Meeting)
+> ""To ensure we’re meeting our deadlines efficiently, I suggest we revisit our current process. Streamlining our task management and defining clear milestones would help reduce ambiguity and keep the project organized.""
+
+### Option 3: Focus on Documentation (Best if the issue is lack of info)
+> ""I’ve noticed some inconsistencies in our current workflow that are making it difficult to track progress. Could we centralize our documentation or define a standard operating procedure to help keep everyone on the same page?""
+
+### Option 4: The ""Request for Guidance"" (Best for a 1-on-1)
+> ""I’m finding it a bit challenging to navigate the current project structure. I’d appreciate more definition around roles and next steps so I can ensure my contributions are as effective as possible.""
+
+---
+
+### Key shifts made:
+*   **""Confusing""** becomes **""Ambiguity,"" ""Lack of clarity,""** or **""Need for definition.""**
+*   **""Disorganized""** becomes **""Fluid workflow,"" ""Opportunity to streamline,""** or **""Need for a structured roadmap.""**
+*   **""I feel""** is replaced with **""I’ve noticed""** or **""To improve efficiency.""** (This moves the focus from your emotions to the project's success.)",,1785,20.18,False,,,0,,2026-05-11_18-21-17
+1,TRK_V05,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Zamień tę sfrustrowaną uwagę w profesjonalny feedback: ten projekt jest niejasny, a proces wydaje się niezorganizowany.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji, jak zamienić tę uwagę w profesjonalny feedback, zależnie od tego, jaki efekt chcesz osiągnąć:
+
+**Opcja 1: Skupiona na rozwiązaniu (najbardziej konstruktywna)**
+> „Zauważyłem, że cele projektu wymagają doprecyzowania, abyśmy mogli działać efektywniej. Proponuję również usystematyzowanie obecnego procesu pracy, co pomoże nam lepiej zarządzać priorytetami i uniknąć chaosu”.
+
+**Opcja 2: Skupiona na potrzebach zespołu (miękka, ale stanowcza)**
+> „Mam wrażenie, że na tym etapie brakuje nam jasnych wytycznych, co utrudnia płynną realizację zadań. Warto byłoby wspólnie uporządkować strukturę procesu, aby każdy dokładnie wiedział, jakie są kolejne kroki”.
+
+**Opcja 3: Skupiona na wynikach (biznesowa i konkretna)**
+> „Obecna formuła projektu jest nieco niejasna, co może wpłynąć na terminowość i jakość końcowego efektu. Rekomenduję rewizję założeń oraz wprowadzenie bardziej przejrzystego podziału obowiązków”.
+
+**Opcja 4: Krótka i bezpośrednia (do przełożonego lub klienta)**
+> „Aby zapewnić sukces tego projektu, potrzebujemy większej klarowności w zakresie wymagań oraz bardziej ustrukturyzowanego podejścia do realizacji poszczególnych etapów”.
+
+**Co się zmieniło?**
+*   **Zamiast „niejasny”:** Używamy sformułowań takich jak „wymaga doprecyzowania”, „brakuje jasnych wytycznych”, „brak klarowności”.
+*   **Zamiast „niezorganizowany”:** Mówimy o „potrzebie usystematyzowania”, „strukturze procesu” lub „płynności działań”.
+*   **Dodanie propozycji:** Profesjonalny feedback nie tylko wytyka błąd, ale sugeruje kierunek poprawy (np. „proponuję”, „warto byłoby”).",,1587,32.37,False,,,0,,2026-05-11_18-21-51

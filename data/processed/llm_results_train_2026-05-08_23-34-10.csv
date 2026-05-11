@@ -19699,3 +19699,60 @@ Zamiast patrzeć na arkusz czasu pracy (timesheet), lepiej analizować:
 
 **Podsumowując:** Wysoka liczba godzin często świadczy o **reaktywnym** trybie pracy (gaszeniu pożarów), podczas gdy zdrowy projekt charakteryzuje się pracą **proaktywną**, gdzie liczy się precyzja i jakość, a nie sam czas spędzony „w biurze”.",,3739,9.85,False,,,0,,2026-05-11_00-47-04
 1,TRK_016,transformacja_lub_krytyka,paraphrase_en,en,True,"Convert the text into a short factual internal summary: the rollout meeting produced many comments, some participants proposed delay, and the team agreed to improve documentation before setting a launch date.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Following the rollout meeting, the team deferred setting a launch date to prioritize documentation improvements based on participant feedback.",,142,2.13,False,,,0,,2026-05-11_00-47-07
+1,TRK_016,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Przekształć tekst w krótkie rzeczowe podsumowanie wewnętrzne: spotkanie o wdrożeniu przyniosło wiele uwag, część uczestników proponowała opóźnienie, a zespół uzgodnił poprawę dokumentacji przed ustaleniem daty startu.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Oto kilka propozycji krótkiego, rzeczowego podsumowania:
+
+**Opcja 1 (Punktowa – najbardziej przejrzysta):**
+* **Status:** Wdrożenie wstrzymane.
+* **Wnioski:** Liczne uwagi i propozycje opóźnienia startu.
+* **Decyzja:** Ustalenie daty wdrożenia nastąpi po poprawie dokumentacji.
+
+**Opcja 2 (Jednozdaniowa):**
+Z powodu licznych uwag zespół odroczył wyznaczenie daty wdrożenia do czasu ukończenia prac nad poprawą dokumentacji.
+
+**Opcja 3 (W formie notatki służbowej):**
+Podsumowanie spotkania: Ze względu na zgłoszone zastrzeżenia, zespół priorytetowo zajmie się aktualizacją dokumentacji przed ustaleniem nowego harmonogramu startu.",,631,66.35,False,,,0,,2026-05-11_18-15-07
+1,TRK_019,transformacja_lub_krytyka,paraphrase_en,en,True,"Turn the internal statement into a clear customer notice: due to a technical issue discovered after release, we reverted the update to preserve service stability.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Depending on where you are posting this (email, status page, or social media), here are a few ways to phrase the notice:
+
+### Option 1: Professional & Direct (Best for Status Pages)
+**Service Update: Recent Update Reverted**
+To ensure continued service stability, we have temporarily reverted our most recent update following the discovery of a technical issue. Our team is working on a resolution, and the service remains fully operational in its previous version. We apologize for any inconvenience.
+
+### Option 2: Customer-Centric (Best for Email or In-App)
+**Important Update Regarding Our Latest Release**
+We recently identified a technical issue with our latest update. To ensure you have a seamless and stable experience, we have decided to roll back the update while we finalize a fix. You may notice some features have returned to their previous state. Thank you for your patience as we work to get this right.
+
+### Option 3: Short & Concise (Best for Social Media or Banners)
+**Notice:** We have temporarily reverted our latest update to maintain service stability while we address a minor technical issue. The platform is fully functional, and we will provide an update once the fix is deployed.
+
+### Option 4: Transparent/Technical (Best for Developer Tools)
+**Maintenance Notice:** Following our recent deployment, we identified a bug affecting system performance. To preserve service integrity, we have performed a rollback to the previous stable version. We are currently investigating the root cause and will re-release the update shortly.
+
+---
+
+**Key improvements made from the internal statement:**
+*   **Softened ""Technical Issue"":** Used phrases like ""to ensure a seamless experience"" to focus on the benefit to the user.
+*   **Clarified Status:** Explicitly stated that the service is still working/operational so customers don't worry about an outage.
+*   **Added Reassurance:** Included a note that the team is already working on a fix.",,1959,12.22,False,,,0,,2026-05-11_18-15-21
+1,TRK_019,transformacja_lub_krytyka,paraphrase_pl,pl,True,"Zamień wewnętrzne stwierdzenie w jasny komunikat dla klientów: z powodu problemu technicznego wykrytego po wdrożeniu cofnęliśmy aktualizację, aby zachować stabilność usługi.",gemini-flash-latest,gemini-flash-latest,Google Gemini API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"Wybór odpowiedniego komunikatu zależy od kanału komunikacji (e-mail, media społecznościowe, powiadomienie w aplikacji) oraz grupy docelowej. Oto kilka propozycji podzielonych według stylu:
+
+### 1. Profesjonalny i konkretny (najbardziej uniwersalny)
+> „W trosce o najwyższą jakość i stabilność naszych usług, zdecydowaliśmy się przywrócić poprzednią wersję systemu. Wykryliśmy drobne nieprawidłowości w ostatniej aktualizacji i obecnie pracujemy nad ich rozwiązaniem. Przepraszamy za wszelkie niedogodności”.
+
+### 2. Skupiony na korzyści klienta (budujący zaufanie)
+> „Twoja wygoda i płynne działanie serwisu są dla nas priorytetem. Aby zapewnić pełną stabilność usługi, wycofaliśmy ostatnią aktualizację do czasu wprowadzenia niezbędnych poprawek. Możesz kontynuować korzystanie z serwisu bez przeszkód”.
+
+### 3. Krótki i bezpośredni (idealny na stronę statusu lub do aplikacji)
+> „Przywróciliśmy stabilną wersję systemu po wykryciu błędu w ostatniej aktualizacji. Pracujemy nad poprawioną wersją zmian. Przepraszamy za utrudnienia”.
+
+### 4. Bardziej techniczny (dla klientów B2B lub IT)
+> „W związku z wykryciem błędu po wdrożeniu nowej wersji, wykonaliśmy procedurę rollbacku do ostatniej stabilnej wersji. Działanie to ma na celu zapewnienie ciągłości usługi. O ponownym wdrożeniu poinformujemy w osobnym komunikacie”.
+
+### 5. Uprzejmy i przepraszający (jeśli wystąpiły widoczne przerwy w działaniu)
+> „Najmocniej przepraszamy za ostatnie utrudnienia. Aby przywrócić pełną sprawność serwisu, zdecydowaliśmy się na powrót do poprzedniej, sprawdzonej wersji systemu. Obecnie wszystko działa już stabilnie”.
+
+---
+
+**Wskazówki przy tworzeniu takiego komunikatu:**
+*   **Unikaj żargonu:** Zamiast „wdrożenie” lepiej napisać „aktualizacja”, a zamiast „cofnęliśmy/rollback” – „przywróciliśmy poprzednią wersję”.
+*   **Podkreśl stabilność:** Klient musi wiedzieć, że usługa teraz działa poprawnie.
+*   **Zapewnij o pracy nad rozwiązaniem:** Pokaż, że trzymasz rękę na pulsie.",,1970,7.22,False,,,0,,2026-05-11_18-15-29
