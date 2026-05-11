@@ -15,7 +15,7 @@ from config import (
     MODELS_CONFIG,
     GEMINI_API_KEYS,
     LLM_RESULTS_TRAIN_PROMPTS,
-    LLM_RESULTS_VAL_PROMPTS,
+    LLM_RESULTS_VAL_PROMPTS, LLM_RESULTS_TEST_PROMPTS,
 )
 from llm_response_analyzer.file_utils import read_prompts, read_llm_results, save_results
 from llm_response_collector.llm_clients import get_gemini_client
@@ -106,10 +106,7 @@ def main():
     llm_results_paths = [
         (TRAIN_PROMPTS, LLM_RESULTS_TRAIN_PROMPTS),
         (VAL_PROMPTS, LLM_RESULTS_VAL_PROMPTS),
-        (
-            TEST_PROMPTS,
-            PROCESSED_DATA_DIR / Path(LLM_RESULTS_TEST_PROMPTS_BASE_PATH.stem + f"_{current_timestamp}.csv"),
-        ),
+        (TEST_PROMPTS, LLM_RESULTS_TEST_PROMPTS),
     ]
 
     for prompts_path, results_path in llm_results_paths:
