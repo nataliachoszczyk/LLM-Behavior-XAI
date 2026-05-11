@@ -1,4 +1,97 @@
+import os
+
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+GEMINI_API_KEY_1 = os.getenv("GEMINI_API_KEY_1")
+GEMINI_API_KEY_2 = os.getenv("GEMINI_API_KEY_2")
+GEMINI_API_KEY_3 = os.getenv("GEMINI_API_KEY_3")
+GEMINI_API_KEY_4 = os.getenv("GEMINI_API_KEY_4")
+GEMINI_API_KEY_5 = os.getenv("GEMINI_API_KEY_5")
+GEMINI_API_KEY_6 = os.getenv("GEMINI_API_KEY_6")
+GEMINI_API_KEY_7 = os.getenv("GEMINI_API_KEY_7")
+GEMINI_API_KEY_8 = os.getenv("GEMINI_API_KEY_8")
+GEMINI_API_KEY_9 = os.getenv("GEMINI_API_KEY_9")
+GEMINI_API_KEY_10 = os.getenv("GEMINI_API_KEY_10")
+GEMINI_API_KEY_11 = os.getenv("GEMINI_API_KEY_11")
+GEMINI_API_KEY_12 = os.getenv("GEMINI_API_KEY_12")
+GEMINI_API_KEY_13 = os.getenv("GEMINI_API_KEY_13")
+GEMINI_API_KEY_14 = os.getenv("GEMINI_API_KEY_14")
+GEMINI_API_KEY_15 = os.getenv("GEMINI_API_KEY_15")
+GEMINI_API_KEY_16 = os.getenv("GEMINI_API_KEY_16")
+GEMINI_API_KEY_17 = os.getenv("GEMINI_API_KEY_17")
+GEMINI_API_KEY_18 = os.getenv("GEMINI_API_KEY_18")
+GEMINI_API_KEY_19 = os.getenv("GEMINI_API_KEY_19")
+GEMINI_API_KEY_20 = os.getenv("GEMINI_API_KEY_20")
+GEMINI_API_KEYS = [
+    GEMINI_API_KEY_1,
+    GEMINI_API_KEY_2,
+    GEMINI_API_KEY_3,
+    GEMINI_API_KEY_4,
+    GEMINI_API_KEY_5,
+    GEMINI_API_KEY_6,
+    GEMINI_API_KEY_7,
+    GEMINI_API_KEY_8,
+    GEMINI_API_KEY_9,
+    GEMINI_API_KEY_10,
+    GEMINI_API_KEY_11,
+    GEMINI_API_KEY_12,
+    GEMINI_API_KEY_13,
+    GEMINI_API_KEY_14,
+    GEMINI_API_KEY_15,
+    GEMINI_API_KEY_16,
+    GEMINI_API_KEY_17,
+    GEMINI_API_KEY_18,
+    GEMINI_API_KEY_19,
+    GEMINI_API_KEY_20,
+]
+
+GENERATION_DEFAULTS = {
+    "temperature": 0.3,
+    "top_p": 0.9,
+    "max_new_tokens": 3072,
+    "repetition_penalty": 1.1,
+}
+
+MODELS_CONFIG = {
+    "gemini-flash-latest": {
+        "provider": "Google Gemini API",
+        "model_id": "gemini-flash-latest",
+        "temperature": GENERATION_DEFAULTS["temperature"],
+        "top_p": GENERATION_DEFAULTS["top_p"],
+        "max_tokens": GENERATION_DEFAULTS["max_new_tokens"],
+        "type": "api",
+    },
+    "llama-3.1-8b-groq": {
+        "provider": "Groq API",
+        "model_id": "llama-3.1-8b-instant",
+        "temperature": GENERATION_DEFAULTS["temperature"],
+        "top_p": GENERATION_DEFAULTS["top_p"],
+        "max_tokens": GENERATION_DEFAULTS["max_new_tokens"],
+        "type": "api",
+    },
+    "mistral-7b-hf": {
+        "provider": "HuggingFace (local GPU)",
+        "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+        "temperature": GENERATION_DEFAULTS["temperature"],
+        "top_p": GENERATION_DEFAULTS["top_p"],
+        "max_new_tokens": GENERATION_DEFAULTS["max_new_tokens"],
+        "repetition_penalty": GENERATION_DEFAULTS["repetition_penalty"],
+        "type": "local",
+    },
+    "phi-3-mini-hf": {
+        "provider": "HuggingFace (local GPU)",
+        "model_id": "microsoft/Phi-3-mini-4k-instruct",
+        "temperature": GENERATION_DEFAULTS["temperature"],
+        "top_p": GENERATION_DEFAULTS["top_p"],
+        "max_new_tokens": GENERATION_DEFAULTS["max_new_tokens"],
+        "repetition_penalty": GENERATION_DEFAULTS["repetition_penalty"],
+        "type": "local",
+    },
+}
 
 PROJ_ROOT = Path(__file__).resolve().parents[0]
 
@@ -19,10 +112,15 @@ PROCESSED_DATA_DIR = DATA_DIR / "processed"
 LLM_RESULTS_EXAMPLE_PROMPTS = PROCESSED_DATA_DIR / "llm_results.csv"
 LLM_RESULTS_EXAMPLE_PROMPTS_1 = PROCESSED_DATA_DIR / "llm_results (1).csv"
 LLM_RESULTS_EXAMPLE_PROMPTS_2 = PROCESSED_DATA_DIR / "llm_results (2).csv"
+LLM_RESULTS_TEST_PROMPTS_1 = PROCESSED_DATA_DIR / "llm_results_20260423_test.csv"
 
-LLM_RESULTS_TRAIN_PROMPTS = PROCESSED_DATA_DIR / "llm_results_20260423_test.csv"
-LLM_RESULTS_VAL_PROMPTS = PROCESSED_DATA_DIR / "llm_results_20260423_test.csv"
-LLM_RESULTS_TEST_PROMPTS = PROCESSED_DATA_DIR / "llm_results_20260423_test.csv"
+LLM_RESULTS_TRAIN_PROMPTS = PROCESSED_DATA_DIR / "llm_results_train_2026-05-08_23-34-10.csv"
+LLM_RESULTS_VAL_PROMPTS = PROCESSED_DATA_DIR / "llm_results_val_2026-05-10_23-21-44.csv"
+LLM_RESULTS_TEST_PROMPTS = PROCESSED_DATA_DIR / "llm_results_test_2026-05-11_18-13-46.csv"
+
+LLM_RESULTS_TRAIN_PROMPTS_BASE_PATH = PROCESSED_DATA_DIR / "llm_results_train.csv"
+LLM_RESULTS_VAL_PROMPTS_BASE_PATH = PROCESSED_DATA_DIR / "llm_results_val.csv"
+LLM_RESULTS_TEST_PROMPTS_BASE_PATH = PROCESSED_DATA_DIR / "llm_results_test.csv"
 
 RESPONSE_FEATURES_DIR = DATA_DIR / "response_features"
 
