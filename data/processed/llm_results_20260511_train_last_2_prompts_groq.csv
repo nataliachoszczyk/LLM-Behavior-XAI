@@ -1,0 +1,69 @@
+﻿run_id,prompt_id,category,prompt_column,language,is_paraphrase,prompt_text,model_key,model_id,provider,model_parameters,temperature,top_p,max_tokens,max_new_tokens,repetition_penalty,response,error,response_length,elapsed_seconds,logprob_available,sum_logprob,avg_logprob,generated_tokens,perplexity,timestamp
+1,TRK_013,transformacja_lub_krytyka,paraphrase_en,en,True,Explain why more hours worked do not automatically prove that a project is healthier.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"While it's common to assume that more hours worked equate to a healthier project, this is not always the case. Here are some reasons why:
+
+1. **Productivity and Efficiency**: Simply working more hours doesn't necessarily mean that the project is healthier. If the team is not working efficiently, they may be wasting time on non-essential tasks, meetings, or distractions. In this scenario, more hours worked might not translate to better outcomes.
+2. **Burnout and Exhaustion**: Working long hours can lead to burnout and exhaustion, which can negatively impact the project's health. When team members are overworked and under-rested, they're more likely to make mistakes, be less creative, and have lower morale.
+3. **Scope Creep**: When teams work more hours, they may take on additional tasks or features, which can lead to scope creep. This can cause the project to become bloated, complex, and harder to manage, ultimately making it less healthy.
+4. **Lack of Focus**: Working more hours doesn't guarantee that the team is focused on the project's goals and objectives. If the team is not aligned on priorities, they may be working on non-essential tasks, which can dilute the project's health.
+5. **Inefficient Use of Resources**: More hours worked doesn't necessarily mean that resources are being used efficiently. If the team is not utilizing their skills and expertise effectively, they may be wasting time and resources on tasks that could be delegated or automated.
+6. **Quality and Accuracy**: Working more hours doesn't guarantee that the project will be of higher quality or accuracy. If the team is not following best practices, testing thoroughly, or reviewing work carefully, they may produce subpar results, which can harm the project's health.
+7. **Team Dynamics and Morale**: Working long hours can negatively impact team dynamics and morale. When team members are overworked and under-rested, they may become demotivated, disengaged, and less collaborative, which can harm the project's health.
+
+To ensure that a project is healthier, it's essential to focus on factors like:
+
+* Clear goals and objectives
+* Efficient workflows and processes
+* Effective resource allocation
+* Regular communication and feedback
+* Prioritization of tasks and features
+* Continuous improvement and learning
+* Team well-being and morale
+
+By focusing on these factors, teams can create a healthier project environment, even if they're not working more hours.",,2460,1.08,False,,,0,,2026-05-11T16:40:15.281282
+1,PRC_013,proceduralne,prompt_en,en,False,Create a plan for preparing effectively for an oral exam over two weeks.,llama-3.1-8b-groq,llama-3.1-8b-instant,Groq API,"temperature=0.3, top_p=0.9, max_tokens=3072",0.3,0.9,3072,,,"**Two-Week Oral Exam Preparation Plan**
+
+**Week 1: Review and Organization (Days 1-7)**
+
+1. **Day 1-2: Review Course Material**
+	* Go through your notes, textbook, and any other study materials provided by your instructor.
+	* Focus on key concepts, theories, and definitions.
+2. **Day 3-4: Identify Key Topics**
+	* Make a list of the most critical topics that are likely to be covered in the exam.
+	* Prioritize these topics based on their importance and your level of understanding.
+3. **Day 5-6: Practice Answering Questions**
+	* Use online resources, practice exams, or past exams to practice answering questions on the key topics.
+	* Focus on developing clear, concise, and well-structured responses.
+4. **Day 7: Organize Your Notes and Materials**
+	* Review your notes and materials one last time.
+	* Organize them in a way that makes sense to you, such as creating an outline or a concept map.
+
+**Week 2: Practice and Refine (Days 8-14)**
+
+1. **Day 8-9: Mock Exams and Practice Sessions**
+	* Schedule mock exams or practice sessions with a friend, family member, or tutor.
+	* Use these opportunities to practice answering questions under timed conditions.
+2. **Day 10-11: Refine Your Responses**
+	* Review your practice exam responses and identify areas for improvement.
+	* Refine your responses to make them more concise, clear, and well-structured.
+3. **Day 12-13: Focus on Weak Areas**
+	* Identify areas where you need improvement and focus on those topics.
+	* Use online resources, practice exams, or past exams to practice answering questions on those topics.
+4. **Day 14: Final Review and Preparation**
+	* Review your notes and materials one last time.
+	* Make sure you have all the necessary materials, such as pens, paper, and any other equipment required for the exam.
+
+**Additional Tips**
+
+* Get plenty of rest and eat well to ensure you're well-rested and focused for the exam.
+* Practice relaxation techniques, such as deep breathing or meditation, to help manage exam-day nerves.
+* Arrive early at the exam location to get settled and composed before the exam begins.
+* Stay hydrated and bring any necessary snacks or drinks to the exam.
+
+**Oral Exam Day**
+
+* Arrive early at the exam location and get settled.
+* Introduce yourself to the examiner and explain any accommodations you may need.
+* Answer questions clearly, concisely, and confidently.
+* Stay focused and composed throughout the exam.
+
+Remember, preparation is key to success in an oral exam. Stay focused, organized, and committed to your preparation plan, and you'll be well-prepared for the exam.",,2581,8.01,False,,,0,,2026-05-11T16:40:23.297766
