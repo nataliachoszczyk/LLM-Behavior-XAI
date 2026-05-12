@@ -17,7 +17,7 @@ from config import (
     LLM_RESPONSES_VAL_FEATURES_PLOTS_DIR,
     LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR,
 )
-from llm_response_analyzer.file_utils import read_llm_results, save_results
+from file_utils import read_llm_results, save_results
 from llm_response_analyzer.lexical_diversity_features import (
     ttr,
     yule_k,
@@ -68,6 +68,7 @@ from llm_response_analyzer.plots import (
     plot_flesch_reading_ease_feature,
     plot_flesch_kincaid_grade_level_feature,
     plot_correlation_heatmap,
+    plot_elapsed_seconds,
 )
 from llm_response_analyzer.quantitative_features import token_count_feature, average_length_features, length_features
 from llm_response_analyzer.readability_features import get_flesch_reading_ease, get_flesch_kincaid_grade
@@ -152,6 +153,7 @@ def create_response_features(llm_results_df: TextFileReader | DataFrame):
 
 
 def generate_features_plots(llm_results_features_plots_dir: Path, response_features: pd.DataFrame):
+    plot_elapsed_seconds(response_features, llm_results_features_plots_dir)
     plot_response_length_features(response_features, llm_results_features_plots_dir)
     plot_response_average_length_features(response_features, llm_results_features_plots_dir)
     plot_token_count_feature(response_features, llm_results_features_plots_dir)
