@@ -89,6 +89,17 @@ def plot_response_average_length_features(response_features: pd.DataFrame, outpu
     plt.close()
 
 
+def plot_elapsed_seconds(response_features: pd.DataFrame, output_dir: Path) -> None:
+    plot_single_feature(
+        response_features,
+        "elapsed_seconds",
+        "Distribution of Times Needed to Generate a Response by Model",
+        "Time [seconds]",
+        output_dir,
+        "elapsed_seconds.png",
+    )
+
+
 def plot_token_count_feature(response_features: pd.DataFrame, output_dir: Path) -> None:
     plot_single_feature(
         response_features,
