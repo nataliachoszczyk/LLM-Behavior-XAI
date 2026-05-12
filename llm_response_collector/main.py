@@ -4,20 +4,16 @@ import datetime
 
 import pandas as pd
 
-from pathlib import Path
-
 from config import (
     TEST_PROMPTS,
     TRAIN_PROMPTS,
     VAL_PROMPTS,
-    PROCESSED_DATA_DIR,
-    LLM_RESULTS_TEST_PROMPTS_BASE_PATH,
     MODELS_CONFIG,
     GEMINI_API_KEYS,
     LLM_RESULTS_TRAIN_PROMPTS,
     LLM_RESULTS_VAL_PROMPTS, LLM_RESULTS_TEST_PROMPTS,
 )
-from llm_response_analyzer.file_utils import read_prompts, read_llm_results, save_results
+from file_utils import read_prompts, read_llm_results, save_results
 from llm_response_collector.llm_clients import get_gemini_client
 from llm_response_collector.query_llm import query_model
 
