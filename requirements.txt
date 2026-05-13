@@ -24,6 +24,7 @@ colorama==0.4.6
 comm==0.2.3
 confection==1.3.3
 contourpy==1.3.3
+coverage==7.14.0
 cryptography==47.0.0
 cuda-bindings==13.2.0
 cuda-pathfinder==1.5.3
@@ -81,7 +82,7 @@ kiwisolver==1.5.0
 lark==1.3.1
 lexicalrichness==0.5.1
 librt==0.10.0
--e git+ssh://git@github.com/nataliachoszczyk/LLM-Behavior-XAI.git@7259faf7c7d525e4fe36833c81ac5c008851897f#egg=llm_behavior_xai
+-e git+ssh://git@github.com/nataliachoszczyk/LLM-Behavior-XAI.git@8266d7e0bcfbaf8a1944547b233f2b103bd7d703#egg=llm_behavior_xai
 Markdown==3.10.2
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
@@ -147,6 +148,7 @@ Pygments==2.20.0
 pyparsing==3.3.2
 pyphen==0.17.2
 pytest==9.0.3
+pytest-cov==7.1.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 python-json-logger==4.1.0
