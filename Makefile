@@ -42,7 +42,7 @@ clean:
 ## Check type hints with mypy
 .PHONY: mypy
 mypy:
-	mypy llm_behavior_xai llm_response_analyzer tests
+	mypy llm_behavior_xai llm_response_analyzer tests config.py file_utils.py
 
 
 ## Lint using ruff (use `make format` to do formatting)
