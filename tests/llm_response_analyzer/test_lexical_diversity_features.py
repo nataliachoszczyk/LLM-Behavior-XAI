@@ -1,5 +1,5 @@
 import pytest
-from llm_response_analyzer.lexical_diversity_features import ttr, yule_k
+from llm_response_analyzer.lexical_diversity_features import ttr, yule_k, guiraud
 
 
 class TestTTR:
@@ -173,3 +173,104 @@ class TestYuleK:
         result = yule_k(text)
 
         assert result == 2000.0
+
+
+class TestGuiraud:
+    def test_guiraud_normal_text_with_repetition(self):
+        text = "the cat sat on the mat"
+        result = guiraud(text)
+
+        assert result == pytest.approx(2.0412, rel=1e-3)
+
+    def test_guiraud_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = guiraud(text)
+
+        assert result == pytest.approx(2.236, rel=1e-3)
+
+    def test_guiraud_all_same_word(self):
+        text = "the the the the"
+        result = guiraud(text)
+
+        assert result == pytest.approx(0.5, rel=1e-3)
+
+    def test_guiraud_empty_text(self):
+        text = ""
+        result = guiraud(text)
+
+        assert result == 0.0
+
+    def test_guiraud_whitespace_only(self):
+        text = "   \n\t  "
+        result = guiraud(text)
+
+        assert result == 0.0
+
+    def test_guiraud_single_word(self):
+        text = "hello"
+        result = guiraud(text)
+
+        assert result == 1.0
+
+    def test_guiraud_two_words(self):
+        text = "hello world"
+        result = guiraud(text)
+
+        assert result == pytest.approx(1.414, rel=1e-3)
+
+    def test_guiraud_with_punctuation(self):
+        text = "Hello, world! How are you?"
+        result = guiraud(text)
+
+        assert result == pytest.approx(2.236, rel=1e-3)
+
+    def test_guiraud_case_insensitive(self):
+        text = "The THE the"
+        result = guiraud(text)
+
+        assert result == pytest.approx(0.577, rel=1e-3)
+
+    def test_guiraud_high_repetition(self):
+        text = "a a a b b c"
+        result = guiraud(text)
+
+        assert result == pytest.approx(1.225, rel=1e-3)
+
+    def test_guiraud_numbers_and_words(self):
+        text = "test 123 test 456"
+        result = guiraud(text)
+
+        assert result == pytest.approx(1.5, rel=1e-3)
+
+    def test_guiraud_return_type(self):
+        text = "hello world test"
+        result = guiraud(text)
+
+        assert isinstance(result, float)
+
+    def test_guiraud_very_repetitive_text(self):
+        text = "word " * 100
+        result = guiraud(text)
+
+        assert result == pytest.approx(0.1, rel=1e-3)
+
+    def test_guiraud_mixed_repetition(self):
+        text = "once twice twice thrice thrice thrice"
+        result = guiraud(text)
+
+        assert result == pytest.approx(1.225, rel=1e-3)
+
+    def test_guiraud_increases_with_vocabulary(self):
+        text_low_diversity = "word " * 50
+        text_high_diversity = " ".join(["word"] * 50)  # Same as above
+
+        result_low = guiraud(text_low_diversity)
+        result_high = guiraud(text_high_diversity)
+
+        assert result_low == pytest.approx(result_high, rel=1e-3)
+
+    def test_guiraud_two_unique_very_frequent(self):
+        text = "a " * 1000 + "b " * 1000
+        result = guiraud(text)
+
+        assert result == pytest.approx(0.0447, rel=1e-2)
