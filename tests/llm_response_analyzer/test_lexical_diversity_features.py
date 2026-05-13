@@ -1,5 +1,5 @@
 import pytest
-from llm_response_analyzer.lexical_diversity_features import ttr, yule_k, guiraud
+from llm_response_analyzer.lexical_diversity_features import ttr, yule_k, guiraud, honore
 
 
 class TestTTR:
@@ -274,3 +274,101 @@ class TestGuiraud:
         result = guiraud(text)
 
         assert result == pytest.approx(0.0447, rel=1e-2)
+
+
+class TestHonore:
+    def test_honore_normal_text_with_repetition(self):
+        text = "the cat sat on the mat"
+        result = honore(text)
+
+        assert result == pytest.approx(895.9, rel=1e-2)
+
+    def test_honore_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = honore(text)
+
+        assert result == 0.0
+
+    def test_honore_empty_text(self):
+        text = ""
+        result = honore(text)
+
+        assert result == 0.0
+
+    def test_honore_whitespace_only(self):
+        text = "   \n\t  "
+        result = honore(text)
+
+        assert result == 0.0
+
+    def test_honore_single_word(self):
+        text = "hello"
+        result = honore(text)
+
+        assert result == 0.0
+
+    def test_honore_two_same_words(self):
+        text = "hello hello"
+        result = honore(text)
+
+        assert result == pytest.approx(69.31, rel=1e-2)
+
+    def test_honore_one_word_three_times_plus_unique(self):
+        text = "the the the cat"
+        result = honore(text)
+
+        assert result == pytest.approx(277.26, rel=1e-2)
+
+    def test_honore_high_repetition(self):
+        text = "a a a b b c"
+        result = honore(text)
+
+        assert result == pytest.approx(268.77, rel=1e-2)
+
+    def test_honore_with_punctuation(self):
+        text = "Hello, world! Hello world."
+        result = honore(text)
+
+        assert result == pytest.approx(138.63, rel=1e-2)
+
+    def test_honore_case_insensitive(self):
+        text = "The THE the Cat cat"
+        result = honore(text)
+
+        assert result == pytest.approx(160.94, rel=1e-2)
+
+    def test_honore_return_type(self):
+        text = "hello hello world"
+        result = honore(text)
+
+        assert isinstance(result, float)
+
+    def test_honore_mostly_hapax(self):
+        text = "a b c d e f a"
+        result = honore(text)
+
+        assert result == pytest.approx(1167.5, rel=1e-2)
+
+    def test_honore_low_hapax(self):
+        text = "a a a a b b b b c c c c"
+        result = honore(text)
+
+        assert result == pytest.approx(248.49, rel=1e-2)
+
+    def test_honore_large_hapax_ratio(self):
+        text = "a b c d e f g a"
+        result = honore(text)
+
+        assert result == pytest.approx(1455.6, rel=1e-2)
+
+    def test_honore_mixed_frequencies(self):
+        text = "once twice twice thrice thrice thrice"
+        result = honore(text)
+
+        assert result == pytest.approx(268.77, rel=1e-2)
+
+    def test_honore_numbers_and_words(self):
+        text = "test 123 test 456"
+        result = honore(text)
+
+        assert result == pytest.approx(415.9, rel=1e-2)
