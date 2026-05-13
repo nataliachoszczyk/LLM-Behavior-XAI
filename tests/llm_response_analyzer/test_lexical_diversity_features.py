@@ -1,5 +1,24 @@
 import pytest
-from llm_response_analyzer.lexical_diversity_features import ttr, yule_k, guiraud, honore
+
+from llm_response_analyzer.lexical_diversity_features import (
+    ttr,
+    yule_k,
+    guiraud,
+    honore,
+    brunet,
+    dugast,
+    maas_a2,
+    entropy,
+    repetition_rate,
+    hapax_ratio,
+    avg_word_freq,
+    max_word_freq,
+    get_mtld_score,
+    punctuation_density,
+    repeated_bigram_ratio,
+    repeated_trigram_ratio,
+    max_bigram_frequency,
+)
 
 
 class TestTTR:
@@ -7,7 +26,7 @@ class TestTTR:
         text = "the cat sat on the mat"
         result = ttr(text)
 
-        assert result == pytest.approx(5/6, rel=1e-3)
+        assert result == pytest.approx(5 / 6, rel=1e-3)
 
     def test_ttr_all_unique_words(self):
         text = "the quick brown fox jumps"
@@ -49,7 +68,7 @@ class TestTTR:
         text = "The THE the"
         result = ttr(text)
 
-        assert result == pytest.approx(1/3, rel=1e-3)
+        assert result == pytest.approx(1 / 3, rel=1e-3)
 
     def test_ttr_high_repetition(self):
         text = "a a a b b c"
@@ -372,3 +391,548 @@ class TestHonore:
         result = honore(text)
 
         assert result == pytest.approx(415.9, rel=1e-2)
+
+
+class TestBrunet:
+    def test_brunet_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = brunet(text)
+
+        assert result == pytest.approx(3.435, rel=1e-2)
+
+    def test_brunet_all_same_word(self):
+        text = "the the the the"
+        result = brunet(text)
+
+        assert result == pytest.approx(4.0, rel=1e-3)
+
+    def test_brunet_empty_text(self):
+        text = ""
+        result = brunet(text)
+
+        assert result == 0.0
+
+    def test_brunet_single_word(self):
+        text = "hello"
+        result = brunet(text)
+
+        assert result == pytest.approx(1.0, rel=1e-3)
+
+    def test_brunet_high_repetition(self):
+        text = "a a a b b c"
+        result = brunet(text)
+
+        assert result == pytest.approx(4.458, rel=1e-2)
+
+    def test_brunet_return_type(self):
+        text = "hello world test"
+        result = brunet(text)
+
+        assert isinstance(result, (float, int))
+
+    def test_brunet_custom_parameter(self):
+        text = "hello world"
+        result = brunet(text, a=0.5)
+
+        assert isinstance(result, (float, int))
+        assert result > 0
+
+
+class TestDugast:
+    def test_dugast_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = dugast(text)
+
+        assert result == 0.0
+
+    def test_dugast_all_same_word(self):
+        text = "the the the the"
+        result = dugast(text)
+
+        assert result == pytest.approx(1.386, rel=1e-2)
+
+    def test_dugast_empty_text(self):
+        text = ""
+        result = dugast(text)
+
+        assert result == 0.0
+
+    def test_dugast_single_word(self):
+        text = "hello"
+        result = dugast(text)
+
+        assert result == 0.0
+
+    def test_dugast_high_repetition(self):
+        text = "a a a b b c"
+        result = dugast(text)
+
+        assert result == pytest.approx(4.64, rel=1e-2)
+
+    def test_dugast_return_type(self):
+        text = "hello world test test"
+        result = dugast(text)
+
+        assert isinstance(result, (float, int, type(None).__class__))
+
+    def test_dugast_moderate_repetition(self):
+        text = "the quick brown fox fox"
+        result = dugast(text)
+
+        assert result > 0
+
+
+class TestMaasA2:
+    def test_maas_a2_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = maas_a2(text)
+
+        assert result == 0.0
+
+    def test_maas_a2_all_same_word(self):
+        text = "the the the the"
+        result = maas_a2(text)
+
+        assert result == pytest.approx(0.721, rel=1e-2)
+
+    def test_maas_a2_empty_text(self):
+        text = ""
+        result = maas_a2(text)
+
+        assert result == 0.0
+
+    def test_maas_a2_high_repetition(self):
+        text = "a a a b b c"
+        result = maas_a2(text)
+
+        assert result == pytest.approx(0.215, rel=1e-2)
+
+    def test_maas_a2_return_type(self):
+        text = "hello world test test"
+        result = maas_a2(text)
+
+        assert isinstance(result, (float, int))
+
+    def test_maas_a2_moderate_repetition(self):
+        text = "the quick brown fox fox"
+        result = maas_a2(text)
+
+        assert result > 0
+        assert result < 1
+
+
+class TestEntropy:
+    def test_entropy_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = entropy(text)
+
+        assert result == pytest.approx(1.609, rel=1e-2)
+
+    def test_entropy_all_same_word(self):
+        text = "the the the the"
+        result = entropy(text)
+
+        assert result == pytest.approx(0.0, rel=1e-3)
+
+    def test_entropy_empty_text(self):
+        text = ""
+        result = entropy(text)
+
+        assert result == 0.0
+
+    def test_entropy_single_word(self):
+        text = "hello"
+        result = entropy(text)
+
+        assert result == 0.0
+
+    def test_entropy_high_repetition(self):
+        text = "a a a b b c"
+        result = entropy(text)
+
+        assert result == pytest.approx(1.0114, rel=1e-2)
+
+    def test_entropy_return_type(self):
+        text = "hello world test"
+        result = entropy(text)
+
+        assert isinstance(result, float)
+
+    def test_entropy_uniform_distribution(self):
+        text = "a b c d e"
+        result = entropy(text)
+
+        assert result > 1.5
+
+
+class TestRepetitionRate:
+    def test_repetition_rate_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = repetition_rate(text)
+
+        assert result == 0.0
+
+    def test_repetition_rate_all_same_word(self):
+        text = "the the the the"
+        result = repetition_rate(text)
+
+        assert result == 0.75
+
+    def test_repetition_rate_empty_text(self):
+        text = ""
+        result = repetition_rate(text)
+
+        assert result == 0.0
+
+    def test_repetition_rate_single_word(self):
+        text = "hello"
+        result = repetition_rate(text)
+
+        assert result == 0.0
+
+    def test_repetition_rate_high_repetition(self):
+        text = "a a a b b c"
+        result = repetition_rate(text)
+
+        assert result == 0.5
+
+    def test_repetition_rate_return_type(self):
+        text = "hello world test"
+        result = repetition_rate(text)
+
+        assert isinstance(result, float)
+
+    def test_repetition_rate_range(self):
+        text = "a a b b c c d d e e"
+        result = repetition_rate(text)
+
+        assert 0 <= result <= 1
+
+
+class TestHapaxRatio:
+    def test_hapax_ratio_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = hapax_ratio(text)
+
+        assert result == 1.0
+
+    def test_hapax_ratio_all_same_word(self):
+        text = "the the the the"
+        result = hapax_ratio(text)
+
+        assert result == 0.0
+
+    def test_hapax_ratio_empty_text(self):
+        text = ""
+        result = hapax_ratio(text)
+
+        assert result == 0.0
+
+    def test_hapax_ratio_single_word(self):
+        text = "hello"
+        result = hapax_ratio(text)
+
+        assert result == 1.0
+
+    def test_hapax_ratio_high_repetition(self):
+        text = "a a a b b c"
+        result = hapax_ratio(text)
+
+        assert result == pytest.approx(0.167, rel=1e-2)
+
+    def test_hapax_ratio_return_type(self):
+        text = "hello world test"
+        result = hapax_ratio(text)
+
+        assert isinstance(result, float)
+
+    def test_hapax_ratio_range(self):
+        text = "a a b b c c d d e e"
+        result = hapax_ratio(text)
+
+        assert 0 <= result <= 1
+
+
+class TestAvgWordFreq:
+    def test_avg_word_freq_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = avg_word_freq(text)
+
+        assert result == 1.0
+
+    def test_avg_word_freq_all_same_word(self):
+        text = "the the the the"
+        result = avg_word_freq(text)
+
+        assert result == 4.0
+
+    def test_avg_word_freq_empty_text(self):
+        text = ""
+        result = avg_word_freq(text)
+
+        assert result == 0
+
+    def test_avg_word_freq_single_word(self):
+        text = "hello"
+        result = avg_word_freq(text)
+
+        assert result == 1.0
+
+    def test_avg_word_freq_high_repetition(self):
+        text = "a a a b b c"
+        result = avg_word_freq(text)
+
+        assert result == 2.0
+
+    def test_avg_word_freq_return_type(self):
+        text = "hello world test"
+        result = avg_word_freq(text)
+
+        assert isinstance(result, (float, int))
+
+    def test_avg_word_freq_mixed_repetition(self):
+        text = "once twice twice thrice thrice thrice"
+        result = avg_word_freq(text)
+
+        assert result == 2.0
+
+
+class TestMaxWordFreq:
+    def test_max_word_freq_all_unique_words(self):
+        text = "the quick brown fox jumps"
+        result = max_word_freq(text)
+
+        assert result == 1
+
+    def test_max_word_freq_all_same_word(self):
+        text = "the the the the"
+        result = max_word_freq(text)
+
+        assert result == 4
+
+    def test_max_word_freq_empty_text(self):
+        text = ""
+        result = max_word_freq(text)
+
+        assert result == 0
+
+    def test_max_word_freq_single_word(self):
+        text = "hello"
+        result = max_word_freq(text)
+
+        assert result == 1
+
+    def test_max_word_freq_high_repetition(self):
+        text = "a a a b b c"
+        result = max_word_freq(text)
+
+        assert result == 3
+
+    def test_max_word_freq_return_type(self):
+        text = "hello world test"
+        result = max_word_freq(text)
+
+        assert isinstance(result, (float, int))
+
+    def test_max_word_freq_mixed_repetition(self):
+        text = "once twice twice thrice thrice thrice"
+        result = max_word_freq(text)
+
+        assert result == 3
+
+
+class TestPunctuationDensity:
+    def test_punctuation_density_no_punctuation(self):
+        text = "hello world"
+        result = punctuation_density(text)
+
+        assert result == 0.0
+
+    def test_punctuation_density_all_punctuation(self):
+        text = "!!!???"
+        result = punctuation_density(text)
+
+        assert result == 1.0
+
+    def test_punctuation_density_empty_text(self):
+        text = ""
+        result = punctuation_density(text)
+
+        assert result == 0.0
+
+    def test_punctuation_density_mixed(self):
+        text = "Hello, world!"
+        result = punctuation_density(text)
+
+        assert result == pytest.approx(0.154, rel=1e-2)
+
+    def test_punctuation_density_multiple_types(self):
+        text = "What?!... Really?"
+        result = punctuation_density(text)
+
+        assert 0 <= result <= 1
+
+    def test_punctuation_density_return_type(self):
+        text = "hello world test"
+        result = punctuation_density(text)
+
+        assert isinstance(result, float)
+
+
+class TestRepeatedBigramRatio:
+    def test_repeated_bigram_ratio_no_bigrams(self):
+        text = "hello"
+        result = repeated_bigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_bigram_ratio_all_unique_bigrams(self):
+        text = "the quick brown fox"
+        result = repeated_bigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_bigram_ratio_all_same_bigrams(self):
+        text = "the the the the"
+        result = repeated_bigram_ratio(text)
+
+        assert result == pytest.approx(0.667, rel=1e-3)
+
+    def test_repeated_bigram_ratio_mixed(self):
+        text = "a a b b c c"
+        result = repeated_bigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_bigram_ratio_some_repeated(self):
+        text = "a a a b b"
+        result = repeated_bigram_ratio(text)
+
+        assert result == pytest.approx(0.25, rel=1e-3)
+
+    def test_repeated_bigram_ratio_return_type(self):
+        text = "hello world test"
+        result = repeated_bigram_ratio(text)
+
+        assert isinstance(result, float)
+
+    def test_repeated_bigram_ratio_range(self):
+        text = "a a a a a"
+        result = repeated_bigram_ratio(text)
+
+        assert 0 <= result <= 1
+
+
+class TestRepeatedTrigramRatio:
+    def test_repeated_trigram_ratio_no_trigrams(self):
+        text = "hello"
+        result = repeated_trigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_trigram_ratio_all_unique_trigrams(self):
+        text = "the quick brown fox jumps"
+        result = repeated_trigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_trigram_ratio_all_same_trigrams(self):
+        text = "the the the the the"
+        result = repeated_trigram_ratio(text)
+
+        assert result == pytest.approx(0.667, rel=1e-3)
+
+    def test_repeated_trigram_ratio_some_repeated(self):
+        text = "a a a b b b"
+        result = repeated_trigram_ratio(text)
+
+        assert result == 0.0
+
+    def test_repeated_trigram_ratio_return_type(self):
+        text = "hello world test"
+        result = repeated_trigram_ratio(text)
+
+        assert isinstance(result, float)
+
+    def test_repeated_trigram_ratio_range(self):
+        text = "a a a a a a"
+        result = repeated_trigram_ratio(text)
+
+        assert 0 <= result <= 1
+
+
+class TestMaxBigramFrequency:
+    def test_max_bigram_frequency_no_bigrams(self):
+        text = "hello"
+        result = max_bigram_frequency(text)
+
+        assert result == 0
+
+    def test_max_bigram_frequency_all_unique_bigrams(self):
+        text = "the quick brown fox"
+        result = max_bigram_frequency(text)
+
+        assert result == 1
+
+    def test_max_bigram_frequency_all_same_bigrams(self):
+        text = "the the the the"
+        result = max_bigram_frequency(text)
+
+        assert result == 3
+
+    def test_max_bigram_frequency_mixed(self):
+        text = "a a a b b"
+        result = max_bigram_frequency(text)
+
+        assert result == 2
+
+    def test_max_bigram_frequency_return_type(self):
+        text = "hello world test"
+        result = max_bigram_frequency(text)
+
+        assert isinstance(result, (float, int))
+
+    def test_max_bigram_frequency_long_text(self):
+        text = "a a a a a a b b"
+        result = max_bigram_frequency(text)
+
+        assert result == 5
+
+
+class TestGetMtldScore:
+    def test_mtld_score_empty_text(self):
+        text = ""
+        result = get_mtld_score(text)
+
+        assert result == 0
+
+    def test_mtld_score_single_word(self):
+        text = "hello"
+        result = get_mtld_score(text)
+
+        assert isinstance(result, float)
+
+    def test_mtld_score_two_words(self):
+        text = "hello world"
+        result = get_mtld_score(text)
+
+        assert isinstance(result, float)
+        assert result > 0
+
+    def test_mtld_score_return_type(self):
+        text = "the quick brown fox jumps over the lazy dog"
+        result = get_mtld_score(text)
+
+        assert isinstance(result, float)
+
+    def test_mtld_score_high_diversity(self):
+        text = "the quick brown fox jumps over the lazy dog"
+        result = get_mtld_score(text)
+
+        assert result > 0
+
+    def test_mtld_score_custom_threshold(self):
+        text = "the quick brown fox jumps"
+        result = get_mtld_score(text, threshold=0.5)
+
+        assert isinstance(result, float)
