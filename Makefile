@@ -42,7 +42,7 @@ clean:
 ## Check type hints with mypy
 .PHONY: mypy
 mypy:
-	mypy llm_behavior_xai llm_response_analyzer tests
+	mypy llm_behavior_xai llm_response_collector llm_response_analyzer tests config.py file_utils.py
 
 
 ## Lint using ruff (use `make format` to do formatting)
@@ -63,6 +63,12 @@ format:
 .PHONY: test
 test:
 	python -m pytest tests
+
+
+## Run tests with coverage
+.PHONY: coverage
+coverage:
+	$(PYTHON_INTERPRETER) -m pytest --cov=llm_behavior_xai --cov=llm_response_collector --cov=llm_response_analyzer --cov-report=term-missing tests
 
 
 #################################################################################

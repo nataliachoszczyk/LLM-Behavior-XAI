@@ -11,7 +11,8 @@ from config import (
     MODELS_CONFIG,
     GEMINI_API_KEYS,
     LLM_RESULTS_TRAIN_PROMPTS,
-    LLM_RESULTS_VAL_PROMPTS, LLM_RESULTS_TEST_PROMPTS,
+    LLM_RESULTS_VAL_PROMPTS,
+    LLM_RESULTS_TEST_PROMPTS,
 )
 from file_utils import read_prompts, read_llm_results, save_results
 from llm_response_collector.llm_clients import get_gemini_client
@@ -97,7 +98,7 @@ def main():
     N_RUNS = 1
     CHECKPOINT_EVERY = 10
 
-    current_timestamp = get_timestamp()
+    # current_timestamp = get_timestamp()
 
     llm_results_paths = [
         (TRAIN_PROMPTS, LLM_RESULTS_TRAIN_PROMPTS),
