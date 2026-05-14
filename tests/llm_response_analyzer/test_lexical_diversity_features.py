@@ -18,6 +18,7 @@ from llm_response_analyzer.lexical_diversity_features import (
     repeated_bigram_ratio,
     repeated_trigram_ratio,
     max_bigram_frequency,
+    get_lexical_density,
 )
 
 
@@ -936,3 +937,137 @@ class TestGetMtldScore:
         result = get_mtld_score(text, threshold=0.5)
 
         assert isinstance(result, float)
+
+
+class TestGetLexicalDensity:
+    def test_lexical_density_empty_text(self):
+        text = ""
+        result = get_lexical_density(text, "en")
+
+        assert result == 0
+
+    def test_lexical_density_no_words(self):
+        text = "...."
+        result = get_lexical_density(text, "en")
+
+        assert result == 0
+
+    def test_lexical_density_single_noun(self):
+        text = "cat"
+        result = get_lexical_density(text, "en")
+
+        assert result == 1.0
+
+    def test_lexical_density_single_verb(self):
+        text = "run"
+        result = get_lexical_density(text, "en")
+
+        assert result == 1.0
+
+    def test_lexical_density_single_adjective(self):
+        text = "beautiful"
+        result = get_lexical_density(text, "en")
+
+        assert result == 1.0
+
+    def test_lexical_density_single_adverb(self):
+        text = "quickly"
+        result = get_lexical_density(text, "en")
+
+        assert result == 1.0
+
+    def test_lexical_density_article(self):
+        text = "the"
+        result = get_lexical_density(text, "en")
+
+        assert result == 0.0
+
+    def test_lexical_density_mixed_simple(self):
+        text = "The cat runs quickly"
+        result = get_lexical_density(text, "en")
+
+        assert result == pytest.approx(0.75, rel=1e-2)
+
+    def test_lexical_density_only_function_words(self):
+        text = "the and a is"
+        result = get_lexical_density(text, "en")
+
+        assert result < 0.5
+
+    def test_lexical_density_all_lexical_words(self):
+        text = "cat dog run jump beautiful"
+        result = get_lexical_density(text, "en")
+
+        assert result > 0.5
+
+    def test_lexical_density_return_type(self):
+        text = "The quick brown fox jumps"
+        result = get_lexical_density(text, "en")
+
+        assert isinstance(result, float)
+
+    def test_lexical_density_range(self):
+        text = "The cat sat on the beautiful mat"
+        result = get_lexical_density(text, "en")
+
+        assert 0 <= result <= 1
+
+    def test_lexical_density_with_punctuation(self):
+        text = "Hello, world! How are you?"
+        result = get_lexical_density(text, "en")
+
+        assert isinstance(result, float)
+        assert 0 <= result <= 1
+
+    def test_lexical_density_complex_sentence(self):
+        text = "The beautiful cat quickly jumped over the lazy sleeping dog"
+        result = get_lexical_density(text, "en")
+
+        assert result > 0.5
+
+    def test_lexical_density_english_language(self):
+        text = "The quick brown fox jumps over the lazy dog"
+        result_en = get_lexical_density(text, "en")
+
+        assert isinstance(result_en, float)
+        assert result_en > 0
+
+    def test_lexical_density_polish_no_pronouns(self):
+        text = "Kot siedzi na macie."
+        result = get_lexical_density(text, "pl")
+
+        assert isinstance(result, float)
+        assert 0 <= result <= 1
+
+    def test_lexical_density_polish_language(self):
+        text = "Pies szybko biegł"
+        result = get_lexical_density(text, "pl")
+
+        assert isinstance(result, float)
+        assert result > 0
+
+    def test_lexical_density_very_short_text(self):
+        text = "I run"
+        result = get_lexical_density(text, "en")
+
+        assert result == pytest.approx(0.5, rel=1e-2)
+
+    def test_lexical_density_long_text(self):
+        text = "The beautiful and intelligent student studied hard while reading thoroughly."
+        result = get_lexical_density(text, "en")
+
+        assert isinstance(result, float)
+        assert 0 <= result <= 1
+
+    def test_lexical_density_only_nouns(self):
+        text = "Cat dog bird elephant"
+        result = get_lexical_density(text, "en")
+
+        assert result == 0.75
+
+    def test_lexical_density_with_numbers(self):
+        text = "123 cats run quickly"
+        result = get_lexical_density(text, "en")
+
+        assert isinstance(result, float)
+        assert 0 <= result <= 1
