@@ -26,6 +26,7 @@ GEMINI_API_KEY_17 = os.getenv("GEMINI_API_KEY_17")
 GEMINI_API_KEY_18 = os.getenv("GEMINI_API_KEY_18")
 GEMINI_API_KEY_19 = os.getenv("GEMINI_API_KEY_19")
 GEMINI_API_KEY_20 = os.getenv("GEMINI_API_KEY_20")
+
 GEMINI_API_KEYS = [
     GEMINI_API_KEY_1,
     GEMINI_API_KEY_2,
@@ -48,6 +49,15 @@ GEMINI_API_KEYS = [
     GEMINI_API_KEY_19,
     GEMINI_API_KEY_20,
 ]
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+HF_TOKEN = os.getenv("HF_TOKEN")
+
+PROMPT_COLUMNS = ["prompt_en", "prompt_pl", "paraphrase_en", "paraphrase_pl"]
+N_RUNS = 1
+CHECKPOINT_EVERY = 10
+RUN_MODE = "full"
+TEST_HEAD = 2
 
 GENERATION_DEFAULTS = {
     "temperature": 0.3,
