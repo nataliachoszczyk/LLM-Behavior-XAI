@@ -16,7 +16,7 @@ from config import (
 from llm_response_collector.pipeline import get_timestamp, collector_pipeline
 
 
-def main():
+def main() -> None:
     if RUN_MODE == "full":
         current_timestamp = get_timestamp()
 

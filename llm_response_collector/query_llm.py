@@ -1,13 +1,20 @@
 import time
 import math
+from typing import Any
+
 import torch
+from google import genai
 
 from google.genai import types
+from groq import Groq
 
 from config import MODELS_CONFIG
 
 
-def query_gemini(prompt_text, config, gemini_client):
+def query_gemini(
+    prompt_text: str, config: dict[str, Any], gemini_client: genai.Client
+) -> tuple[str | None, str | None, dict[str, Any]]:
+
     generation_config = types.GenerateContentConfig(
         temperature=config["temperature"],
         max_output_tokens=config["max_tokens"],
@@ -41,7 +48,7 @@ def query_gemini(prompt_text, config, gemini_client):
             )
             text = (response.text or "").strip()
 
-            if not text:
+            if not text or response.candidates is None:
                 return None, "Empty Gemini response", summarize_logprobs([])
 
             finish = getattr(response.candidates[0], "finish_reason", None)
@@ -60,7 +67,10 @@ def query_gemini(prompt_text, config, gemini_client):
     return None, last_error or "Gemini request failed", summarize_logprobs([])
 
 
-def query_groq(prompt_text, config, groq_client):
+def query_groq(
+    prompt_text: str, config: dict[str, Any], groq_client: Groq
+) -> tuple[str | None, str | None, dict[str, Any]]:
+
     try:
         request = {
             "model": config["model_id"],
@@ -103,7 +113,13 @@ def query_groq(prompt_text, config, groq_client):
         return None, str(e), summarize_logprobs([])
 
 
-def query_local_hf(prompt_text, model_key, config, local_models={}):
+def query_local_hf(
+    prompt_text: str, model_key: str, config: dict[str, Any], local_models: dict | None = None
+) -> tuple[Any, None, dict[str, Any]] | tuple[None, str, dict[str, Any]]:
+
+    if local_models is None:
+        local_models = {}
+
     try:
         local_bundle = local_models[model_key]
         model = local_bundle["model"]
@@ -149,7 +165,10 @@ def query_local_hf(prompt_text, model_key, config, local_models={}):
         return None, str(e), summarize_logprobs([])
 
 
-def query_model(model_key, prompt_text, client=None, local_models=None):
+def query_model(
+    model_key: str, prompt_text: str, client: genai.Client | Groq | None = None, local_models: dict | None = None
+) -> tuple[Any | None, str | Any, float, dict[str, Any] | Any]:
+
     if local_models is None:
         local_models = {}
 
@@ -158,8 +177,14 @@ def query_model(model_key, prompt_text, client=None, local_models=None):
     start_time = time.time()
 
     if config["provider"] == "Google Gemini API" or model_key.startswith("gemini"):
+        if type(client) is not genai.Client:
+            return None, "Client not initialized", 0, summarize_logprobs([])
+
         response, error, logprob_stats = query_gemini(prompt_text, config, client)
     elif model_key == "llama-3.1-8b-groq":
+        if type(client) is not Groq:
+            return None, "Client not initialized", 0, summarize_logprobs([])
+
         response, error, logprob_stats = query_groq(prompt_text, config, client)
     elif model_key in local_models:
         response, error, logprob_stats = query_local_hf(prompt_text, model_key, config)
@@ -171,7 +196,7 @@ def query_model(model_key, prompt_text, client=None, local_models=None):
     return response, error, elapsed, logprob_stats
 
 
-def summarize_logprobs(token_logprobs):
+def summarize_logprobs(token_logprobs: list[float]) -> dict[str, Any]:
     if not token_logprobs:
         return {
             "logprob_available": False,

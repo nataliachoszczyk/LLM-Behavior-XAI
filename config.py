@@ -66,7 +66,7 @@ GENERATION_DEFAULTS = {
     "repetition_penalty": 1.1,
 }
 
-MODELS_CONFIG = {
+MODELS_CONFIG: dict[str, dict[str, str | float | int]] = {
     "gemini-flash-latest": {
         "provider": "Google Gemini API",
         "model_id": "gemini-flash-latest",

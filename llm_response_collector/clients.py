@@ -11,21 +11,21 @@ from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 from config import GEMINI_API_KEYS, GROQ_API_KEY, MODELS_CONFIG
 
 
-def get_gemini_client(gemini_api_key: str) -> genai.Client:
+def get_gemini_client(gemini_api_key: str | None) -> genai.Client:
     gemini_client = genai.Client(api_key=gemini_api_key)
     print("Gemini initialized")
 
     return gemini_client
 
 
-def get_groq_client(groq_api_key: str) -> Groq:
+def get_groq_client(groq_api_key: str | None) -> Groq:
     groq_client = Groq(api_key=groq_api_key)
     print("Groq initialized")
 
     return groq_client
 
 
-def load_local_model(model_id, model_key, HF_TOKEN=None):
+def load_local_model(model_id: str, model_key: str, hf_token: str | None = None) -> dict[str, Any]:
     print(f"⏳ Downloading model: {model_id} ...")
 
     bnb_config = BitsAndBytesConfig(
@@ -39,13 +39,13 @@ def load_local_model(model_id, model_key, HF_TOKEN=None):
 
     tokenizer = AutoTokenizer.from_pretrained(
         model_id,
-        token=HF_TOKEN,
+        token=hf_token,
         trust_remote_code=use_remote_code,
     )
 
     config = AutoConfig.from_pretrained(
         model_id,
-        token=HF_TOKEN,
+        token=hf_token,
         trust_remote_code=use_remote_code,
     )
     if model_key == "phi-3-mini-hf":
@@ -59,7 +59,7 @@ def load_local_model(model_id, model_key, HF_TOKEN=None):
     model = AutoModelForCausalLM.from_pretrained(
         model_id,
         config=config,
-        token=HF_TOKEN,
+        token=hf_token,
         quantization_config=bnb_config,
         device_map="auto",
         trust_remote_code=use_remote_code,
@@ -77,7 +77,7 @@ def load_clients() -> tuple[int, Client, Groq, dict[Any, Any]]:
     groq_client = get_groq_client(GROQ_API_KEY)
 
     local_models = {}
-    local_models["mistral-7b-hf"] = load_local_model(MODELS_CONFIG["mistral-7b-hf"]["model_id"], "mistral-7b-hf")
-    local_models["phi-3-mini-hf"] = load_local_model(MODELS_CONFIG["phi-3-mini-hf"]["model_id"], "phi-3-mini-hf")
+    local_models["mistral-7b-hf"] = load_local_model(str(MODELS_CONFIG["mistral-7b-hf"]["model_id"]), "mistral-7b-hf")
+    local_models["phi-3-mini-hf"] = load_local_model(str(MODELS_CONFIG["phi-3-mini-hf"]["model_id"]), "phi-3-mini-hf")
 
     return gemini_api_key_index, gemini_client, groq_client, local_models

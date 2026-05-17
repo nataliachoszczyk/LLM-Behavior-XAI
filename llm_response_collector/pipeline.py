@@ -2,13 +2,12 @@ import datetime
 import os
 import time
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 import pandas as pd
-from google.genai import Client
+from google import genai
 from groq import Groq
-from numpy import dtype, generic, ndarray
-from pandas import DataFrame, Series
+from pandas import DataFrame
 
 from config import MODELS_CONFIG, PROMPT_COLUMNS, GEMINI_API_KEYS, N_RUNS, CHECKPOINT_EVERY
 from file_utils import read_prompts, read_llm_results, save_results
@@ -33,7 +32,10 @@ def clean_invalid_responses(df: pd.DataFrame) -> pd.DataFrame:
     return df[mask].reset_index(drop=True)
 
 
-def has_valid_response(df: pd.DataFrame, prompt_id, category, prompt_text, lang, is_paraphrase, model_key: str) -> bool:
+def has_valid_response(
+    df: pd.DataFrame, prompt_id: str, category: str, prompt_text: str, lang: str, is_paraphrase: bool, model_key: str
+) -> bool:
+
     mask = (
         (df["prompt_id"] == prompt_id)
         & (df["category"] == category)
@@ -44,10 +46,11 @@ def has_valid_response(df: pd.DataFrame, prompt_id, category, prompt_text, lang,
         & df["response"].notna()
         & df["error"].isna()
     )
+
     return mask.any()
 
 
-def build_parameters_string(cfg):
+def build_parameters_string(cfg: dict[str, Any]) -> str:
     ordered_keys = [
         "temperature",
         "top_p",
@@ -67,7 +70,7 @@ def build_parameters_string(cfg):
     return ", ".join(parts)
 
 
-def flush_checkpoint(rows, output_path):
+def flush_checkpoint(rows: list, output_path: str | Path) -> None:
     if not rows:
         return
 
@@ -82,7 +85,7 @@ def flush_checkpoint(rows, output_path):
     )
 
 
-def load_models_config():
+def load_models_config() -> None:
     for cfg in MODELS_CONFIG.values():
         cfg["parameters"] = build_parameters_string(cfg)
 
@@ -113,7 +116,7 @@ def get_timestamp() -> str:
     return ct.strftime("%Y-%m-%d_%H-%M-%S")
 
 
-def collector_pipeline(prompts_path, results_path):
+def collector_pipeline(prompts_path: Path, results_path: Path) -> None:
     if not prompts_path.exists():
         print(f"Prompts file not found: {prompts_path}")
         return
@@ -130,8 +133,8 @@ def collector_pipeline(prompts_path, results_path):
     load_models_config()
     gemini_api_key_index, gemini_client, groq_client, local_models = load_clients()
 
-    results = []
-    checkpoint_buffer = []
+    results: list[Any] = []
+    checkpoint_buffer: list[Any] = []
 
     total_calls = len(df_prompts) * len(MODELS_CONFIG) * len(PROMPT_COLUMNS) * N_RUNS
     call_count = 0
@@ -168,9 +171,9 @@ def collector_pipeline(prompts_path, results_path):
 def run_pipeline(
     call_count: int,
     checkpoint_buffer: list[Any],
-    df_prompts: DataFrame,
+    df_prompts: pd.DataFrame,
     gemini_api_key_index: int,
-    gemini_client: Client,
+    gemini_client: genai.Client,
     groq_client: Groq,
     local_models: dict[Any, Any],
     results: list[Any],
@@ -178,6 +181,7 @@ def run_pipeline(
     run_id: int,
     total_calls: int,
 ) -> list[Any]:
+
     print(f"\n🔁 Run {run_id}/{N_RUNS}")
 
     for _, row in df_prompts.iterrows():
@@ -214,24 +218,25 @@ def run_pipeline(
 
 
 def model_pipeline(
-    model_key,
-    call_count,
-    total_calls,
-    run_id,
-    prompt_id,
-    prompt_col,
-    category,
-    prompt_text,
-    lang,
-    is_paraphrase,
-    results_path,
-    results,
-    checkpoint_buffer,
-    gemini_api_key_index,
-    gemini_client,
-    groq_client,
-    local_models,
-):
+    model_key: str,
+    call_count: int,
+    total_calls: int,
+    run_id: int,
+    prompt_id: str,
+    prompt_col: str,
+    category: str,
+    prompt_text: str,
+    lang: str,
+    is_paraphrase: bool,
+    results_path: Path,
+    results: list,
+    checkpoint_buffer: list,
+    gemini_api_key_index: int,
+    gemini_client: genai.Client,
+    groq_client: Groq,
+    local_models: dict[Any, Any],
+) -> list[Any]:
+
     call_count += 1
     cfg = MODELS_CONFIG[model_key]
 
@@ -310,13 +315,18 @@ def model_pipeline(
 def ask_gemini_till_exhaustion(
     checkpoint_buffer: list[Any],
     gemini_api_key_index: int,
-    gemini_client: Client,
-    model_key: Literal["gemini-flash-latest"],
-    prompt_text: Series | ndarray[tuple[Any, ...], dtype[generic[Any]]] | Any,
+    gemini_client: genai.Client,
+    model_key: str,
+    prompt_text: str,
     results_path: Path,
-) -> tuple[Any | None, str | Any, float, dict[str, bool | None | int] | dict[str, bool | float | int] | Any]:
+) -> tuple[float, str | Any, dict[str, Any] | Any, Any | None]:
 
     ask_model = True
+
+    elapsed = 0.0
+    error = None
+    logprob_stats: dict[str, Any] = {}
+    response = None
 
     while ask_model:
         response, error, elapsed, logprob_stats = query_model(model_key, prompt_text, gemini_client)
