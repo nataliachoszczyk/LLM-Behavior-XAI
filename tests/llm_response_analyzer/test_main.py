@@ -44,6 +44,7 @@ def sample_llm_results_df_empty_responses():
     return pd.DataFrame(data)
 
 
+@pytest.mark.slow
 class TestCreateResponseFeatures:
     def test_create_response_features_returns_dataframe(self, sample_llm_results_df):
         result = create_response_features(sample_llm_results_df)
@@ -318,6 +319,7 @@ class TestCreateResponseFeatures:
         assert result["response_number_of_words"].sum() == 0
 
 
+@pytest.mark.slow
 class TestGenerateFeaturesPlots:
     @pytest.fixture
     def sample_response_features(self):
@@ -445,6 +447,7 @@ def temp_dir(tmpdir):
     return str(tmpdir)
 
 
+@pytest.mark.slow
 class TestMain:
     @patch("llm_response_analyzer.main.generate_features_plots")
     @patch("llm_response_analyzer.main.save_results")

@@ -31,3 +31,6 @@ filterwarnings = [
     "ignore::DeprecationWarning:.*SwigPyObject.*",
     "ignore::DeprecationWarning:.*importlib.*"
 ]
+markers = [
+    "slow: marks tests as slow"
+]
