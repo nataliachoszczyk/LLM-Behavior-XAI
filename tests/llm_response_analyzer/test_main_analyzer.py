@@ -5,7 +5,7 @@ import pandas as pd
 from unittest.mock import patch, MagicMock
 import numpy as np
 
-from llm_response_analyzer.main import create_response_features, generate_features_plots, main
+from llm_behavior_xai.llm_response_analyzer.main import create_response_features, generate_features_plots, main
 
 
 @pytest.fixture

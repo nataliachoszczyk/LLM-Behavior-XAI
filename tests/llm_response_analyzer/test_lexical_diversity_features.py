@@ -1,6 +1,6 @@
 import pytest
 
-from llm_response_analyzer.lexical_diversity_features import (
+from llm_behavior_xai.llm_response_analyzer.lexical_diversity_features import (
     ttr,
     yule_k,
     guiraud,

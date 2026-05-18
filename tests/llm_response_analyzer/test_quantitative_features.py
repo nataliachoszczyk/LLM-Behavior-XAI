@@ -1,7 +1,11 @@
 import pytest
 import pandas as pd
 
-from llm_response_analyzer.quantitative_features import token_count_feature, average_length_features, length_features
+from llm_behavior_xai.llm_response_analyzer.quantitative_features import (
+    token_count_feature,
+    average_length_features,
+    length_features,
+)
 
 
 class TestTokenCountFeature:

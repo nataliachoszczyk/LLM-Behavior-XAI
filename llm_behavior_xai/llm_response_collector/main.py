@@ -13,7 +13,7 @@ from config import (
     LLM_RESULTS_VAL_PROMPTS,
     LLM_RESULTS_TEST_PROMPTS,
 )
-from llm_response_collector.pipeline import get_timestamp, collector_pipeline
+from llm_behavior_xai.llm_response_collector.pipeline import get_timestamp, collector_pipeline
 
 
 def main() -> None:

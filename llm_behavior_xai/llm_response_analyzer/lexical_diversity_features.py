@@ -9,7 +9,7 @@ from nltk.util import ngrams
 from lexicalrichness import LexicalRichness
 from numpy import floating, dtype, float64, ndarray
 
-from llm_response_analyzer.text_utils import prepare_text_stats, get_list_of_words
+from llm_behavior_xai.llm_response_analyzer.text_utils import prepare_text_stats, get_list_of_words
 
 
 def ttr(text: str) -> float:

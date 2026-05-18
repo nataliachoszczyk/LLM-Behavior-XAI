@@ -1,6 +1,6 @@
 from collections import Counter
 
-from llm_response_analyzer.text_utils import (
+from llm_behavior_xai.llm_response_analyzer.text_utils import (
     get_list_of_sentences,
     count_sentences,
     get_list_of_words,

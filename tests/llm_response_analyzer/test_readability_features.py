@@ -1,4 +1,7 @@
-from llm_response_analyzer.readability_features import get_flesch_reading_ease, get_flesch_kincaid_grade
+from llm_behavior_xai.llm_response_analyzer.readability_features import (
+    get_flesch_reading_ease,
+    get_flesch_kincaid_grade,
+)
 
 
 class TestGetFleschReadingEase:
