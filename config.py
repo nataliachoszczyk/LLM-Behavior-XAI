@@ -1,7 +1,13 @@
 import os
 
 from pathlib import Path
-from dotenv import load_dotenv
+
+try:
+    from dotenv import load_dotenv
+except ImportError:
+
+    def load_dotenv(*args, **kwargs):
+        return False
 
 
 load_dotenv()
@@ -141,3 +147,10 @@ LLM_RESPONSES_TEST_FEATURES = RESPONSE_FEATURES_DIR / "llm_responses_test_featur
 LLM_RESPONSES_TRAIN_FEATURES_PLOTS_DIR = RESPONSE_FEATURES_DIR / "train_features_plots"
 LLM_RESPONSES_VAL_FEATURES_PLOTS_DIR = RESPONSE_FEATURES_DIR / "val_features_plots"
 LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR = RESPONSE_FEATURES_DIR / "test_features_plots"
+
+MODELS_DIR = PROJ_ROOT / "models"
+XAI_MODELS_DIR = MODELS_DIR / "xai"
+
+REPORTS_DIR = PROJ_ROOT / "reports"
+XAI_REPORTS_DIR = REPORTS_DIR / "xai"
+STYLE_PROFILES_REPORTS_DIR = REPORTS_DIR / "style_profiles"

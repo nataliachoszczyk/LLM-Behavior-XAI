@@ -1,0 +1,53 @@
+{
+  "target": "language",
+  "model_name": "random_forest",
+  "params": {
+    "max_depth": null,
+    "min_samples_leaf": 3,
+    "n_estimators": 200
+  },
+  "class_names": [
+    "en",
+    "pl"
+  ],
+  "feature_columns": [
+    "source_response_length",
+    "text_avg_sentence_chars",
+    "text_avg_sentence_words",
+    "text_avg_word_frequency",
+    "text_avg_word_length",
+    "text_char_count",
+    "text_code_fence_count",
+    "text_colon_density",
+    "text_comma_density",
+    "text_digit_density",
+    "text_entropy",
+    "text_exclamation_mark_density",
+    "text_first_person_pronoun_count",
+    "text_first_person_pronoun_density",
+    "text_hapax_ratio",
+    "text_hedge_word_count",
+    "text_hedge_word_density",
+    "text_list_marker_count",
+    "text_max_word_frequency",
+    "text_negation_word_count",
+    "text_negation_word_density",
+    "text_newline_count",
+    "text_paragraph_count",
+    "text_punctuation_count",
+    "text_punctuation_density",
+    "text_repeated_bigram_ratio",
+    "text_repeated_trigram_ratio",
+    "text_repetition_rate",
+    "text_second_person_pronoun_count",
+    "text_second_person_pronoun_density",
+    "text_semicolon_density",
+    "text_sentence_count",
+    "text_type_token_ratio",
+    "text_unique_word_count",
+    "text_uppercase_word_ratio",
+    "text_word_count"
+  ],
+  "selection_metric": "macro_f1",
+  "selection_split": "val"
+}
