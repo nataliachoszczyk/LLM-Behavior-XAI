@@ -65,6 +65,18 @@ test:
 	python -m pytest tests
 
 
+## Run not slow tests
+.PHONY: test_not_slow
+test_not_slow:
+	python -m pytest -m "not slow" tests
+
+
+## Run slow tests
+.PHONY: test_slow
+test_slow:
+	python -m pytest -m slow tests
+
+
 ## Run tests with coverage
 .PHONY: coverage
 coverage:
