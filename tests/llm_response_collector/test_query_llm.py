@@ -490,3 +490,44 @@ class TestQueryModel:
             _, error, _, _ = query_model("mistral-7b-hf", "prompt", local_models=None)
 
         assert error is not None
+
+    def test_gemini_dispatches_to_query_gemini_with_real_client(self):
+        from google import genai
+
+        client = object.__new__(genai.Client)
+
+        with patch("llm_response_collector.query_llm.query_gemini", return_value=("answer", None, {})) as mock_gemini:
+            response, error, _, _ = query_model("gemini-flash-latest", "my prompt", client=client)
+
+        mock_gemini.assert_called_once()
+
+        assert mock_gemini.call_args[0][0] == "my prompt"
+        assert response == "answer"
+        assert error is None
+
+    def test_groq_dispatches_to_query_groq_with_real_client(self):
+        from groq import Groq
+
+        client = object.__new__(Groq)
+
+        with patch("llm_response_collector.query_llm.query_groq", return_value=("groq answer", None, {})) as mock_groq:
+            response, error, _, _ = query_model("llama-3.1-8b-groq", "my prompt", client=client)
+
+        mock_groq.assert_called_once()
+
+        assert mock_groq.call_args[0][0] == "my prompt"
+        assert response == "groq answer"
+        assert error is None
+
+    def test_local_model_dispatches_to_query_local_hf_when_in_local_models(self):
+        local_models = {"mistral-7b-hf": MagicMock()}
+
+        with patch(
+            "llm_response_collector.query_llm.query_local_hf", return_value=("local answer", None, {})
+        ) as mock_local:
+            response, error, _, _ = query_model("mistral-7b-hf", "my prompt", local_models=local_models)
+
+        mock_local.assert_called_once()
+
+        assert response == "local answer"
+        assert error is None

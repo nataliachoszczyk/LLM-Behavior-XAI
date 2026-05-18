@@ -726,6 +726,25 @@ class TestCollectorPipeline:
         mock_read.assert_called_once()
         mock_save.assert_called_once()
 
+    def test_prints_final_checkpoint_message_when_buffer_non_empty(self, tmp_path, mock_prompts_df, capsys):
+        prompts_path = tmp_path / "prompts.csv"
+        prompts_path.write_text("x\n")
+        results_path = tmp_path / "results.csv"
+
+        with (
+            patch("llm_response_collector.pipeline.load_prompts", return_value=mock_prompts_df),
+            patch("llm_response_collector.pipeline.load_models_config"),
+            patch("llm_response_collector.pipeline.load_clients", return_value=(0, MagicMock(), MagicMock(), {})),
+            patch("llm_response_collector.pipeline.run_pipeline", return_value=[{"col": "val"}]),
+            patch("llm_response_collector.pipeline.flush_checkpoint"),
+            patch("llm_response_collector.pipeline.N_RUNS", 1),
+            patch("llm_response_collector.pipeline.MODELS_CONFIG", {}),
+            patch("llm_response_collector.pipeline.PROMPT_COLUMNS", []),
+        ):
+            collector_pipeline(prompts_path, results_path)
+
+        assert "Final checkpoint saved" in capsys.readouterr().out
+
     def test_calls_run_pipeline_once_per_n_runs(self, tmp_path, mock_prompts_df):
         prompts_path = tmp_path / "prompts.csv"
         prompts_path.write_text("x\n")
@@ -786,49 +805,3 @@ class TestRunPipeline:
         expected_calls = len(df_prompts) * len(prompt_columns) * len(models_config)
 
         assert mock_mp.call_count == expected_calls
-
-    #
-    # def test_language_is_en_for_en_column(self, df_prompts):
-    #     with (
-    #         patch("llm_response_collector.pipeline.MODELS_CONFIG", {"m": {}}),
-    #         patch("llm_response_collector.pipeline.PROMPT_COLUMNS", ["prompt_en"]),
-    #         patch("llm_response_collector.pipeline.model_pipeline", return_value=[]) as mock_mp,
-    #     ):
-    #         run_pipeline(0, [], df_prompts, 0, MagicMock(), MagicMock(), {}, [], Path("/tmp/out"), 1, 10)
-    #
-    #     lang_args = [c.kwargs["lang"] for c in mock_mp.call_args_list]
-    #
-    #     assert all(lang == "en" for lang in lang_args)
-    #
-    # def test_language_is_pl_for_pl_column(self, df_prompts):
-    #     with (
-    #         patch("llm_response_collector.pipeline.MODELS_CONFIG", {"m": {}}),
-    #         patch("llm_response_collector.pipeline.PROMPT_COLUMNS", ["prompt_pl"]),
-    #         patch("llm_response_collector.pipeline.model_pipeline", return_value=[]) as mock_mp,
-    #     ):
-    #         run_pipeline(0, [], df_prompts, 0, MagicMock(), MagicMock(), {}, [], Path("/tmp/out"), 1, 10)
-    #
-    #     lang_args = [c.kwargs["lang"] for c in mock_mp.call_args_list]
-    #     assert all(lang == "pl" for lang in lang_args)
-    #
-    # def test_is_paraphrase_true_for_paraphrase_column(self, df_prompts):
-    #     with (
-    #         patch("llm_response_collector.pipeline.MODELS_CONFIG", {"m": {}}),
-    #         patch("llm_response_collector.pipeline.PROMPT_COLUMNS", ["paraphrase_en"]),
-    #         patch("llm_response_collector.pipeline.model_pipeline", return_value=[]) as mock_mp,
-    #     ):
-    #         run_pipeline(0, [], df_prompts, 0, MagicMock(), MagicMock(), {}, [], Path("/tmp/out"), 1, 10)
-    #
-    #     paraphrase_args = [c.kwargs["is_paraphrase"] for c in mock_mp.call_args_list]
-    #     assert all(is_par is True for is_par in paraphrase_args)
-    #
-    # def test_is_paraphrase_false_for_prompt_column(self, df_prompts):
-    #     with (
-    #         patch("llm_response_collector.pipeline.MODELS_CONFIG", {"m": {}}),
-    #         patch("llm_response_collector.pipeline.PROMPT_COLUMNS", ["prompt_en"]),
-    #         patch("llm_response_collector.pipeline.model_pipeline", return_value=[]) as mock_mp,
-    #     ):
-    #         run_pipeline(0, [], df_prompts, 0, MagicMock(), MagicMock(), {}, [], Path("/tmp/out"), 1, 10)
-    #
-    #     paraphrase_args = [c.kwargs["is_paraphrase"] for c in mock_mp.call_args_list]
-    #     assert all(is_par is False for is_par in paraphrase_args)
