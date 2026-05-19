@@ -11,9 +11,9 @@ from config import (
     LLM_RESULTS_TEST_PROMPTS_GEMINI,
     PROCESSED_DATA_DIR,
 )
-from llm_behavior_xai.merge_and_validate_datasets.clean_dataset import clean_dataframe
-from llm_behavior_xai.merge_and_validate_datasets.merge_datasets import load_and_merge_datasets
-from llm_behavior_xai.merge_and_validate_datasets.validate_dataset import (
+from llm_behavior_xai.llm_response_merger_and_validator.clean_dataset import clean_dataframe
+from llm_behavior_xai.llm_response_merger_and_validator.merge_datasets import load_and_merge_datasets
+from llm_behavior_xai.llm_response_merger_and_validator.validate_dataset import (
     analyze_df,
     print_dataframe_report,
     print_summary_dataframe,
