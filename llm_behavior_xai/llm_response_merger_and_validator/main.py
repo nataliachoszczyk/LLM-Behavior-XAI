@@ -9,7 +9,7 @@ from config import (
     LLM_RESULTS_TRAIN_PROMPTS_GEMINI,
     LLM_RESULTS_VAL_PROMPTS_GEMINI,
     LLM_RESULTS_TEST_PROMPTS_GEMINI,
-    PROCESSED_DATA_DIR, FINAL_RESPONSES_DIR,
+    FINAL_RESPONSES_DIR,
 )
 from llm_behavior_xai.llm_response_merger_and_validator.clean_dataset import clean_dataframe
 from llm_behavior_xai.llm_response_merger_and_validator.merge_datasets import load_and_merge_datasets
