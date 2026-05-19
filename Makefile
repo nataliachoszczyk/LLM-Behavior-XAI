@@ -94,6 +94,12 @@ collect_responses:
 	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_collector.main
 
 
+## Merge amd validate collected LLM responses with the response merger
+.PHONY: merge_and_validate_responses
+merge_and_validate_responses:
+	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_merger_and_validator.main
+
+
 ## Analyze LLM responses with the response analyzer
 .PHONY: analyze_responses
 analyze_responses:
