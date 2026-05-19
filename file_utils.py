@@ -14,3 +14,11 @@ def read_prompts(path: str | Path) -> DataFrame:
 
 def save_results(df: DataFrame, path: str | Path) -> None:
     df.to_csv(path, index=False, header=True)
+
+
+def safe_read_csv(path: Path) -> pd.DataFrame:
+    try:
+        return pd.read_csv(path)
+    except Exception as e:
+        print(f"Failed to read {path}: {e}")
+        return pd.DataFrame()
