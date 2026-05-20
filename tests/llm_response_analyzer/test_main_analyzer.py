@@ -261,7 +261,7 @@ class TestCreateResponseFeatures:
 
             assert model_data["token_count"].sum() > 0
 
-    @patch("llm_response_analyzer.main.SentenceTransformer")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.SentenceTransformer")
     def test_create_response_features_with_mocked_sentence_transformer(self, mock_st, sample_llm_results_df):
         mock_instance = MagicMock()
         mock_st.return_value = mock_instance
@@ -366,36 +366,36 @@ class TestGenerateFeaturesPlots:
         }
         return pd.DataFrame(data)
 
-    @patch("llm_response_analyzer.main.plot_correlation_heatmap")
-    @patch("llm_response_analyzer.main.plot_flesch_kincaid_grade_level_feature")
-    @patch("llm_response_analyzer.main.plot_flesch_reading_ease_feature")
-    @patch("llm_response_analyzer.main.plot_embedding_variance_feature")
-    @patch("llm_response_analyzer.main.plot_sentence_coherence_feature")
-    @patch("llm_response_analyzer.main.plot_person_pronouns_features")
-    @patch("llm_response_analyzer.main.plot_semantic_diversity")
-    @patch("llm_response_analyzer.main.plot_sentiment_features")
-    @patch("llm_response_analyzer.main.plot_max_bigram_frequency")
-    @patch("llm_response_analyzer.main.plot_repeated_trigram_ratio")
-    @patch("llm_response_analyzer.main.plot_repeated_bigram_ratio")
-    @patch("llm_response_analyzer.main.plot_punctuation_density")
-    @patch("llm_response_analyzer.main.plot_lexical_density")
-    @patch("llm_response_analyzer.main.plot_mtld")
-    @patch("llm_response_analyzer.main.plot_max_word_freq")
-    @patch("llm_response_analyzer.main.plot_avg_word_freq")
-    @patch("llm_response_analyzer.main.plot_hapax_ratio")
-    @patch("llm_response_analyzer.main.plot_repetition_rate")
-    @patch("llm_response_analyzer.main.plot_entropy")
-    @patch("llm_response_analyzer.main.plot_maas_a2")
-    @patch("llm_response_analyzer.main.plot_dugast")
-    @patch("llm_response_analyzer.main.plot_brunet")
-    @patch("llm_response_analyzer.main.plot_honore")
-    @patch("llm_response_analyzer.main.plot_guiraud")
-    @patch("llm_response_analyzer.main.plot_yule_k")
-    @patch("llm_response_analyzer.main.plot_type_token_ratio")
-    @patch("llm_response_analyzer.main.plot_token_count_feature")
-    @patch("llm_response_analyzer.main.plot_response_average_length_features")
-    @patch("llm_response_analyzer.main.plot_response_length_features")
-    @patch("llm_response_analyzer.main.plot_elapsed_seconds")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_correlation_heatmap")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_flesch_kincaid_grade_level_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_flesch_reading_ease_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_embedding_variance_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_sentence_coherence_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_person_pronouns_features")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_semantic_diversity")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_sentiment_features")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_max_bigram_frequency")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_repeated_trigram_ratio")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_repeated_bigram_ratio")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_punctuation_density")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_lexical_density")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_mtld")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_max_word_freq")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_avg_word_freq")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_hapax_ratio")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_repetition_rate")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_entropy")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_maas_a2")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_dugast")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_brunet")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_honore")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_guiraud")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_yule_k")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_type_token_ratio")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_token_count_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_response_average_length_features")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_response_length_features")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.plot_elapsed_seconds")
     def test_generate_features_plots_calls_all_plot_functions(
         self,
         mock_elapsed,
@@ -449,11 +449,11 @@ def temp_dir(tmpdir):
 
 @pytest.mark.slow
 class TestMain:
-    @patch("llm_response_analyzer.main.generate_features_plots")
-    @patch("llm_response_analyzer.main.save_results")
-    @patch("llm_response_analyzer.main.create_response_features")
-    @patch("llm_response_analyzer.main.read_llm_results")
-    @patch("llm_response_analyzer.main.Path.mkdir")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.generate_features_plots")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.save_results")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.create_response_features")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.read_llm_results")
+    @patch("llm_behavior_xai.llm_response_analyzer.main.Path.mkdir")
     def test_main_orchestrates_pipeline(self, mock_mkdir, mock_read, mock_create, mock_save, mock_plot, monkeypatch):
         mock_train_path = Path("/path/to/train.csv")
         mock_train_features_path = Path("/path/to/train_features.csv")
@@ -467,17 +467,29 @@ class TestMain:
         mock_test_features_path = Path("/path/to/test_features.csv")
         mock_test_plots_dir = Path("/path/to/test_plots")
 
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESULTS_TRAIN_PROMPTS", mock_train_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_TRAIN_FEATURES", mock_train_features_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_TRAIN_FEATURES_PLOTS_DIR", mock_train_plots_dir)
+        monkeypatch.setattr("llm_behavior_xai.llm_response_analyzer.main.LLM_RESULTS_TRAIN_PROMPTS", mock_train_path)
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_TRAIN_FEATURES", mock_train_features_path
+        )
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_TRAIN_FEATURES_PLOTS_DIR", mock_train_plots_dir
+        )
 
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESULTS_VAL_PROMPTS", mock_val_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_VAL_FEATURES", mock_val_features_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_VAL_FEATURES_PLOTS_DIR", mock_val_plots_dir)
+        monkeypatch.setattr("llm_behavior_xai.llm_response_analyzer.main.LLM_RESULTS_VAL_PROMPTS", mock_val_path)
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_VAL_FEATURES", mock_val_features_path
+        )
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_VAL_FEATURES_PLOTS_DIR", mock_val_plots_dir
+        )
 
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESULTS_TEST_PROMPTS", mock_test_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_TEST_FEATURES", mock_test_features_path)
-        monkeypatch.setattr("llm_response_analyzer.main.LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR", mock_test_plots_dir)
+        monkeypatch.setattr("llm_behavior_xai.llm_response_analyzer.main.LLM_RESULTS_TEST_PROMPTS", mock_test_path)
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_TEST_FEATURES", mock_test_features_path
+        )
+        monkeypatch.setattr(
+            "llm_behavior_xai.llm_response_analyzer.main.LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR", mock_test_plots_dir
+        )
 
         mock_df = MagicMock()
         mock_read.return_value = mock_df
