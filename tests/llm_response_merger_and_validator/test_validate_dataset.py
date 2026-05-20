@@ -225,6 +225,17 @@ class TestAnalyzeDf:
         assert "p2" in missing
         assert len(missing) == 1
 
+    def test_analyze_df_unique_prompt_ids_none_when_no_id_or_prompt_col(self):
+        rows = [
+            {"response": "R1"},
+            {"response": "R2"},
+        ]
+
+        df = pd.DataFrame(rows)
+        report = analyze_df(df, name="no_id_test")
+
+        assert report["unique_prompt_ids"] is None
+
 
 class TestPrintDataFrameReport:
     def test_print_dataframe_report(self, capsys):
@@ -234,6 +245,38 @@ class TestPrintDataFrameReport:
 
         assert "Report for testset:" in captured.out
         assert "error_count" in captured.out
+
+    def test_print_dataframe_report_with_empty_missing_variants(self, capsys):
+        report = {
+            "total_rows": 5,
+            "error_count": 0,
+            "missing_variants_by_prompt_id": [],
+        }
+        print_dataframe_report("testset", report)
+        captured = capsys.readouterr()
+
+        assert "Report for testset:" in captured.out
+        assert "missing_variants_by_prompt_id: []" in captured.out
+
+    def test_print_dataframe_report_with_missing_variants(self, capsys):
+        report = {
+            "total_rows": 5,
+            "error_count": 0,
+            "missing_variants_by_prompt_id": [
+                {"prompt_id": "p1", "missing": ["EN without paraphrase", "PL with paraphrase"]},
+                {"prompt_id": "p2", "missing": ["PL without paraphrase"]},
+            ],
+        }
+        print_dataframe_report("testset", report)
+        captured = capsys.readouterr()
+
+        assert "Report for testset:" in captured.out
+        assert "missing_variants_by_prompt_id:" in captured.out
+        assert "prompt_id=p1:" in captured.out
+        assert "prompt_id=p2:" in captured.out
+        assert "EN without paraphrase" in captured.out
+        assert "PL with paraphrase" in captured.out
+        assert "PL without paraphrase" in captured.out
 
 
 class TestPrintSummaryTable:
