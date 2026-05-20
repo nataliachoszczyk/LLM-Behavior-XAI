@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 from scipy.spatial.distance import pdist
 from sklearn.metrics.pairwise import cosine_similarity
 
-from llm_response_analyzer.text_utils import get_list_of_sentences
+from llm_behavior_xai.llm_response_analyzer.text_utils import get_list_of_sentences
 
 
 def get_sentiment_scores(text: str) -> tuple:

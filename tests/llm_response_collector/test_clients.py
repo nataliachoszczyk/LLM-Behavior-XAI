@@ -2,11 +2,16 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from llm_response_collector.clients import get_gemini_client, get_groq_client, load_local_model, load_clients
+from llm_behavior_xai.llm_response_collector.clients import (
+    get_gemini_client,
+    get_groq_client,
+    load_local_model,
+    load_clients,
+)
 
 
 class TestGetGeminiClient:
-    @patch("llm_response_collector.clients.genai.Client")
+    @patch("llm_behavior_xai.llm_response_collector.clients.genai.Client")
     def test_returns_genai_client(self, mock_client_cls):
         mock_instance = MagicMock()
         mock_client_cls.return_value = mock_instance
@@ -15,19 +20,19 @@ class TestGetGeminiClient:
 
         assert result is mock_instance
 
-    @patch("llm_response_collector.clients.genai.Client")
+    @patch("llm_behavior_xai.llm_response_collector.clients.genai.Client")
     def test_passes_api_key_to_client(self, mock_client_cls):
         get_gemini_client("my-api-key")
 
         mock_client_cls.assert_called_once_with(api_key="my-api-key")
 
-    @patch("llm_response_collector.clients.genai.Client")
+    @patch("llm_behavior_xai.llm_response_collector.clients.genai.Client")
     def test_accepts_none_api_key(self, mock_client_cls):
         get_gemini_client(None)
 
         mock_client_cls.assert_called_once_with(api_key=None)
 
-    @patch("llm_response_collector.clients.genai.Client")
+    @patch("llm_behavior_xai.llm_response_collector.clients.genai.Client")
     def test_prints_initialized_message(self, mock_client_cls, capsys):
         get_gemini_client("key")
 
@@ -36,7 +41,7 @@ class TestGetGeminiClient:
 
 
 class TestGetGroqClient:
-    @patch("llm_response_collector.clients.Groq")
+    @patch("llm_behavior_xai.llm_response_collector.clients.Groq")
     def test_returns_groq_client(self, mock_groq_cls):
         mock_instance = MagicMock()
         mock_groq_cls.return_value = mock_instance
@@ -45,19 +50,19 @@ class TestGetGroqClient:
 
         assert result is mock_instance
 
-    @patch("llm_response_collector.clients.Groq")
+    @patch("llm_behavior_xai.llm_response_collector.clients.Groq")
     def test_passes_api_key_to_client(self, mock_groq_cls):
         get_groq_client("my-groq-key")
 
         mock_groq_cls.assert_called_once_with(api_key="my-groq-key")
 
-    @patch("llm_response_collector.clients.Groq")
+    @patch("llm_behavior_xai.llm_response_collector.clients.Groq")
     def test_accepts_none_api_key(self, mock_groq_cls):
         get_groq_client(None)
 
         mock_groq_cls.assert_called_once_with(api_key=None)
 
-    @patch("llm_response_collector.clients.Groq")
+    @patch("llm_behavior_xai.llm_response_collector.clients.Groq")
     def test_prints_initialized_message(self, mock_groq_cls, capsys):
         get_groq_client("key")
 
@@ -69,10 +74,10 @@ class TestLoadLocalModel:
     @pytest.fixture(autouse=True)
     def mock_transformers(self):
         with (
-            patch("llm_response_collector.clients.BitsAndBytesConfig") as mock_bnb,
-            patch("llm_response_collector.clients.AutoTokenizer") as mock_tokenizer_cls,
-            patch("llm_response_collector.clients.AutoConfig") as mock_config_cls,
-            patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_model_cls,
+            patch("llm_behavior_xai.llm_response_collector.clients.BitsAndBytesConfig") as mock_bnb,
+            patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer") as mock_tokenizer_cls,
+            patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_config_cls,
+            patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_model_cls,
         ):
             self.mock_bnb = mock_bnb
             self.mock_tokenizer = MagicMock()
@@ -106,9 +111,9 @@ class TestLoadLocalModel:
         self.mock_model.eval.assert_called_once()
 
     def test_trust_remote_code_true_for_non_phi_model(self):
-        with patch("llm_response_collector.clients.AutoTokenizer") as mock_tok:
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer") as mock_tok:
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_cfg.from_pretrained.return_value = MagicMock()
                     mock_mdl.from_pretrained.return_value = MagicMock()
                     load_local_model("some/model-id", "mistral-7b-hf")
@@ -118,9 +123,9 @@ class TestLoadLocalModel:
                     )
 
     def test_trust_remote_code_false_for_phi_model(self):
-        with patch("llm_response_collector.clients.AutoTokenizer") as mock_tok:
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer") as mock_tok:
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_config_instance = MagicMock()
                     mock_config_instance.rope_parameters = {}
                     mock_cfg.from_pretrained.return_value = mock_config_instance
@@ -132,9 +137,9 @@ class TestLoadLocalModel:
                     )
 
     def test_phi_model_sets_rope_type_default(self):
-        with patch("llm_response_collector.clients.AutoTokenizer"):
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer"):
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_config_instance = MagicMock()
                     mock_config_instance.rope_parameters = {}
                     mock_cfg.from_pretrained.return_value = mock_config_instance
@@ -145,9 +150,9 @@ class TestLoadLocalModel:
                     assert mock_config_instance.rope_parameters["rope_type"] == "default"
 
     def test_phi_model_sets_attn_implementation_eager(self):
-        with patch("llm_response_collector.clients.AutoTokenizer"):
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer"):
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_config_instance = MagicMock()
                     mock_config_instance.rope_parameters = {}
                     mock_cfg.from_pretrained.return_value = mock_config_instance
@@ -158,9 +163,9 @@ class TestLoadLocalModel:
                     assert mock_config_instance._attn_implementation == "eager"
 
     def test_phi_model_initializes_rope_parameters_when_not_dict(self):
-        with patch("llm_response_collector.clients.AutoTokenizer"):
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer"):
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_config_instance = MagicMock(spec=[])
                     mock_config_instance.rope_parameters = "not-a-dict"
                     mock_cfg.from_pretrained.return_value = mock_config_instance
@@ -171,9 +176,9 @@ class TestLoadLocalModel:
                     assert mock_config_instance.rope_parameters["rope_type"] == "default"
 
     def test_passes_hf_token_to_pretrained_calls(self):
-        with patch("llm_response_collector.clients.AutoTokenizer") as mock_tok:
-            with patch("llm_response_collector.clients.AutoConfig") as mock_cfg:
-                with patch("llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
+        with patch("llm_behavior_xai.llm_response_collector.clients.AutoTokenizer") as mock_tok:
+            with patch("llm_behavior_xai.llm_response_collector.clients.AutoConfig") as mock_cfg:
+                with patch("llm_behavior_xai.llm_response_collector.clients.AutoModelForCausalLM") as mock_mdl:
                     mock_cfg.from_pretrained.return_value = MagicMock()
                     mock_mdl.from_pretrained.return_value = MagicMock()
 
@@ -198,13 +203,13 @@ class TestLoadClients:
     @pytest.fixture(autouse=True)
     def mock_dependencies(self):
         with (
-            patch("llm_response_collector.clients.get_gemini_client") as mock_gemini,
-            patch("llm_response_collector.clients.get_groq_client") as mock_groq,
-            patch("llm_response_collector.clients.load_local_model") as mock_local,
-            patch("llm_response_collector.clients.GEMINI_API_KEYS", ["key-0", "key-1"]),
-            patch("llm_response_collector.clients.GROQ_API_KEY", "groq-key"),
+            patch("llm_behavior_xai.llm_response_collector.clients.get_gemini_client") as mock_gemini,
+            patch("llm_behavior_xai.llm_response_collector.clients.get_groq_client") as mock_groq,
+            patch("llm_behavior_xai.llm_response_collector.clients.load_local_model") as mock_local,
+            patch("llm_behavior_xai.llm_response_collector.clients.GEMINI_API_KEYS", ["key-0", "key-1"]),
+            patch("llm_behavior_xai.llm_response_collector.clients.GROQ_API_KEY", "groq-key"),
             patch(
-                "llm_response_collector.clients.MODELS_CONFIG",
+                "llm_behavior_xai.llm_response_collector.clients.MODELS_CONFIG",
                 {
                     "mistral-7b-hf": {"model_id": "mistralai/Mistral-7B-Instruct-v0.3"},
                     "phi-3-mini-hf": {"model_id": "microsoft/Phi-3-mini-4k-instruct"},

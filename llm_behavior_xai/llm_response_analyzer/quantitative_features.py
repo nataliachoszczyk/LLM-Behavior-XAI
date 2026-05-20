@@ -2,7 +2,7 @@ from typing import Any
 
 from pandas import Series, DataFrame
 
-from llm_response_analyzer.text_utils import get_token_count, get_list_of_words, count_sentences
+from llm_behavior_xai.llm_response_analyzer.text_utils import get_token_count, get_list_of_words, count_sentences
 
 
 def token_count_feature(response_features: Series | DataFrame | Any, responses: Series | DataFrame | Any):

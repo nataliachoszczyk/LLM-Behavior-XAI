@@ -2,7 +2,7 @@ import pytest
 import numpy as np
 from unittest.mock import Mock
 from sentence_transformers import SentenceTransformer
-from llm_response_analyzer.stylistic_and_semantic_features import (
+from llm_behavior_xai.llm_response_analyzer.stylistic_and_semantic_features import (
     get_sentiment_scores,
     calculate_semantic_diversity,
     get_first_person_pronouns_count_and_density,

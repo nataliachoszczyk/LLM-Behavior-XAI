@@ -4,7 +4,7 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
-from llm_response_analyzer.plots import (
+from llm_behavior_xai.llm_response_analyzer.plots import (
     plot_single_feature,
     plot_response_length_features,
     plot_response_average_length_features,
@@ -92,8 +92,8 @@ def temp_output_dir():
 
 
 class TestPlotSingleFeature:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_single_feature_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -109,8 +109,8 @@ class TestPlotSingleFeature:
         mock_savefig.assert_called_once()
         mock_close.assert_called_once()
 
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_single_feature_filters_empty_responses(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -127,8 +127,8 @@ class TestPlotSingleFeature:
 
         mock_savefig.assert_called_once()
 
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_single_feature_sets_title_and_labels(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -145,8 +145,8 @@ class TestPlotSingleFeature:
 
 
 class TestPlotResponseLengthFeatures:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_response_length_features_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -157,8 +157,8 @@ class TestPlotResponseLengthFeatures:
 
 
 class TestPlotResponseAverageLengthFeatures:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_response_average_length_features_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -169,7 +169,7 @@ class TestPlotResponseAverageLengthFeatures:
 
 
 class TestPlotEllapsedSeconds:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_elapsed_seconds_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_elapsed_seconds(sample_response_features, temp_output_dir)
 
@@ -179,7 +179,7 @@ class TestPlotEllapsedSeconds:
 
 
 class TestPlotTokenCountFeature:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_token_count_feature_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -191,7 +191,7 @@ class TestPlotTokenCountFeature:
 
 
 class TestPlotTypeTokenRatio:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_type_token_ratio_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -203,7 +203,7 @@ class TestPlotTypeTokenRatio:
 
 
 class TestPlotYuleK:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_yule_k_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_yule_k(sample_response_features, temp_output_dir)
 
@@ -213,8 +213,8 @@ class TestPlotYuleK:
 
 
 class TestPlotSentimentFeatures:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_sentiment_features_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -225,8 +225,8 @@ class TestPlotSentimentFeatures:
 
 
 class TestPlotPersonPronounsFeatures:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_person_pronouns_features_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -237,7 +237,7 @@ class TestPlotPersonPronounsFeatures:
 
 
 class TestPlotLexicalDensity:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_lexical_density_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_lexical_density(sample_response_features, temp_output_dir)
 
@@ -247,7 +247,7 @@ class TestPlotLexicalDensity:
 
 
 class TestPlotPunctuationDensity:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_punctuation_density_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -259,7 +259,7 @@ class TestPlotPunctuationDensity:
 
 
 class TestPlotSemanticDiversity:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_semantic_diversity_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -271,7 +271,7 @@ class TestPlotSemanticDiversity:
 
 
 class TestPlotSentenceCoherenceFeature:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_sentence_coherence_feature_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -283,7 +283,7 @@ class TestPlotSentenceCoherenceFeature:
 
 
 class TestPlotEmbeddingVarianceFeature:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_embedding_variance_feature_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -295,7 +295,7 @@ class TestPlotEmbeddingVarianceFeature:
 
 
 class TestPlotFleschReadingEaseFeature:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_flesch_reading_ease_feature_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -307,7 +307,7 @@ class TestPlotFleschReadingEaseFeature:
 
 
 class TestPlotFleschKincaidGradeLevelFeature:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_flesch_kincaid_grade_level_feature_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -319,7 +319,7 @@ class TestPlotFleschKincaidGradeLevelFeature:
 
 
 class TestPlotGuiraud:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_guiraud_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_guiraud(sample_response_features, temp_output_dir)
 
@@ -329,7 +329,7 @@ class TestPlotGuiraud:
 
 
 class TestPlotHonore:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_honore_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_honore(sample_response_features, temp_output_dir)
 
@@ -339,7 +339,7 @@ class TestPlotHonore:
 
 
 class TestPlotBrunet:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_brunet_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_brunet(sample_response_features, temp_output_dir)
 
@@ -349,7 +349,7 @@ class TestPlotBrunet:
 
 
 class TestPlotDugast:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_dugast_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_dugast(sample_response_features, temp_output_dir)
 
@@ -359,7 +359,7 @@ class TestPlotDugast:
 
 
 class TestPlotMaasA2:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_maas_a2_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_maas_a2(sample_response_features, temp_output_dir)
 
@@ -369,7 +369,7 @@ class TestPlotMaasA2:
 
 
 class TestPlotEntropy:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_entropy_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_entropy(sample_response_features, temp_output_dir)
 
@@ -379,7 +379,7 @@ class TestPlotEntropy:
 
 
 class TestPlotRepetitionRate:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_repetition_rate_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_repetition_rate(sample_response_features, temp_output_dir)
 
@@ -389,7 +389,7 @@ class TestPlotRepetitionRate:
 
 
 class TestPlotHapaxRatio:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_hapax_ratio_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_hapax_ratio(sample_response_features, temp_output_dir)
 
@@ -399,7 +399,7 @@ class TestPlotHapaxRatio:
 
 
 class TestPlotAvgWordFreq:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_avg_word_freq_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_avg_word_freq(sample_response_features, temp_output_dir)
 
@@ -409,7 +409,7 @@ class TestPlotAvgWordFreq:
 
 
 class TestPlotMaxWordFreq:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_max_word_freq_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_max_word_freq(sample_response_features, temp_output_dir)
 
@@ -419,7 +419,7 @@ class TestPlotMaxWordFreq:
 
 
 class TestPlotMtld:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_mtld_calls_plot_single_feature(self, mock_plot, sample_response_features, temp_output_dir):
         plot_mtld(sample_response_features, temp_output_dir)
 
@@ -429,7 +429,7 @@ class TestPlotMtld:
 
 
 class TestPlotRepeatedBigramRatio:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_repeated_bigram_ratio_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -441,7 +441,7 @@ class TestPlotRepeatedBigramRatio:
 
 
 class TestPlotRepeatedTrigramRatio:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_repeated_trigram_ratio_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -453,7 +453,7 @@ class TestPlotRepeatedTrigramRatio:
 
 
 class TestPlotMaxBigramFrequency:
-    @patch("llm_response_analyzer.plots.plot_single_feature")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plot_single_feature")
     def test_plot_max_bigram_frequency_calls_plot_single_feature(
         self, mock_plot, sample_response_features, temp_output_dir
     ):
@@ -465,8 +465,8 @@ class TestPlotMaxBigramFrequency:
 
 
 class TestPlotCorrelationHeatmap:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_correlation_heatmap_creates_file(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -475,8 +475,8 @@ class TestPlotCorrelationHeatmap:
         mock_savefig.assert_called_once()
         mock_close.assert_called_once()
 
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_correlation_heatmap_filters_numeric_columns(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -488,8 +488,8 @@ class TestPlotCorrelationHeatmap:
 
 
 class TestPlotIntegration:
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_plot_single_feature_saves_to_correct_path(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):
@@ -505,8 +505,8 @@ class TestPlotIntegration:
 
         mock_savefig.assert_called_once()
 
-    @patch("llm_response_analyzer.plots.plt.savefig")
-    @patch("llm_response_analyzer.plots.plt.close")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.savefig")
+    @patch("llm_behavior_xai.llm_response_analyzer.plots.plt.close")
     def test_multiple_plot_functions_create_different_files(
         self, mock_close, mock_savefig, sample_response_features, temp_output_dir
     ):

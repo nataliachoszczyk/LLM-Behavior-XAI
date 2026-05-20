@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from llm_response_collector.query_llm import (
+from llm_behavior_xai.llm_response_collector.query_llm import (
     summarize_logprobs,
     query_gemini,
     query_groq,
@@ -439,20 +439,24 @@ class TestQueryModel:
                 "type": "local",
             },
         }
-        with patch("llm_response_collector.query_llm.MODELS_CONFIG", models_config):
+        with patch("llm_behavior_xai.llm_response_collector.query_llm.MODELS_CONFIG", models_config):
             yield
 
     def test_returns_four_element_tuple(self):
         from google import genai
 
         client = MagicMock(spec=genai.Client)
-        with patch("llm_response_collector.query_llm.query_gemini", return_value=("text", None, {})):
+
+        with patch("llm_behavior_xai.llm_response_collector.query_llm.query_gemini", return_value=("text", None, {})):
             result = query_model("gemini-flash-latest", "prompt", client=client)
 
         assert len(result) == 4
 
     def test_unknown_model_returns_error(self):
-        with patch("llm_response_collector.query_llm.MODELS_CONFIG", {"unknown": {"provider": "X", "type": "x"}}):
+        with patch(
+            "llm_behavior_xai.llm_response_collector.query_llm.MODELS_CONFIG",
+            {"unknown": {"provider": "X", "type": "x"}},
+        ):
             _, error, _, _ = query_model("unknown", "prompt")
 
         assert error is not None
@@ -480,13 +484,13 @@ class TestQueryModel:
         from google import genai
 
         client = MagicMock(spec=genai.Client)
-        with patch("llm_response_collector.query_llm.query_gemini", return_value=("text", None, {})):
+        with patch("llm_behavior_xai.llm_response_collector.query_llm.query_gemini", return_value=("text", None, {})):
             _, _, elapsed, _ = query_model("gemini-flash-latest", "prompt", client=client)
 
         assert elapsed >= 0
 
     def test_local_models_defaults_to_empty_dict_when_none(self):
-        with patch("llm_response_collector.query_llm.query_local_hf", return_value=(None, "err", {})):
+        with patch("llm_behavior_xai.llm_response_collector.query_llm.query_local_hf", return_value=(None, "err", {})):
             _, error, _, _ = query_model("mistral-7b-hf", "prompt", local_models=None)
 
         assert error is not None
@@ -496,7 +500,9 @@ class TestQueryModel:
 
         client = object.__new__(genai.Client)
 
-        with patch("llm_response_collector.query_llm.query_gemini", return_value=("answer", None, {})) as mock_gemini:
+        with patch(
+            "llm_behavior_xai.llm_response_collector.query_llm.query_gemini", return_value=("answer", None, {})
+        ) as mock_gemini:
             response, error, _, _ = query_model("gemini-flash-latest", "my prompt", client=client)
 
         mock_gemini.assert_called_once()
@@ -510,7 +516,9 @@ class TestQueryModel:
 
         client = object.__new__(Groq)
 
-        with patch("llm_response_collector.query_llm.query_groq", return_value=("groq answer", None, {})) as mock_groq:
+        with patch(
+            "llm_behavior_xai.llm_response_collector.query_llm.query_groq", return_value=("groq answer", None, {})
+        ) as mock_groq:
             response, error, _, _ = query_model("llama-3.1-8b-groq", "my prompt", client=client)
 
         mock_groq.assert_called_once()
@@ -523,7 +531,7 @@ class TestQueryModel:
         local_models = {"mistral-7b-hf": MagicMock()}
 
         with patch(
-            "llm_response_collector.query_llm.query_local_hf", return_value=("local answer", None, {})
+            "llm_behavior_xai.llm_response_collector.query_llm.query_local_hf", return_value=("local answer", None, {})
         ) as mock_local:
             response, error, _, _ = query_model("mistral-7b-hf", "my prompt", local_models=local_models)
 

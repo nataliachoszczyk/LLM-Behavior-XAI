@@ -18,7 +18,7 @@ from config import (
     LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR,
 )
 from file_utils import read_llm_results, save_results
-from llm_response_analyzer.lexical_diversity_features import (
+from llm_behavior_xai.llm_response_analyzer.lexical_diversity_features import (
     ttr,
     yule_k,
     guiraud,
@@ -38,7 +38,7 @@ from llm_response_analyzer.lexical_diversity_features import (
     repeated_trigram_ratio,
     max_bigram_frequency,
 )
-from llm_response_analyzer.plots import (
+from llm_behavior_xai.llm_response_analyzer.plots import (
     plot_response_length_features,
     plot_response_average_length_features,
     plot_token_count_feature,
@@ -70,9 +70,16 @@ from llm_response_analyzer.plots import (
     plot_correlation_heatmap,
     plot_elapsed_seconds,
 )
-from llm_response_analyzer.quantitative_features import token_count_feature, average_length_features, length_features
-from llm_response_analyzer.readability_features import get_flesch_reading_ease, get_flesch_kincaid_grade
-from llm_response_analyzer.stylistic_and_semantic_features import (
+from llm_behavior_xai.llm_response_analyzer.quantitative_features import (
+    token_count_feature,
+    average_length_features,
+    length_features,
+)
+from llm_behavior_xai.llm_response_analyzer.readability_features import (
+    get_flesch_reading_ease,
+    get_flesch_kincaid_grade,
+)
+from llm_behavior_xai.llm_response_analyzer.stylistic_and_semantic_features import (
     get_sentiment_scores,
     calculate_semantic_diversity,
     get_first_person_pronouns_count_and_density,

@@ -42,7 +42,7 @@ clean:
 ## Check type hints with mypy
 .PHONY: mypy
 mypy:
-	mypy llm_behavior_xai llm_response_collector llm_response_analyzer tests config.py file_utils.py
+	mypy llm_behavior_xai tests config.py file_utils.py
 
 
 ## Lint using ruff (use `make format` to do formatting)
@@ -80,7 +80,7 @@ test_slow:
 ## Run tests with coverage
 .PHONY: coverage
 coverage:
-	$(PYTHON_INTERPRETER) -m pytest --cov=llm_behavior_xai --cov=llm_response_collector --cov=llm_response_analyzer --cov-report=term-missing tests
+	$(PYTHON_INTERPRETER) -m pytest --cov=llm_behavior_xai --cov-report=term-missing tests
 
 
 #################################################################################
@@ -91,13 +91,19 @@ coverage:
 ## Collect LLM responses with the response collector
 .PHONY: collect_responses
 collect_responses:
-	$(PYTHON_INTERPRETER) -m llm_response_collector.main
+	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_collector.main
+
+
+## Merge amd validate collected LLM responses with the response merger
+.PHONY: merge_and_validate_responses
+merge_and_validate_responses:
+	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_merger_and_validator.main
 
 
 ## Analyze LLM responses with the response analyzer
 .PHONY: analyze_responses
 analyze_responses:
-	$(PYTHON_INTERPRETER) -m llm_response_analyzer.main
+	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_analyzer.main
 
 
 #################################################################################
