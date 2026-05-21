@@ -11,6 +11,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
+import sys
+from unittest.mock import patch
+
 from llm_behavior_xai.model_training_and_profiles.explainability import (
     built_in_importance,
     estimator_from_model,
@@ -19,6 +22,10 @@ from llm_behavior_xai.model_training_and_profiles.explainability import (
     normalize_group_importance,
     plot_top_importance,
     shap_values_to_importance,
+    permutation_importance_frame,
+    explain_with_shap,
+    calculate_outputs_importances,
+    calculate_feature_group_importance,
 )
 
 # ---------------------------------------------------------------------------
@@ -445,3 +452,145 @@ class TestNormalizeGroupImportance:
         result = normalize_group_importance(df, "importance")
         assert (result["importance_share"] >= 0).all()
         assert (result["importance_share"] <= 1.0 + 1e-9).all()
+
+
+class TestPermutationImportanceFrame:
+    def test_returns_correct_dataframe(self, trained_rf, best_by_target, feature_splits):
+        df = permutation_importance_frame(TARGET, trained_rf, best_by_target, feature_splits, FEATURE_COLUMNS, 42)
+
+        assert isinstance(df, pd.DataFrame)
+        assert list(df.columns) == ["target", "feature", "importance_mean", "importance_std"]
+        assert len(df) == N_FEATURES
+        assert (df["target"] == TARGET).all()
+        # Ensure it's sorted by importance_mean descending
+        assert df["importance_mean"].is_monotonic_decreasing
+
+
+# ---------------------------------------------------------------------------
+# explain_with_shap (Lines 126-138)
+# ---------------------------------------------------------------------------
+
+
+class TestExplainWithShap:
+    @patch.dict("sys.modules", {"shap": MagicMock()})
+    def test_success_path_returns_shap_importance(self, trained_rf, best_by_target, feature_splits):
+        # Mock SHAP behavior to avoid requiring the heavy library during tests
+        mock_shap = sys.modules["shap"]
+        mock_explainer = MagicMock()
+        mock_shap.Explainer.return_value = mock_explainer
+
+        # Create dummy SHAP values array: shape (n_samples, n_features, n_classes)
+        mock_shap_values = MagicMock()
+        val_samples = len(feature_splits["val"])
+        n_classes = len(best_by_target[TARGET]["class_names"])
+        mock_shap_values.values = np.random.rand(val_samples, N_FEATURES, n_classes)
+        mock_explainer.return_value = mock_shap_values
+
+        df = explain_with_shap(TARGET, trained_rf, best_by_target, feature_splits, FEATURE_COLUMNS, 42)
+
+        assert isinstance(df, pd.DataFrame)
+        assert "importance_kind" in df.columns
+        assert (df["importance_kind"] == "shap").all()
+
+    def test_exception_triggers_fallback_frame(self, trained_rf, best_by_target, feature_splits):
+        # By patching the 'shap' module as None, an ImportError is raised, triggering fallback
+        with patch.dict("sys.modules", {"shap": None}):
+            df = explain_with_shap(TARGET, trained_rf, best_by_target, feature_splits, FEATURE_COLUMNS, 42)
+
+            assert isinstance(df, pd.DataFrame)
+            assert (df["importance_kind"] == "fallback_importance").all()
+            assert "No module named" in df["note"].iloc[0] or "None" in df["note"].iloc[0]
+
+
+# ---------------------------------------------------------------------------
+# calculate_outputs_importances (Lines 160-199)
+# ---------------------------------------------------------------------------
+
+
+class TestCalculateOutputsImportances:
+    def test_generates_all_outputs_and_files(self, tmp_path, trained_rf, best_by_target, feature_splits):
+        xai_dir = tmp_path
+        (xai_dir / "importance").mkdir()
+        (xai_dir / "shap").mkdir()
+
+        # To speed up the test and isolate logic, force the fallback SHAP path
+        with patch.dict("sys.modules", {"shap": None}):
+            imp_out, perm_out, shap_out = calculate_outputs_importances(
+                42, xai_dir, best_by_target, FEATURE_COLUMNS, feature_splits
+            )
+
+        # 1. Assert memory outputs
+        assert len(imp_out) == 1
+        assert len(perm_out) == 1
+        assert len(shap_out) == 1
+
+        assert isinstance(imp_out[0], pd.DataFrame)
+        assert isinstance(perm_out[0], pd.DataFrame)
+        assert isinstance(shap_out[0], pd.DataFrame)
+
+        # 2. Assert file outputs (.csv and .png)
+        importance_dir = xai_dir / "importance"
+        shap_dir = xai_dir / "shap"
+
+        assert (importance_dir / f"{TARGET}_built_in_importance.csv").exists()
+        assert (importance_dir / f"{TARGET}_built_in_importance.png").exists()
+
+        assert (importance_dir / f"{TARGET}_permutation_importance.csv").exists()
+        assert (importance_dir / f"{TARGET}_permutation_importance.png").exists()
+
+        assert (shap_dir / f"{TARGET}_shap_importance.csv").exists()
+        assert (shap_dir / f"{TARGET}_shap_importance.png").exists()
+
+
+# ---------------------------------------------------------------------------
+# calculate_feature_group_importance (Lines 210-252)
+# ---------------------------------------------------------------------------
+
+
+class TestCalculateFeatureGroupImportance:
+    def test_calculates_and_plots_feature_groups(self, tmp_path):
+        xai_dir = tmp_path
+        (xai_dir / "importance").mkdir()
+
+        # Dummy inputs derived from the expected outputs of previous steps
+        # "text_char_count" groups to "length_and_structure"
+        imp_out = [
+            pd.DataFrame(
+                {"target": [TARGET], "method": ["built_in"], "feature": ["text_char_count"], "importance": [0.5]}
+            )
+        ]
+        perm_out = [
+            pd.DataFrame(
+                {
+                    "target": [TARGET],
+                    "method": ["permutation"],
+                    "feature": ["text_char_count"],
+                    "importance_mean": [0.3],
+                }
+            )
+        ]
+        shap_out = [
+            pd.DataFrame(
+                {
+                    "target": [TARGET],
+                    "method": ["shap"],
+                    "class_name": ["__overall__"],
+                    "feature": ["text_char_count"],
+                    "mean_abs_shap": [0.4],
+                }
+            )
+        ]
+
+        df = calculate_feature_group_importance((TARGET,), xai_dir, imp_out, perm_out, shap_out)
+
+        # 1. Assert structure of returned DataFrame
+        assert isinstance(df, pd.DataFrame)
+        expected_cols = ["target", "method", "feature_group", "importance", "importance_share"]
+        for col in expected_cols:
+            assert col in df.columns
+
+        assert "length_and_structure" in df["feature_group"].values
+
+        # 2. Assert files were written
+        assert (xai_dir / "importance" / "feature_group_importance.csv").exists()
+        assert (xai_dir / "importance" / f"{TARGET}_feature_group_importance.png").exists()
