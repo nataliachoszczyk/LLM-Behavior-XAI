@@ -1,0 +1,19 @@
+|--- text_hedge_word_density <= 0.00
+|   |--- text_avg_word_length <= 5.32
+|   |   |--- text_second_person_pronoun_density <= 0.00
+|   |   |   |--- weights: [24.42, 10.25] class: 0
+|   |   |--- text_second_person_pronoun_density >  0.00
+|   |   |   |--- weights: [99.61, 4.10] class: 0
+|   |--- text_avg_word_length >  5.32
+|   |   |--- text_first_person_pronoun_density <= 0.00
+|   |   |   |--- weights: [84.96, 47.13] class: 0
+|   |   |--- text_first_person_pronoun_density >  0.00
+|   |   |   |--- weights: [15.63, 890.33] class: 1
+|--- text_hedge_word_density >  0.00
+|   |--- text_first_person_pronoun_count <= 8.50
+|   |   |--- text_newline_count <= 58.50
+|   |   |   |--- weights: [672.88, 0.00] class: 0
+|   |   |--- text_newline_count >  58.50
+|   |   |   |--- weights: [30.27, 1.02] class: 0
+|   |--- text_first_person_pronoun_count >  8.50
+|   |   |--- weights: [32.23, 7.17] class: 0

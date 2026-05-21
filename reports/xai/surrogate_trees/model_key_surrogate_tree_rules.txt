@@ -1,0 +1,22 @@
+|--- text_punctuation_density <= 0.04
+|   |--- text_semicolon_density <= 0.00
+|   |   |--- text_comma_density <= 0.01
+|   |   |   |--- weights: [10.00, 147.00, 348.00, 90.00] class: 2
+|   |   |--- text_comma_density >  0.01
+|   |   |   |--- weights: [1.00, 29.00, 76.00, 127.00] class: 3
+|   |--- text_semicolon_density >  0.00
+|   |   |--- text_avg_word_frequency <= 1.23
+|   |   |   |--- weights: [0.00, 0.00, 2.00, 202.00] class: 3
+|   |   |--- text_avg_word_frequency >  1.23
+|   |   |   |--- weights: [2.00, 1.00, 6.00, 21.00] class: 3
+|--- text_punctuation_density >  0.04
+|   |--- text_repeated_trigram_ratio <= 0.04
+|   |   |--- text_unique_word_count <= 242.00
+|   |   |   |--- weights: [106.00, 42.00, 36.00, 15.00] class: 0
+|   |   |--- text_unique_word_count >  242.00
+|   |   |   |--- weights: [349.00, 0.00, 2.00, 5.00] class: 0
+|   |--- text_repeated_trigram_ratio >  0.04
+|   |   |--- text_hapax_ratio <= 0.38
+|   |   |   |--- weights: [8.00, 245.00, 3.00, 13.00] class: 1
+|   |   |--- text_hapax_ratio >  0.38
+|   |   |   |--- weights: [4.00, 16.00, 7.00, 7.00] class: 1

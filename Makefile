@@ -106,6 +106,24 @@ analyze_responses:
 	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_analyzer.main
 
 
+## Execute the Week 6-7 XAI notebook
+.PHONY: train_xai
+train_xai:
+	$(PYTHON_INTERPRETER) -m jupyter nbconvert --to notebook --execute --inplace notebooks/week_6_7_xai_training_and_profiles.ipynb
+
+
+## Execute the Week 6-7 XAI notebook, including style profiles
+.PHONY: build_profiles
+build_profiles:
+	$(PYTHON_INTERPRETER) -m jupyter nbconvert --to notebook --execute --inplace notebooks/week_6_7_xai_training_and_profiles.ipynb
+
+
+## Run the Streamlit XAI dashboard
+.PHONY: dashboard
+dashboard:
+	$(PYTHON_INTERPRETER) -m streamlit run llm_behavior_xai/dashboard/app.py
+
+
 #################################################################################
 # Self Documenting Commands                                                     #
 #################################################################################

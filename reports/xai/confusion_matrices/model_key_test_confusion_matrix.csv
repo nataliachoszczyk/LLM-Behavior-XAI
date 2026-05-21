@@ -1,0 +1,5 @@
+,gemini-flash-latest,llama-3.1-8b-groq,mistral-7b-hf,phi-3-mini-hf
+gemini-flash-latest,131,3,0,0
+llama-3.1-8b-groq,1,111,7,1
+mistral-7b-hf,2,5,107,6
+phi-3-mini-hf,2,5,20,93
