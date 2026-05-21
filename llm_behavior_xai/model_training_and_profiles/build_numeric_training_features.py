@@ -1,12 +1,16 @@
 from __future__ import annotations
 
+import json
 import math
 import re
 import string
 from collections import Counter
+from pathlib import Path
+from typing import Literal
 
 import numpy as np
 import pandas as pd
+from pandas import DataFrame, Series
 
 
 def tokenize_words(text: str, word_re: re.Pattern[str]) -> list[str]:
@@ -189,3 +193,88 @@ def build_feature_splits(
         feature_splits[split] = clean.fillna(fill_values).fillna(0.0).astype(float)
 
     return feature_splits, feature_columns, fill_values
+
+
+def create_feature_descriptions(XAI_DIR: Path, feature_columns: list[str]) -> DataFrame:
+    FEATURE_DESCRIPTIONS = {
+        "source_avg_logprob": "CSV value: average token log probability, if available; confidence/fluency proxy.",
+        "source_generated_tokens": "CSV value: number of generated tokens, if available; response length proxy.",
+        "source_perplexity": "CSV value: perplexity, if available; generation uncertainty proxy.",
+        "source_response_length": "CSV value: response length in characters.",
+        "source_sum_logprob": "CSV value: total token log probability, if available; confidence plus length proxy.",
+        "text_avg_sentence_chars": "Average sentence length in characters.",
+        "text_avg_sentence_words": "Average sentence length in words.",
+        "text_avg_word_frequency": "Average repetition count per used word.",
+        "text_avg_word_length": "Average word length in characters.",
+        "text_char_count": "Response length in characters recalculated from response text.",
+        "text_code_fence_count": "Number of fenced code blocks marked with triple backticks.",
+        "text_colon_density": "Colons per character; often marks lists, explanations, or definitions.",
+        "text_comma_density": "Commas per character; rough punctuation/complexity indicator.",
+        "text_digit_density": "Digits per character; shows numerical/detail-heavy answers.",
+        "text_entropy": "Lexical entropy; higher means word usage is more diverse/uniform.",
+        "text_exclamation_mark_density": "Exclamation marks per character; emphasis/expressiveness proxy.",
+        "text_first_person_pronoun_count": "Count of first-person words like I/we/ja/my.",
+        "text_first_person_pronoun_density": "First-person words divided by total words.",
+        "text_hapax_ratio": "Share of words appearing only once; lexical variety proxy.",
+        "text_hedge_word_count": "Count of uncertainty words like maybe/could/chyba.",
+        "text_hedge_word_density": "Uncertainty words divided by total words.",
+        "text_list_marker_count": "Number of bullet or numbered-list markers.",
+        "text_markdown_bold_count": "Number of bold markdown spans marked with **.",
+        "text_markdown_heading_count": "Number of markdown headings marked with #.",
+        "text_max_word_frequency": "Highest repetition count of a single word.",
+        "text_negation_word_count": "Count of negation words like not/never/nie.",
+        "text_negation_word_density": "Negation words divided by total words.",
+        "text_newline_count": "Number of line breaks; formatting/structure proxy.",
+        "text_paragraph_count": "Number of paragraph blocks.",
+        "text_punctuation_count": "Total punctuation marks.",
+        "text_punctuation_density": "Punctuation marks per character.",
+        "text_question_mark_density": "Question marks per character.",
+        "text_repeated_bigram_ratio": "Share of repeated two-word phrases.",
+        "text_repeated_trigram_ratio": "Share of repeated three-word phrases.",
+        "text_repetition_rate": "One minus type-token ratio; higher means more repeated vocabulary.",
+        "text_second_person_pronoun_count": "Count of second-person words like you/your/ty/wy.",
+        "text_second_person_pronoun_density": "Second-person words divided by total words.",
+        "text_semicolon_density": "Semicolons per character; complex punctuation indicator.",
+        "text_sentence_count": "Number of detected sentences.",
+        "text_type_token_ratio": "Unique words divided by total words; lexical diversity proxy.",
+        "text_unique_word_count": "Number of distinct words.",
+        "text_uppercase_word_ratio": "Uppercase words divided by total words; emphasis/acronym proxy.",
+        "text_word_count": "Number of words in the response.",
+    }
+
+    feature_meanings = pd.DataFrame(
+        {
+            "feature": feature_columns,
+            "feature_source": [
+                "direct CSV numeric column" if feature.startswith("source_") else "engineered from CSV response"
+                for feature in feature_columns
+            ],
+            "what_it_shows": [FEATURE_DESCRIPTIONS.get(feature, "No description yet.") for feature in feature_columns],
+        }
+    )
+    feature_meanings.to_csv(XAI_DIR / "features" / "feature_descriptions.csv", index=False)
+    return feature_meanings
+
+
+def create_feature_list(
+    TARGET_COLUMNS: tuple[Literal["model_key"], Literal["language"]],
+    XAI_DIR: Path,
+    feature_columns: list[str],
+    fill_values: Series,
+) -> DataFrame:
+    feature_list = pd.DataFrame({"feature": feature_columns})
+    feature_list.to_csv(XAI_DIR / "features" / "feature_list.csv", index=False)
+
+    with (XAI_DIR / "features" / "feature_metadata.json").open("w", encoding="utf-8") as file:
+        json.dump(
+            {
+                "feature_columns": feature_columns,
+                "fill_values": fill_values.to_dict(),
+                "source": "data/processed/final",
+                "targets": TARGET_COLUMNS,
+            },
+            file,
+            ensure_ascii=False,
+            indent=2,
+        )
+    return feature_list
