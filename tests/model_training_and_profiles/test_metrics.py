@@ -44,7 +44,9 @@ class TestSavePredictions:
             }
         }
 
-        with patch("llm_behavior_xai.model_training_and_profiles.metrics.prediction_context") as mock_prediction_context:
+        with patch(
+            "llm_behavior_xai.model_training_and_profiles.metrics.prediction_context"
+        ) as mock_prediction_context:
             mock_prediction_context.return_value = sample_prediction_data["source_df"].copy()
 
             save_predictions(
