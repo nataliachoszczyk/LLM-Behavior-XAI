@@ -4,13 +4,12 @@ import json
 import math
 import re
 import string
-from collections import Counter
-from pathlib import Path
-from typing import Literal
 
 import numpy as np
 import pandas as pd
-from pandas import DataFrame, Series
+
+from pathlib import Path
+from collections import Counter
 
 
 def tokenize_words(text: str, word_re: re.Pattern[str]) -> list[str]:
@@ -37,16 +36,20 @@ def count_terms(words: list[str], terms: set[str]) -> int:
 def repeated_ngram_ratio(words: list[str], ngram_size: int) -> float:
     if len(words) < ngram_size:
         return 0.0
+
     ngrams = list(zip(*(words[index:] for index in range(ngram_size))))
     counts = Counter(ngrams)
     repeated = sum(count - 1 for count in counts.values() if count > 1)
+
     return safe_divide(repeated, len(ngrams))
 
 
 def word_entropy(word_counts: Counter[str], word_count: int) -> float:
     if word_count == 0:
         return 0.0
+
     probabilities = [count / word_count for count in word_counts.values()]
+
     return float(-sum(probability * math.log2(probability) for probability in probabilities))
 
 
@@ -65,7 +68,9 @@ def extract_response_text_features(
     hedge_words: set[str],
     negation_words: set[str],
 ) -> dict[str, float]:
+
     response = "" if pd.isna(text) else str(text)
+
     words = tokenize_words(response, word_re)
     word_counts = Counter(words)
     sentences = split_sentences(response, sentence_re)
@@ -121,7 +126,7 @@ def extract_response_text_features(
 
 def build_feature_frame(
     final_results_df: pd.DataFrame,
-    source_numeric_columns: tuple[str],
+    source_numeric_columns: tuple,
     word_re: re.Pattern[str],
     sentence_re: re.Pattern[str],
     list_marker_re: re.Pattern[str],
@@ -131,6 +136,7 @@ def build_feature_frame(
     hedge_words: set[str],
     negation_words: set[str],
 ) -> pd.DataFrame:
+
     responses = final_results_df.get("response", pd.Series([""] * len(final_results_df))).fillna("")
     text_features = pd.DataFrame.from_records(
         [
@@ -149,17 +155,21 @@ def build_feature_frame(
         ],
         index=final_results_df.index,
     )
+
     source_features = pd.DataFrame(index=final_results_df.index)
+
     for column in source_numeric_columns:
         if column in final_results_df.columns:
             source_features[f"source_{column}"] = pd.to_numeric(final_results_df[column], errors="coerce")
+
     features = pd.concat([source_features, text_features], axis=1)
+
     return features.replace([np.inf, -np.inf], np.nan).astype(float)
 
 
 def build_feature_splits(
     final_splits: dict[str, pd.DataFrame],
-    source_numeric_columns: tuple[str],
+    source_numeric_columns: tuple,
     word_re: re.Pattern[str],
     sentence_re: re.Pattern[str],
     list_marker_re: re.Pattern[str],
@@ -169,6 +179,7 @@ def build_feature_splits(
     hedge_words: set[str],
     negation_words: set[str],
 ) -> tuple[dict[str, pd.DataFrame], list[str], pd.Series]:
+
     raw_features = {
         split: build_feature_frame(
             df,
@@ -184,6 +195,7 @@ def build_feature_splits(
         )
         for split, df in final_splits.items()
     }
+
     feature_columns = sorted(raw_features["train"].columns)
     fill_values = raw_features["train"].reindex(columns=feature_columns).median(numeric_only=True).fillna(0.0)
     feature_splits = {}
@@ -195,7 +207,7 @@ def build_feature_splits(
     return feature_splits, feature_columns, fill_values
 
 
-def create_feature_descriptions(XAI_DIR: Path, feature_columns: list[str]) -> DataFrame:
+def create_feature_descriptions(xai_dir: Path, feature_columns: list[str]) -> pd.DataFrame:
     FEATURE_DESCRIPTIONS = {
         "source_avg_logprob": "CSV value: average token log probability, if available; confidence/fluency proxy.",
         "source_generated_tokens": "CSV value: number of generated tokens, if available; response length proxy.",
@@ -252,29 +264,32 @@ def create_feature_descriptions(XAI_DIR: Path, feature_columns: list[str]) -> Da
             "what_it_shows": [FEATURE_DESCRIPTIONS.get(feature, "No description yet.") for feature in feature_columns],
         }
     )
-    feature_meanings.to_csv(XAI_DIR / "features" / "feature_descriptions.csv", index=False)
+    feature_meanings.to_csv(xai_dir / "features" / "feature_descriptions.csv", index=False)
+
     return feature_meanings
 
 
 def create_feature_list(
-    TARGET_COLUMNS: tuple[Literal["model_key"], Literal["language"]],
-    XAI_DIR: Path,
+    target_columns: tuple,
+    xai_dir: Path,
     feature_columns: list[str],
-    fill_values: Series,
-) -> DataFrame:
-    feature_list = pd.DataFrame({"feature": feature_columns})
-    feature_list.to_csv(XAI_DIR / "features" / "feature_list.csv", index=False)
+    fill_values: pd.Series,
+) -> pd.DataFrame:
 
-    with (XAI_DIR / "features" / "feature_metadata.json").open("w", encoding="utf-8") as file:
+    feature_list = pd.DataFrame({"feature": feature_columns})
+    feature_list.to_csv(xai_dir / "features" / "feature_list.csv", index=False)
+
+    with (xai_dir / "features" / "feature_metadata.json").open("w", encoding="utf-8") as file:
         json.dump(
             {
                 "feature_columns": feature_columns,
                 "fill_values": fill_values.to_dict(),
                 "source": "data/processed/final",
-                "targets": TARGET_COLUMNS,
+                "targets": target_columns,
             },
             file,
             ensure_ascii=False,
             indent=2,
         )
+
     return feature_list

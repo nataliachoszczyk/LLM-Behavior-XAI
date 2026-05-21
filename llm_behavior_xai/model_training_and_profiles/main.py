@@ -21,7 +21,7 @@ from llm_behavior_xai.model_training_and_profiles.train_and_validate_models impo
 from llm_behavior_xai.model_training_and_profiles.verify_training_features import (
     check_feature_model_signal,
     filter_dataset,
-    exclude_model_spefic_and_zero_nan_patterns,
+    exclude_model_specific_and_zero_nan_patterns,
 )
 
 matplotlib.use("Agg")
@@ -42,7 +42,7 @@ from llm_behavior_xai.model_training_and_profiles.build_numeric_training_feature
 )
 
 
-def main():
+def main() -> None:
     FINAL_SPLIT_PATHS = {
         "train": LLM_RESULTS_TRAIN_PROMPTS,
         "val": LLM_RESULTS_VAL_PROMPTS,
@@ -102,7 +102,11 @@ def main():
     NEGATION_WORDS = {"no", "not", "never", "none", "cannot", "can't", "nie", "nigdy"}
 
     final_splits = load_final_splits(FINAL_SPLIT_PATHS)
-    create_split_overview(final_splits)
+    split_overview = create_split_overview(final_splits)
+
+    print()
+    print("-- Dataset split overview: -----------------------------------------------------------")
+    print(pd.DataFrame(split_overview))
 
     feature_splits, feature_columns, fill_values = build_feature_splits(
         final_splits,
@@ -141,7 +145,7 @@ def main():
     print("-- Model's features signal check: ----------------------------------------------------")
     print(feature_model_signal_check.head(25))
 
-    excluded_zero_nan_features, feature_zero_nan_check = exclude_model_spefic_and_zero_nan_patterns(
+    excluded_zero_nan_features, feature_zero_nan_check = exclude_model_specific_and_zero_nan_patterns(
         FIRST_PERSON_PRONOUNS,
         HEADING_RE,
         HEDGE_WORDS,

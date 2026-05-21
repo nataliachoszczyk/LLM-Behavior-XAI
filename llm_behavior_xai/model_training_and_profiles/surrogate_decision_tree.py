@@ -1,27 +1,27 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Literal, Any
+from typing import Any
 
 import joblib
 import pandas as pd
 from matplotlib import pyplot as plt
-from pandas import DataFrame, Series
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.tree import DecisionTreeClassifier, export_text, plot_tree
 
 
 def train_surrogate_tree(
     target: str,
-    best_by_target,
-    feature_splits,
-    feature_columns,
-    random_state,
-    MODELS_DIR,
-    XAI_DIR,
+    best_by_target: dict[str, Any],
+    feature_splits: dict[str, pd.DataFrame],
+    feature_columns: list[str],
+    random_state: int,
+    models_dir: Path,
+    xai_dir: Path,
     max_depth: int = 3,
     min_samples_leaf: int = 30,
 ) -> pd.DataFrame:
+
     main_model = best_by_target[target]["model"]
     class_names = best_by_target[target]["class_names"]
     pseudo_train = main_model.predict(feature_splits["train"])
@@ -63,8 +63,8 @@ def train_surrogate_tree(
         )
 
     rules = export_text(surrogate, feature_names=feature_columns, show_weights=True)
-    (XAI_DIR / "surrogate_trees" / f"{target}_surrogate_tree_rules.txt").write_text(rules, encoding="utf-8")
-    joblib.dump(surrogate, MODELS_DIR / f"{target}_surrogate_tree.joblib")
+    (xai_dir / "surrogate_trees" / f"{target}_surrogate_tree_rules.txt").write_text(rules, encoding="utf-8")
+    joblib.dump(surrogate, models_dir / f"{target}_surrogate_tree.joblib")
 
     fig, ax = plt.subplots(figsize=(22, 10))
     plot_tree(
@@ -78,29 +78,32 @@ def train_surrogate_tree(
     )
     ax.set_title(f"Surrogate decision tree for {target}")
     fig.tight_layout()
-    fig.savefig(XAI_DIR / "surrogate_trees" / f"{target}_surrogate_tree.png")
+    fig.savefig(xai_dir / "surrogate_trees" / f"{target}_surrogate_tree.png")
     plt.close(fig)
 
     return pd.DataFrame(rows)
 
 
 def calculate_surrogate_decision_tree_metrics(
-    MODELS_DIR: Path,
-    RANDOM_STATE: int,
-    TARGET_COLUMNS: tuple[Literal["model_key"], Literal["language"]],
-    XAI_DIR: Path,
-    best_by_target: DataFrame,
+    models_dir: Path,
+    random_state: int,
+    target_columns: tuple[str, ...],
+    xai_dir: Path,
+    best_by_target: pd.DataFrame,
     feature_columns: list[str],
-    feature_splits: dict[str, Series | DataFrame | Any],
-) -> DataFrame:
+    feature_splits: dict[str, pd.DataFrame],
+) -> pd.DataFrame:
+
     surrogate_metrics = pd.concat(
         [
             train_surrogate_tree(
-                target, best_by_target, feature_splits, feature_columns, RANDOM_STATE, MODELS_DIR, XAI_DIR
+                target, best_by_target, feature_splits, feature_columns, random_state, models_dir, xai_dir
             )
-            for target in TARGET_COLUMNS
+            for target in target_columns
         ],
         ignore_index=True,
     )
-    surrogate_metrics.to_csv(XAI_DIR / "surrogate_trees" / "surrogate_tree_metrics.csv", index=False)
+
+    surrogate_metrics.to_csv(xai_dir / "surrogate_trees" / "surrogate_tree_metrics.csv", index=False)
+
     return surrogate_metrics

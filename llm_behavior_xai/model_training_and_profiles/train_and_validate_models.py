@@ -2,11 +2,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Literal, Any
+from typing import Any
 
 import numpy as np
 import pandas as pd
-from pandas import Series, DataFrame
 from sklearn import clone
 from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
@@ -17,29 +16,30 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 
 def train_and_validate_models(
-    RANDOM_STATE: int,
-    SELECTION_METRIC: str,
-    TARGET_COLUMNS: tuple[Literal["model_key"], Literal["language"]],
-    XAI_DIR: Path,
-    feature_splits: dict[str, Series | DataFrame | Any],
-    final_splits: dict[str, DataFrame],
-) -> tuple[DataFrame, dict[Any, Any]]:
+    random_state: int,
+    selection_metric: str,
+    target_columns: tuple[str, ...],
+    xai_dir: Path,
+    feature_splits: dict[str, pd.Series | pd.DataFrame | Any],
+    final_splits: dict[str, pd.DataFrame],
+) -> tuple[dict[Any, Any], pd.DataFrame]:
+
     validation_rows = []
     best_by_target = {}
 
-    for target in TARGET_COLUMNS:
+    for target in target_columns:
         encoder, encoded_targets = encode_target(target, final_splits)
         class_names = list(encoder.classes_)
         target_candidates = []
 
-        for model_name, (base_estimator, param_grid) in build_model_candidates(RANDOM_STATE).items():
+        for model_name, (base_estimator, param_grid) in build_model_candidates(random_state).items():
             for params in ParameterGrid(param_grid):
                 model = fit_with_params(base_estimator, params)
                 model.fit(feature_splits["train"], encoded_targets["train"])
                 val_pred = model.predict(feature_splits["val"])
                 row = metric_row(target, "val", model_name, params, encoded_targets["val"], val_pred, class_names)
                 validation_rows.append(row)
-                target_candidates.append((row[SELECTION_METRIC], row["balanced_accuracy"], model_name, params, model))
+                target_candidates.append((row[selection_metric], row["balanced_accuracy"], model_name, params, model))
 
         target_candidates.sort(key=lambda item: (item[0], item[1]), reverse=True)
         best_score, best_balanced_acc, best_model_name, best_params, best_model = target_candidates[0]
@@ -55,10 +55,11 @@ def train_and_validate_models(
         }
 
     validation_metrics = pd.DataFrame(validation_rows).sort_values(
-        ["target", SELECTION_METRIC, "balanced_accuracy"],
+        ["target", selection_metric, "balanced_accuracy"],
         ascending=[True, False, False],
     )
-    validation_metrics.to_csv(XAI_DIR / "validation_tuning_metrics.csv", index=False)
+    validation_metrics.to_csv(xai_dir / "validation_tuning_metrics.csv", index=False)
+
     return best_by_target, validation_metrics
 
 
@@ -72,7 +73,7 @@ def normalize_label(value: object) -> str:
     return str(value)
 
 
-def prediction_context(df: pd.DataFrame, prediction_context_columns) -> pd.DataFrame:
+def prediction_context(df: pd.DataFrame, prediction_context_columns: tuple[str, ...]) -> pd.DataFrame:
     columns = [column for column in prediction_context_columns if column in df.columns]
     return df[columns].copy()
 
@@ -91,8 +92,18 @@ def encode_target(target: str, final_splits: dict[str, pd.DataFrame]) -> tuple[L
     return encoder, {"train": y_train, "val": y_val, "test": y_test}
 
 
-def metric_row(target: str, split: str, model_name: str, params: dict[str, Any], y_true, y_pred, class_names):
+def metric_row(
+    target: str,
+    split: str,
+    model_name: str,
+    params: dict[str, Any],
+    y_true: pd.Series,
+    y_pred: pd.Series,
+    class_names: list[str],
+) -> dict[str, str | float | Any]:
+
     labels = list(range(len(class_names)))
+
     return {
         "target": target,
         "split": split,
@@ -156,7 +167,8 @@ def build_model_candidates(random_state: int) -> dict[str, tuple[Any, dict[str, 
     }
 
 
-def fit_with_params(estimator, params: dict[str, Any]):
+def fit_with_params(estimator: Any, params: dict[str, Any]) -> Any:
     model = clone(estimator)
     model.set_params(**params)
+
     return model

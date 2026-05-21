@@ -1,22 +1,21 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any
 
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from pandas import DataFrame, Series
 from sklearn.inspection import permutation_importance
 
 from sklearn.pipeline import Pipeline
 
 
-def estimator_from_model(model):
+def estimator_from_model(model: Any) -> Any | Pipeline:
     return model.named_steps["model"] if isinstance(model, Pipeline) else model
 
 
-def built_in_importance(target: str, model, feature_columns) -> pd.DataFrame:
+def built_in_importance(target: str, model: Any, feature_columns: list[str]) -> pd.DataFrame:
     estimator = estimator_from_model(model)
     if hasattr(estimator, "feature_importances_"):
         values = estimator.feature_importances_
@@ -38,8 +37,14 @@ def built_in_importance(target: str, model, feature_columns) -> pd.DataFrame:
 
 
 def permutation_importance_frame(
-    target: str, model, best_by_target, feature_splits, feature_columns, random_state
+    target: str,
+    model: Any,
+    best_by_target: dict[str, Any],
+    feature_splits: dict[str, pd.DataFrame],
+    feature_columns: list[str],
+    random_state: int,
 ) -> pd.DataFrame:
+
     bundle = best_by_target[target]
     result = permutation_importance(
         model,
@@ -50,6 +55,7 @@ def permutation_importance_frame(
         random_state=random_state,
         n_jobs=-1,
     )
+
     return pd.DataFrame(
         {
             "target": target,
@@ -60,12 +66,17 @@ def permutation_importance_frame(
     ).sort_values("importance_mean", ascending=False)
 
 
-def shap_values_to_importance(target: str, values: np.ndarray, class_names: list[str], feature_columns) -> pd.DataFrame:
+def shap_values_to_importance(
+    target: str, values: np.ndarray, class_names: list[str], feature_columns: list[str]
+) -> pd.DataFrame:
     records = []
+
     if values.ndim == 2:
         values = values[:, :, None]
+
     for class_index, class_name in enumerate(class_names[: values.shape[2]]):
         mean_abs = np.abs(values[:, :, class_index]).mean(axis=0)
+
         for rank, feature_index in enumerate(np.argsort(mean_abs)[::-1], start=1):
             records.append(
                 {
@@ -78,7 +89,9 @@ def shap_values_to_importance(target: str, values: np.ndarray, class_names: list
                     "note": "",
                 }
             )
+
     overall = np.abs(values).mean(axis=(0, 2))
+
     for rank, feature_index in enumerate(np.argsort(overall)[::-1], start=1):
         records.append(
             {
@@ -91,25 +104,29 @@ def shap_values_to_importance(target: str, values: np.ndarray, class_names: list
                 "note": "",
             }
         )
+
     return pd.DataFrame(records)
 
 
-def fallback_shap_frame(target: str, model, reason: str, feature_columns) -> pd.DataFrame:
+def fallback_shap_frame(target: str, model: Any, reason: str, feature_columns: list[str]) -> pd.DataFrame:
     fallback = built_in_importance(target, model, feature_columns)
     fallback = fallback.rename(columns={"importance": "mean_abs_shap"})
     fallback["class_name"] = "__overall__"
     fallback["rank"] = range(1, len(fallback) + 1)
     fallback["importance_kind"] = "fallback_importance"
     fallback["note"] = reason
+
     return fallback[["target", "class_name", "feature", "mean_abs_shap", "rank", "importance_kind", "note"]]
 
 
 def explain_with_shap(
-    target: str, model, best_by_target, feature_splits, feature_columns, random_state
+    target: str, model: Any, best_by_target, feature_splits, feature_columns, random_state
 ) -> pd.DataFrame:
+
     class_names = best_by_target[target]["class_names"]
     background = feature_splits["train"].sample(n=min(100, len(feature_splits["train"])), random_state=random_state)
     sample = feature_splits["val"].sample(n=min(80, len(feature_splits["val"])), random_state=random_state)
+
     try:
         import shap
 
@@ -121,7 +138,7 @@ def explain_with_shap(
         return fallback_shap_frame(target, model, str(exc), feature_columns)
 
 
-def plot_top_importance(df: pd.DataFrame, value_column: str, title: str, output_path: Path, top_n: int = 20):
+def plot_top_importance(df: pd.DataFrame, value_column: str, title: str, output_path: Path, top_n: int = 20) -> None:
     top = df.sort_values(value_column, ascending=False).head(top_n).sort_values(value_column)
     fig, ax = plt.subplots(figsize=(9, 7))
     ax.barh(top["feature"], top[value_column])
@@ -133,12 +150,13 @@ def plot_top_importance(df: pd.DataFrame, value_column: str, title: str, output_
 
 
 def calculate_outputs_importances(
-    RANDOM_STATE: int,
-    XAI_DIR: Path,
-    best_by_target: DataFrame,
+    random_state: int,
+    xai_dir: Path,
+    best_by_target: dict[Any, Any],
     feature_columns: list[str],
-    feature_splits: dict[str, Series | DataFrame | Any],
+    feature_splits: dict[str, pd.DataFrame],
 ) -> tuple[list[Any], list[Any], list[Any]]:
+
     importance_outputs = []
     permutation_outputs = []
     shap_outputs = []
@@ -147,47 +165,48 @@ def calculate_outputs_importances(
         model = bundle["model"]
 
         built_in = built_in_importance(target, model, feature_columns)
-        built_in.to_csv(XAI_DIR / "importance" / f"{target}_built_in_importance.csv", index=False)
+        built_in.to_csv(xai_dir / "importance" / f"{target}_built_in_importance.csv", index=False)
         plot_top_importance(
             built_in,
             "importance",
             f"Built-in importance for {target}",
-            XAI_DIR / "importance" / f"{target}_built_in_importance.png",
+            xai_dir / "importance" / f"{target}_built_in_importance.png",
         )
         importance_outputs.append(built_in.assign(method="built_in"))
 
         permutation_df = permutation_importance_frame(
-            target, model, best_by_target, feature_splits, feature_columns, RANDOM_STATE
+            target, model, best_by_target, feature_splits, feature_columns, random_state
         )
-        permutation_df.to_csv(XAI_DIR / "importance" / f"{target}_permutation_importance.csv", index=False)
+        permutation_df.to_csv(xai_dir / "importance" / f"{target}_permutation_importance.csv", index=False)
         plot_top_importance(
             permutation_df,
             "importance_mean",
             f"Permutation importance for {target}",
-            XAI_DIR / "importance" / f"{target}_permutation_importance.png",
+            xai_dir / "importance" / f"{target}_permutation_importance.png",
         )
         permutation_outputs.append(permutation_df.assign(method="permutation"))
 
-        shap_df = explain_with_shap(target, model, best_by_target, feature_splits, feature_columns, RANDOM_STATE)
-        shap_df.to_csv(XAI_DIR / "shap" / f"{target}_shap_importance.csv", index=False)
+        shap_df = explain_with_shap(target, model, best_by_target, feature_splits, feature_columns, random_state)
+        shap_df.to_csv(xai_dir / "shap" / f"{target}_shap_importance.csv", index=False)
         overall_shap = shap_df[shap_df["class_name"] == "__overall__"]
         plot_top_importance(
             overall_shap.rename(columns={"mean_abs_shap": "importance"}),
             "importance",
             f"SHAP importance for {target}",
-            XAI_DIR / "shap" / f"{target}_shap_importance.png",
+            xai_dir / "shap" / f"{target}_shap_importance.png",
         )
         shap_outputs.append(shap_df)
     return importance_outputs, permutation_outputs, shap_outputs
 
 
 def calculate_feature_group_importance(
-    TARGET_COLUMNS: tuple[Literal["model_key"], Literal["language"]],
-    XAI_DIR: Path,
+    target_columns: tuple[str, ...],
+    xai_dir: Path,
     importance_outputs: list[Any],
     permutation_outputs: list[Any],
     shap_outputs: list[Any],
-) -> DataFrame:
+) -> pd.DataFrame:
+
     group_importance_parts = []
 
     built_in_all = pd.concat(importance_outputs, ignore_index=True)
@@ -216,9 +235,9 @@ def calculate_feature_group_importance(
     group_importance_parts.append(normalize_group_importance(shap_groups, "importance"))
 
     feature_group_importance = pd.concat(group_importance_parts, ignore_index=True)
-    feature_group_importance.to_csv(XAI_DIR / "importance" / "feature_group_importance.csv", index=False)
+    feature_group_importance.to_csv(xai_dir / "importance" / "feature_group_importance.csv", index=False)
 
-    for target in TARGET_COLUMNS:
+    for target in target_columns:
         target_df = feature_group_importance[
             (feature_group_importance["target"] == target) & (feature_group_importance["method"] == "shap")
         ].sort_values("importance_share")
@@ -228,7 +247,7 @@ def calculate_feature_group_importance(
             ax.set_title(f"Feature group importance for {target} (SHAP)")
             ax.set_xlabel("Share of importance")
             fig.tight_layout()
-            fig.savefig(XAI_DIR / "importance" / f"{target}_feature_group_importance.png")
+            fig.savefig(xai_dir / "importance" / f"{target}_feature_group_importance.png")
             plt.close(fig)
     return feature_group_importance
 
