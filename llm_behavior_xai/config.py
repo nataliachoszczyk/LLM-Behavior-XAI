@@ -109,7 +109,7 @@ MODELS_CONFIG: dict[str, dict[str, str | float | int]] = {
     },
 }
 
-PROJ_ROOT = Path(__file__).resolve().parents[0]
+PROJ_ROOT = Path(__file__).resolve().parents[1]
 
 DATA_DIR = PROJ_ROOT / "data"
 EXTERNAL_DATA_DIR = DATA_DIR / "external"
