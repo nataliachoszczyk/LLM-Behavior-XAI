@@ -10,6 +10,10 @@ from pathlib import Path
 from typing import Any
 
 import joblib
+import matplotlib
+# Use a non-interactive backend to avoid creating Tk GUI objects when running
+# in headless environments or worker threads. Must be set before importing pyplot.
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -592,7 +596,7 @@ def main():
     print(feature_group_importance.sort_values(["target", "method", "importance_share"], ascending=[True, True, False]))
 
     surrogate_metrics = pd.concat(
-        [train_surrogate_tree(target) for target in TARGET_COLUMNS],
+        [train_surrogate_tree(target, best_by_target, feature_splits, feature_columns, RANDOM_STATE, MODELS_DIR, XAI_DIR) for target in TARGET_COLUMNS],
         ignore_index=True,
     )
     surrogate_metrics.to_csv(XAI_DIR / "surrogate_trees" / "surrogate_tree_metrics.csv", index=False)
