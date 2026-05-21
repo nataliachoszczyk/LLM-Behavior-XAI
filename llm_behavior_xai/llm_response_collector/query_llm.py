@@ -8,7 +8,7 @@ from google import genai
 from google.genai import types
 from groq import Groq
 
-from config import MODELS_CONFIG
+from llm_behavior_xai.config import MODELS_CONFIG
 
 
 def query_gemini(

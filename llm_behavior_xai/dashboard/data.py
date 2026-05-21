@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from config import (
+from llm_behavior_xai.config import (
     LLM_RESULTS_TEST_PROMPTS,
     LLM_RESULTS_TRAIN_PROMPTS,
     LLM_RESULTS_VAL_PROMPTS,

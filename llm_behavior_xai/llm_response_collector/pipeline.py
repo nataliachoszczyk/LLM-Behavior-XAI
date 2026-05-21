@@ -9,8 +9,8 @@ from google import genai
 from groq import Groq
 from pandas import DataFrame
 
-from config import MODELS_CONFIG, PROMPT_COLUMNS, GEMINI_API_KEYS, N_RUNS, CHECKPOINT_EVERY
-from file_utils import read_prompts, read_llm_results, save_results
+from llm_behavior_xai.config import MODELS_CONFIG, PROMPT_COLUMNS, GEMINI_API_KEYS, N_RUNS, CHECKPOINT_EVERY
+from llm_behavior_xai.file_utils import read_prompts, read_llm_results, save_results
 from llm_behavior_xai.llm_response_collector.clients import get_gemini_client, load_clients
 from llm_behavior_xai.llm_response_collector.query_llm import query_model
 

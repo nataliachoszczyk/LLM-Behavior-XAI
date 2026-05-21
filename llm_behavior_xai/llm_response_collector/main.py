@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from config import (
+from llm_behavior_xai.config import (
     TEST_PROMPTS,
     TRAIN_PROMPTS,
     VAL_PROMPTS,

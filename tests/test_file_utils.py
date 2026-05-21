@@ -5,7 +5,7 @@ import tempfile
 import numpy as np
 import pandas as pd
 
-from file_utils import read_llm_results, read_prompts, save_results
+from llm_behavior_xai.file_utils import read_llm_results, read_prompts, save_results
 
 
 class TestReadLLMResults:

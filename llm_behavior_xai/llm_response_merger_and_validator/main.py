@@ -1,4 +1,4 @@
-from config import (
+from llm_behavior_xai.config import (
     LLM_RESULTS_TEST_PROMPTS_1,
     LLM_RESULTS_VAL_PROMPTS_1,
     LLM_RESULTS_TRAIN_PROMPTS_1,

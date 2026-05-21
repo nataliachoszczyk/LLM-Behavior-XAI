@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from file_utils import safe_read_csv
+from llm_behavior_xai.file_utils import safe_read_csv
 
 
 def load_and_merge_datasets(temporary_datasets: list[tuple[str, list[Path]]]) -> dict[str, pd.DataFrame]:
