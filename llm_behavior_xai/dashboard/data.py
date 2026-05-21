@@ -73,6 +73,31 @@ def load_shap_importance(target: str, reports_dir: Path = XAI_REPORTS_DIR) -> pd
     return pd.read_csv(path)
 
 
+def load_feature_group_importance(reports_dir: Path = XAI_REPORTS_DIR) -> pd.DataFrame:
+    path = reports_dir / "importance" / "feature_group_importance.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+def load_surrogate_tree_metrics(reports_dir: Path = XAI_REPORTS_DIR) -> pd.DataFrame:
+    path = reports_dir / "surrogate_trees" / "surrogate_tree_metrics.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
+
+
+def load_surrogate_tree_rules(target: str, reports_dir: Path = XAI_REPORTS_DIR) -> str:
+    path = reports_dir / "surrogate_trees" / f"{target}_surrogate_tree_rules.txt"
+    if not path.exists():
+        return ""
+    return path.read_text(encoding="utf-8")
+
+
+def get_surrogate_tree_plot_path(target: str, reports_dir: Path = XAI_REPORTS_DIR) -> Path:
+    return reports_dir / "surrogate_trees" / f"{target}_surrogate_tree.png"
+
+
 def load_style_profiles(reports_dir: Path = STYLE_PROFILES_REPORTS_DIR) -> dict[str, pd.DataFrame]:
     files = {
         "top_features": reports_dir / "model_top_features.csv",

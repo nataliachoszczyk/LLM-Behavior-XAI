@@ -5,10 +5,14 @@ import streamlit as st
 
 from llm_behavior_xai.dashboard.data import (
     filter_results,
+    get_surrogate_tree_plot_path,
+    load_feature_group_importance,
     load_final_results,
     load_predictions,
     load_shap_importance,
     load_style_profiles,
+    load_surrogate_tree_metrics,
+    load_surrogate_tree_rules,
     load_xai_metrics,
 )
 
@@ -37,6 +41,21 @@ def cached_shap(target: str):
 
 
 @st.cache_data
+def cached_feature_group_importance():
+    return load_feature_group_importance()
+
+
+@st.cache_data
+def cached_surrogate_tree_metrics():
+    return load_surrogate_tree_metrics()
+
+
+@st.cache_data
+def cached_surrogate_tree_rules(target: str):
+    return load_surrogate_tree_rules(target)
+
+
+@st.cache_data
 def cached_profiles():
     return load_style_profiles()
 
@@ -50,8 +69,8 @@ def main() -> None:
     metrics = cached_metrics()
     profiles = cached_profiles()
 
-    overview_tab, performance_tab, shap_tab, profiles_tab, examples_tab = st.tabs(
-        ["Dataset", "XAI Performance", "SHAP", "Style Profiles", "Responses"]
+    overview_tab, performance_tab, shap_tab, groups_tab, tree_tab, profiles_tab, examples_tab = st.tabs(
+        ["Dataset", "XAI Performance", "SHAP", "Feature Groups", "Surrogate Tree", "Style Profiles", "Responses"]
     )
 
     with overview_tab:
@@ -62,6 +81,12 @@ def main() -> None:
 
     with shap_tab:
         render_shap()
+
+    with groups_tab:
+        render_feature_groups()
+
+    with tree_tab:
+        render_surrogate_tree()
 
     with profiles_tab:
         render_profiles(profiles)
@@ -158,6 +183,53 @@ def render_shap() -> None:
         use_container_width=True,
     )
     st.dataframe(class_df)
+
+
+def render_feature_groups() -> None:
+    group_df = cached_feature_group_importance()
+    if group_df.empty:
+        st.info("Run the notebook to generate feature group importance.")
+        return
+
+    target = st.selectbox("Target", TARGETS, key="group_target")
+    target_df = group_df[group_df["target"] == target].copy()
+    methods = sorted(target_df["method"].dropna().unique())
+    if not methods:
+        st.info("No feature group importance is available for this target.")
+        return
+    method = st.selectbox("Importance method", methods, key="group_method")
+
+    plot_df = target_df[target_df["method"] == method].sort_values("importance_share")
+    st.plotly_chart(
+        px.bar(
+            plot_df,
+            x="importance_share",
+            y="feature_group",
+            orientation="h",
+            labels={"importance_share": "Share of importance", "feature_group": "Feature group"},
+        ),
+        use_container_width=True,
+    )
+    st.dataframe(plot_df.sort_values("importance_share", ascending=False))
+
+
+def render_surrogate_tree() -> None:
+    metrics = cached_surrogate_tree_metrics()
+    if metrics.empty:
+        st.info("Run the notebook to generate surrogate decision trees.")
+        return
+
+    target = st.selectbox("Target", TARGETS, key="surrogate_target")
+    target_metrics = metrics[metrics["target"] == target].copy()
+    st.dataframe(target_metrics)
+
+    plot_path = get_surrogate_tree_plot_path(target)
+    if plot_path.exists():
+        st.image(str(plot_path))
+
+    rules = cached_surrogate_tree_rules(target)
+    if rules:
+        st.code(rules, language="text")
 
 
 def render_profiles(profiles) -> None:

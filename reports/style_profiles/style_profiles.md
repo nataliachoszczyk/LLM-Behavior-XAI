@@ -15,11 +15,11 @@ Top descriptive differences:
 - `text_negation_word_count` is higher than other models (effect size: 0.697).
 
 Top SHAP features for this model-key classifier class:
-- `text_punctuation_density` (mean absolute SHAP: 0.060656).
-- `text_punctuation_count` (mean absolute SHAP: 0.046243).
-- `text_unique_word_count` (mean absolute SHAP: 0.033674).
-- `text_repeated_bigram_ratio` (mean absolute SHAP: 0.030524).
-- `text_entropy` (mean absolute SHAP: 0.026927).
+- `text_punctuation_density` (mean absolute SHAP: 0.060966).
+- `text_punctuation_count` (mean absolute SHAP: 0.046104).
+- `text_unique_word_count` (mean absolute SHAP: 0.033797).
+- `text_repeated_bigram_ratio` (mean absolute SHAP: 0.030643).
+- `text_repeated_trigram_ratio` (mean absolute SHAP: 0.026237).
 
 ## llama-3.1-8b-groq
 
@@ -34,11 +34,11 @@ Top descriptive differences:
 - `text_repeated_trigram_ratio` is higher than other models (effect size: 0.640).
 
 Top SHAP features for this model-key classifier class:
-- `text_hapax_ratio` (mean absolute SHAP: 0.048889).
-- `text_unique_word_count` (mean absolute SHAP: 0.037376).
-- `text_entropy` (mean absolute SHAP: 0.035286).
-- `text_type_token_ratio` (mean absolute SHAP: 0.032432).
-- `text_repetition_rate` (mean absolute SHAP: 0.031641).
+- `text_hapax_ratio` (mean absolute SHAP: 0.048931).
+- `text_unique_word_count` (mean absolute SHAP: 0.038269).
+- `text_entropy` (mean absolute SHAP: 0.034574).
+- `text_type_token_ratio` (mean absolute SHAP: 0.033050).
+- `text_repetition_rate` (mean absolute SHAP: 0.031920).
 
 ## mistral-7b-hf
 
@@ -53,11 +53,11 @@ Top descriptive differences:
 - `text_unique_word_count` is lower than other models (effect size: -0.598).
 
 Top SHAP features for this model-key classifier class:
-- `text_punctuation_density` (mean absolute SHAP: 0.054178).
-- `text_punctuation_count` (mean absolute SHAP: 0.040437).
-- `text_hapax_ratio` (mean absolute SHAP: 0.019739).
-- `text_type_token_ratio` (mean absolute SHAP: 0.017617).
-- `text_unique_word_count` (mean absolute SHAP: 0.015527).
+- `text_punctuation_density` (mean absolute SHAP: 0.054105).
+- `text_punctuation_count` (mean absolute SHAP: 0.040892).
+- `text_hapax_ratio` (mean absolute SHAP: 0.019022).
+- `text_type_token_ratio` (mean absolute SHAP: 0.017363).
+- `text_unique_word_count` (mean absolute SHAP: 0.015888).
 
 ## phi-3-mini-hf
 
@@ -72,8 +72,8 @@ Top descriptive differences:
 - `text_avg_sentence_words` is higher than other models (effect size: 0.726).
 
 Top SHAP features for this model-key classifier class:
-- `text_hapax_ratio` (mean absolute SHAP: 0.033886).
-- `text_repetition_rate` (mean absolute SHAP: 0.027621).
-- `text_punctuation_density` (mean absolute SHAP: 0.027120).
-- `text_type_token_ratio` (mean absolute SHAP: 0.026727).
-- `source_response_length` (mean absolute SHAP: 0.022359).
+- `text_hapax_ratio` (mean absolute SHAP: 0.032358).
+- `text_type_token_ratio` (mean absolute SHAP: 0.027039).
+- `text_repetition_rate` (mean absolute SHAP: 0.026822).
+- `text_punctuation_density` (mean absolute SHAP: 0.026561).
+- `source_response_length` (mean absolute SHAP: 0.023453).

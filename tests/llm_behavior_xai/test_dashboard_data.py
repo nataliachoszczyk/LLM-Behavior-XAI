@@ -2,10 +2,14 @@ import pandas as pd
 
 from llm_behavior_xai.dashboard.data import (
     filter_results,
+    get_surrogate_tree_plot_path,
+    load_feature_group_importance,
     load_final_results,
     load_predictions,
     load_shap_importance,
     load_style_profiles,
+    load_surrogate_tree_metrics,
+    load_surrogate_tree_rules,
     load_xai_metrics,
 )
 
@@ -30,6 +34,8 @@ def test_dashboard_loaders_read_generated_artifacts(tmp_path):
     reports_dir = tmp_path / "xai"
     (reports_dir / "predictions").mkdir(parents=True)
     (reports_dir / "shap").mkdir(parents=True)
+    (reports_dir / "importance").mkdir(parents=True)
+    (reports_dir / "surrogate_trees").mkdir(parents=True)
     pd.DataFrame({"target": ["model_key"], "split": ["test"], "macro_f1": [1.0]}).to_csv(
         reports_dir / "all_metrics.csv", index=False
     )
@@ -38,6 +44,21 @@ def test_dashboard_loaders_read_generated_artifacts(tmp_path):
     )
     pd.DataFrame({"target": ["model_key"], "class_name": ["__overall__"], "feature": ["text_word_count"]}).to_csv(
         reports_dir / "shap" / "model_key_shap_importance.csv", index=False
+    )
+    pd.DataFrame(
+        {
+            "target": ["model_key"],
+            "method": ["shap"],
+            "feature_group": ["length_and_structure"],
+            "importance_share": [1.0],
+        }
+    ).to_csv(reports_dir / "importance" / "feature_group_importance.csv", index=False)
+    pd.DataFrame({"target": ["model_key"], "split": ["test"], "fidelity_accuracy": [0.9]}).to_csv(
+        reports_dir / "surrogate_trees" / "surrogate_tree_metrics.csv", index=False
+    )
+    (reports_dir / "surrogate_trees" / "model_key_surrogate_tree_rules.txt").write_text(
+        "text_word_count <= 10",
+        encoding="utf-8",
     )
 
     profiles_dir = tmp_path / "profiles"
@@ -54,5 +75,8 @@ def test_dashboard_loaders_read_generated_artifacts(tmp_path):
     assert not load_xai_metrics(reports_dir).empty
     assert not load_predictions("model_key", "test", reports_dir).empty
     assert not load_shap_importance("model_key", reports_dir).empty
+    assert not load_feature_group_importance(reports_dir).empty
+    assert not load_surrogate_tree_metrics(reports_dir).empty
+    assert load_surrogate_tree_rules("model_key", reports_dir)
+    assert get_surrogate_tree_plot_path("model_key", reports_dir).name == "model_key_surrogate_tree.png"
     assert not load_style_profiles(profiles_dir)["top_features"].empty
-
