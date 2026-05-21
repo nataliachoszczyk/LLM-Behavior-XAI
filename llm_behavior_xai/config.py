@@ -1,13 +1,7 @@
 import os
 
 from pathlib import Path
-
-try:
-    from dotenv import load_dotenv
-except ImportError:
-
-    def load_dotenv(*args, **kwargs):
-        return False
+from dotenv import load_dotenv
 
 
 load_dotenv()
@@ -109,7 +103,7 @@ MODELS_CONFIG: dict[str, dict[str, str | float | int]] = {
     },
 }
 
-PROJ_ROOT = Path(__file__).resolve().parents[0]
+PROJ_ROOT = Path(__file__).resolve().parents[1]
 
 DATA_DIR = PROJ_ROOT / "data"
 EXTERNAL_DATA_DIR = DATA_DIR / "external"

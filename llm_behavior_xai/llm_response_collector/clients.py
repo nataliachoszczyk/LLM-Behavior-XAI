@@ -8,7 +8,7 @@ from google import genai
 from transformers import BitsAndBytesConfig
 from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
 
-from config import GEMINI_API_KEYS, GROQ_API_KEY, MODELS_CONFIG
+from llm_behavior_xai.config import GEMINI_API_KEYS, GROQ_API_KEY, MODELS_CONFIG
 
 
 def get_gemini_client(gemini_api_key: str | None) -> genai.Client:

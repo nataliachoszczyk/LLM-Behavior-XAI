@@ -42,7 +42,7 @@ clean:
 ## Check type hints with mypy
 .PHONY: mypy
 mypy:
-	mypy llm_behavior_xai tests config.py file_utils.py
+	mypy llm_behavior_xai tests
 
 
 ## Lint using ruff (use `make format` to do formatting)
@@ -106,16 +106,10 @@ analyze_responses:
 	$(PYTHON_INTERPRETER) -m llm_behavior_xai.llm_response_analyzer.main
 
 
-## Execute the Week 6-7 XAI notebook
-.PHONY: train_xai
-train_xai:
-	$(PYTHON_INTERPRETER) -m jupyter nbconvert --to notebook --execute --inplace notebooks/week_6_7_xai_training_and_profiles.ipynb
-
-
-## Execute the Week 6-7 XAI notebook, including style profiles
-.PHONY: build_profiles
-build_profiles:
-	$(PYTHON_INTERPRETER) -m jupyter nbconvert --to notebook --execute --inplace notebooks/week_6_7_xai_training_and_profiles.ipynb
+## Train XAI models and build style profiles
+.PHONY: train_and_build_profiles
+train_and_build_profiles:
+	$(PYTHON_INTERPRETER) -m llm_behavior_xai.model_training_and_profiles.main
 
 
 ## Run the Streamlit XAI dashboard

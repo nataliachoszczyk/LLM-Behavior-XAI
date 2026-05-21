@@ -6,7 +6,7 @@ from pandas import DataFrame
 from pandas.io.parsers import TextFileReader
 from sentence_transformers import SentenceTransformer
 
-from config import (
+from llm_behavior_xai.config import (
     LLM_RESULTS_TRAIN_PROMPTS,
     LLM_RESULTS_VAL_PROMPTS,
     LLM_RESULTS_TEST_PROMPTS,
@@ -17,7 +17,7 @@ from config import (
     LLM_RESPONSES_VAL_FEATURES_PLOTS_DIR,
     LLM_RESPONSES_TEST_FEATURES_PLOTS_DIR,
 )
-from file_utils import read_llm_results, save_results
+from llm_behavior_xai.file_utils import read_llm_results, save_results
 from llm_behavior_xai.llm_response_analyzer.lexical_diversity_features import (
     ttr,
     yule_k,

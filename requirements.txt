@@ -1,4 +1,5 @@
 accelerate==1.13.0
+altair==6.1.0
 annotated-doc==0.0.4
 annotated-types==0.7.0
 anyio==4.13.0
@@ -13,13 +14,16 @@ babel==2.18.0
 beautifulsoup4==4.14.3
 bitsandbytes==0.49.2
 bleach==6.3.0
+blinker==1.9.0
 blis==1.3.3
+cachetools==7.1.3
 catalogue==2.0.10
 certifi==2026.4.22
 cffi==2.0.0
 charset-normalizer==3.4.7
 click==8.3.3
 cloudpathlib==0.24.0
+cloudpickle==3.1.2
 colorama==0.4.6
 comm==0.2.3
 confection==1.3.3
@@ -44,12 +48,15 @@ fonttools==4.62.1
 fqdn==1.5.1
 fsspec==2026.3.0
 ghp-import==2.1.0
+gitdb==4.0.12
+GitPython==3.1.50
 google-auth==2.49.2
 google-genai==1.73.1
 groq==1.2.0
 h11==0.16.0
 hf-xet==1.4.3
 httpcore==1.0.9
+httptools==0.7.1
 httpx==0.28.1
 huggingface_hub==1.12.0
 idna==3.13
@@ -59,6 +66,7 @@ ipython==9.13.0
 ipython_pygments_lexers==1.1.1
 ipywidgets==8.1.8
 isoduration==20.11.0
+itsdangerous==2.2.0
 jedi==0.19.2
 Jinja2==3.1.6
 joblib==1.5.3
@@ -82,7 +90,8 @@ kiwisolver==1.5.0
 lark==1.3.1
 lexicalrichness==0.5.1
 librt==0.10.0
--e git+ssh://git@github.com/nataliachoszczyk/LLM-Behavior-XAI.git@8266d7e0bcfbaf8a1944547b233f2b103bd7d703#egg=llm_behavior_xai
+-e git+ssh://git@github.com/nataliachoszczyk/LLM-Behavior-XAI.git@9f15d06fd3274edbc151e0a130a4ed83c70f48b1#egg=llm_behavior_xai
+llvmlite==0.47.0
 Markdown==3.10.2
 markdown-it-py==4.0.0
 MarkupSafe==3.0.3
@@ -97,6 +106,7 @@ mpmath==1.3.0
 murmurhash==1.0.15
 mypy==2.0.0
 mypy_extensions==1.1.0
+narwhals==2.21.2
 nbclient==0.10.4
 nbconvert==7.17.1
 nbformat==5.10.4
@@ -104,6 +114,7 @@ nest-asyncio==1.6.0
 nltk==3.9.4
 notebook==7.5.6
 notebook_shim==0.2.4
+numba==0.65.1
 numpy==2.4.4
 numpy-typing-compat==20251206.2.4
 nvidia-cublas==13.1.0.3
@@ -131,7 +142,7 @@ pexpect==4.9.0
 pillow==12.2.0
 pl_core_news_sm @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.8.0/pl_core_news_sm-3.8.0-py3-none-any.whl#sha256=9b536db854b0cdb9132a74f68b392b8112ab6030f971bb03282462362a940dbb
 platformdirs==4.9.6
-plotly>=5.24.0
+plotly==6.7.0
 pluggy==1.6.0
 preshed==3.0.13
 prometheus_client==0.25.0
@@ -140,11 +151,13 @@ protobuf==7.34.1
 psutil==7.2.2
 ptyprocess==0.7.0
 pure_eval==0.2.3
+pyarrow==24.0.0
 pyasn1==0.6.3
 pyasn1_modules==0.4.2
 pycparser==3.0
 pydantic==2.13.3
 pydantic_core==2.46.3
+pydeck==0.9.2
 Pygments==2.20.0
 pyparsing==3.3.2
 pyphen==0.17.2
@@ -153,6 +166,7 @@ pytest-cov==7.1.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 python-json-logger==4.1.0
+python-multipart==0.0.29
 PyYAML==6.0.3
 pyyaml_env_tag==1.1
 pyzmq==27.1.0
@@ -173,11 +187,13 @@ seaborn==0.13.2
 Send2Trash==2.1.0
 sentence-transformers==5.4.1
 sentencepiece==0.2.1
-shap>=0.45.0
 setuptools==82.0.1
+shap==0.51.0
 shellingham==1.5.4
 six==1.17.0
+slicer==0.0.8
 smart_open==7.6.0
+smmap==5.0.3
 sniffio==1.3.1
 soupsieve==2.8.3
 spacy==3.8.14
@@ -185,7 +201,8 @@ spacy-legacy==3.0.12
 spacy-loggers==1.0.5
 srsly==2.5.3
 stack-data==0.6.3
-streamlit>=1.37.0
+starlette==1.0.0
+streamlit==1.57.0
 sympy==1.14.0
 tenacity==9.1.4
 termcolor==3.3.0
@@ -197,6 +214,7 @@ threadpoolctl==3.6.0
 tiktoken==0.12.0
 tinycss2==1.4.0
 tokenizers==0.22.2
+toml==0.10.2
 torch==2.11.0
 tornado==6.5.5
 tqdm==4.67.3
@@ -211,6 +229,7 @@ udapi==0.5.2
 udtools==0.2.7
 uri-template==1.3.0
 urllib3==2.6.3
+uvicorn==0.47.0
 wasabi==1.1.3
 watchdog==6.0.0
 wcwidth==0.6.0
